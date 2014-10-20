@@ -1,0 +1,20 @@
+{
+  "name": "ember-document-title",
+  "version": "0.1.2",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "author": "Tim Evans <tim.evans@paddle8.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "broccoli": "^0.13.0",
+    "broccoli-es6-concatenator": "^0.1.8",
+    "broccoli-funnel": "^0.1.5",
+    "broccoli-merge-trees": "^0.2.0",
+    "broccoli-uglify-js": "^0.1.3"
+  }
+}

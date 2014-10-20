@@ -1,0 +1,20 @@
+{
+  "name": "ember-document-title",
+  "dependencies": {
+    "loader.js": "stefanpenner/loader.js#2.0.0"
+  },
+  "version": "0.1.0",
+  "homepage": "https://github.com/paddle8/dom-ruler",
+  "authors": [
+    "Tim Evans <tim.evans@paddle8.com>"
+  ],
+  "description": "document.title integration with the Ember router",
+  "main": "dist/document-title.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ]
+}

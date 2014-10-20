@@ -1,0 +1,16 @@
+# compiled output
+/tmp
+
+# dependencies
+/node_modules
+/bower_components
+
+# misc
+/coverage/*
+npm-debug.log
+testem.log
+*~
+.*~
+\.\#*
+\#*#
+.DS_Store
