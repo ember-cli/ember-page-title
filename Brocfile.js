@@ -1,9 +1,17 @@
+/* global require, module */
 var compileES6 = require('broccoli-es6-concatenator');
 var mergeTrees = require('broccoli-merge-trees');
 var uglifyJs = require('broccoli-uglify-js');
 var Funnel = require('broccoli-funnel');
 
-var lib = compileES6(mergeTrees(['lib', 'bower_components/loader.js']), {
+var addon = new Funnel('addon/mixins', {
+  destDir: '/',
+  getDestinationPath: function (relativePath) {
+    return "ember-document-title.js";
+  }
+});
+
+var lib = compileES6(mergeTrees([addon, 'bower_components/loader.js']), {
   loaderFile: 'loader.js',
   inputFiles: [
     '**/*.js'
@@ -13,7 +21,7 @@ var lib = compileES6(mergeTrees(['lib', 'bower_components/loader.js']), {
   outputFile: '/document-title.js'
 });
 
-var amd = compileES6('lib', {
+var amd = compileES6(addon, {
   inputFiles: [
     '**/*.js'
   ],

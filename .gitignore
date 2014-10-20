@@ -6,6 +6,7 @@
 /bower_components
 
 # misc
+<<<<<<< HEAD
 /coverage/*
 npm-debug.log
 testem.log
@@ -14,3 +15,9 @@ testem.log
 \.\#*
 \#*#
 .DS_Store
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log

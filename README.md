@@ -4,7 +4,13 @@ This mixin provides support for document.title use in the router. This is an ext
 
 ### Installing
 
-If inside an ember-cli project, you can install the mixin using bower:
+If inside an ember-cli project, you can install the mixin as an addon and skip all other setup involved.
+
+```bash
+npm install --save-dev ember-document-title
+```
+
+Otherwise, install the mixin using bower:
 
 ```bash
 bower install --save paddle8/ember-document-title
@@ -20,8 +26,6 @@ app.import("bower_components/ember-document-title/dist/document-title.amd.js", {
 });
 ```
 
-### Integrating
-
 In router.js, import the mixin and provide it onto the Router object:
 
 ```javascript
@@ -33,6 +37,8 @@ var Router = Ember.Router.extend(DocumentTitle, {
   location: config.locationType
 });
 ```
+
+### Usage
 
 In your routes, you can now use the `title` property to bind to the title of the page:
 

@@ -9,16 +9,16 @@ define("ember-document-title",
     var removeObserver = Ember.removeObserver;
     var addObserver = Ember.addObserver;
 
-    var DocumentTitleMixin = Ember.Mixin.create({
+    var DocumentTitle = Ember.Mixin.create({
 
       titleTokensDidChange: function () {
         this.notifyPropertyChange('titleTokens');
       },
 
       titleTokens: function () {
-        var currentHandlerInfos = get(this, 'router.currentHandlerInfos'),
-            tokens = [],
-            token;
+        var currentHandlerInfos = get(this, 'router.currentHandlerInfos');
+        var tokens = [];
+        var token;
 
         if (currentHandlerInfos) {
           for (var i = 0, len = currentHandlerInfos.length; i < len; i++) {
@@ -87,5 +87,5 @@ define("ember-document-title",
       }
     });
 
-    __exports__["default"] = DocumentTitleMixin;
+    __exports__["default"] = DocumentTitle;
   });

@@ -3,18 +3,34 @@
   "version": "0.1.2",
   "directories": {
     "doc": "doc",
-    "test": "test"
+    "test": "tests"
   },
+  "scripts": {
+    "start": "ember server",
+    "build": "ember build",
+    "test": "ember test"
+  },
+  "repository": "https://github.com/paddle8/ember-document-title",
   "engines": {
     "node": ">= 0.10.0"
   },
   "author": "Tim Evans <tim.evans@paddle8.com>",
   "license": "MIT",
   "devDependencies": {
+    "body-parser": "^1.2.0",
     "broccoli": "^0.13.0",
     "broccoli-es6-concatenator": "^0.1.8",
     "broccoli-funnel": "^0.1.5",
     "broccoli-merge-trees": "^0.2.0",
-    "broccoli-uglify-js": "^0.1.3"
+    "broccoli-uglify-js": "^0.1.3",
+    "ember-cli": "0.1.2",
+    "express": "^4.8.5",
+    "glob": "^4.0.5"
+  },
+  "keywords": [
+    "ember-addon"
+  ],
+  "ember-addon": {
+    "configPath": "tests/dummy/config"
   }
 }
