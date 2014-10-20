@@ -1,4 +1,4 @@
-define("document-title", 
+define("ember-document-title", 
   ["ember","exports"],
   function(__dependency1__, __exports__) {
     "use strict";
