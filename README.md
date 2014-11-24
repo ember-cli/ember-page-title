@@ -2,15 +2,17 @@
 
 This mixin provides support for document.title use in the router. This is an extraction of a PR from ember (https://github.com/emberjs/ember.js/pull/3689).
 
-### Installing
+### Installing via ember-cli
 
-If inside an ember-cli project, you can install the mixin as an addon and skip all other setup involved.
+If inside an ember-cli project, you can install the mixin as an addon in a single command:
 
 ```bash
 npm install --save-dev ember-document-title
 ```
 
-Otherwise, install the mixin using bower:
+And you're done! No need to continue!! :)
+
+### Installing via bower
 
 ```bash
 bower install --save paddle8/ember-document-title
