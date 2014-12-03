@@ -67,3 +67,27 @@ var Index = Ember.Route.extend({
 
 export default Index;
 ```
+
+This sets the title for a single specific page. If you set titles for pages within a routing hierarchy, the titles will be combined up the hierarchy, in descending order separated by a '|', by default. For example:
+
+```javascript
+Router.map(function() {
+  this.resource('post', { path: '/post/:post_id' }, function() {
+    this.route('edit');
+  });
+});
+
+App.ApplicationRoute = Ember.Route.extend({
+  title: "App"
+});
+
+App.PostRoute = Ember.Route.extend({
+  title: "Post"
+});
+
+App.PostEditRoute = Ember.Route.extend({
+  title: "Edit"
+});
+```
+
+Here, the title of all pages in the application is `App`, by default. The /post page then has a specific title of `App | Post`, and the /post/edit page has a title of `App | Post | Edit`. Routes in the hierarchy without a title property are ignored; if the post route had no title in the above example, the edit page's title would be `App | Edit`.
