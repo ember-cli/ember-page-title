@@ -1,53 +1,25 @@
+/* jshint node: true */
 /* global require, module */
-var compileES6 = require('broccoli-es6-concatenator');
-var mergeTrees = require('broccoli-merge-trees');
-var uglifyJs = require('broccoli-uglify-js');
-var Funnel = require('broccoli-funnel');
 
-var addon = new Funnel('addon/mixins', {
-  destDir: '/',
-  getDestinationPath: function (relativePath) {
-    return "ember-document-title.js";
+var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+
+var app = new EmberAddon({
+  vendorFiles: {
+    "handlebars.js": null
   }
 });
 
-var lib = compileES6(mergeTrees([addon, 'bower_components/loader.js']), {
-  loaderFile: 'loader.js',
-  inputFiles: [
-    '**/*.js'
-  ],
-  ignoredModules: ['ember'],
-  wrapInEval: false,
-  outputFile: '/document-title.js'
-});
+// Use `app.import` to add additional libraries to the generated
+// output files.
+//
+// If you need to use different assets in different
+// environments, specify an object as the first parameter. That
+// object's keys should be the environment name and the values
+// should be the asset to use in that environment.
+//
+// If the library that you are including contains AMD or ES6
+// modules that you would like to import into your application
+// please specify an object with the list of modules as keys
+// along with the exports of each module as its value.
 
-var amd = compileES6(addon, {
-  inputFiles: [
-    '**/*.js'
-  ],
-  ignoredModules: ['ember'],
-  wrapInEval: false,
-  outputFile: '/document-title.amd.js'
-});
-
-var uglify = function (tree, filename) {
-  var minFilename = filename.split('.');
-  minFilename.pop();
-  minFilename.push('min', 'js');
-  return uglifyJs(new Funnel(tree, {
-    destDir: '/',
-    getDestinationPath: function (relativePath) {
-      if (relativePath === filename) {
-        return minFilename.join('.');
-      }
-      return relativePath;
-    }
-  }));
-}
-
-module.exports = mergeTrees([
-  lib,
-  uglify(lib, 'document-title.js'),
-  amd,
-  uglify(amd, 'document-title.amd.js')
-]);
+module.exports = app.toTree();

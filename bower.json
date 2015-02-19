@@ -1,30 +1,16 @@
 {
   "name": "ember-document-title",
   "dependencies": {
-    "ember": "1.7.0",
-    "loader.js": "stefanpenner/loader.js#1.0.1"
-  },
-  "version": "0.1.2",
-  "homepage": "https://github.com/paddle8/ember-document-title",
-  "authors": [
-    "Tim Evans <tim.evans@paddle8.com>"
-  ],
-  "description": "document.title integration with the Ember router",
-  "main": "dist/document-title.amd.js",
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "index.js",
-    "Brocfile.js",
-    "vendor",
-    "testem.json",
-    "package.json",
-    "node_modules",
-    "bower_components",
-    "tests",
-    "addon",
-    "app",
-    "tests",
-    "config"
-  ]
+    "jquery": "^1.11.1",
+    "ember": "1.10.0",
+    "ember-data": "1.0.0-beta.15",
+    "ember-resolver": "~0.1.11",
+    "loader.js": "ember-cli/loader.js#1.0.1",
+    "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
+    "ember-cli-test-loader": "ember-cli/ember-cli-test-loader#0.1.1",
+    "ember-load-initializers": "ember-cli/ember-load-initializers#0.0.2",
+    "ember-qunit": "0.2.8",
+    "ember-qunit-notifications": "0.0.7",
+    "qunit": "~1.17.1"
+  }
 }

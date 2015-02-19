@@ -1,24 +1,18 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
 # compiled output
+/dist
 /tmp
-/lib
 
 # dependencies
 /node_modules
 /bower_components
 
 # misc
-<<<<<<< HEAD
-/coverage/*
-npm-debug.log
-testem.log
-*~
-.*~
-\.\#*
-\#*#
-.DS_Store
 /.sass-cache
 /connect.lock
 /coverage/*
 /libpeerconnection.log
 npm-debug.log
 testem.log
+*~
