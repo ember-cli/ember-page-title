@@ -19,6 +19,9 @@ export default Ember.Component.extend({
     // Clear default title
     if (tokens.length === 0) {
       document.title = '';
+      if (get(this, 'separator') == null) {
+        set(this, 'separator', ' | ');
+      }
     }
 
     tokens.push(this);
