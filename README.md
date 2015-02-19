@@ -27,9 +27,11 @@ This sets the title for your application. When your application loads, you shoul
 <document-title title="My App">
 ```
 
-You can now add the component in any template in your application, and add multiple tokens at once:
+![Defaults](public/default.jpg)
+![Custom Separator](public/separator.jpg)
+![Prepend](public/prepend.jpg)
+![Nested Prepend](public/prepend-nested.jpg)
+![Replace](public/replace.jpg)
 
-```handlebars
-<document-title>Posts</document-title>
-<document-title>{{post.title}}</document-title>
-```
+### API
+
