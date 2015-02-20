@@ -1,6 +1,9 @@
+import Ember from "ember";
 import TokenList from "../system/token-list";
 
 var tokens = new TokenList();
+var get = Ember.get;
+var set = Ember.set;
 
 export default Ember.Component.extend({
   // Public API
