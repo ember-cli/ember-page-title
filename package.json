@@ -1,7 +1,7 @@
 {
   "name": "ember-document-title",
   "version": "1.0.0",
-  "description": "<document-title> for ember applications",
+  "description": "{{document-title}} for ember applications",
   "directories": {
     "doc": "doc",
     "test": "tests"
