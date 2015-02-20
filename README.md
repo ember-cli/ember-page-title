@@ -1,4 +1,4 @@
-## document.title for Ember
+## document.title for Ember [![Build Status](https://travis-ci.org/paddle8/ember-document-title.svg)](https://travis-ci.org/paddle8/ember-document-title)
 
 This addon provides a component for changing the title of the page you're on.
 
