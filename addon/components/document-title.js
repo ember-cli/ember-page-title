@@ -9,8 +9,6 @@ export default Ember.Component.extend({
   prepend: null,
   replace: false,
 
-  layoutName: 'ember-document-title/templates/components/document-title'
-
   isVirtual: true,
   tagName: '',
   hidden: false,
