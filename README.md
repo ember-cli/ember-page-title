@@ -29,9 +29,13 @@ By default, using the component will allow an interaction where additional title
 
 ![Defaults](public/default.jpg)
 
-You can change the separator (at *any* level) by setting the `separator` attribute:
+You can change the separator by specifying the `separator` attribute.
 
 ![Custom Separator](public/separator.jpg)
+
+Separators can be changed at arbitrary levels:
+
+![Custom Separator](public/separator-nested.jpg)
 
 Titles can be prepended to the parent, by setting the `prepend` attribute to `true`.
 
@@ -44,6 +48,10 @@ This allows one to swap the order at arbitrary levels:
 And for special templates that need to complete control over the title, set the `replace` attribute to `true`. This will only apply for that level.
 
 ![Replace](public/replace.jpg)
+
+In addition, there's no limit to the amount of titles you can put in a route:
+
+![Replace](public/duplicate.jpg)
 
 ### API
 
