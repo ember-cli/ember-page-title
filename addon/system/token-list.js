@@ -24,7 +24,14 @@ TokenList.prototype.push = function (token) {
   }
 
   if (get(token, 'replace')) {
-    this.tokens.setEach('hidden', true);
+    let cursor = get(token, 'previous');
+    while (cursor) {
+      set(cursor, 'hidden', true);
+      if (get(cursor, 'replace')) {
+        break;
+      }
+      cursor = get(cursor, 'previous');
+    }
   }
 
   this.tokens.push(token);
@@ -43,7 +50,14 @@ TokenList.prototype.remove = function (token) {
   }
 
   if (get(token, 'replace')) {
-    this.tokens.setEach('hidden', false);
+    let cursor = get(token, 'previous');
+    while (cursor) {
+      set(cursor, 'hidden', false);
+      if (get(cursor, 'replace')) {
+        break;
+      }
+      cursor = get(cursor, 'previous');
+    }
   }
 
   set(token, 'previous', null);

@@ -144,7 +144,7 @@ test('any additional tokens added after replace are not hidden', function (asser
   assert.ok(!third.hidden);
 });
 
-test('removing a token with replace: true will set all hidden tokens visible', function (assert) {
+test('removing a token with replace: true will set all previous tokens to be visible', function (assert) {
   let list = new TokenList();
   let first = {};
   let second = { replace: true };
@@ -157,4 +157,19 @@ test('removing a token with replace: true will set all hidden tokens visible', f
 
   assert.ok(!first.hidden);
   assert.ok(!third.hidden);
+});
+
+test('removing a token with replace: true will only set previous tokens up to the last replace: true to visible', function (assert) {
+  let list = new TokenList();
+  let first = {};
+  let second = { replace: true };
+  let third = { replace: true };
+
+  list.push(first);
+  list.push(second);
+  list.push(third);
+  list.remove(third);
+
+  assert.ok(first.hidden);
+  assert.ok(!second.hidden);
 });
