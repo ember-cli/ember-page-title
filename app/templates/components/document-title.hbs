@@ -1,1 +1,1 @@
-{{#unless hidden}}{{if showSeparatorBefore separator}}{{#if hasBlock}}{{yield}}{{else}}{{title}}{{/if}}{{if showSeparatorAfter separator}}{{/unless}}
+{{#unless hidden}}{{#if showSeparatorBefore}}{{separator}}{{/if}}{{#if template}}{{yield}}{{else}}{{title}}{{/if}}{{#if showSeparatorAfter}}{{separator}}{{/if}}{{/unless}}
