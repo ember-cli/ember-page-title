@@ -1,3 +1,4 @@
+import Ember from "ember";
 import {
   moduleForComponent,
   test
@@ -5,14 +6,17 @@ import {
 
 moduleForComponent('document-title', 'DocumentTitleComponent');
 
-test('appending the title sets the title of the document', function() {
-  expect(2);
+test('appending the component sets the title of the document', function (assert) {
+  assert.expect(3);
 
   var component = this.subject({
     title: 'Hello'
   });
-  equal(document.title, '');
+  assert.equal(document.title, '');
 
-  this.append();
-  equal(document.title, 'Hello');
+  this.render();
+  assert.equal(document.title, 'Hello');
+
+  Ember.run(component, 'set', 'title', 'Goodbye');
+  assert.equal(document.title, 'Goodbye');
 });
