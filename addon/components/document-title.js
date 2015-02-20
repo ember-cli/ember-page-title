@@ -29,20 +29,26 @@ export default Ember.Component.extend({
     this._super.apply(this, arguments);
   },
 
-  showSeparatorAfter: function () {
-    return !get(this, 'replace') && get(this, 'prepend') && get(this, 'previous');
-  }.property('prepend', 'previous'),
-
-  showSeparatorBefore: function () {
-    return !get(this, 'replace') && !get(this, 'prepend') && get(this, 'previous');
-  }.property('prepend', 'previous'),
+  showSeparatorAfter: null,
+  showSeparatorBefore: null,
 
   render: function (buffer) {
     var titleTag = document.getElementsByTagName('title')[0];
     var previous = get(this, 'previous');
-    if (get(this, 'prepend') && previous) {
+    var replace = get(this, 'replace');
+    if (previous && get(previous, 'prepend')) {
+      if (get(previous, 'showSeparatorBefore')) {
+        var pivot = get(previous, 'previous');
+        if (pivot) {
+          set(pivot, 'showSeparatorAfter', true);
+        }
+        set(previous, 'showSeparatorBefore', false);
+      }
+      set(this, 'showSeparatorAfter', true);
       this._morph = buffer.dom.insertMorphBefore(titleTag, previous._morph.start);
     } else {
+      console.log('showSeparatorBefore', !replace, this);
+      set(this, 'showSeparatorBefore', !replace);
       this._morph = buffer.dom.appendMorph(titleTag);
     }
     this._super.apply(this, arguments);

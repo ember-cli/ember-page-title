@@ -55,6 +55,6 @@ test('the prepend declaration works', function(assert) {
   visit('/authors/tomster');
 
   andThen(function() {
-    assert.equal(document.title, 'Tomster < Authors');
+    assert.equal(document.title, 'My App | Tomster < Authors');
   });
 });
