@@ -1,15 +1,15 @@
 import Ember from "ember";
 
-const get = Ember.get;
-const set = Ember.set;
+var get = Ember.get;
+var set = Ember.set;
 
-let TokenList = function () {
+var TokenList = function () {
   this.tokens = [];
   this.length = 0;
 };
 
 TokenList.prototype.push = function (token) {
-  let previous = this.tokens.slice(-1)[0];
+  var previous = this.tokens.slice(-1)[0];
   if (previous) {
     set(token, 'previous', previous);
     set(previous, 'next', token);
@@ -24,7 +24,7 @@ TokenList.prototype.push = function (token) {
   }
 
   if (get(token, 'replace')) {
-    let cursor = get(token, 'previous');
+    var cursor = get(token, 'previous');
     while (cursor) {
       set(cursor, 'hidden', true);
       if (get(cursor, 'replace')) {
@@ -39,8 +39,8 @@ TokenList.prototype.push = function (token) {
 };
 
 TokenList.prototype.remove = function (token) {
-  let next = get(token, 'next');
-  let previous = get(token, 'previous');
+  var next = get(token, 'next');
+  var previous = get(token, 'previous');
   if (next) {
     set(next, 'previous', previous);
   }
@@ -50,7 +50,7 @@ TokenList.prototype.remove = function (token) {
   }
 
   if (get(token, 'replace')) {
-    let cursor = get(token, 'previous');
+    var cursor = get(token, 'previous');
     while (cursor) {
       set(cursor, 'hidden', false);
       if (get(cursor, 'replace')) {
