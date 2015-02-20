@@ -1,6 +1,6 @@
 import TokenList from "../system/token-list";
 
-let tokens = new TokenList();
+var tokens = new TokenList();
 
 export default Ember.Component.extend({
   // Public API
@@ -35,8 +35,8 @@ export default Ember.Component.extend({
   }.property('prepend', 'previous'),
 
   render: function (buffer) {
-    let titleTag = document.getElementsByTagName('title')[0];
-    let previous = get(this, 'previous');
+    var titleTag = document.getElementsByTagName('title')[0];
+    var previous = get(this, 'previous');
     if (get(this, 'prepend') && previous) {
       this._morph = buffer.dom.insertMorphBefore(titleTag, previous._morph.start);
     } else {
@@ -47,7 +47,7 @@ export default Ember.Component.extend({
 
   willClearRender: function () {
     tokens.remove(this);
-    let morph = this._morph;
+    var morph = this._morph;
     Ember.run.schedule('render', morph, morph.destroy);
     this._super.apply(this, arguments);
   }
