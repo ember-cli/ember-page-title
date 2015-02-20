@@ -26,19 +26,29 @@ This sets the title for your application. When your application loads, you shoul
 ```
 
 By default, using the component will allow an interaction where additional titles are appended to the root:
+
 ![Defaults](public/default.jpg)
 
 You can change the separator (at *any* level) by setting the `separator` attribute:
+
 ![Custom Separator](public/separator.jpg)
 
 Titles can be prepended to the parent, by setting the `prepend` attribute to `true`.
+
 ![Prepend](public/prepend.jpg)
 
 This allows one to swap the order at arbitrary levels:
+
 ![Nested Prepend](public/prepend-nested.jpg)
 
 And for special templates that need to complete control over the title, set the `replace` attribute to `true`. This will only apply for that level.
+
 ![Replace](public/replace.jpg)
 
 ### API
 
+| attribute | type    | default |
+|-----------|:--------|:--------|
+| separator | string  | `" | "` |
+| prepend   | boolean | false   |
+| replace   | boolean | false   |
