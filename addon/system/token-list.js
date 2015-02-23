@@ -3,6 +3,17 @@ import Ember from "ember";
 var get = Ember.get;
 var set = Ember.set;
 
+var backtrackFrom = function (start, func) {
+  var cursor = get(start, 'previous');
+  while (cursor) {
+    var result = func(cursor);
+    if (result === false) {
+      break;
+    }
+    cursor = get(cursor, 'previous');
+  }
+};
+
 var TokenList = function () {
   this.tokens = [];
   this.length = 0;
@@ -24,14 +35,10 @@ TokenList.prototype.push = function (token) {
   }
 
   if (get(token, 'replace')) {
-    var cursor = get(token, 'previous');
-    while (cursor) {
-      set(cursor, 'hidden', true);
-      if (get(cursor, 'replace')) {
-        break;
-      }
-      cursor = get(cursor, 'previous');
-    }
+    backtrackFrom(token, function (token) {
+      set(token, 'hidden', true);
+      return !get(token, 'replace');
+    });
   }
 
   this.tokens.push(token);
@@ -50,14 +57,10 @@ TokenList.prototype.remove = function (token) {
   }
 
   if (get(token, 'replace')) {
-    var cursor = get(token, 'previous');
-    while (cursor) {
-      set(cursor, 'hidden', false);
-      if (get(cursor, 'replace')) {
-        break;
-      }
-      cursor = get(cursor, 'previous');
-    }
+    backtrackFrom(token, function (token) {
+      set(token, 'hidden', false);
+      return !get(token, 'replace');
+    });
   }
 
   set(token, 'previous', null);
