@@ -1,6 +1,6 @@
 {
   "name": "ember-document-title",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "{{document-title}} for ember applications",
   "directories": {
     "doc": "doc",
@@ -19,7 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",
-    "ember-cli": "0.2.0-beta.1",
+    "ember-cli": "0.1.15",
     "ember-cli-babel": "^4.0.0",
     "ember-cli-app-version": "0.3.1",
     "ember-cli-content-security-policy": "0.3.0",
