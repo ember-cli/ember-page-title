@@ -58,3 +58,12 @@ test('the prepend declaration works', function(assert) {
     assert.equal(document.title, 'My App | Tomster < Authors');
   });
 });
+
+test('replace nested in prepends work', function(assert) {
+  assert.expect(1);
+  visit('/hollywood');
+
+  andThen(function() {
+    assert.equal(document.title, 'Hollywood ★ Stars everywhere');
+  });
+});

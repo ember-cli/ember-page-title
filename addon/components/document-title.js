@@ -40,11 +40,11 @@ export default Ember.Component.extend({
       if (get(previous, 'showSeparatorBefore')) {
         var pivot = get(previous, 'previous');
         if (pivot) {
-          set(pivot, 'showSeparatorAfter', true);
+          set(pivot, 'showSeparatorAfter', !replace);
         }
         set(previous, 'showSeparatorBefore', false);
       }
-      set(this, 'showSeparatorAfter', true);
+      set(this, 'showSeparatorAfter', !replace);
       this._morph = buffer.dom.insertMorphBefore(titleTag, previous._morph.start);
     } else {
       set(this, 'showSeparatorBefore', !replace);

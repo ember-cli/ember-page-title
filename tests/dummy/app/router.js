@@ -12,6 +12,7 @@ Router.map(function() {
   this.resource('posts');
   this.resource('post', { path: '/posts/:post_id' });
   this.resource('author', { path: '/authors/:author_id' });
+  this.resource('hollywood', { path: '/hollywood' });
 });
 
 export default Router;
