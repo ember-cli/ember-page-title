@@ -15,7 +15,7 @@ var backtrackFrom = function (start, func) {
 };
 
 var TokenList = function () {
-  this.tokens = [];
+  this.tokens = Ember.A([]);
   this.length = 0;
 };
 
