@@ -13,13 +13,13 @@
   },
   "repository": "https://github.com/paddle8/ember-document-title",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 0.12.0"
   },
   "author": "Tim Evans <tim.evans@paddle8.com>",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
-    "ember-cli": "0.2.2",
+    "ember-cli": "0.2.3",
     "ember-cli-app-version": "0.3.3",
     "ember-cli-content-security-policy": "0.4.0",
     "ember-cli-dependency-checker": "0.0.8",
