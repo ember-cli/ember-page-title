@@ -1,6 +1,6 @@
 {
   "name": "ember-document-title",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "{{document-title}} for ember applications",
   "directories": {
     "doc": "doc",
@@ -9,7 +9,7 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember test:tryall"
+    "test": "ember try:testall"
   },
   "repository": "https://github.com/paddle8/ember-document-title",
   "engines": {
