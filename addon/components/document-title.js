@@ -36,6 +36,7 @@ export default Ember.Component.extend({
     var titleTag = document.getElementsByTagName('title')[0];
     var previous = get(this, 'previous');
     var replace = get(this, 'replace');
+    var dom = buffer.dom || this.renderer._dom;
     if (previous && get(previous, 'prepend')) {
       if (get(previous, 'showSeparatorBefore')) {
         var pivot = get(previous, 'previous');
@@ -46,10 +47,10 @@ export default Ember.Component.extend({
       }
       set(this, 'showSeparatorAfter', !replace);
       var firstNode = previous._morph.firstNode || previous._morph.start;
-      this._morph = buffer.dom.insertMorphBefore(titleTag, firstNode);
+      this._morph = dom.insertMorphBefore(titleTag, firstNode);
     } else {
       set(this, 'showSeparatorBefore', !replace);
-      this._morph = buffer.dom.appendMorph(titleTag);
+      this._morph = dom.appendMorph(titleTag);
     }
     this._super.apply(this, arguments);
   },
