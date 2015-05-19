@@ -37,7 +37,8 @@
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-babel": "^5.0.0"
+    "ember-cli-babel": "^5.0.0",
+    "ember-wormhole": "git://github.com/yapplabs/ember-wormhole.git#range-safely"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
