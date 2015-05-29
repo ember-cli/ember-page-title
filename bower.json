@@ -2,7 +2,7 @@
   "name": "ember-document-title",
   "dependencies": {
     "jquery": "^1.11.1",
-    "ember": "1.10.0",
+    "ember": "1.12.0",
     "ember-data": "1.0.0-beta.16.1",
     "ember-resolver": "~0.1.15",
     "loader.js": "ember-cli/loader.js#3.2.0",
@@ -14,6 +14,6 @@
     "qunit": "~1.17.1"
   },
   "resolutions": {
-    "ember": "1.10.0"
+    "ember": "1.12.0"
   }
 }
