@@ -1,6 +1,6 @@
-import Ember from "ember";
-import Wormhole from "ember-wormhole/components/ember-wormhole";
-import TokenList from "../system/token-list";
+import Ember from 'ember';
+import Wormhole from 'ember-wormhole/components/ember-wormhole';
+import TokenList from '../system/token-list';
 
 const tokens = new TokenList();
 
@@ -51,17 +51,19 @@ export default Wormhole.extend({
         set(previous, 'showSeparatorBefore', false);
       }
       set(this, 'showSeparatorAfter', !replace);
-      this.prependRange(element, this._firstNode, this._lastNode, previous._lastNode);
+      this.appendRange(element, this._firstNode, this._lastNode);
     } else {
       set(this, 'showSeparatorBefore', !replace);
-      this.appendRange(element, this._firstNode, this._lastNode);
+      this.prependRange(element, this._firstNode, this._lastNode);
     }
   },
 
-  prependRange(destinationElement, firstNode, lastNode, referenceElement) {
-    while (firstNode) {
-      destinationElement.insertBefore(firstNode, referenceElement);
-      firstNode = firstNode !== lastNode ? lastNode.parentNode.firstChild : null;
+  prependRange(destinationElement, firstNode, lastNode) {
+    var referenceNode = destinationElement.firstChild;
+    while (lastNode) {
+      destinationElement.insertBefore(lastNode, referenceNode);
+      referenceNode = lastNode;
+      lastNode = lastNode !== firstNode ? firstNode.parentNode.lastChild : null;
     }
   },
 
