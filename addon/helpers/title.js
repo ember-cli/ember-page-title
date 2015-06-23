@@ -16,7 +16,11 @@ export default Ember.Helper.extend({
     tokens.push({ id: guidFor(this) });
   },
 
-  compute([title], { separator = ' | ', prepend, replace }) {
+  compute([title], { separator, prepend, replace }) {
+    if (separator == null) {
+      separator = ' | ';
+    }
+
     let tokens = get(this, 'documentTitleList');
     let id = guidFor(this);
     tokens.push({
