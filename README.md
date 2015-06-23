@@ -7,7 +7,7 @@ This addon provides a helper for changing the title of the page you're on.
 If inside an ember-cli project, you can install the helper as an addon:
 
 ```bash
-ember install:addon ember-document-title
+ember install ember-document-title
 ```
 
 ### Usage
