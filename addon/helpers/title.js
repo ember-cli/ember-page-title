@@ -16,20 +16,15 @@ export default Ember.Helper.extend({
     tokens.push({ id: guidFor(this) });
   },
 
-  compute([title], { separator, prepend, replace }) {
-    if (separator == null) {
-      separator = ' | ';
+  compute(params, hash) {
+    if (hash.separator == null) {
+      hash.separator = ' | ';
     }
 
     let tokens = get(this, 'documentTitleList');
-    let id = guidFor(this);
-    tokens.push({
-      id,
-      title,
-      separator,
-      prepend,
-      replace
-    });
+    hash.id = guidFor(this);
+    hash.title = params.join('');
+    tokens.push(hash);
     Ember.run.scheduleOnce('afterRender', null, updateTitle, tokens);
     return '';
   },
