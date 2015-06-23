@@ -1,30 +1,30 @@
 /* global QUnit */
 import Ember from "ember";
-import TokenList from "ember-document-title/system/token-list";
+import TokenList from "ember-document-title/services/document-title-list";
 import {
   test
 } from 'ember-qunit';
 
 const run = Ember.run;
 
-QUnit.module('TokenList');
+QUnit.module('DocumentTitleList');
 
 test('the list has no tokens by default', function (assert) {
-  let list = new TokenList();
+  let list = TokenList.create();
   assert.equal(list.length, 0);
 });
 
 test('calling `push` adds a token to the end of the list', function (assert) {
-  let list = new TokenList();
-  list.push({});
+  let list = TokenList.create();
+  list.push({ id: 1});
   assert.equal(list.length, 1);
 });
 
 test('tokens have next and previous tokens', function (assert) {
-  let list = new TokenList();
-  let first = {};
-  let second = {};
-  let third = {};
+  let list = TokenList.create();
+  let first = { id: 1 };
+  let second = { id: 2 };
+  let third = { id: 3 };
 
   list.push(first);
   list.push(second);
@@ -43,15 +43,15 @@ test('tokens have next and previous tokens', function (assert) {
 });
 
 test('removing a token closes the hole in the list', function (assert) {
-  let list = new TokenList();
-  let first = {};
-  let second = {};
-  let third = {};
+  let list = TokenList.create();
+  let first = { id: 1 };
+  let second = { id: 2 };
+  let third = { id: 3 };
 
   list.push(first);
   list.push(second);
   list.push(third);
-  list.remove(second);
+  list.remove(2);
   assert.equal(list.length, 2);
 
   assert.equal(first.previous, null);
@@ -65,9 +65,9 @@ test('removing a token closes the hole in the list', function (assert) {
 });
 
 test('the separator property is inherited by the previous token', function (assert) {
-  let list = new TokenList();
-  let first = { separator: 'a' };
-  let second = {};
+  let list = TokenList.create();
+  let first = { id: 1, separator: 'a' };
+  let second = { id: 2 };
 
   list.push(first);
   list.push(second);
@@ -77,9 +77,9 @@ test('the separator property is inherited by the previous token', function (asse
 });
 
 test('the separator property is not inherited if explicitly set', function (assert) {
-  let list = new TokenList();
-  let first = { separator: 'a' };
-  let second = { separator: 'b' };
+  let list = TokenList.create();
+  let first = { id: 1, separator: 'a' };
+  let second = { id: 2, separator: 'b' };
 
   list.push(first);
   list.push(second);
@@ -89,9 +89,9 @@ test('the separator property is not inherited if explicitly set', function (asse
 });
 
 test('the prepend property is inherited by the previous token', function (assert) {
-  let list = new TokenList();
-  let first = { prepend: true };
-  let second = {};
+  let list = TokenList.create();
+  let first = { id: 1, prepend: true };
+  let second = { id: 2 };
 
   list.push(first);
   list.push(second);
@@ -101,9 +101,9 @@ test('the prepend property is inherited by the previous token', function (assert
 });
 
 test('the prepend property is not inherited if explicitly set', function (assert) {
-  let list = new TokenList();
-  let first = { prepend: true };
-  let second = { prepend: false };
+  let list = TokenList.create();
+  let first = { id: 1, prepend: true };
+  let second = { id: 2, prepend: false };
 
   list.push(first);
   list.push(second);
@@ -113,63 +113,65 @@ test('the prepend property is not inherited if explicitly set', function (assert
 });
 
 test('if the replace attribute is set, all previous tokens are hidden', function (assert) {
-  let list = new TokenList();
-  let first = {};
-  let second = {};
-  let third = { replace: true };
+  let list = TokenList.create();
+  let first = { id: 1 };
+  let second = { id: 2 };
+  let third = { id: 3, replace: true };
 
   list.push(first);
   list.push(second);
-
-  assert.ok(!first.hidden);
-  assert.ok(!second.hidden);
-
   list.push(third);
-  assert.ok(first.hidden);
-  assert.ok(second.hidden);
-  assert.ok(!third.hidden);
+
+  let tokens = list.get('displayTokens');
+  assert.equal(tokens.length, 1);
+  assert.equal(tokens[0].id, 3);
 });
 
 test('any additional tokens added after replace are not hidden', function (assert) {
-  let list = new TokenList();
-  let first = {};
-  let second = { replace: true };
-  let third = {};
+  let list = TokenList.create();
+  let first = { id: 1 };
+  let second = { id: 2, replace: true };
+  let third = { id: 3 };
 
   list.push(first);
   list.push(second);
   list.push(third);
-  assert.ok(first.hidden);
-  assert.ok(!second.hidden);
-  assert.ok(!third.hidden);
+
+  let tokens = list.get('displayTokens');
+  assert.equal(tokens.length, 2);
+  assert.equal(tokens[0].id, 2);
+  assert.equal(tokens[1].id, 3);
 });
 
 test('removing a token with replace: true will set all previous tokens to be visible', function (assert) {
-  let list = new TokenList();
-  let first = {};
-  let second = { replace: true };
-  let third = {};
+  let list = TokenList.create();
+  let first = { id: 1 };
+  let second = { id: 2, replace: true };
+  let third = { id: 3 };
 
   list.push(first);
   list.push(second);
   list.push(third);
-  list.remove(second);
+  list.remove(2);
 
-  assert.ok(!first.hidden);
-  assert.ok(!third.hidden);
+  let tokens = list.get('displayTokens');
+  assert.equal(tokens.length, 2);
+  assert.equal(tokens[0].id, 1);
+  assert.equal(tokens[1].id, 3);
 });
 
 test('removing a token with replace: true will only set previous tokens up to the last replace: true to visible', function (assert) {
-  let list = new TokenList();
-  let first = {};
-  let second = { replace: true };
-  let third = { replace: true };
+  let list = TokenList.create();
+  let first = { id: 1 };
+  let second = { id: 2, replace: true };
+  let third = { id: 3, replace: true };
 
   list.push(first);
   list.push(second);
   list.push(third);
-  list.remove(third);
+  list.remove(3);
 
-  assert.ok(first.hidden);
-  assert.ok(!second.hidden);
+  let tokens = list.get('displayTokens');
+  assert.equal(tokens.length, 1);
+  assert.equal(tokens[0].id, 2);
 });
