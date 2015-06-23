@@ -49,6 +49,10 @@ In addition, there's no limit to the amount of titles you can put in a route:
 
 ![Replace](public/duplicate.jpg)
 
+Dynamic tokens are available by providing multiple parameters to the helper:
+
+![Replace](public/dynamic.jpg)
+
 ### API
 
 | attribute | type    | default |
