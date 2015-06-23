@@ -4,7 +4,7 @@ import startApp from '../helpers/start-app';
 
 var application;
 
-module('Acceptance: document-title', {
+module('Acceptance: title', {
   beforeEach: function() {
     application = startApp();
   },
