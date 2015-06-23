@@ -73,7 +73,7 @@ export default Ember.Service.extend({
     set(this, 'length', get(this, 'length') - 1);
   },
 
-  displayTokens: Ember.computed('tokens', {
+  visibleTokens: Ember.computed('tokens', {
     get() {
       let tokens = get(this, 'tokens');
       let i = tokens.length;
@@ -87,7 +87,13 @@ export default Ember.Service.extend({
           visible.unshift(token);
         }
       }
+      return visible;
+    }
+  }),
 
+  sortedTokens: Ember.computed('visibleTokens', {
+    get() {
+      let visible = get(this, 'visibleTokens');
       let appending = true;
       let group = [];
       let groups = Ember.A([group]);
@@ -114,13 +120,12 @@ export default Ember.Service.extend({
         }
       });
 
-      let sorted = groups.reduce((E, group) => E.concat(group), []);
-      return sorted;
+      return groups.reduce((E, group) => E.concat(group), []);
     }
   }),
 
   toString() {
-    let tokens = get(this, 'displayTokens');
+    let tokens = get(this, 'sortedTokens');
     let title = [];
     for (let i = 0, len = tokens.length; i < len; i++) {
       let token = tokens[i];

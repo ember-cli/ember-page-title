@@ -122,7 +122,7 @@ test('if the replace attribute is set, all previous tokens are hidden', function
   list.push(second);
   list.push(third);
 
-  let tokens = list.get('displayTokens');
+  let tokens = list.get('sortedTokens');
   assert.equal(tokens.length, 1);
   assert.equal(tokens[0].id, 3);
 });
@@ -137,7 +137,7 @@ test('any additional tokens added after replace are not hidden', function (asser
   list.push(second);
   list.push(third);
 
-  let tokens = list.get('displayTokens');
+  let tokens = list.get('sortedTokens');
   assert.equal(tokens.length, 2);
   assert.equal(tokens[0].id, 2);
   assert.equal(tokens[1].id, 3);
@@ -154,7 +154,7 @@ test('removing a token with replace: true will set all previous tokens to be vis
   list.push(third);
   list.remove(2);
 
-  let tokens = list.get('displayTokens');
+  let tokens = list.get('sortedTokens');
   assert.equal(tokens.length, 2);
   assert.equal(tokens[0].id, 1);
   assert.equal(tokens[1].id, 3);
@@ -171,7 +171,7 @@ test('removing a token with replace: true will only set previous tokens up to th
   list.push(third);
   list.remove(3);
 
-  let tokens = list.get('displayTokens');
+  let tokens = list.get('sortedTokens');
   assert.equal(tokens.length, 1);
   assert.equal(tokens[0].id, 2);
 });
