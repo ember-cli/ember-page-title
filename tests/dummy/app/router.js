@@ -13,6 +13,7 @@ Router.map(function() {
   this.resource('post', { path: '/posts/:post_id' });
   this.resource('author', { path: '/authors/:author_id' });
   this.resource('hollywood', { path: '/hollywood' });
+  this.resource('feed', { path: '/feeds/:name' });
 });
 
 export default Router;

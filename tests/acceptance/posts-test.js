@@ -67,3 +67,12 @@ test('replace nested in prepends work', function(assert) {
     assert.equal(document.title, 'Hollywood ★ Stars everywhere');
   });
 });
+
+test('multitoken titles work', function(assert) {
+  assert.expect(1);
+  visit('/feeds/tomster');
+
+  andThen(function() {
+    assert.equal(document.title, 'Tomster (@tomster)');
+  });
+});
