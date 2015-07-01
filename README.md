@@ -2,11 +2,15 @@
 
 This addon provides a helper for changing the title of the page you're on.
 
-**For Ember apps using 1.13+, follow the version of Ember. (1.13 -> ember-document-title@1.13, 2.0 -> ember-document-title@2.0). Any version below 1.13 should use 1.1.11, as it is the last stable release.**
-
 ### Installing via ember-cli
 
-If inside an ember-cli project, you can install the helper as an addon:
+`ember-document-title` follows the release format provided in [The Ember 2.x Project](http://emberjs.com/blog/2015/06/16/ember-project-at-2-0.html). For support of Ember versions below 1.13, please use `1.1.11`:
+
+```bash
+ember install ember-document-title@1.1.11
+```
+
+For any other app, follow the scheme outlined in the blog post. Previous versions of the addon may work with newer versions of Ember, but that **is not guaranteed**-- YMMV. If you're on the latest stable release of Ember, you may install the addon without a version number.
 
 ```bash
 ember install ember-document-title
