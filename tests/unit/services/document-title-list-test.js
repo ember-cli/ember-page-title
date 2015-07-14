@@ -5,8 +5,6 @@ import {
   test
 } from 'ember-qunit';
 
-const run = Ember.run;
-
 QUnit.module('DocumentTitleList');
 
 test('the list has no tokens by default', function (assert) {
