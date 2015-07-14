@@ -1,5 +1,4 @@
 /* global QUnit */
-import Ember from "ember";
 import TokenList from "ember-document-title/services/document-title-list";
 import {
   test
