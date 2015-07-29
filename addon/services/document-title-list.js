@@ -11,7 +11,11 @@ export default Ember.Service.extend({
     set(this, 'length', 0);
   },
 
+  defaultSeparator: ' | ',
+
   push(token) {
+    let defaultSeparator = get(this, "defaultSeparator");
+
     let tokenForId = this.tokens.findBy('id', token.id);
     if (tokenForId) {
       let index = this.tokens.indexOf(tokenForId);
@@ -28,6 +32,11 @@ export default Ember.Service.extend({
           token.prepend = previous.prepend;
         }
       }
+
+      if (token.separator == null) {
+        token.separator = defaultSeparator;
+      }
+
       tokens.splice(index, 1, token);
       set(this, 'tokens', Ember.A(tokens));
       return;
@@ -45,6 +54,10 @@ export default Ember.Service.extend({
       if (token.prepend == null) {
         token.prepend = previous.prepend;
       }
+    }
+
+    if (token.separator == null) {
+      token.separator = defaultSeparator;
     }
 
     let tokens = copy(this.tokens);

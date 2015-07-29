@@ -17,10 +17,6 @@ export default Ember.Helper.extend({
   },
 
   compute(params, hash) {
-    if (hash.separator == null) {
-      hash.separator = ' | ';
-    }
-
     let tokens = get(this, 'documentTitleList');
     hash.id = guidFor(this);
     hash.title = params.join('');
