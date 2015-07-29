@@ -65,3 +65,14 @@ Dynamic tokens are available by providing multiple parameters to the helper:
 | separator | string  | `" | "` |
 | prepend   | boolean | false   |
 | replace   | boolean | false   |
+
+The default value for the separator can be overridden by extending the service that stores the list of titles:
+
+```javascript
+// app/services/document-title-list.js
+import DocumentTitleList from 'ember-document-title/services/document-title-list';
+
+export default DocumentTitleList.extend({
+  defaultSeparator: ' > '
+});
+```
