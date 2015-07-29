@@ -7,7 +7,9 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('about', function () {
-    this.route('authors');
+    this.route('authors', function() {
+      this.route('profile');
+    });
   });
   this.resource('posts');
   this.resource('post', { path: '/posts/:post_id' });

@@ -41,6 +41,15 @@ test('custom separators work', function(assert) {
   });
 });
 
+test('custom separators are inherited', function(assert) {
+  assert.expect(1);
+  visit('/about/authors/profile');
+
+  andThen(function() {
+    assert.equal(document.title, 'About My App > Authors > Profile');
+  });
+});
+
 test('multiple components in a row work', function(assert) {
   assert.expect(1);
   visit('/posts/rails-is-omakase');
