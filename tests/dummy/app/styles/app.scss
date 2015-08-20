@@ -1,0 +1,74 @@
+@import 'fonts';
+@import 'colors';
+@import 'routes/index';
+@import 'components/console-window';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Lato, Helvetica, 'Helvetica Neue', Arial;
+}
+
+header {
+  background: $ember;
+  color: #FFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  padding: 20px 50px;
+
+  h1 {
+    width: 40%;
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+  }
+
+  nav {
+    width: 60%;
+    display: inline-block;
+    text-align: right;
+
+    a {
+      color: #FFF;
+      text-decoration: none;
+      margin-left: 40px;
+
+      transition: all 0.25s;
+      opacity: 0.7;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+section {
+  max-width: 80%;
+  margin: 0 auto;
+
+  & > h2 {
+    padding: 30px 0;
+    margin: 40px 0;
+  }
+}
+
+h2 {
+  padding-bottom: 30px;
+  font-size: 1.2em;
+  text-align: center;
+  border-bottom: 1px solid #D8D8D8;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #D8D8D8;
+}
+
+pre, pre.hljs {
+  font-family: 'OfficeCodePro';
+  font-size: 14px;
+  background: #FAFAFA;
+  border-top: 1px solid #DEDEDE;
+  border-bottom: 1px solid #DEDEDE;
+  padding: 20px;
+}

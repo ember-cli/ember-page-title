@@ -1,0 +1,64 @@
+.console-window {
+  margin: 0 auto;
+  max-width: 500px;
+
+  &.console .console-window_content {
+    font-family: OfficeCodePro;
+    background: #EFEFEF;
+  }
+
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  margin-bottom: 50px;
+}
+
+.ps1 {
+  color: #AAAAAA;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.console-window_chrome {
+  position: relative;
+  background: #D8D8D8;
+  text-align: center;
+  height: 30px;
+  border-radius: 5px 5px 0 0;
+  line-height: 30px;
+  text-shadow: 1px 1px 0 #FFF;
+  border-bottom: 1px solid #C8C8C8;
+
+  .button {
+    position: absolute;
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    top: 10px;
+  }
+
+  .close {
+    background-color: #F84324;
+    border: 1px solid #C6351C;
+    left: 10px;
+  }
+
+  .minimize {
+    background-color: #FEBE04;
+    border: 1px solid #CB9803;
+    left: 30px;
+  }
+
+  .maximize {
+    background-color: #00BA67;
+    border: 1px solid #009452;
+    left: 50px;
+  }
+}
+
+.console-window_content {
+  min-height: 250px;
+  padding: 20px;
+  overflow: auto;
+}
