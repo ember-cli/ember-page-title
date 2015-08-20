@@ -8,16 +8,16 @@ function updateTitle(tokens) {
 }
 
 export default Ember.Helper.extend({
-  documentTitleList: Ember.inject.service(),
+  pageTitleList: Ember.inject.service(),
 
   init() {
     this._super();
-    let tokens = get(this, 'documentTitleList');
+    let tokens = get(this, 'pageTitleList');
     tokens.push({ id: guidFor(this) });
   },
 
   compute(params, hash) {
-    let tokens = get(this, 'documentTitleList');
+    let tokens = get(this, 'pageTitleList');
     hash.id = guidFor(this);
     hash.title = params.join('');
     tokens.push(hash);
@@ -26,7 +26,7 @@ export default Ember.Helper.extend({
   },
 
   destroy() {
-    let tokens = get(this, 'documentTitleList');
+    let tokens = get(this, 'pageTitleList');
     let id = guidFor(this);
     tokens.remove(id);
     Ember.run.scheduleOnce('afterRender', null, updateTitle, tokens);

@@ -1,3 +1,3 @@
-import pageTitle from 'ember-document-title/helpers/page-title';
+import pageTitle from 'ember-page-title/helpers/page-title';
 
 export default pageTitle;

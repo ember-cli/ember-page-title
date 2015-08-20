@@ -1,5 +1,5 @@
 {
-  "name": "ember-document-title",
+  "name": "ember-page-title",
   "version": "2.0.3",
   "description": "{{title}} for Ember applications",
   "directories": {
@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember try:testall"
   },
-  "repository": "https://github.com/paddle8/ember-document-title",
+  "repository": "https://github.com/tim-evans/ember-page-title",
   "engines": {
     "node": ">= 0.12.0"
   },

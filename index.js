@@ -4,7 +4,7 @@
 var TranslateHelperName = require('./lib/plugins/translate-helper-name');
 
 module.exports = {
-  name: 'ember-document-title',
+  name: 'ember-page-title',
 
   included: function () {
     this._super.included.apply(this, arguments);

@@ -1,10 +1,10 @@
 /* global QUnit */
-import TokenList from "ember-document-title/services/document-title-list";
+import TokenList from "ember-page-title/services/page-title-list";
 import {
   test
 } from 'ember-qunit';
 
-QUnit.module('DocumentTitleList');
+QUnit.module('PageTitleList');
 
 test('the list has no tokens by default', function (assert) {
   let list = TokenList.create();
