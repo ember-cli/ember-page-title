@@ -74,6 +74,7 @@ hr {
   border-bottom: 1px solid #D8D8D8;
 }
 
+
 pre, pre.hljs {
   font-family: 'OfficeCodePro';
   font-size: 14px;
@@ -81,4 +82,11 @@ pre, pre.hljs {
   border-top: 1px solid #DEDEDE;
   border-bottom: 1px solid #DEDEDE;
   padding: 20px;
+}
+
+::selection {
+  background: #FF9A89;
+}
+::-moz-selection {
+  background: #FF9A89;
 }

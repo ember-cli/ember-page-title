@@ -17,7 +17,8 @@ export default Ember.Component.extend({
     let title = [];
     for (let i = 0, len = tokens.length; i < len; i++) {
       let token = tokens[i];
-      title.push(`<span class="title-token" id="title-${token.id}">${token.title}</span>`);
+      let styles = token.active ? ' active' : '';
+      title.push(`<span class="title-token${styles}" id="title-${token.id}">${token.title}</span>`);
       if (i + 1 < len) {
         title.push(token.separator);
       }

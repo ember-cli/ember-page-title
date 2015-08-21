@@ -1,6 +1,12 @@
 code {
   font-family: OfficeCodePro;
-  font-size: 14px;
+  font-size: 15px;
+
+  &.inline {
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
 
   .helper {
     color: $green;

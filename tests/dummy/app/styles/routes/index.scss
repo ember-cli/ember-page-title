@@ -32,9 +32,21 @@
     }
   }
 
-  input, textarea {
+  input {
     font-family: Lato, Helvetica, 'Helvetica Neue', Arial;
-    font-size: 13px;
+    font-size: 16px;
+    border: 0;
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    transition: all 0.1s ease-in-out;
+
+    &:focus {
+      outline: none;
+      color: $ember;
+      border-bottom: 2px solid $ember;
+    }
   }
 }
 
