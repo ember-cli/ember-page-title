@@ -2,5 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   title: '',
-  classNames: ['console-window']
+  classNames: ['window', 'console'],
+  layoutName: 'components/window'
 });

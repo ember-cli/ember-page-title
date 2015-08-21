@@ -1,7 +1,11 @@
 @import 'fonts';
 @import 'colors';
+@import 'code';
 @import 'routes/index';
+@import 'components/window';
 @import 'components/console-window';
+@import 'components/app-window';
+@import 'components/app-layer';
 
 html, body {
   margin: 0;

@@ -7,17 +7,118 @@
 </header>
 
 <div class="hero">
-  <p>&lt;title&gt; management for your <img class="ember-logo" alt="ember" src="assets/images/ember-logo.png" /> app</p>
+  <p>Page title management<br>for <img class="ember-logo" alt="ember" src="assets/images/ember-logo.png" /> apps</p>
 </div>
 
 <section>
   <h2>Installation</h2>
-  {{#console-window class="console"}}
+  {{#console-window}}
     <span class="ps1">$ </span>ember install ember-page-title
   {{/console-window}}
 </section>
 
-<section>
-  <h2>Usage</h2>
+<section id="docs">
+  <h2>Documentation</h2>
+  <p>To start using ember-page-title, add the name of your application into <code>application.hbs</code></p>
 
+  {{#console-window title="application.hbs"}}
+    <code>{{highlight '{{title "My App"}}'}}</code>
+  {{/console-window}}
+
+  <p>This sets the title for your application. When your application loads, you should see the title "My App" appear.</p>
+  <p>By default, using the helper will allow an interaction where additional titles are appended to the root:</p>
+  {{#app-window as |app|}}
+    {{#app-layer app=app title="My App"}}
+      <code>{{highlight '{{title "My App"}}'}}</code>
+      {{#app-layer app=app title="Posts"}}
+        <code>{{highlight '{{title "Posts"}}'}}</code>
+        {{#app-layer app=app title="Rails is Omakase"}}
+          <code>{{highlight '{{title post.title}}'}}</code>
+        {{/app-layer}}
+      {{/app-layer}}
+    {{/app-layer}}
+  {{/app-window}}
+
+  <p>You can change the separator by specifying the <code><span class="attribute">separator</span></code> attribute.</p>
+  {{#app-window as |app|}}
+    {{#app-layer app=app title="My App" separator=" > "}}
+      <code>{{highlight '{{title "My App" separator=" > "}}'}}</code>
+      {{#app-layer app=app title="Posts"}}
+        <code>{{highlight '{{title "Posts"}}'}}</code>
+        {{#app-layer app=app title="Rails is Omakase"}}
+          <code>{{highlight '{{title post.title}}'}}</code>
+        {{/app-layer}}
+      {{/app-layer}}
+    {{/app-layer}}
+  {{/app-window}}
+
+  <p>Separators can be changed at arbitrary levels:</p>
+  {{#app-window as |app|}}
+    {{#app-layer app=app title="My App" separator=": "}}
+      <code>{{highlight '{{title "My App" separator=": "}}'}}</code>
+      {{#app-layer app=app title="Posts" separator=" > "}}
+        <code>{{highlight '{{title "Posts" separator=" > "}}'}}</code>
+        {{#app-layer app=app title="Rails is Omakase"}}
+          <code>{{highlight '{{title post.title}}'}}</code>
+        {{/app-layer}}
+      {{/app-layer}}
+    {{/app-layer}}
+  {{/app-window}}
+
+  <p>Titles can be prepended to the parent, by setting the <code><span class="attribute">prepend</span></code> attribute to <code>{{highlight "true"}}</code>.</p>
+  {{#app-window as |app|}}
+    {{#app-layer app=app title="My App" prepend=true}}
+      <code>{{highlight '{{title "My App" prepend=true}}'}}</code>
+      {{#app-layer app=app title="Posts"}}
+        <code>{{highlight '{{title "Posts"}}'}}</code>
+        {{#app-layer app=app title="Rails is Omakase"}}
+          <code>{{highlight '{{title post.title}}'}}</code>
+        {{/app-layer}}
+      {{/app-layer}}
+    {{/app-layer}}
+  {{/app-window}}
+
+  <p>This allows one to swap the order at arbitrary levels:</p>
+  {{#app-window as |app|}}
+    {{#app-layer app=app title="My App"}}
+      <code>{{highlight '{{title "My App"}}'}}</code>
+      {{#app-layer app=app title="Posts" prepend=true}}
+        <code>{{highlight '{{title "Posts" prepend=true}}'}}</code>
+        {{#app-layer app=app title="Rails is Omakase"}}
+          <code>{{highlight '{{title post.title}}'}}</code>
+        {{/app-layer}}
+      {{/app-layer}}
+    {{/app-layer}}
+  {{/app-window}}
+
+  <p>And for special templates that need to complete control over the title, set the <code><span class="attribute">replace</span></code> attribute to <code>{{highlight "true"}}</code>. This will only apply for that level.</p>
+  {{#app-window title="Posts | Rails is Omakase" as |app|}}
+    {{#app-layer app=app}}
+      <code>{{highlight '{{title "My App"}}'}}</code>
+      {{#app-layer app=app}}
+        <code>{{highlight '{{title "Posts" replace=true}}'}}</code>
+        {{#app-layer app=app}}
+          <code>{{highlight '{{title post.title}}'}}</code>
+        {{/app-layer}}
+      {{/app-layer}}
+    {{/app-layer}}
+  {{/app-window}}
+
+  <p>In addition, there's no limit to the amount of titles you can put in a route:</p>
+  {{#app-window as |app|}}
+    {{#app-layer app=app title="My App"}}
+      <code>{{highlight '{{title "My App"}}'}}</code>
+      {{#app-layer app=app title="Posts | Rails is Omakase"}}
+        <code>{{highlight '{{title "Posts"}}'}}</code>
+        <code>{{highlight '{{title post.title}}'}}</code>
+      {{/app-layer}}
+    {{/app-layer}}
+  {{/app-window}}
+
+  <p>Dynamic tokens are available by providing multiple parameters to the helper:</p>
+  {{#app-window as |app|}}
+    {{#app-layer app=app title="Tomster (@tomster)"}}
+      <code>{{highlight '{{title blogger.name " (" blogger.handle ")"}}'}}</code>
+    {{/app-layer}}
+  {{/app-window}}
 </section>
