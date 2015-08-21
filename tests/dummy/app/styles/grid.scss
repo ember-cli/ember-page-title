@@ -1,0 +1,22 @@
+.grid {
+  display: flex;
+  margin: -1em 0 1em -1em;
+  flex-wrap: wrap;
+
+  .half {
+    flex: 1;
+    margin: 1em 0 0 1em;
+  }
+
+  .half + .half {
+    flex: none;
+    width: 66.66%;
+  }
+}
+
+@media (max-width: 800px) {
+  .grid .half,
+  .grid .half + .half {
+    flex: 0 0 100%;
+  }
+}
