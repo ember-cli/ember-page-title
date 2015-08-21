@@ -10,7 +10,7 @@
     "start": "ember server",
     "build": "ember build",
     "test": "ember try:testall",
-    "postpublish": "ember build --environment production; git co gh-pages; git reset --hard master; git rm -rf .; git reset -- .gitignore; git co .gitignore; mv dist/* .; rm -rf dist tmp; git add .; git ci -m 'Release documentation'; git push --force-with-lease; git co master;"
+    "postpublish": "ember build --environment production; git co gh-pages; git reset --hard master; git rm -rf .; git reset -- .gitignore; git co .gitignore; mv dist/* .; rm -rf dist tmp; git add .; git ci -m 'Release documentation'; git push --force-with-lease; git co master; npm install; bower install;"
   },
   "repository": "https://github.com/tim-evans/ember-page-title",
   "engines": {
