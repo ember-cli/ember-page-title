@@ -38,7 +38,7 @@ export default Ember.Component.extend({
       let $el = this.$(`#title-${token.id}`);
       if (!$el) { return; }
       if (token.active) {
-        $$el.addClass('active');
+        $el.addClass('active');
       } else {
         $el.removeClass('active');
       }
