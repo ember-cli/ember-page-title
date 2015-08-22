@@ -48,12 +48,12 @@ export default Ember.Component.extend({
   didInsertElement() {
     this._activate = Ember.run.bind(this, this.activate);
     Ember.run.next(() => {
-      this.$('.title-token').on('click', this._activate);
+      this.$().on('click', '.title-token', this._activate);
     });
   },
 
   willDestroyElement() {
-    this.$('.title-token').off('click', this._activate);
+    this.$().off('click', '.title-token', this._activate);
   },
 
   activate(evt) {
