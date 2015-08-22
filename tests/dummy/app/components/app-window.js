@@ -38,7 +38,7 @@ export default Ember.Component.extend({
       let $el = this.$(`#title-${token.id}`);
       if (!$el) { return; }
       if (token.active) {
-        $el.addClass('active');
+        $$el.addClass('active');
       } else {
         $el.removeClass('active');
       }
@@ -57,7 +57,7 @@ export default Ember.Component.extend({
   },
 
   activate(evt) {
-    let tokenId = $(evt.target).attr('id').split('-')[1];
+    let tokenId = Ember.$(evt.target).attr('id').split('-')[1];
     let tokens = get(this, 'tokenList.tokens');
     let components = get(this, 'tokenList.tokens').getEach('component');
 
