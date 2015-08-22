@@ -1,8 +1,9 @@
 .app-layer {
   padding: 20px;
   min-height: 224px;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.2s ease-in;
   cursor: pointer;
+  background-color: #FFF;
 
   & .app-layer {
     border-radius: 5px;
@@ -21,10 +22,6 @@
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
                 0 1px 10px 0 rgba(0, 0, 0, 0.12),
                 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    & .app-layer {
-      box-shadow: none;
-      border: 1px solid #CCCCCC;
-    }
   }
 }
 

@@ -2,6 +2,7 @@ import Ember from 'ember';
 import PageTitleList from 'ember-page-title/services/page-title-list';
 
 const get = Ember.get;
+const set = Ember.set;
 const { htmlSafe } = Ember.String;
 
 export default Ember.Component.extend({
@@ -42,6 +43,32 @@ export default Ember.Component.extend({
         $el.removeClass('active');
       }
     });
-  })
+  }),
+
+  didInsertElement() {
+    this._activate = Ember.run.bind(this, this.activate);
+    Ember.run.next(() => {
+      this.$('.title-token').on('click', this._activate);
+    });
+  },
+
+  willDestroyElement() {
+    this.$('.title-token').off('click', this._activate);
+  },
+
+  activate(evt) {
+    let tokenId = $(evt.target).attr('id').split('-')[1];
+    let tokens = get(this, 'tokenList.tokens');
+    let components = get(this, 'tokenList.tokens').getEach('component');
+
+    let token = tokens.findBy('id', tokenId);
+    let active = !get(token, 'active');
+
+    tokens.setEach('active', false);
+    Ember.A(components).setEach('active', false);
+
+    set(token, 'component.active', active);
+    set(token, 'active', active);
+  }
 
 });
