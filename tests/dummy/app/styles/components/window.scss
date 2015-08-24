@@ -18,6 +18,7 @@
   border-bottom: 1px solid #C8C8C8;
 
   .button {
+    transition: all .2s;
     position: absolute;
     border-radius: 6px;
     width: 10px;
@@ -52,5 +53,11 @@
   code {
     font-size: 16px;
     display: block;
+  }
+}
+
+@media (max-width: 525px) {
+  .window .button {
+    opacity: 0;
   }
 }
