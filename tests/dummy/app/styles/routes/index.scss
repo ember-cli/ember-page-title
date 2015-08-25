@@ -66,6 +66,18 @@
   }
 }
 
+@media (max-width: 400px) {
+  #index .hero {
+    font-size: 28px;
+    p {
+      width: 340px;
+    }
+    .ember-logo {
+      height: 32px;
+    }
+  }
+}
+
 @media screen and (max-height: 400px) {
   #index .hero {
     font-size: 32px;
