@@ -160,7 +160,7 @@
       {{#app-window as |app|}}
         {{#app-layer app=app title=model.title}}
           <code>{{highlight '{{title "' model.title '"}}'}}</code>
-          {{#app-layer app=app title="Posts | Making Ember.js Easier"}}
+          {{#app-layer app=app title=(join "Posts | " model.post.title)}}
             <code>{{highlight '{{title "Posts"}}'}}</code>
             <code>{{highlight '{{title post.title}}'}}</code>
           {{/app-layer}}
