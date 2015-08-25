@@ -48,7 +48,7 @@
           <code>{{highlight '{{title "' model.title '"}}'}}</code>
           {{#app-layer app=app title="Posts"}}
             <code>{{highlight '{{title "Posts"}}'}}</code>
-            {{#app-layer app=app title="Making Ember.js Easier"}}
+            {{#app-layer app=app title=model.post.title}}
               <code>{{highlight '{{title post.title}}'}}</code>
             {{/app-layer}}
           {{/app-layer}}
@@ -67,7 +67,7 @@
           <code>{{highlight '{{title "' model.title '" separator=" > "}}'}}</code>
           {{#app-layer app=app title="Posts"}}
             <code>{{highlight '{{title "Posts"}}'}}</code>
-            {{#app-layer app=app title="Making Ember.js Easier"}}
+            {{#app-layer app=app title=model.post.title}}
               <code>{{highlight '{{title post.title}}'}}</code>
             {{/app-layer}}
           {{/app-layer}}
@@ -86,7 +86,7 @@
           <code>{{highlight '{{title "' model.title '" separator=": "}}'}}</code>
           {{#app-layer app=app title="Posts" separator=" > "}}
             <code>{{highlight '{{title "Posts" separator=" > "}}'}}</code>
-            {{#app-layer app=app title="Making Ember.js Easier"}}
+            {{#app-layer app=app title=model.post.title}}
               <code>{{highlight '{{title post.title}}'}}</code>
             {{/app-layer}}
           {{/app-layer}}
@@ -105,7 +105,7 @@
           <code>{{highlight '{{title "' model.title '" prepend=true}}'}}</code>
           {{#app-layer app=app title="Posts"}}
             <code>{{highlight '{{title "Posts"}}'}}</code>
-            {{#app-layer app=app title="Making Ember.js Easier"}}
+            {{#app-layer app=app title=model.post.title}}
               <code>{{highlight '{{title post.title}}'}}</code>
             {{/app-layer}}
           {{/app-layer}}
@@ -124,7 +124,7 @@
           <code>{{highlight '{{title "' model.title '"}}'}}</code>
           {{#app-layer app=app title="Posts" prepend=true}}
             <code>{{highlight '{{title "Posts" prepend=true}}'}}</code>
-            {{#app-layer app=app title="Making Ember.js Easier"}}
+            {{#app-layer app=app title=model.post.title}}
               <code>{{highlight '{{title post.title}}'}}</code>
             {{/app-layer}}
           {{/app-layer}}
@@ -143,7 +143,7 @@
           <code>{{highlight '{{title "' model.title '"}}'}}</code>
           {{#app-layer app=app title="Posts" replace=true}}
             <code>{{highlight '{{title "Posts" replace=true}}'}}</code>
-            {{#app-layer app=app title="Making Ember.js Easier"}}
+            {{#app-layer app=app title=model.post.title}}
               <code>{{highlight '{{title post.title}}'}}</code>
             {{/app-layer}}
           {{/app-layer}}
@@ -175,7 +175,7 @@
     </div>
     <div class="half">
       {{#app-window as |app|}}
-        {{#app-layer app=app title="Tomster (@tomster)"}}
+        {{#app-layer app=app title="Tim Evans (@timmyce)"}}
           <code>{{highlight '{{title blogger.name " (" blogger.handle ")"}}'}}</code>
         {{/app-layer}}
       {{/app-window}}
