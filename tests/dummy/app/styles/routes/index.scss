@@ -13,7 +13,7 @@
       left: 50%;
       transform: translate(-50%, -60%);
       line-height: 1.7em;
-      max-width: 500px;
+      width: 500px;
       text-align: center;
     }
 
@@ -57,7 +57,7 @@
   #index .hero {
     font-size: 32px;
     p {
-      max-width: 360px;
+      width: 360px;
     }
     .ember-logo {
       height: 36px;
@@ -69,7 +69,7 @@
   #index .hero {
     font-size: 32px;
     p {
-      max-width: 360px;
+      width: 335px;
     }
     .ember-logo {
       height: 36px;
