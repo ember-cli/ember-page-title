@@ -1,7 +1,8 @@
 .grid {
   display: -webkit-flex;
   display:         flex;
-  margin: -1em 0 1em -1em;
+  margin: -1em 0 0 -1em;
+  padding-bottom: 1em;
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
 

@@ -12,6 +12,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Lato, Helvetica, 'Helvetica Neue', Arial;
+  background: linear-gradient(#FFFFFF, #FFFFFF 50%, $ember 50%, $ember);
 }
 
 header {
@@ -60,6 +61,10 @@ section {
     padding: 30px 0;
     margin: 40px 0;
   }
+}
+
+main {
+  background: #FFFFFF;
 }
 
 p {
