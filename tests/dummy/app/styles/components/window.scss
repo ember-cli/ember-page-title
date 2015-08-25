@@ -60,4 +60,7 @@
   .window .button {
     opacity: 0;
   }
+  .window, .window_content, .window_content code {
+    font-size: 14px;
+  }
 }
