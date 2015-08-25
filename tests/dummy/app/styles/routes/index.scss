@@ -11,7 +11,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -60%);
+      -webkit-transform: translate(-50%, -60%);
+              transform: translate(-50%, -60%);
       line-height: 1.7em;
       width: 500px;
       text-align: center;
