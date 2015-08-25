@@ -5,14 +5,16 @@
     background: linear-gradient($ember, $accent-color);
     color: #FFF;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    height: 60vh;
 
     p {
-      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
       line-height: 1.7em;
       max-width: 500px;
       text-align: center;
-      padding-top: 3em;
-      padding-bottom: 4em;
     }
 
     .ember-logo {
@@ -52,6 +54,18 @@
 }
 
 @media (max-width: 600px) {
+  #index .hero {
+    font-size: 32px;
+    p {
+      max-width: 360px;
+    }
+    .ember-logo {
+      height: 36px;
+    }
+  }
+}
+
+@media screen and (max-height: 400px) {
   #index .hero {
     font-size: 32px;
     p {
