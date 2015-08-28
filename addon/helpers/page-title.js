@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 const get = Ember.get;
-const { guidFor } = Ember;
+const { guidFor } = Ember
 
 function updateTitle(tokens) {
   document.title = tokens.toString();
