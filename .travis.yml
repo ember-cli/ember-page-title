@@ -32,3 +32,12 @@ install:
 
 script:
   - ember try $EMBER_TRY_SCENARIO test
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+  slack:
+    secure: cTWjmlOLQVB5IiHDtIRbICLeaEnSV8hZSzp8b+W0N+yWd5KQyyo0fPqaLTsZS070hTIWzx9bqjQ4vOMiWHyQveEEy600k8fEV2pEj6b33N//omkmp8/RBppl79/W9QMEeandjAOrugusjw/WdqUDkUF3go/NzoU36WNRfQ7jrcE=
+    on_success: change
+    on_failure: always
