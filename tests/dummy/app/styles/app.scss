@@ -12,11 +12,11 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Lato, Helvetica, 'Helvetica Neue', Arial;
-  background: linear-gradient(#FFFFFF, #FFFFFF 50%, $ember 50%, $ember);
+  background: linear-gradient(#FFFFFF, #FFFFFF 50%, $primary-color 50%, $primary-color);
 }
 
 header {
-  background: $ember;
+  background: $primary-color;
   color: #FFF;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   padding: 20px 50px;
@@ -27,10 +27,15 @@ header {
     font-size: 18px;
     margin: 0;
 
-    img {
+    svg {
       position: relative;
       top: 2px;
     }
+  }
+
+  svg {
+    -webkit-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
   }
 
   nav {
@@ -95,8 +100,8 @@ pre, pre.hljs {
 }
 
 ::selection {
-  background: #FF9A89;
+  background: #AD9FCF;
 }
 ::-moz-selection {
-  background: #FF9A89;
+  background: #AD9FCF;
 }

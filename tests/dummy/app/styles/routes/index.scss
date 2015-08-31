@@ -2,7 +2,7 @@
   .hero {
     position: relative;
     font-size: 42px;
-    background: linear-gradient($ember, $accent-color);
+    background: linear-gradient($primary-color, $secondary-color);
     color: #FFF;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
     height: 60vh;
@@ -35,17 +35,18 @@
       text-align: center;
       z-index: 10;
 
-      img {
+      svg {
         position: absolute;
         top: 10px;
         left: 50%;
         margin-left: -30px;
-        width: 60px;
-        transition: all 0.25s;
+        width: 64px;
+        height: 26px;
+        transition: all 0.25s ease-in-out;
         opacity: 0.7;
       }
 
-      &:hover img {
+      &:hover svg {
         opacity: 1;
       }
     }
@@ -75,8 +76,8 @@
 
     &:focus {
       outline: none;
-      color: $ember;
-      border-bottom: 2px solid $ember;
+      color: $primary-color;
+      border-bottom: 2px solid $primary-color;
     }
   }
 }
