@@ -38,3 +38,11 @@ export default PageTitleList.extend({
   defaultSeparator: ' > '
 });
 ```
+
+### Publishing Documentation
+
+To publish documentation (under the tests/dummy directory) run the following command:
+
+```bash
+npm run-script publish-docs
+```
