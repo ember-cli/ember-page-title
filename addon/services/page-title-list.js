@@ -89,7 +89,7 @@ export default Ember.Service.extend({
   visibleTokens: Ember.computed('tokens', {
     get() {
       let tokens = get(this, 'tokens');
-      let i = tokens.length;
+      let i = (tokens ? tokens.length : 0);
       let visible = [];
       while (i--) {
         let token = tokens[i];
