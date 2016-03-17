@@ -6,12 +6,12 @@ var TranslateHelperName = require('./lib/plugins/translate-helper-name');
 module.exports = {
   name: 'ember-page-title',
 
-  included: function () {
+  included: function (app) {
+    if (app.app) {
+      app = app.app;
+    }
+    this.app = app;
+  	
     this._super.included.apply(this, arguments);
-
-    this.app.registry.add('htmlbars-ast-plugin', {
-      name: 'translate-title-helper-to-page-title-helper',
-      plugin: TranslateHelperName
-    });
   }
 };
