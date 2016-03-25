@@ -7,6 +7,10 @@ function updateTitle(tokens) {
   document.title = tokens.toString();
 }
 
+function isFastBoot() {
+  return typeof FastBoot !== "undefined";
+}
+
 export default Ember.Helper.extend({
   pageTitleList: Ember.inject.service(),
 
@@ -21,7 +25,11 @@ export default Ember.Helper.extend({
     hash.id = guidFor(this);
     hash.title = params.join('');
     tokens.push(hash);
-    Ember.run.scheduleOnce('afterRender', null, updateTitle, tokens);
+
+    if (!isFastBoot()) {
+      Ember.run.scheduleOnce('afterRender', null, updateTitle, tokens);
+    }
+
     return '';
   },
 
@@ -29,6 +37,9 @@ export default Ember.Helper.extend({
     let tokens = get(this, 'pageTitleList');
     let id = guidFor(this);
     tokens.remove(id);
-    Ember.run.scheduleOnce('afterRender', null, updateTitle, tokens);
+
+    if (!isFastBoot()) {
+      Ember.run.scheduleOnce('afterRender', null, updateTitle, tokens);
+    }
   }
 });
