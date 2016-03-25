@@ -12,6 +12,7 @@ export default Ember.Service.extend({
   },
 
   defaultSeparator: ' | ',
+  tokens: [],
 
   push(token) {
     let defaultSeparator = get(this, "defaultSeparator");
