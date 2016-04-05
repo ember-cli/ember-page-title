@@ -16,6 +16,16 @@ For any other app, follow the scheme outlined in the blog post. Previous version
 ember install ember-page-title
 ```
 
+#### Post Install Cleanup
+
+As of v3.0.0 this addon maintains the page title by using the
+`<title>` tag in your document's `<head>`.  This is necessary for
+[FastBoot](https://github.com/tildeio/ember-cli-fastboot)
+compatibility.
+
+For proper functioning you will need to remove the default `<title>`
+tag from `app/index.html`.
+
 ### Digging in
 
 [Visit the Docs site](http://tim-evans.github.io/ember-page-title/)
