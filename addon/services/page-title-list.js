@@ -143,9 +143,11 @@ export default Ember.Service.extend({
     let title = [];
     for (let i = 0, len = tokens.length; i < len; i++) {
       let token = tokens[i];
-      title.push(token.title);
-      if (i + 1 < len) {
-        title.push(token.separator);
+      if (token.title) {
+        title.push(token.title);
+        if (i + 1 < len) {
+          title.push(token.separator);
+        }
       }
     }
     return title.join('');

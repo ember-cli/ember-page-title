@@ -172,3 +172,16 @@ test('removing a token with replace: true will only set previous tokens up to th
   assert.equal(tokens.length, 1);
   assert.equal(tokens[0].id, 2);
 });
+
+test("null tokens aren't displayed as a string", function (assert) {
+  let list = TokenList.create();
+  let first = { id: 1, title: '1' };
+  let second = { id: 2, title: null };
+  let third = { id: 3, title: '3' };
+
+  list.push(first);
+  list.push(second);
+  list.push(third);
+
+  assert.equal(list.toString(), '1 | 3');
+});
