@@ -34,5 +34,5 @@ install:
   - bower install
 
 script:
-  - ember try $EMBER_TRY_SCENARIO test
+  - ember try $EMBER_TRY_SCENARIO test --test-page='tests/index.html?coverage=true'
   - codeclimate-test-reporter < lcov.dat
