@@ -14,9 +14,28 @@ export default Ember.Service.extend({
   defaultSeparator: ' | ',
   tokens: [],
 
-  push(token) {
+  applyTokenDefaults(token) {
     let defaultSeparator = get(this, "defaultSeparator");
 
+    if (token.separator == null) {
+      token.separator = defaultSeparator;
+    }
+  },
+
+  inheritFromPrevious(token) {
+    let previous = token.previous;
+    if (previous) {
+      if (token.separator == null) {
+        token.separator = previous.separator;
+      }
+
+      if (token.prepend == null) {
+        token.prepend = previous.prepend;
+      }
+    }
+  },
+
+  push(token) {
     let tokenForId = this.tokens.findBy('id', token.id);
     if (tokenForId) {
       let index = this.tokens.indexOf(tokenForId);
@@ -24,19 +43,8 @@ export default Ember.Service.extend({
       let previous = tokenForId.previous;
       token.previous = previous;
       token.next = tokenForId.next;
-      if (previous) {
-        if (token.separator == null) {
-          token.separator = previous.separator;
-        }
-
-        if (token.prepend == null) {
-          token.prepend = previous.prepend;
-        }
-      }
-
-      if (token.separator == null) {
-        token.separator = defaultSeparator;
-      }
+      this.inheritFromPrevious(token);
+      this.applyTokenDefaults(token);
 
       tokens.splice(index, 1, token);
       set(this, 'tokens', Ember.A(tokens));
@@ -47,19 +55,10 @@ export default Ember.Service.extend({
     if (previous) {
       token.previous = previous;
       previous.next = token;
-
-      if (token.separator == null) {
-        token.separator = previous.separator;
-      }
-
-      if (token.prepend == null) {
-        token.prepend = previous.prepend;
-      }
+      this.inheritFromPrevious(token);
     }
 
-    if (token.separator == null) {
-      token.separator = defaultSeparator;
-    }
+    this.applyTokenDefaults(token);
 
     let tokens = copy(this.tokens);
     tokens.push(token);
