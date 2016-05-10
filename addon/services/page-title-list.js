@@ -12,13 +12,25 @@ export default Ember.Service.extend({
   },
 
   defaultSeparator: ' | ',
+  defaultPrepend: null,
+  defaultReplace: null,
   tokens: [],
 
   applyTokenDefaults(token) {
     let defaultSeparator = get(this, "defaultSeparator");
+    let defaultPrepend = get(this, "defaultPrepend");
+    let defaultReplace = get(this, "defaultReplace");
 
     if (token.separator == null) {
       token.separator = defaultSeparator;
+    }
+
+    if (token.prepend == null && defaultPrepend != null) {
+      token.prepend = defaultPrepend;
+    }
+
+    if (token.replace == null && defaultReplace != null) {
+      token.replace = defaultReplace;
     }
   },
 

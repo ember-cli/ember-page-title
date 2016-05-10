@@ -1,4 +1,4 @@
-## {{title}} [![Ember Observer Score](http://emberobserver.com/badges/ember-page-title.svg)](http://emberobserver.com/addons/ember-page-title) [![Build Status](https://travis-ci.org/tim-evans/ember-page-title.svg)](https://travis-ci.org/tim-evans/ember-page-title) [![Code Climate](https://codeclimate.com/github/tim-evans/ember-page-title/badges/gpa.svg)](https://codeclimate.com/github/tim-evans/ember-page-title)
+## {{title}} [![Ember Observer Score](http://emberobserver.com/badges/ember-page-title.svg)](http://emberobserver.com/addons/ember-page-title) [![Build Status](https://travis-ci.org/tim-evans/ember-page-title.svg)](https://travis-ci.org/tim-evans/ember-page-title) [![Code Climate](https://codeclimate.com/github/tim-evans/ember-page-title/badges/gpa.svg)](https://codeclimate.com/github/tim-evans/ember-page-title) [![Test Coverage](https://codeclimate.com/github/tim-evans/ember-page-title/badges/coverage.svg)](https://codeclimate.com/github/tim-evans/ember-page-title/coverage)
 
 This addon provides a helper for changing the title of the page you're on.
 
@@ -38,15 +38,21 @@ tag from `app/index.html`.
 | prepend   | boolean | false   |
 | replace   | boolean | false   |
 
-The default value for the separator can be overridden by extending the service that stores the list of titles:
+These defaults are configurable in `config/environment.js`:
 
 ```javascript
-// app/services/page-title-list.js
-import PageTitleList from 'ember-page-title/services/page-title-list';
+// config/environment.js
+/* jshint node: true */
 
-export default PageTitleList.extend({
-  defaultSeparator: ' > '
-});
+module.exports = function(environment) {
+  var ENV = {
+    pageTitle: {
+      replace: true
+    }
+  };
+
+  return ENV;
+};
 ```
 
 # Contributing
