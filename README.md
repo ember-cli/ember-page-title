@@ -30,6 +30,16 @@ tag from `app/index.html`.
 
 [Visit the Docs site](http://tim-evans.github.io/ember-page-title/)
 
+### Fastboot
+
+When working with other addons that use `ember-cli-head`, you'll need to create a custom `head.hbs` file that exposes the `<title>` tag properly:
+
+```hbs
+<title>{{model.title}}</title>
+```
+
+This is for all the folks using ember-cli-head addons like ember-cli-meta-tags.
+
 ### API
 
 | attribute | type    | default |
