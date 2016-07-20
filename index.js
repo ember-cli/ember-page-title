@@ -11,7 +11,7 @@ module.exports = {
 
     // Do not add ast conversion in addons/engines
     // This means that inside of addons/engines, you can only use {{page-title}}, not {{title}}
-    let app = this.app;
+    var app = this.app;
     if (typeof app !== 'undefined' && typeof app.registry !== 'undefined') {
       app.registry.add('htmlbars-ast-plugin', {
         name: 'translate-title-helper-to-page-title-helper',
