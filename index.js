@@ -9,9 +9,14 @@ module.exports = {
   included: function () {
     this._super.included.apply(this, arguments);
 
-    this.app.registry.add('htmlbars-ast-plugin', {
-      name: 'translate-title-helper-to-page-title-helper',
-      plugin: TranslateHelperName
-    });
+    // Do not add ast conversion in addons/engines
+    // This means that inside of addons/engines, you can only use {{page-title}}, not {{title}}
+    var app = this.app;
+    if (typeof app !== 'undefined' && typeof app.registry !== 'undefined') {
+      app.registry.add('htmlbars-ast-plugin', {
+        name: 'translate-title-helper-to-page-title-helper',
+        plugin: TranslateHelperName
+      });
+    }
   }
 };
