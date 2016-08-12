@@ -26,7 +26,7 @@
     "ember-cli-blanket": "0.9.4",
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-eslint": "^1.3.0",
-    "ember-cli-htmlbars-inline-precompile": "^0.3.1",
+    "ember-cli-htmlbars-inline-precompile": "^0.3.5",
     "ember-cli-inject-live-reload": "^1.4.0",
     "ember-cli-qunit": "^1.4.0",
     "ember-cli-release": "0.2.8",
@@ -43,9 +43,9 @@
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-htmlbars": "^1.0.3",
+    "ember-cli-htmlbars": "^1.1.0",
     "ember-cli-head": "0.1.0",
-    "ember-cli-babel": "^5.1.6"
+    "ember-cli-babel": "^5.1.9"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
