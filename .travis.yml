@@ -26,7 +26,6 @@ before_install:
   - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
   - npm config set spin false
   - npm install -g npm@^2
-  - npm install -g codeclimate-test-reporter
 
 install:
   - npm install -g bower
@@ -34,5 +33,4 @@ install:
   - bower install
 
 script:
-  - ember try $EMBER_TRY_SCENARIO test --test-page='tests/index.html?coverage=true'
-  - codeclimate-test-reporter < lcov.dat
+  - ember try $EMBER_TRY_SCENARIO test
