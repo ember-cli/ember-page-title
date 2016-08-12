@@ -15,7 +15,10 @@ module.exports = {
     if (typeof app !== 'undefined' && typeof app.registry !== 'undefined') {
       app.registry.add('htmlbars-ast-plugin', {
         name: 'translate-title-helper-to-page-title-helper',
-        plugin: TranslateHelperName
+        plugin: TranslateHelperName,
+        baseDir: function() {
+          return __dirname;
+        }
       });
     }
   }
