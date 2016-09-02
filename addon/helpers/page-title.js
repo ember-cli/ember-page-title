@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { get, set, guidFor } = Ember;
+const { get, set, guidFor, merge } = Ember;
 
 function updateTitle(tokens) {
   set(this, 'headData.title', tokens.toString());
@@ -16,8 +16,9 @@ export default Ember.Helper.extend({
     tokens.push({ id: guidFor(this) });
   },
 
-  compute(params, hash) {
+  compute(params, _hash) {
     let tokens = get(this, 'pageTitleList');
+    let hash = merge({}, _hash);
     hash.id = guidFor(this);
     hash.title = params.join('');
     tokens.push(hash);
