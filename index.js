@@ -7,8 +7,6 @@ module.exports = {
   name: 'ember-page-title',
 
   setupPreprocessorRegistry: function (type, registry) {
-    this._super.setupPreprocessorRegistry.apply(this, arguments);
-
     app.registry.add('htmlbars-ast-plugin', {
       name: 'translate-title-helper-to-page-title-helper',
       plugin: TranslateHelperName,
