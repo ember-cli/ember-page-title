@@ -9,27 +9,27 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember try:testall",
+    "test": "ember try:each",
     "publish-docs": "ember build --environment production; git co gh-pages; git reset --hard master; git rm -rf .; git reset -- .gitignore; git co .gitignore; mv dist/* .; rm -rf dist tmp; git add .; git ci -m 'Release documentation'; git push --force-with-lease; git co master; npm install; bower install;"
   },
   "repository": "https://github.com/tim-evans/ember-page-title",
   "engines": {
-    "node": ">= 0.12.0"
+    "node": ">= 0.10.0"
   },
   "author": "Tim Evans <tim.c.evans@me.com>",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
-    "ember-ajax": "0.7.1",
-    "ember-cli": "2.5.0",
+    "ember-cli": "2.8.0",
     "ember-cli-app-version": "^1.0.0",
+    "ember-cli-code-coverage": "0.3.3",
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-eslint": "^1.3.0",
     "ember-cli-htmlbars-inline-precompile": "^0.3.5",
     "ember-cli-inject-live-reload": "^1.4.0",
-    "ember-cli-qunit": "^1.4.0",
-    "ember-cli-release": "0.2.8",
-    "ember-cli-sri": "^2.1.0",
+    "ember-cli-qunit": "^2.1.0",
+    "ember-cli-release": "0.2.9",
+    "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-inline-svg": "0.1.5",
