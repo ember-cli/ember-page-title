@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
-const { get, set, guidFor, merge } = Ember;
+const { get, set, guidFor, merge, getOwner } = Ember;
 
 function updateTitle(tokens) {
-  set(this, 'headData.title', tokens.toString());
+  set(this, 'title', tokens.toString());
 }
 
 export default Ember.Helper.extend({
@@ -22,7 +22,7 @@ export default Ember.Helper.extend({
     hash.id = guidFor(this);
     hash.title = params.join('');
     tokens.push(hash);
-    Ember.run.scheduleOnce('afterRender', this, updateTitle, tokens);
+    Ember.run.scheduleOnce('afterRender', get(this, 'headData'), updateTitle, tokens);
     return '';
   },
 
@@ -30,6 +30,16 @@ export default Ember.Helper.extend({
     let tokens = get(this, 'pageTitleList');
     let id = guidFor(this);
     tokens.remove(id);
-    Ember.run.scheduleOnce('afterRender', this, updateTitle, tokens);
+
+    let activeTransition = getOwner(this).lookup('router:main').router.activeTransition;
+    let headData = get(this, 'headData');
+    if (activeTransition) {
+      activeTransition.promise.finally(function () {
+        if (headData.isDestroyed) { return; }
+        Ember.run.scheduleOnce('afterRender', headData, updateTitle, tokens);
+      });
+    } else {
+      Ember.run.scheduleOnce('afterRender', headData, updateTitle, tokens);
+    }
   }
 });
