@@ -17,7 +17,7 @@ module('Acceptance: title', {
 // Testem appends progress to the title...
 // and there's no way to stop this at the moment
 function title() {
-  return findWithAssert('title', 'head').text().trim().replace(/^\(\d\/\d\)/, '');
+  return findWithAssert('title', 'head').text().trim().replace(/^\(\d+\/\d+\)/, '');
 }
 
 test('the default configuration works', async function (assert) {
