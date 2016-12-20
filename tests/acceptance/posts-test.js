@@ -20,74 +20,58 @@ function title() {
   return findWithAssert('title', 'head').text().trim().replace(/^\(\d\/\d\)/, '');
 }
 
-test('the default configuration works', function(assert) {
+test('the default configuration works', async function (assert) {
   assert.expect(1);
-  visit('/posts');
+  await visit('/posts');
 
-  andThen(function() {
-    assert.equal(title(), 'My App | Posts');
-  });
+  assert.equal(title(), 'My App | Posts');
 });
 
-test('the replace attribute works', function(assert) {
+test('the replace attribute works', async function (assert) {
   assert.expect(1);
-  visit('/about');
+  await visit('/about');
 
-  andThen(function() {
-    assert.equal(title(), 'About My App');
-  });
+  assert.equal(title(), 'About My App');
 });
 
-test('custom separators work', function(assert) {
+test('custom separators work', async function (assert) {
   assert.expect(1);
-  visit('/about/authors');
+  await visit('/about/authors');
 
-  andThen(function() {
-    assert.equal(title(), 'About My App > Authors');
-  });
+  assert.equal(title(), 'About My App > Authors');
 });
 
-test('custom separators are inherited', function(assert) {
+test('custom separators are inherited', async function (assert) {
   assert.expect(1);
-  visit('/about/authors/profile');
+  await visit('/about/authors/profile');
 
-  andThen(function() {
-    assert.equal(title(), 'About My App > Authors > Profile');
-  });
+  assert.equal(title(), 'About My App > Authors > Profile');
 });
 
-test('multiple components in a row work', function(assert) {
+test('multiple components in a row work', async function (assert) {
   assert.expect(1);
-  visit('/posts/rails-is-omakase');
+  await visit('/posts/rails-is-omakase');
 
-  andThen(function() {
-    assert.equal(title(), 'My App | Posts | Rails is Omakase');
-  });
+  assert.equal(title(), 'My App | Posts | Rails is Omakase');
 });
 
-test('the prepend declaration works', function(assert) {
+test('the prepend declaration works', async function (assert) {
   assert.expect(1);
-  visit('/authors/tomster');
+  await visit('/authors/tomster');
 
-  andThen(function() {
-    assert.equal(title(), 'My App | Tomster < Authors');
-  });
+  assert.equal(title(), 'My App | Tomster < Authors');
 });
 
-test('replace nested in prepends work', function(assert) {
+test('replace nested in prepends work', async function (assert) {
   assert.expect(1);
-  visit('/hollywood');
+  await visit('/hollywood');
 
-  andThen(function() {
-    assert.equal(title(), 'Hollywood ★ Stars everywhere');
-  });
+  assert.equal(title(), 'Hollywood ★ Stars everywhere');
 });
 
-test('multitoken titles work', function(assert) {
+test('multitoken titles work', async function (assert) {
   assert.expect(1);
-  visit('/feeds/tomster');
+  await visit('/feeds/tomster');
 
-  andThen(function() {
-    assert.equal(title(), 'Tomster (@tomster)');
-  });
+  assert.equal(title(), 'Tomster (@tomster)');
 });
