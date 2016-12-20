@@ -75,3 +75,18 @@ test('multitoken titles work', async function (assert) {
 
   assert.equal(title(), 'Tomster (@tomster)');
 });
+
+test('loading substates are not shown', async function (assert) {
+  assert.expect(4);
+  await visit('/feeds/tomster');
+  assert.equal(title(), 'Tomster (@tomster)');
+
+  await click('#zoey');
+  assert.equal(title(), 'Zoey (@zoey)');
+
+  let promise = click('#tomster');
+  assert.equal(title(), 'Zoey (@zoey)');
+
+  await promise;
+  assert.equal(title(), 'Tomster (@tomster)');
+});
