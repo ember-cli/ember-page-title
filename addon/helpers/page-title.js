@@ -31,7 +31,7 @@ export default Ember.Helper.extend({
     let id = guidFor(this);
     tokens.remove(id);
 
-    let activeTransition = getOwner(this).lookup('router:main').router.activeTransition;
+    let activeTransition = getOwner(this).lookup('router:main').get('router.activeTransition');
     let headData = get(this, 'headData');
     if (activeTransition) {
       activeTransition.promise.finally(function () {
