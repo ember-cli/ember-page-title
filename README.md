@@ -22,7 +22,7 @@ As of v3.0.0 this addon maintains the page title by using the `<title>` tag in y
 
 Non-fastboot apps should keep the `<title>` tag in your index.html to ensure that the initial page served is valid HTML. The title will be replaced when your app boots.
 
-Fastboot-only apps can safely remove the `<title>` tag if desired.
+Fastboot apps MUST remove the `<title>` tag from index.html.
 
 ### Digging in
 
