@@ -5,6 +5,9 @@ export default {
   initialize() {
     // Remove <title> tags from the initial index.html page, so they can be correctly replaced
     // and managed by ember-cli-head.
-    Ember.$('title').remove();
+    let titles = document.getElementsByTagName('title');
+    for (let i = 0, len = titles.length; i < len; i++) {
+      titles[i].remove();
+    }
   },
 };
