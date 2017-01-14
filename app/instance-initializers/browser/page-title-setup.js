@@ -1,13 +1,15 @@
 import Ember from 'ember';
 
 export default {
-  name: 'page-title-setup',
+  name: 'page-title-setup-browser',
+  before: 'head-browser',
   initialize() {
     // Remove <title> tags from the initial index.html page, so they can be correctly replaced
     // and managed by ember-cli-head.
     let titles = document.getElementsByTagName('title');
-    for (let i = 0, len = titles.length; i < len; i++) {
-      titles[i].remove();
+    for (let i = 0; i < titles.length; i++) {
+      let title = titles[i];
+      title.parentNode.removeChild(title);
     }
-  },
+  }
 };
