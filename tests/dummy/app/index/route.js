@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return {
       title: 'Blog',
       post: {
-        title: 'Learning Ember.js'
+        title: 'Ember.js'
       }
     };
   }

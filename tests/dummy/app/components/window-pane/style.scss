@@ -6,7 +6,7 @@
 
   header {
     position: relative;
-    background: #050505;
+    background: $black;
     text-align: center;
     height: 40px;
     padding: 0;
@@ -40,7 +40,7 @@
 
   & > div {
     min-height: 250px;
-    background: #333;
+    background: $black;
     color: #FFF;
     padding: 20px;
     overflow: auto;
@@ -50,7 +50,7 @@
     }
 
     code {
-      font-size: 16px;
+      font-size: 1.1em;
       display: block;
     }
 
@@ -65,7 +65,16 @@
 }
 
 @media (max-width: 525px) {
+  .window-pane {
+    font-size: 0.9rem;
+  }
   .window-pane.has-title .button {
     opacity: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .window-pane {
+    font-size: 0.8rem;
   }
 }
