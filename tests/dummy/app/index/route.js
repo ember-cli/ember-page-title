@@ -1,11 +1,11 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
-  model: function () {
+  model() {
     return {
-      title: 'Blërg',
+      title: 'Blog',
       post: {
-        title: 'In the kitchen'
+        title: 'Learning Ember.js'
       }
     };
   }

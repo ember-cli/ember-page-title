@@ -2,23 +2,65 @@
 @import 'colors';
 @import 'code';
 @import 'grid';
-@import 'routes/index';
-@import 'components/window';
-@import 'components/console-window';
-@import 'components/app-window';
-@import 'components/app-layer';
+
+@import 'pod-styles';
+
+* {
+  box-sizing: border-box;
+}
 
 html, body {
   margin: 0;
   padding: 0;
-  font-family: Lato, Helvetica, 'Helvetica Neue', Arial;
+  font-family: OfficeCodePro, Consolas, Inconsolata, monspace;
   background: linear-gradient(#FFFFFF, #FFFFFF 50%, $primary-color 50%, $primary-color);
+}
+
+input[type=text],
+input[type=date],
+input[type=datetime-local],
+input[type=email],
+input[type=tel],
+input[type=password],
+input[type=number],
+input[type=url],
+textarea {
+  height: 40px;
+  border: 2px solid $black;
+  font-size: 1rem;
+  padding: 0 0.5em;
+  font-family: OfficeCodePro, Consolas, Inconsolata, monspace;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  max-width: 100%;
+  transition: box-shadow 120ms;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+      -ms-appearance: textfield;
+          appearance: textfield;
+
+  background: $transparent;
+  box-shadow: none;
+  &:hover {
+    box-shadow: 0 0 0 3px rgba($black, 0.1);
+  }
+
+  &:focus, &:active {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($black, 0.25);
+  }
+}
+
+.info {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 2em;
 }
 
 header {
   background: $primary-color;
   color: #FFF;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   padding: 20px 50px;
 
   h1 {
@@ -100,10 +142,10 @@ pre, pre.hljs {
 }
 
 ::selection {
-  background: #AD9FCF;
+  background: #DEDDED;
 }
 ::-moz-selection {
-  background: #AD9FCF;
+  background: #DEDDED;
 }
 
 @media screen and (max-width: 550px) {

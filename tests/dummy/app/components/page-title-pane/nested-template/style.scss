@@ -1,0 +1,25 @@
+.nested-template {
+  padding: 20px;
+  min-height: 224px;
+  background: #333;
+  border: 1px solid #555;
+  transition: all 120ms ease-in;
+  cursor: pointer;
+
+  code {
+    padding-bottom: 20px;
+  }
+
+  &.active {
+    transform: scale(1.05);
+    border: 1px solid $white;
+    box-shadow: 0 3px 5px #010101;
+  }
+
+  & .nested-template {
+    min-height: 142px;
+    & .nested-template {
+      min-height: 50px;
+    }
+  }
+}
