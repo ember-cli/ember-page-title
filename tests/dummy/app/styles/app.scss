@@ -55,7 +55,7 @@ textarea {
 .info {
   max-width: 500px;
   margin: 0 auto;
-  padding-bottom: 2em;
+  padding-bottom: 1.5em;
 }
 
 header {
@@ -100,14 +100,9 @@ header {
   }
 }
 
-section {
-  max-width: 80%;
-  margin: 0 auto;
-
-  & > h2 {
-    padding: 30px 0;
-    margin: 40px 0;
-  }
+section > h2 {
+  padding: 30px 0;
+  margin: 40px 0;
 }
 
 main {
