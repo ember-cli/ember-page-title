@@ -69,8 +69,9 @@ Contributors are welcome! Please provide a reproducible test case. Details will 
 
 ### Publishing Documentation
 
-To publish documentation (under the tests/dummy directory) run the following command:
+To publish documentation, run the following command:
 
 ```bash
-npm run-script publish-docs
+ember github-pages:commit --message "update documentation"
+git push origin gh-pages:gh-pages
 ```
