@@ -5,6 +5,7 @@
   border: 1px solid #333;
   transition: all 120ms ease-in;
   cursor: pointer;
+  -webkit-touch-callout: default;
 
   code {
     padding-bottom: 20px;

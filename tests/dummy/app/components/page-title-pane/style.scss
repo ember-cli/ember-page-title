@@ -1,6 +1,8 @@
 .window-pane {
   line-height: 20px;
   vertical-align: middle;
+  -webkit-touch-callout: none;
+
   .title-token {
     display: inline-block;
     cursor: pointer;
