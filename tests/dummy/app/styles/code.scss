@@ -2,6 +2,17 @@ code {
   font-family: OfficeCodePro;
   font-size: 15px;
 
+  .text-field, .boolean-field {
+    display: inline-block;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    input {
+      max-width: initial;
+      border-radius: 4px;
+      height: 24px;
+    }
+  }
+
   &.inline {
     border: 1px solid #DDD;
     border-radius: 4px;
@@ -10,18 +21,18 @@ code {
   }
 
   .helper {
-    color: $green;
+    &, input { color: $green; }
   }
 
   .string {
-    color: $red;
+    &, input { color: $red; }
   }
 
   .literal {
-    color: $blue;
+    &, input { color: $blue; }
   }
 
   .attribute {
-    color: $pink;
+    &, input { color: $pink; }
   }
 }

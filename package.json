@@ -19,6 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
+    "ember-autoresize": "0.5.22",
     "ember-cli": "2.8.0",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-code-coverage": "0.3.11",
@@ -47,6 +48,7 @@
     "ember-cli-babel": "^5.1.9"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "http://tim-evans.github.io/ember-page-title/"
   }
 }

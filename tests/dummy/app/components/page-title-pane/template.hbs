@@ -9,6 +9,8 @@
     {{/each}}
   </header>
   <div>
-    {{yield (hash template=(component 'page-title-pane/nested-template' titleList=titleList onactivate=(action 'highlight')))}}
+    {{yield (hash
+      template=(component 'page-title-pane/nested-template' titleList=titleList onactivate=(action 'highlight'))
+      matryoshka=(component 'page-title-pane/matryoshka' titleList=titleList onactivate=(action 'highlight')))}}
   </div>
 </div>

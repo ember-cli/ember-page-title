@@ -1,0 +1,8 @@
+{{#page-title-pane/nested-template title=item.value replace=item.replace prepend=item.prepend separator=item.separator onactivate=onactivate titleList=titleList}}
+  {{yield item}}
+  {{#if nextItems.length}}
+    {{#page-title-pane/matryoshka componentName items=nextItems onactivate=onactivate titleList=titleList as |value|}}
+      {{yield value}}
+    {{/page-title-pane/matryoshka}}
+  {{/if}}
+{{/page-title-pane/nested-template}}

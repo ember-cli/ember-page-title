@@ -1,12 +1,8 @@
-{{title "ember-page-title" replace=true}}
-{{#if model.title}}
-  {{title model.title}}
-{{/if}}
-
 <div id='index'>
   <header>
     <h1>{{inline-svg 'icon'}} ember-page-title</h1><nav>
       <a href="#usage">Usage</a>
+      <a href="#playground">Playground</a>
       <a href="https://github.com/tim-evans/ember-page-title" target="__blank">GitHub</a>
     </nav>
   </header>
@@ -24,6 +20,23 @@
           <span class="ps1">&gt; </span>ember install ember-page-title
         {{/window-pane}}
       </div>
+    </section>
+
+    <section id="playground">
+      <h2>Playground</h2>
+      {{#page-title-pane as |p|}}
+        {{#p.matryoshka items=model.tokens as |token|}}
+          <code>
+            {{title token.value replace=token.replace prepend=token.prepend separator=token.separator}}
+            \{{<span class="helper">title</span> "{{text-field class='string' value=token.value onchange=(action (mut token.value)) autoresize=true}}"
+            <span class="literal">separator</span>="{{text-field class='string' value=token.separator onchange=(action (mut token.separator)) autoresize=true}}"
+            <span class="literal">prepend</span>={{boolean-field class='attribute' value=token.prepend onchange=(action (mut token.prepend))}}
+            <span class="literal">replace</span>={{boolean-field class='attribute' value=token.replace onchange=(action (mut token.replace))~}} }}
+          </code>
+        {{/p.matryoshka}}
+
+        <button onclick={{action 'add' model.tokens}}>Add title</button>
+      {{/page-title-pane}}
     </section>
 
     <section id="usage">

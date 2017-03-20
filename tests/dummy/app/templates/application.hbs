@@ -1,2 +1,4 @@
-{{title "My App"}}
+{{#unless (equals currentRouteName 'index')}}
+  {{title "My App"}}
+{{/unless}}
 {{outlet}}
