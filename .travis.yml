@@ -1,20 +1,22 @@
 ---
 language: node_js
 node_js:
-  - "4"
+  - "6"
 
 sudo: false
 
 cache:
-  directories:
-    - node_modules
+  yarn: true
 
 env:
   matrix:
-  - EMBER_TRY_SCENARIO=default
+  # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
+  - EMBER_TRY_SCENARIO=ember-lts-2.4
+  - EMBER_TRY_SCENARIO=ember-lts-2.8
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
+  - EMBER_TRY_SCENARIO=ember-default
   global:
     secure: cjxDeoRDshlsU+glCBKUSxgp1yX2XkZXXza69jzZnQr3qdiQaD/eGhucUoo/zHiKbD1NKV0ahjTpuRAHNoZhI1EFkMFg17HF1vJj9tL6IKUChh/HuxdYIqihbmI7dP5Czl+2jZrEHqfTBkffj+Ys0MZ6NOKesA2k6DByhU0Y6ks=
 
@@ -24,19 +26,17 @@ matrix:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - bower --version
-  - npm install phantomjs-prebuilt
-  - node_modules/phantomjs-prebuilt/bin/phantomjs --version
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+  - yarn global add phantomjs-prebuilt
+  - phantomjs --version
   - npm install -g codeclimate-test-reporter
 
 install:
-  - npm install
-  - bower install
+  - yarn install --no-lockfile
 
 script:
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
-  - COVERAGE=true ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
+  - COVERAGE=true node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
   - codeclimate-test-reporter < coverage/lcov.info

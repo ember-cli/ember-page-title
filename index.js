@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* eslint-env node */
 'use strict';
 
 var TranslateHelperName = require('./lib/plugins/translate-helper-name');
