@@ -33,7 +33,7 @@ export default Ember.Helper.extend({
 
     let router = getOwner(this).lookup('router:main');
     let routes = router._routerMicrolib || router.router;
-    let { activeTransition } = routes;
+    let { activeTransition } = routes || {};
     let headData = get(this, 'headData');
     if (activeTransition) {
       activeTransition.promise.finally(function () {
