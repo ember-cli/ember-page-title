@@ -1,6 +1,6 @@
 {
   "name": "ember-page-title",
-  "version": "3.2.0",
+  "version": "3.2.2",
   "description": "{{title}} for Ember applications",
   "keywords": [
     "ember-addon"
@@ -18,14 +18,14 @@
   },
   "dependencies": {
     "ember-cli-htmlbars": "^2.0.1",
-    "ember-cli-head": "^0.2.1",
+    "ember-cli-head": "^0.3.1",
     "ember-cli-babel": "^6.0.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
     "ember-autoresize": "0.6.0",
     "ember-cli": "2.13.3",
-    "ember-cli-code-coverage": "0.3.12",
+    "ember-cli-code-coverage": "0.4.1",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.0.0",
     "ember-cli-github-pages": "0.1.2",
