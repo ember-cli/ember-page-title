@@ -6,6 +6,12 @@ function updateTitle(tokens) {
   set(this, 'title', tokens.toString());
 }
 
+/**
+  `{{page-title}}` is used to communicate with
+
+  @public
+  @method page-title
+ */
 export default Ember.Helper.extend({
   pageTitleList: Ember.inject.service(),
   headData: Ember.inject.service(),

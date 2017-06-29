@@ -2,6 +2,10 @@ import Ember from 'ember';
 
 const { get, set, copy } = Ember;
 
+/**
+  @class page-title-list
+  @extends Ember.Service
+ */
 export default Ember.Service.extend({
 
   init() {
@@ -10,8 +14,28 @@ export default Ember.Service.extend({
     set(this, 'length', 0);
   },
 
+  /**
+    The default separator to use between tokens.
+
+    @property defaultSeparator
+    @default ' | '
+   */
   defaultSeparator: ' | ',
+
+  /**
+    The default prepend value to use.
+
+    @property defaultPrepend
+    @default null
+   */
   defaultPrepend: null,
+
+  /**
+    The default replace value to use.
+
+    @property defaultReplace
+    @default null
+   */
   defaultReplace: null,
   tokens: [],
 
