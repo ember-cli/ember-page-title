@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   model() {
     return {
       tokens: [{
-        value: 'ember-cli-page-title',
+        value: 'ember-page-title',
         separator: ' | '
       }],
       title: 'Blog',
