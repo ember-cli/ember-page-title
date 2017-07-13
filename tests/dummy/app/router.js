@@ -18,7 +18,9 @@ Router.map(function() {
   this.route('hollywood', { path: '/hollywood' });
   this.route('feed', { path: '/feeds/:name' });
 
-  this.mount('addon-docs', { path: '/docs' });
+  if (this.mount) {
+    this.mount('addon-docs', { path: '/docs' });
+  }
 });
 
 export default Router;
