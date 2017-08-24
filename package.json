@@ -38,12 +38,14 @@
     "ember-cli-shims": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-disable-prototype-extensions": "^1.1.0",
-    "ember-engines": "^0.5.12",
     "ember-inline-svg": "0.1.11",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.1.0",
     "ember-source": "~2.13.0",
     "loader.js": "^4.2.3"
+  },
+  "optionalDependencies": {
+    "ember-engines": "^0.5.12",
   },
   "engines": {
     "node": ">= 4"
