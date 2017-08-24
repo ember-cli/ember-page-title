@@ -22,7 +22,6 @@
     "ember-cli-babel": "^6.0.0"
   },
   "devDependencies": {
-    "addon-docs": "tim-evans/addon-docs",
     "broccoli-asset-rev": "^2.4.5",
     "ember-autoresize": "0.6.0",
     "ember-cli": "2.13.2",
@@ -45,6 +44,7 @@
     "loader.js": "^4.2.3"
   },
   "optionalDependencies": {
+    "addon-docs": "tim-evans/addon-docs",
     "ember-engines": "^0.5.12"
   },
   "engines": {
