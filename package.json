@@ -45,7 +45,7 @@
     "loader.js": "^4.2.3"
   },
   "optionalDependencies": {
-    "ember-engines": "^0.5.12",
+    "ember-engines": "^0.5.12"
   },
   "engines": {
     "node": ">= 4"
