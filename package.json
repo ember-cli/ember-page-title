@@ -40,7 +40,7 @@
     "ember-inline-svg": "0.1.11",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.1.0",
-    "ember-source": "~2.15.0",
+    "ember-source": "~2.16.0",
     "loader.js": "^4.2.3"
   },
   "optionalDependencies": {
