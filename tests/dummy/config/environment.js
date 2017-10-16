@@ -1,9 +1,9 @@
 /* eslint-disable */
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'dummy',
-    environment: environment,
+    environment,
     rootURL: '/ember-page-title/',
     locationType: 'auto',
     EmberENV: {

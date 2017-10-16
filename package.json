@@ -19,24 +19,41 @@
   "dependencies": {
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-head": "^0.3.1",
+<<<<<<< HEAD
     "ember-cli-babel": "^6.7.1"
+=======
+    "ember-cli-babel": "^6.6.0"
+>>>>>>> upgrade to Ember 2.16.2
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
     "ember-autoresize": "0.6.0",
+<<<<<<< HEAD
     "ember-cli": "2.15.1",
+=======
+    "ember-cli": "2.16.2",
+>>>>>>> upgrade to Ember 2.16.2
     "ember-cli-code-coverage": "0.4.1",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.0.0",
     "ember-cli-github-pages": "0.1.2",
+<<<<<<< HEAD
     "ember-cli-htmlbars-inline-precompile": "^1.0.2",
+=======
+    "ember-cli-htmlbars-inline-precompile": "^1.0.0",
+>>>>>>> upgrade to Ember 2.16.2
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-qunit": "^4.0.0",
     "ember-cli-release": "0.2.9",
     "ember-cli-sass": "7.0.0",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-uglify": "^2.0.0",
+<<<<<<< HEAD
     "ember-disable-prototype-extensions": "^1.1.0",
+=======
+    "ember-disable-prototype-extensions": "^1.1.2",
+    "ember-engines": "^0.5.8",
+>>>>>>> upgrade to Ember 2.16.2
     "ember-inline-svg": "0.1.11",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.1.0",
@@ -48,7 +65,7 @@
     "ember-engines": "^0.5.12"
   },
   "engines": {
-    "node": ">= 4"
+    "node": "^4.5 || 6.* || >= 7.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",

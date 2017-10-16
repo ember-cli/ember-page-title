@@ -1,25 +1,35 @@
 ---
 language: node_js
 node_js:
-  - "6"
+  # we recommend testing addons with the same minimum supported node version as Ember CLI
+  # so that your addon works for all apps
+  - "4"
 
 sudo: false
+dist: trusty
+
+addons:
+  chrome: stable
+  code_climate:
+    repo_token: f1b6bcc83789c103f7822eb2ec34bbdc34be1b36bdc66bc6de53c26ed1a14e27
 
 cache:
   directories:
     - $HOME/.npm
 
 env:
-  matrix:
-  # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
-  - EMBER_TRY_SCENARIO=ember-lts-2.4
-  - EMBER_TRY_SCENARIO=ember-lts-2.8
-  - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
-  - EMBER_TRY_SCENARIO=ember-default
   global:
-    secure: cjxDeoRDshlsU+glCBKUSxgp1yX2XkZXXza69jzZnQr3qdiQaD/eGhucUoo/zHiKbD1NKV0ahjTpuRAHNoZhI1EFkMFg17HF1vJj9tL6IKUChh/HuxdYIqihbmI7dP5Czl+2jZrEHqfTBkffj+Ys0MZ6NOKesA2k6DByhU0Y6ks=
+    # See https://git.io/vdao3 for details.
+    - JOBS=1
+  matrix:
+    # we recommend new addons test the current and previous LTS
+    # as well as latest stable release (bonus points to beta/canary)
+    - EMBER_TRY_SCENARIO=ember-lts-2.8
+    - EMBER_TRY_SCENARIO=ember-lts-2.12
+    - EMBER_TRY_SCENARIO=ember-release
+    - EMBER_TRY_SCENARIO=ember-beta
+    - EMBER_TRY_SCENARIO=ember-canary
+    - EMBER_TRY_SCENARIO=ember-default
 
 matrix:
   fast_finish: true
@@ -28,12 +38,10 @@ matrix:
 
 before_install:
   - npm config set spin false
-  - npm install -g phantomjs-prebuilt
-  - phantomjs --version
-  - npm install -g codeclimate-test-reporter
 
 install:
-  - npm install --no-optional
+  - npm install -g npm@4
+  - npm --version
 
 script:
   # Usually, it's ok to finish the test scenario without reverting

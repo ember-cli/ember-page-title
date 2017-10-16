@@ -1,5 +1,3 @@
-import Ember from 'ember';
-
 export default {
   name: 'page-title-setup-browser',
   before: 'head-browser',
