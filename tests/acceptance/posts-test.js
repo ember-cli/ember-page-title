@@ -5,11 +5,11 @@ import startApp from '../helpers/start-app';
 var application;
 
 module('Acceptance: title', {
-  beforeEach: function() {
+  beforeEach() {
     application = startApp();
   },
 
-  afterEach: function() {
+  afterEach() {
     Ember.run(application, 'destroy');
   }
 });
