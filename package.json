@@ -43,10 +43,6 @@
     "ember-source": "~2.16.0",
     "loader.js": "^4.2.3"
   },
-  "optionalDependencies": {
-    "addon-docs": "tim-evans/addon-docs",
-    "ember-engines": "^0.5.12"
-  },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
   },
