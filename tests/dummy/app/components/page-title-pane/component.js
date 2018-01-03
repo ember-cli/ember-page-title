@@ -1,6 +1,13 @@
 import Ember from 'ember';
 import PageTitleList from 'ember-page-title/services/page-title-list';
 
+let TitleList = PageTitleList.extend({
+  _removeExistingTitleTag() {
+    return;
+  }
+});
+
+
 const { get, set, computed } = Ember;
 
 export default Ember.Component.extend({
@@ -9,7 +16,7 @@ export default Ember.Component.extend({
 
   titleList: computed({
     get() {
-      return PageTitleList.create();
+      return TitleList.create();
     }
   }),
 
