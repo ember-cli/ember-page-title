@@ -193,7 +193,7 @@ export default Ember.Service.extend({
    * @private
    */
   _removeExistingTitleTag() {
-    if (this._isFastboot()) {
+    if (this._hasFastboot()) {
       return;
     }
 
@@ -204,8 +204,7 @@ export default Ember.Service.extend({
     }
   },
 
-  _isFastboot() {
-    return typeof FastBoot !== 'undefined';
+  _hasFastboot() {
+    return !!Ember.getOwner(this).lookup('service:fastboot');
   }
-
 });
