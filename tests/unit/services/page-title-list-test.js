@@ -1,24 +1,24 @@
-/* global QUnit */
-import TokenList from "ember-page-title/services/page-title-list";
 import {
+  moduleFor,
   test
 } from 'ember-qunit';
 
-QUnit.module('PageTitleList');
+moduleFor('service:page-title-list', {
+  unit: true
+});
 
 test('the list has no tokens by default', function (assert) {
-  let list = TokenList.create();
-  assert.equal(list.length, 0);
+  assert.equal(this.subject().length, 0);
 });
 
 test('calling `push` adds a token to the end of the list', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   list.push({ id: 1});
   assert.equal(list.length, 1);
 });
 
 test('tokens have next and previous tokens', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1 };
   let second = { id: 2 };
   let third = { id: 3 };
@@ -40,7 +40,7 @@ test('tokens have next and previous tokens', function (assert) {
 });
 
 test('removing a token closes the hole in the list', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1 };
   let second = { id: 2 };
   let third = { id: 3 };
@@ -62,7 +62,7 @@ test('removing a token closes the hole in the list', function (assert) {
 });
 
 test('the separator property is inherited by the previous token', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1, separator: 'a' };
   let second = { id: 2 };
 
@@ -74,7 +74,7 @@ test('the separator property is inherited by the previous token', function (asse
 });
 
 test('the separator property is not inherited if explicitly set', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1, separator: 'a' };
   let second = { id: 2, separator: 'b' };
 
@@ -86,7 +86,7 @@ test('the separator property is not inherited if explicitly set', function (asse
 });
 
 test('the prepend property is inherited by the previous token', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1, prepend: true };
   let second = { id: 2 };
 
@@ -98,7 +98,7 @@ test('the prepend property is inherited by the previous token', function (assert
 });
 
 test('the prepend property is not inherited if explicitly set', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1, prepend: true };
   let second = { id: 2, prepend: false };
 
@@ -110,7 +110,7 @@ test('the prepend property is not inherited if explicitly set', function (assert
 });
 
 test('if the replace attribute is set, all previous tokens are hidden', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1 };
   let second = { id: 2 };
   let third = { id: 3, replace: true };
@@ -125,7 +125,7 @@ test('if the replace attribute is set, all previous tokens are hidden', function
 });
 
 test('any additional tokens added after replace are not hidden', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1 };
   let second = { id: 2, replace: true };
   let third = { id: 3 };
@@ -141,7 +141,7 @@ test('any additional tokens added after replace are not hidden', function (asser
 });
 
 test('removing a token with replace: true will set all previous tokens to be visible', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1 };
   let second = { id: 2, replace: true };
   let third = { id: 3 };
@@ -158,7 +158,7 @@ test('removing a token with replace: true will set all previous tokens to be vis
 });
 
 test('removing a token with replace: true will only set previous tokens up to the last replace: true to visible', function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1 };
   let second = { id: 2, replace: true };
   let third = { id: 3, replace: true };
@@ -174,7 +174,7 @@ test('removing a token with replace: true will only set previous tokens up to th
 });
 
 test("null tokens aren't displayed as a string", function (assert) {
-  let list = TokenList.create();
+  let list = this.subject();
   let first = { id: 1, title: '1' };
   let second = { id: 2, title: null };
   let third = { id: 3, title: '3' };
