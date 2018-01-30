@@ -36,7 +36,7 @@ This file is added automatically if you use `ember install`. This is for all the
 
 | attribute | type    | default |
 |-----------|:--------|:--------|
-| separator | string  | `" | "` |
+| separator | string  | `" \| "` |
 | prepend   | boolean | false   |
 | replace   | boolean | false   |
 
