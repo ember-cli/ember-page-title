@@ -57,6 +57,10 @@ module.exports = function(environment) {
 };
 ```
 
+### upgrading notes for 3.x to 4.x
+From 4.x onward, you need to have `{{head-layout}}` within your application's `application.hbs` template. Without this, you will not see a page title appear.
+See [the 4.0.0 release notes](https://github.com/tim-evans/ember-page-title/releases/tag/4.0.0) for more detail.
+
 # Contributing
 
 Contributors are welcome! Please provide a reproducible test case. Details will be worked out on a case-per-case basis. Maintainers will get in touch when they can, so delays are possible. For contribution guidelines, see the [code of conduct](https://github.com/tim-evans/ember-plupload/blob/master/CONDUCT.md).
