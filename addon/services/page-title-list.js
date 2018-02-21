@@ -195,7 +195,7 @@ export default Service.extend({
    * @private
    */
   _removeExistingTitleTag() {
-    if (this._hasFastboot() || this._hasBooted()) {
+    if (this._hasFastboot()) {
       return;
     }
 
@@ -208,12 +208,5 @@ export default Service.extend({
 
   _hasFastboot() {
     return !!getOwner(this).lookup('service:fastboot');
-  },
-
-  _hasBooted() {
-    let application = getOwner(this).application;
-    let isBooted = application._emberPageTitleInitialized;
-    application._emberPageTitleInitialized = true;
-    return isBooted;
   }
 });
