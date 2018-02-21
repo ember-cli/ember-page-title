@@ -6,14 +6,7 @@ import config from './config/environment';
 const App = Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
-  Resolver,
-  engines: {
-    addonDocs: {
-      dependencies: {
-        services: ['config']
-      }
-    }
-  }
+  Resolver
 });
 
 loadInitializers(App, config.modulePrefix);

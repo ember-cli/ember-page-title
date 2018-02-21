@@ -10,8 +10,6 @@ dist: trusty
 
 addons:
   chrome: stable
-  code_climate:
-    repo_token: f1b6bcc83789c103f7822eb2ec34bbdc34be1b36bdc66bc6de53c26ed1a14e27
 
 cache:
   directories:
@@ -21,10 +19,13 @@ env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
+    - CC_TEST_REPORTER_ID=f1b6bcc83789c103f7822eb2ec34bbdc34be1b36bdc66bc6de53c26ed1a14e27
   matrix:
     # we recommend new addons test the current and previous LTS
     # as well as latest stable release (bonus points to beta/canary)
     - EMBER_TRY_SCENARIO=ember-lts-2.12
+    - EMBER_TRY_SCENARIO=ember-lts-2.16
+    - EMBER_TRY_SCENARIO=ember-lts-2.18
     - EMBER_TRY_SCENARIO=ember-release
     - EMBER_TRY_SCENARIO=ember-beta
     - EMBER_TRY_SCENARIO=ember-canary
@@ -35,7 +36,16 @@ matrix:
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 script:
+  - npm run lint:js
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
-  - ./node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
+  - COVERAGE=true node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
