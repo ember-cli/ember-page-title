@@ -2,6 +2,7 @@ import {
   moduleFor,
   test
 } from 'ember-qunit';
+import TokenList from "ember-page-title/services/page-title-list";
 
 moduleFor('service:page-title-list', {
   unit: true

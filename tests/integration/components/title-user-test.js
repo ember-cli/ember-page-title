@@ -1,11 +1,13 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('title-user', 'Integration | Component | title user', {
-  integration: true
-});
+module('Integration | Component | title user', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders without causing failures down the line', function(assert) {
-  this.render(hbs`{{title-user}}`);
-  assert.equal(this.$().text().trim(), '');
+  test('it renders without causing failures down the line', async function(assert) {
+    await render(hbs`{{title-user}}`);
+    assert.equal(this.$().text().trim(), '');
+  });
 });
