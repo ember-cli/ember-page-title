@@ -39,7 +39,7 @@ export default Service.extend({
     @default null
    */
   defaultReplace: null,
-  tokens: [],
+  tokens: null,
 
   applyTokenDefaults(token) {
     let defaultSeparator = get(this, "defaultSeparator");
