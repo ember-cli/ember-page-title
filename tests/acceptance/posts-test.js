@@ -1,23 +1,15 @@
-import { click, visit } from '@ember/test-helpers';
-import { run } from '@ember/runloop';
+import { click, find, waitUntil, visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
-import startApp from '../helpers/start-app';
-
-var application;
+import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance: title', function(hooks) {
-  hooks.beforeEach(function() {
-    application = startApp();
-  });
-
-  hooks.afterEach(function() {
-    run(application, 'destroy');
-  });
+  setupApplicationTest(hooks);
 
   // Testem appends progress to the title...
   // and there's no way to stop this at the moment
   function title() {
-    return findWithAssert('title', 'head').text().trim().replace(/^\(\d+\/\d+\)/, '');
+    let element = document.querySelector('head title');
+    return element && element.innerText.trim().replace(/^\(\d+\/\d+\)/, '');
   }
 
   test('the default configuration works', async function (assert) {
@@ -82,12 +74,17 @@ module('Acceptance: title', function(hooks) {
     assert.equal(title(), 'Tomster (@tomster)');
 
     await click('#zoey');
+    await waitUntil(() => {
+      return find('div').innerText !== 'Loading...';
+    });
     assert.equal(title(), 'Zoey (@zoey)');
 
-    let promise = await click('#tomster');
+    await click('#tomster');
     assert.equal(title(), 'Zoey (@zoey)');
 
-    await promise;
+    await waitUntil(() => {
+      return find('div').innerText !== 'Loading...';
+    });
     assert.equal(title(), 'Tomster (@tomster)');
   });
 });

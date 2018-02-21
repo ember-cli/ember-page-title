@@ -1,4 +1,5 @@
 import { A } from '@ember/array';
+import { getOwner } from '@ember/application';
 import Service from '@ember/service';
 import { set, get, computed } from '@ember/object';
 import { copy } from '@ember/object/internals';
@@ -194,7 +195,7 @@ export default Service.extend({
    * @private
    */
   _removeExistingTitleTag() {
-    if (this._hasFastboot()) {
+    if (this._hasFastboot() || this._hasBooted()) {
       return;
     }
 
@@ -206,6 +207,13 @@ export default Service.extend({
   },
 
   _hasFastboot() {
-    return !!Ember.getOwner(this).lookup('service:fastboot');
+    return !!getOwner(this).lookup('service:fastboot');
+  },
+
+  _hasBooted() {
+    let application = getOwner(this).application;
+    let isBooted = application._emberPageTitleInitialized;
+    application._emberPageTitleInitialized = true;
+    return isBooted;
   }
 });

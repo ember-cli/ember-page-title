@@ -1,6 +1,5 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import TokenList from "ember-page-title/services/page-title-list";
 
 module('service:page-title-list', function(hooks) {
   setupTest(hooks);
