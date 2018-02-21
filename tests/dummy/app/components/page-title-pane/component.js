@@ -1,4 +1,6 @@
-import Ember from 'ember';
+import { A } from '@ember/array';
+import Component from '@ember/component';
+import { computed, set, get } from '@ember/object';
 import PageTitleList from 'ember-page-title/services/page-title-list';
 
 let TitleList = PageTitleList.extend({
@@ -8,9 +10,7 @@ let TitleList = PageTitleList.extend({
 });
 
 
-const { get, set, computed } = Ember;
-
-export default Ember.Component.extend({
+export default Component.extend({
 
   tagName: '',
 
@@ -28,7 +28,7 @@ export default Ember.Component.extend({
 
   actions: {
     highlight(token) {
-      let sortedTokens = Ember.A(get(this, 'titleList.sortedTokens'));
+      let sortedTokens = A(get(this, 'titleList.sortedTokens'));
       let wasActive = token.active;
       get(this, 'titleList.tokens').setEach('active', false);
       sortedTokens.setEach('active', false);

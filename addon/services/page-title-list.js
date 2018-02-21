@@ -1,16 +1,17 @@
-import Ember from 'ember';
-
-const { get, set, copy } = Ember;
+import { A } from '@ember/array';
+import Service from '@ember/service';
+import { set, get, computed } from '@ember/object';
+import { copy } from '@ember/object/internals';
 
 /**
   @class page-title-list
   @extends Ember.Service
  */
-export default Ember.Service.extend({
+export default Service.extend({
 
   init() {
     this._super();
-    set(this, 'tokens', Ember.A());
+    set(this, 'tokens', A());
     set(this, 'length', 0);
     this._removeExistingTitleTag();
   },
@@ -83,7 +84,7 @@ export default Ember.Service.extend({
       this.applyTokenDefaults(token);
 
       tokens.splice(index, 1, token);
-      set(this, 'tokens', Ember.A(tokens));
+      set(this, 'tokens', A(tokens));
       return;
     }
 
@@ -98,7 +99,7 @@ export default Ember.Service.extend({
 
     let tokens = copy(this.tokens);
     tokens.push(token);
-    set(this, 'tokens', Ember.A(tokens));
+    set(this, 'tokens', A(tokens));
     set(this, 'length', get(this, 'length') + 1);
   },
 
@@ -116,13 +117,13 @@ export default Ember.Service.extend({
 
     token.previous = token.next = null;
 
-    let tokens = Ember.A(copy(this.tokens));
+    let tokens = A(copy(this.tokens));
     tokens.removeObject(token);
-    set(this, 'tokens', Ember.A(tokens));
+    set(this, 'tokens', A(tokens));
     set(this, 'length', get(this, 'length') - 1);
   },
 
-  visibleTokens: Ember.computed('tokens', {
+  visibleTokens: computed('tokens', {
     get() {
       let tokens = get(this, 'tokens');
       let i = (tokens ? tokens.length : 0);
@@ -140,12 +141,12 @@ export default Ember.Service.extend({
     }
   }),
 
-  sortedTokens: Ember.computed('visibleTokens', {
+  sortedTokens: computed('visibleTokens', {
     get() {
       let visible = get(this, 'visibleTokens');
       let appending = true;
       let group = [];
-      let groups = Ember.A([group]);
+      let groups = A([group]);
       visible.forEach((token) => {
         if (token.prepend) {
           if (appending) {

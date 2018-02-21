@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import { isEmpty } from '@ember/utils';
+import { later } from '@ember/runloop';
+import Component from '@ember/component';
+import { set, get, computed } from '@ember/object';
 import Autoresize from 'ember-autoresize/mixins/autoresize';
 import layout from './template';
-
-const { get, set } = Ember;
 
 /**
   A `{{text-field}}` is a drop in replacement
@@ -18,7 +19,7 @@ const { get, set } = Ember;
   @class TextField
   @extends Ember.Component
  */
-export default Ember.Component.extend(Autoresize, {
+export default Component.extend(Autoresize, {
   layout,
   classNames: ['text-field'],
 
@@ -51,7 +52,7 @@ export default Ember.Component.extend(Autoresize, {
 
   significantWhitespace: true,
 
-  autoResizeText: Ember.computed('value', {
+  autoResizeText: computed('value', {
     get() {
       return get(this, 'value') || '';
     }
@@ -59,9 +60,9 @@ export default Ember.Component.extend(Autoresize, {
 
   didInsertElement() {
     set(this, 'autoresizeElement', this.get('element').querySelector('input'));
-    Ember.run.later(this, function () {
+    later(this, function () {
       set(this, 'autoresizeElement', this.get('element').querySelector('input'));
-      Ember.run.later(this, 'measureSize', 100);
+      later(this, 'measureSize', 100);
     });
   },
 
@@ -74,7 +75,7 @@ export default Ember.Component.extend(Autoresize, {
   },
 
   _setValue(value) {
-    if (Ember.isEmpty(value) || value == null) {
+    if (isEmpty(value) || value == null) {
       get(this, 'onchange')(null);
     } else {
       get(this, 'onchange')(value);

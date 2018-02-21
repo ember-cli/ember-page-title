@@ -1,8 +1,7 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { set } from '@ember/object';
 
-const { set } = Ember;
-
-export default Ember.Controller.extend({
+export default Controller.extend({
   actions: {
     add(tokens) {
       let lastToken = tokens.slice(-1)[0];

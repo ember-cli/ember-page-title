@@ -1,9 +1,8 @@
-import Ember from "ember";
+import Route from '@ember/routing/route';
+import { later } from '@ember/runloop';
+import RSVP from 'rsvp';
 
-const RSVP = Ember.RSVP;
-const later = Ember.run.later;
-
-export default Ember.Route.extend({
+export default Route.extend({
   model: function () {
     let deferred = RSVP.defer();
     later(function () {

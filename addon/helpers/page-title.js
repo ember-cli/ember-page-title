@@ -1,6 +1,10 @@
-import Ember from 'ember';
-
-const { get, set, guidFor, merge, getOwner } = Ember;
+import { scheduleOnce } from '@ember/runloop';
+import { inject as service } from '@ember/service';
+import Helper from '@ember/component/helper';
+import { set, get } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
+import { merge } from '@ember/polyfills';
+import { getOwner } from '@ember/application';
 
 function updateTitle(tokens) {
   set(this, 'title', tokens.toString());
@@ -12,9 +16,9 @@ function updateTitle(tokens) {
   @public
   @method page-title
  */
-export default Ember.Helper.extend({
-  pageTitleList: Ember.inject.service(),
-  headData: Ember.inject.service(),
+export default Helper.extend({
+  pageTitleList: service(),
+  headData: service(),
 
   init() {
     this._super();
@@ -28,7 +32,7 @@ export default Ember.Helper.extend({
     hash.id = guidFor(this);
     hash.title = params.join('');
     tokens.push(hash);
-    Ember.run.scheduleOnce('afterRender', get(this, 'headData'), updateTitle, tokens);
+    scheduleOnce('afterRender', get(this, 'headData'), updateTitle, tokens);
     return '';
   },
 
@@ -44,10 +48,10 @@ export default Ember.Helper.extend({
     if (activeTransition) {
       activeTransition.promise.finally(function () {
         if (headData.isDestroyed) { return; }
-        Ember.run.scheduleOnce('afterRender', headData, updateTitle, tokens);
+        scheduleOnce('afterRender', headData, updateTitle, tokens);
       });
     } else {
-      Ember.run.scheduleOnce('afterRender', headData, updateTitle, tokens);
+      scheduleOnce('afterRender', headData, updateTitle, tokens);
     }
   }
 });
