@@ -1,3 +1,4 @@
+import { click, visit } from '@ember/test-helpers';
 import { run } from '@ember/runloop';
 import { module, test } from 'qunit';
 import startApp from '../helpers/start-app';
@@ -83,7 +84,7 @@ module('Acceptance: title', function(hooks) {
     await click('#zoey');
     assert.equal(title(), 'Zoey (@zoey)');
 
-    let promise = click('#tomster');
+    let promise = await click('#tomster');
     assert.equal(title(), 'Zoey (@zoey)');
 
     await promise;
