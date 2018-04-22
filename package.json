@@ -57,5 +57,6 @@
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "demoURL": "http://tim-evans.github.io/ember-page-title/"
-  }
+  },
+  "homepage": "https://tim-evans.github.io/ember-page-title"
 }
