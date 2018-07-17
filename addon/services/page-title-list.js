@@ -2,7 +2,7 @@ import { A } from '@ember/array';
 import { getOwner } from '@ember/application';
 import Service from '@ember/service';
 import { set, get, computed } from '@ember/object';
-import { copy } from '@ember/object/internals';
+import { copy } from 'ember-copy';
 
 /**
   @class page-title-list
