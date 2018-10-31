@@ -29,9 +29,9 @@ export default Service.extend({
     The default prepend value to use.
 
     @property defaultPrepend
-    @default null
+    @default true
    */
-  defaultPrepend: null,
+  defaultPrepend: true,
 
   /**
     The default replace value to use.

@@ -133,8 +133,8 @@ module('service:page-title-list', function(hooks) {
 
     let tokens = list.get('sortedTokens');
     assert.equal(tokens.length, 2);
-    assert.equal(tokens[0].id, 2);
-    assert.equal(tokens[1].id, 3);
+    assert.equal(tokens[0].id, 3);
+    assert.equal(tokens[1].id, 2);
   });
 
   test('removing a token with replace: true will set all previous tokens to be visible', function (assert) {
@@ -150,8 +150,8 @@ module('service:page-title-list', function(hooks) {
 
     let tokens = list.get('sortedTokens');
     assert.equal(tokens.length, 2);
-    assert.equal(tokens[0].id, 1);
-    assert.equal(tokens[1].id, 3);
+    assert.equal(tokens[0].id, 3);
+    assert.equal(tokens[1].id, 1);
   });
 
   test('removing a token with replace: true will only set previous tokens up to the last replace: true to visible', function (assert) {
@@ -180,6 +180,6 @@ module('service:page-title-list', function(hooks) {
     list.push(second);
     list.push(third);
 
-    assert.equal(list.toString(), '1 | 3');
+    assert.equal(list.toString(), '3 | 1');
   });
 });

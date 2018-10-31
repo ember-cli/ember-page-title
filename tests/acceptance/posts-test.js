@@ -16,7 +16,7 @@ module('Acceptance: title', function(hooks) {
     assert.expect(1);
     await visit('/posts');
 
-    assert.equal(title(), 'My App | Posts');
+    assert.equal(title(), 'Posts | My App');
   });
 
   test('the replace attribute works', async function (assert) {
@@ -30,28 +30,28 @@ module('Acceptance: title', function(hooks) {
     assert.expect(1);
     await visit('/about/authors');
 
-    assert.equal(title(), 'About My App > Authors');
+    assert.equal(title(), 'Authors > About My App');
   });
 
   test('custom separators are inherited', async function (assert) {
     assert.expect(1);
     await visit('/about/authors/profile');
 
-    assert.equal(title(), 'About My App > Authors > Profile');
+    assert.equal(title(), 'Profile > Authors > About My App');
   });
 
   test('multiple components in a row work', async function (assert) {
     assert.expect(1);
     await visit('/posts/rails-is-omakase');
 
-    assert.equal(title(), 'My App | Posts | Rails is Omakase');
+    assert.equal(title(), 'Rails is Omakase | Posts | My App');
   });
 
-  test('the prepend declaration works', async function (assert) {
+  test('the prepend=false declaration works', async function (assert) {
     assert.expect(1);
     await visit('/authors/tomster');
 
-    assert.equal(title(), 'My App | Tomster < Authors');
+    assert.equal(title(), 'My App | Authors < Tomster');
   });
 
   test('replace nested in prepends work', async function (assert) {
