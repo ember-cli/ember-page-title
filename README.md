@@ -20,7 +20,7 @@ As of v3.0.0 this addon maintains the page title by using the `<title>` tag in y
 
 ### Digging in
 
-[Visit the Docs site](http://tim-evans.github.io/ember-page-title/)
+[Visit the Docs site](https://adopted-ember-addons.github.io/ember-page-title/)
 
 ### Fastboot
 
