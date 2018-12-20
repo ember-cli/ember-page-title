@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
 import { set, get } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
-import { merge } from '@ember/polyfills';
+import { assign } from '@ember/polyfills';
 import { getOwner } from '@ember/application';
 
 function updateTitle(tokens) {
@@ -28,7 +28,7 @@ export default Helper.extend({
 
   compute(params, _hash) {
     let tokens = get(this, 'pageTitleList');
-    let hash = merge({}, _hash);
+    let hash = assign({}, _hash);
     hash.id = guidFor(this);
     hash.title = params.join('');
     tokens.push(hash);
