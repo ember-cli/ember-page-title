@@ -3,14 +3,18 @@
   "version": "5.0.1",
   "description": "{{title}} for Ember applications",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "page title",
+    "title",
+    "component",
+    "fastboot"
   ],
   "license": "MIT",
   "author": "Tim Evans <tim.c.evans@me.com>",
   "directories": {
     "test": "tests"
   },
-  "repository": "https://github.com/tim-evans/ember-page-title",
+  "repository": "https://github.com/adopted-ember-addons/ember-page-title",
   "scripts": {
     "build": "ember build",
     "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
@@ -57,7 +61,7 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://tim-evans.github.io/ember-page-title/"
+    "demoURL": "https://adopted-ember-addons.github.io/ember-page-title"
   },
-  "homepage": "https://tim-evans.github.io/ember-page-title"
+  "homepage": "https://adopted-ember-addons.github.io/ember-page-title"
 }
