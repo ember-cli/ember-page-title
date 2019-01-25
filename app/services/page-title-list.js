@@ -7,7 +7,7 @@ function capitalize(key) {
 
 let defaults = {};
 ['separator', 'prepend', 'replace'].forEach(function (key) {
-  if (config.pageTitle && config.pageTitle[key]) {
+  if (config.pageTitle && (config.pageTitle[key] !== null) && (config.pageTitle[key] !== undefined)) {
     defaults[`default${capitalize(key)}`] = config.pageTitle[key];
   }
 });
