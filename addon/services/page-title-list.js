@@ -89,7 +89,7 @@ export default Service.extend({
       return;
     }
 
-    var previous = this.tokens.slice(-1)[0];
+    let previous = this.tokens.slice(-1)[0];
     if (previous) {
       token.previous = previous;
       previous.next = token;
@@ -106,8 +106,7 @@ export default Service.extend({
 
   remove(id) {
     let token = this.tokens.findBy('id', id);
-    var next = token.next;
-    var previous = token.previous;
+    let {next, previous} = token;
     if (next) {
       next.previous = previous;
     }
