@@ -52,9 +52,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  # Usually, it's ok to finish the test scenario without reverting
-  #  to the addon's original dependency state, skipping "cleanup".
-  - COVERAGE=true node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+  - COVERAGE=true node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
