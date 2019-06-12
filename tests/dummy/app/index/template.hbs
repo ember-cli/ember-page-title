@@ -1,6 +1,8 @@
-<div id='index'>
+{{! template-lint-disable quotes }}
+<div id="index">
   <header>
-    <h1>{{inline-svg 'icon'}} ember-page-title</h1><nav>
+    <h1>{{inline-svg "icon"}} ember-page-title</h1>
+    <nav>
       <a href="#usage">Usage</a>
       <a href="#playground">Playground</a>
       <a href="https://github.com/adopted-ember-addons/ember-page-title" target="__blank">GitHub</a>
@@ -8,8 +10,8 @@
   </header>
 
   <div class="hero">
-    <p>Page title management<br>for {{inline-svg 'ember-logo' title="Ember"}} apps</p>
-    <a class="more" href="#installation">{{inline-svg 'arrow'}}</a>
+    <p>Page title management<br>for {{inline-svg "ember-logo" title="Ember"}} apps</p>
+    <a class="more" href="#installation">{{inline-svg "arrow"}}</a>
   </div>
 
   <main>
@@ -29,14 +31,14 @@
           {{#p.matryoshka items=model.tokens as |token|}}
             <code>
               {{title token.value replace=token.replace prepend=token.prepend separator=token.separator}}
-              \{{<span class="helper">title</span> "{{text-field class='string' value=token.value onchange=(action (mut token.value)) autoresize=true}}"
-              <span class="literal">separator</span>="{{text-field class='string' value=token.separator onchange=(action (mut token.separator)) autoresize=true}}"
-              <span class="literal">prepend</span>={{boolean-field class='attribute' value=token.prepend onchange=(action (mut token.prepend))}}
-              <span class="literal">replace</span>={{boolean-field class='attribute' value=token.replace onchange=(action (mut token.replace))~}} }}
+              \{{<span class="helper">title</span> "{{text-field class="string" value=token.value onchange=(action (mut token.value)) autoresize=true}}"
+              <span class="literal">separator</span>="{{text-field class="string" value=token.separator onchange=(action (mut token.separator)) autoresize=true}}"
+              <span class="literal">prepend</span>={{boolean-field class="attribute" value=token.prepend onchange=(action (mut token.prepend))}}
+              <span class="literal">replace</span>={{boolean-field class="attribute" value=token.replace onchange=(action (mut token.replace))~}} }}
             </code>
           {{/p.matryoshka}}
 
-          <button onclick={{action 'add' model.tokens}}>Add title</button>
+          <button onclick={{action "add" model.tokens}}>Add title</button>
         {{/page-title-pane}}
       </div>
     </section>
@@ -48,7 +50,7 @@
           <p>To start using ember-page-title, add the name of your application into <code class="inline">application.hbs</code></p>
           <p>This sets the title for your application. When your application loads, you should see the title &ldquo;{{model.title}}&rdquo; appear in the window. Try changing the value below to change the title of this page.</p>
 
-          {{input type='text' value=model.title placeholder="My App"}}
+          {{input type="text" value=model.title placeholder="My App"}}
         </div>
 
         {{#window-pane title="templates/application.hbs"}}
@@ -80,7 +82,7 @@
         </div>
 
         {{#page-title-pane as |p|}}
-          {{#p.template title=model.title separator=' > '}}
+          {{#p.template title=model.title separator=" > "}}
             <code>{{highlight '{{title "' model.title '" separator=" > "}}'}}</code>
             {{#p.template title="Posts"}}
               <code>{{highlight '{{title "Posts"}}'}}</code>

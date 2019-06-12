@@ -1,5 +1,10 @@
-{{title model.name ' (' model.handle ')' replace=true}}
+{{title model.name " (" model.handle ")" replace=true}}
 
 
-{{link-to '@tomster' 'feed' 'tomster' id='tomster'}}
-{{link-to '@zoey' 'feed' 'zoey' id='zoey'}}
+{{#link-to "feed" "tomster" id="tomster"}}
+  @tomster
+{{/link-to}}
+
+{{#link-to "feed" "zoey" id="zoey"}}
+  @zoey
+{{/link-to}}
