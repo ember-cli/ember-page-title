@@ -69,7 +69,7 @@ module('Acceptance: title', function(hooks) {
   });
 
   test('loading substates are not shown', async function (assert) {
-    assert.expect(4);
+    assert.expect(3);
     await visit('/feeds/tomster');
     assert.equal(title(), 'Tomster (@tomster)');
 
@@ -80,8 +80,6 @@ module('Acceptance: title', function(hooks) {
     assert.equal(title(), 'Zoey (@zoey)');
 
     await click('#tomster');
-    assert.equal(title(), 'Zoey (@zoey)');
-
     await waitUntil(() => {
       return find('div').innerText !== 'Loading...';
     });
