@@ -65,5 +65,8 @@
     "configPath": "tests/dummy/config",
     "demoURL": "https://adopted-ember-addons.github.io/ember-page-title"
   },
-  "homepage": "https://adopted-ember-addons.github.io/ember-page-title"
+  "homepage": "https://adopted-ember-addons.github.io/ember-page-title",
+  "volta": {
+    "node": "8.16.0"
+  }
 }
