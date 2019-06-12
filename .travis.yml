@@ -52,7 +52,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - COVERAGE=true node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+  - COVERAGE=true node_modules/.bin/ember try:one --skip-cleanup $EMBER_TRY_SCENARIO
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
