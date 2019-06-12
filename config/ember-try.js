@@ -9,7 +9,8 @@ module.exports = function() {
     getChannelURL('canary')
   ]).then((urls) => {
     return {
-      npmOptions: ['--loglevel=silent', '--no-shrinkwrap=true'],
+      command: 'ember test --skip-cleanup',
+      //npmOptions: ['--loglevel=silent', '--no-shrinkwrap=true'],
       scenarios: [
         {
           name: 'ember-lts-2.18',
