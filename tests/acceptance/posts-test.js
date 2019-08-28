@@ -85,4 +85,11 @@ module('Acceptance: title', function(hooks) {
     });
     assert.equal(title(), 'Tomster (@tomster)');
   });
+
+  test('front tokens work', async function (assert) {
+    assert.expect(1);
+    await visit('/reader');
+
+    assert.equal(title(), '(10) Reader | My App');
+  });
 });
