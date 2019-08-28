@@ -32,12 +32,12 @@ This file is added automatically if you use `ember install`. This is for all the
 
 ### API
 
-| attribute | type    | default |
-|-----------|:--------|:--------|
-| separator | string  | `" \| "`|
-| prepend   | boolean | true    |
-| replace   | boolean | false   |
-| front     | boolean | false   |
+| attribute | type    | default | description                                                               |
+|-----------|:--------|:--------|:--------------------------------------------------------------------------|
+| separator | string  | `" \| "`| Which separator should be displayed _after_ this instance of `{{title }}` |
+| prepend   | boolean | true    | If the token should be prepended or appended to the list of tokens        |
+| replace   | boolean | false   | Replace all previous elements with the active                             |
+| front     | boolean | false   | If the token should always be in the beginning of the resulting title.    |
 
 These defaults are configurable in `config/environment.js`:
 
