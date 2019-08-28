@@ -37,6 +37,7 @@ This file is added automatically if you use `ember install`. This is for all the
 | separator | string  | `" \| "`|
 | prepend   | boolean | true    |
 | replace   | boolean | false   |
+| front     | boolean | false   |
 
 These defaults are configurable in `config/environment.js`:
 

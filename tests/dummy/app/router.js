@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('author', { path: '/authors/:author_id' });
   this.route('hollywood', { path: '/hollywood' });
   this.route('feed', { path: '/feeds/:name' });
+  this.route('reader', { path: '/reader' });
 });
 
 export default Router;

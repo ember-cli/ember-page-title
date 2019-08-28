@@ -147,8 +147,11 @@ export default Service.extend({
       let appending = true;
       let group = [];
       let groups = A([group]);
+      let frontGroups = [];
       visible.forEach((token) => {
-        if (token.prepend) {
+        if (token.front) {
+          frontGroups.unshift(token);
+        } else if (token.prepend) {
           if (appending) {
             appending = false;
             group = [];
@@ -170,7 +173,9 @@ export default Service.extend({
         }
       });
 
-      return groups.reduce((E, group) => E.concat(group), []);
+      return frontGroups.concat(
+        groups.reduce((E, group) => E.concat(group), [])
+      );
     }
   }),
 
