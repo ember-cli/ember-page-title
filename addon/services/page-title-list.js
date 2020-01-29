@@ -3,6 +3,8 @@ import { getOwner } from '@ember/application';
 import Service from '@ember/service';
 import { set, get, computed } from '@ember/object';
 import { copy } from 'ember-copy';
+import { capitalize } from '@ember/string';
+import { isPresent } from '@ember/utils';
 
 /**
   @class page-title-list
@@ -15,6 +17,15 @@ export default Service.extend({
     set(this, 'tokens', A());
     set(this, 'length', 0);
     this._removeExistingTitleTag();
+
+    let config = getOwner(this).resolveRegistration('config:environment');
+    if (config.pageTitle) {
+      ['separator', 'prepend', 'replace'].forEach((key) => {
+        if (isPresent(config.pageTitle[key])) {
+          set(this, `default${capitalize(key)}`, config.pageTitle[key]);
+        }
+      });
+    }
   },
 
   /**
