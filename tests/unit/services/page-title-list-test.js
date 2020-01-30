@@ -182,4 +182,45 @@ module('service:page-title-list', function(hooks) {
 
     assert.equal(list.toString(), '3 | 1');
   });
+
+  test("initial page-title defaults", function (assert) {
+    let list = this.owner.lookup('service:page-title-list');
+
+    assert.equal(list.defaultSeparator, ' | ');
+    assert.equal(list.defaultPrepend, true);
+    assert.equal(list.defaultReplace, null);
+  });
+
+  test("can change defaults from config", function (assert) {
+    this.owner.register("config:environment", {
+      pageTitle: {
+        separator: ' & ',
+        prepend: false,
+        replace: true
+      }
+    });
+
+    let list = this.owner.lookup('service:page-title-list');
+
+    assert.equal(list.defaultSeparator, ' & ');
+    assert.equal(list.defaultPrepend, false);
+    assert.equal(list.defaultReplace, true);
+  });
+
+  test("undefined config entries do not change defaults", function (assert) {
+    this.owner.register("config:environment", {
+      pageTitle: {
+        separator: undefined,
+        prepend: null,
+        replace: undefined
+      }
+    });
+
+    let list = this.owner.lookup('service:page-title-list');
+
+    assert.equal(list.defaultSeparator, ' | ');
+    assert.equal(list.defaultPrepend, true);
+    assert.equal(list.defaultReplace, null);
+  });
+
 });
