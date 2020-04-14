@@ -8,6 +8,8 @@ This addon provides a helper for changing the title of the page you're on.
 ember install ember-page-title
 ```
 
+Add `{{head-layout}}` to your application's `application.hbs` template.
+
 #### Post Install Cleanup
 
 As of v3.0.0 this addon maintains the page title by using the `<title>` tag in your document's `<head>`.  This is necessary for [FastBoot](https://github.com/tildeio/ember-cli-fastboot) compatibility.
