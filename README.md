@@ -1,4 +1,4 @@
-## {{title}} [![Ember Observer Score](http://emberobserver.com/badges/ember-page-title.svg)](http://emberobserver.com/addons/ember-page-title) [![Build Status](https://travis-ci.org/adopted-ember-addons/ember-page-title.svg)](https://travis-ci.org/adopted-ember-addons/ember-page-title) [![Code Climate](https://codeclimate.com/github/tim-evans/ember-page-title/badges/gpa.svg)](https://codeclimate.com/github/tim-evans/ember-page-title) [![Test Coverage](https://codeclimate.com/github/tim-evans/ember-page-title/badges/coverage.svg)](https://codeclimate.com/github/tim-evans/ember-page-title/coverage)
+## {{title}} [![Ember Observer Score](http://emberobserver.com/badges/ember-page-title.svg)](http://emberobserver.com/addons/ember-page-title) [![Build Status](https://travis-ci.org/adopted-ember-addons/ember-page-title.svg)](https://travis-ci.org/adopted-ember-addons/ember-page-title) 
 
 This addon provides a helper for changing the title of the page you're on.
 
