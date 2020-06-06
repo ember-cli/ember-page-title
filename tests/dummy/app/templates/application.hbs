@@ -1,6 +1,6 @@
 {{! template-lint-disable simple-unless }}
 {{head-layout}}
-{{#unless (equals currentRouteName "index")}}
+{{#unless (equals this.router.currentRouteName "index")}}
   {{title "My App"}}
 {{/unless}}
 {{outlet}}
