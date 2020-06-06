@@ -10,6 +10,9 @@ ember install ember-page-title
 
 Add `{{head-layout}}` to your application's `application.hbs` template.
 
+<details>
+<summary>Fastboot vs Non-Fastboot Notes</summary>
+
 #### Post Install Cleanup
 
 As of v3.0.0 this addon maintains the page title by using the `<title>` tag in your document's `<head>`. This is necessary for [FastBoot](https://github.com/tildeio/ember-cli-fastboot) compatibility.
@@ -18,19 +21,11 @@ As of v3.0.0 this addon maintains the page title by using the `<title>` tag in y
 
 **Fastboot apps** MUST remove the `<title>` tag from index.html.
 
+</details>
+
 ### Digging in
 
 [Visit the Docs site](https://adopted-ember-addons.github.io/ember-page-title/)
-
-### Fastboot
-
-When working with other addons that use `ember-cli-head`, you'll need to create a custom `head.hbs` file that exposes the `<title>` tag properly:
-
-```hbs
-<title>{{model.title}}</title>
-```
-
-This file is added automatically if you use `ember install`. This is for all the folks using ember-cli-head addons like ember-cli-meta-tags.
 
 ### API
 
@@ -58,6 +53,16 @@ module.exports = function (environment) {
   return ENV;
 };
 ```
+
+### Fastboot
+
+When working with other addons that use `ember-cli-head`, you'll need to create a custom `head.hbs` file that exposes the `<title>` tag properly:
+
+```hbs
+<title>{{model.title}}</title>
+```
+
+This file is added automatically if you use `ember install`. This is for all the folks using ember-cli-head addons like ember-cli-meta-tags.
 
 ### Deprecations
 
