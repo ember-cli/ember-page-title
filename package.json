@@ -1,6 +1,6 @@
 {
   "name": "ember-page-title",
-  "version": "5.2.3",
+  "version": "5.2.4",
   "description": "{{title}} for Ember applications",
   "keywords": [
     "ember-addon",

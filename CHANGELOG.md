@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.4](https://github.com/adopted-ember-addons/ember-page-title/compare/v5.2.3...v5.2.4) (2020-06-06)
+
 ### [5.2.3](https://github.com/adopted-ember-addons/ember-page-title/compare/v5.2.2...v5.2.3) (2020-06-06)
 
 
