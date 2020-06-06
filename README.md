@@ -1,4 +1,4 @@
-## {{title}} [![Ember Observer Score](http://emberobserver.com/badges/ember-page-title.svg)](http://emberobserver.com/addons/ember-page-title) [![Build Status](https://travis-ci.org/adopted-ember-addons/ember-page-title.svg)](https://travis-ci.org/adopted-ember-addons/ember-page-title) 
+## {{page-title}} [![Ember Observer Score](http://emberobserver.com/badges/ember-page-title.svg)](http://emberobserver.com/addons/ember-page-title) [![Build Status](https://travis-ci.org/adopted-ember-addons/ember-page-title.svg)](https://travis-ci.org/adopted-ember-addons/ember-page-title)
 
 This addon provides a helper for changing the title of the page you're on.
 
@@ -12,7 +12,7 @@ Add `{{head-layout}}` to your application's `application.hbs` template.
 
 #### Post Install Cleanup
 
-As of v3.0.0 this addon maintains the page title by using the `<title>` tag in your document's `<head>`.  This is necessary for [FastBoot](https://github.com/tildeio/ember-cli-fastboot) compatibility.
+As of v3.0.0 this addon maintains the page title by using the `<title>` tag in your document's `<head>`. This is necessary for [FastBoot](https://github.com/tildeio/ember-cli-fastboot) compatibility.
 
 **Non-fastboot apps** should keep the `<title>` tag in index.html to ensure that the initial page is valid HTML. The title will be removed and replaced when your app boots.
 
@@ -34,31 +34,36 @@ This file is added automatically if you use `ember install`. This is for all the
 
 ### API
 
-| attribute | type    | default | description                                                               |
-|-----------|:--------|:--------|:--------------------------------------------------------------------------|
-| separator | string  | `" \| "`| Which separator should be displayed _after_ this instance of `{{title }}` |
-| prepend   | boolean | true    | If the token should be prepended or appended to the list of tokens        |
-| replace   | boolean | false   | Replace all previous elements with the active                             |
-| front     | boolean | false   | If the token should always be in the beginning of the resulting title.    |
+| attribute | type    | default  | description                                                                   |
+| --------- | :------ | :------- | :---------------------------------------------------------------------------- |
+| separator | string  | `" \| "` | Which separator should be displayed _after_ this instance of `{{page-title}}` |
+| prepend   | boolean | true     | If the token should be prepended or appended to the list of tokens            |
+| replace   | boolean | false    | Replace all previous elements with the active                                 |
+| front     | boolean | false    | If the token should always be in the beginning of the resulting title.        |
 
 These defaults are configurable in `config/environment.js`:
 
 ```javascript
 // config/environment.js
-/* jshint node: true */
 
-module.exports = function(environment) {
-  var ENV = {
+module.exports = function (environment) {
+  let ENV = {
     pageTitle: {
-      replace: true
-    }
+      replace: true,
+    },
   };
 
   return ENV;
 };
 ```
 
-### upgrading notes for 3.x to 4.x
+### Deprecations
+
+- Since **v5.2.2**: The `{{title}}` helper has been deprecated, use `{{page-title}}` instead, it has the same API. The
+  `{{title}}` helper was an AST transform and will be removed in the next major release.
+
+### Upgrading notes for 3.x to 4.x
+
 From 4.x onward, you need to have `{{head-layout}}` within your application's `application.hbs` template. Without this, you will not see a page title appear.
 See [the 4.0.0 release notes](https://github.com/tim-evans/ember-page-title/releases/tag/4.0.0) for more detail.
 
