@@ -31,7 +31,7 @@
           {{#p.matryoshka items=model.tokens as |token|}}
             <code>
               {{title token.value replace=token.replace prepend=token.prepend separator=token.separator}}
-              \{{<span class="helper">title</span> "{{text-field class="string" value=token.value onchange=(action (mut token.value)) autoresize=true}}"
+              \{{<span class="helper">page-title</span> "{{text-field class="string" value=token.value onchange=(action (mut token.value)) autoresize=true}}"
               <span class="literal">separator</span>="{{text-field class="string" value=token.separator onchange=(action (mut token.separator)) autoresize=true}}"
               <span class="literal">prepend</span>={{boolean-field class="attribute" value=token.prepend onchange=(action (mut token.prepend))}}
               <span class="literal">replace</span>={{boolean-field class="attribute" value=token.replace onchange=(action (mut token.replace))~}} }}
@@ -54,7 +54,7 @@
         </div>
 
         {{#window-pane title="templates/application.hbs"}}
-          <code>{{highlight '{{title "' model.title '"}}'}}</code>
+          <code>{{highlight '{{page-title "' model.title '"}}'}}</code>
         {{/window-pane}}
       </div>
 
@@ -65,11 +65,11 @@
 
         {{#page-title-pane as |p|}}
           {{#p.template title=model.title}}
-            <code>{{highlight '{{title "' model.title '"}}'}}</code>
+            <code>{{highlight '{{page-title "' model.title '"}}'}}</code>
             {{#p.template title="Posts"}}
-              <code>{{highlight '{{title "Posts"}}'}}</code>
+              <code>{{highlight '{{page-title "Posts"}}'}}</code>
               {{#p.template title=model.post.title}}
-                <code>{{highlight '{{title post.title}}'}}</code>
+                <code>{{highlight '{{page-title post.title}}'}}</code>
               {{/p.template}}
             {{/p.template}}
           {{/p.template}}
@@ -83,11 +83,11 @@
 
         {{#page-title-pane as |p|}}
           {{#p.template title=model.title separator=" > "}}
-            <code>{{highlight '{{title "' model.title '" separator=" > "}}'}}</code>
+            <code>{{highlight '{{page-title "' model.title '" separator=" > "}}'}}</code>
             {{#p.template title="Posts"}}
-              <code>{{highlight '{{title "Posts"}}'}}</code>
+              <code>{{highlight '{{page-title "Posts"}}'}}</code>
               {{#p.template title=model.post.title}}
-                <code>{{highlight '{{title post.title}}'}}</code>
+                <code>{{highlight '{{page-title post.title}}'}}</code>
               {{/p.template}}
             {{/p.template}}
           {{/p.template}}
@@ -101,11 +101,11 @@
 
         {{#page-title-pane as |p|}}
           {{#p.template title=model.title separator=": "}}
-            <code>{{highlight '{{title "' model.title '" separator=": "}}'}}</code>
+            <code>{{highlight '{{page-title "' model.title '" separator=": "}}'}}</code>
             {{#p.template title="Posts" separator=" > "}}
-              <code>{{highlight '{{title "Posts" separator=" > "}}'}}</code>
+              <code>{{highlight '{{page-title "Posts" separator=" > "}}'}}</code>
               {{#p.template title=model.post.title}}
-                <code>{{highlight '{{title post.title}}'}}</code>
+                <code>{{highlight '{{page-title post.title}}'}}</code>
               {{/p.template}}
             {{/p.template}}
           {{/p.template}}
@@ -119,11 +119,11 @@
 
         {{#page-title-pane as |p|}}
           {{#p.template title=model.title prepend=true}}
-            <code>{{highlight '{{title "' model.title '" prepend=true}}'}}</code>
+            <code>{{highlight '{{page-title "' model.title '" prepend=true}}'}}</code>
             {{#p.template title="Posts"}}
-              <code>{{highlight '{{title "Posts"}}'}}</code>
+              <code>{{highlight '{{page-title "Posts"}}'}}</code>
               {{#p.template title=model.post.title}}
-                <code>{{highlight '{{title post.title}}'}}</code>
+                <code>{{highlight '{{page-title post.title}}'}}</code>
               {{/p.template}}
             {{/p.template}}
           {{/p.template}}
@@ -137,11 +137,11 @@
 
         {{#page-title-pane as |p|}}
           {{#p.template title=model.title}}
-            <code>{{highlight '{{title "' model.title '"}}'}}</code>
+            <code>{{highlight '{{page-title "' model.title '"}}'}}</code>
             {{#p.template title="Posts" prepend=true}}
-              <code>{{highlight '{{title "Posts" prepend=true}}'}}</code>
+              <code>{{highlight '{{page-title "Posts" prepend=true}}'}}</code>
               {{#p.template title=model.post.title}}
-                <code>{{highlight '{{title post.title}}'}}</code>
+                <code>{{highlight '{{page-title post.title}}'}}</code>
               {{/p.template}}
             {{/p.template}}
           {{/p.template}}
@@ -155,11 +155,11 @@
 
         {{#page-title-pane as |p|}}
           {{#p.template title=model.title}}
-            <code>{{highlight '{{title "' model.title '"}}'}}</code>
+            <code>{{highlight '{{page-title "' model.title '"}}'}}</code>
             {{#p.template title="Posts" replace=true}}
-              <code>{{highlight '{{title "Posts" replace=true}}'}}</code>
+              <code>{{highlight '{{page-title "Posts" replace=true}}'}}</code>
               {{#p.template title=model.post.title}}
-                <code>{{highlight '{{title model.post.title}}'}}</code>
+                <code>{{highlight '{{page-title model.post.title}}'}}</code>
               {{/p.template}}
             {{/p.template}}
           {{/p.template}}
@@ -173,10 +173,10 @@
 
         {{#page-title-pane as |p|}}
           {{#p.template title=model.title}}
-            <code>{{highlight '{{title "' model.title '"}}'}}</code>
+            <code>{{highlight '{{page-title "' model.title '"}}'}}</code>
             {{#p.template title=(concat "Posts | " model.post.title)}}
-              <code>{{highlight '{{title "Posts"}}'}}</code>
-              <code>{{highlight '{{title model.post.title}}'}}</code>
+              <code>{{highlight '{{page-title "Posts"}}'}}</code>
+              <code>{{highlight '{{page-title model.post.title}}'}}</code>
             {{/p.template}}
           {{/p.template}}
         {{/page-title-pane}}
@@ -188,7 +188,7 @@
         </div>
         {{#page-title-pane as |p|}}
           {{#p.template title="Tim Evans (@timmyce)"}}
-            <code>{{highlight '{{title blogger.name " (" blogger.handle ")"}}'}}</code>
+            <code>{{highlight '{{page-title blogger.name " (" blogger.handle ")"}}'}}</code>
           {{/p.template}}
         {{/page-title-pane}}
       </div>
