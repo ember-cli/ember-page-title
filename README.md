@@ -34,6 +34,8 @@ This file is added automatically if you use `ember install`. This is for all the
 
 ### API
 
+#### `{{page-title}}` Helper
+
 | attribute | type    | default  | description                                                                   |
 | --------- | :------ | :------- | :---------------------------------------------------------------------------- |
 | separator | string  | `" \| "` | Which separator should be displayed _after_ this instance of `{{page-title}}` |
