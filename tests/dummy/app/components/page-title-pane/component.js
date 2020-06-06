@@ -1,14 +1,17 @@
 import { A } from '@ember/array';
 import Component from '@ember/component';
 import { computed, set, get } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
+  titleList: service('page-title-list'),
+
   tagName: '',
 
   lastIndex: computed('titleList.tokens.length', {
     get() {
       return get(this, 'titleList.sortedTokens.length') - 1;
-    }
+    },
   }),
 
   actions: {
@@ -22,7 +25,6 @@ export default Component.extend({
         set(sortedTokens.findBy('id', token.id), 'active', true);
         set(token, 'active', true);
       }
-    }
-  }
-
+    },
+  },
 });
