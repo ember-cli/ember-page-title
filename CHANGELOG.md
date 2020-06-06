@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.3](https://github.com/adopted-ember-addons/ember-page-title/compare/v5.2.2...v5.2.3) (2020-06-06)
+
+
+### Bug Fixes
+
+* add back title to tests ([cbdb039](https://github.com/adopted-ember-addons/ember-page-title/commit/cbdb0394839623b6bc35e6dd493abd3081b0a731))
+* remove usage of {{title}} in dummy ([cab3aa2](https://github.com/adopted-ember-addons/ember-page-title/commit/cab3aa21f84d409507b8664b6bb870ee4580838f))
+
 ### [5.2.2](https://github.com/adopted-ember-addons/ember-page-title/compare/v5.2.1...v5.2.2) (2020-06-06)
 
 
