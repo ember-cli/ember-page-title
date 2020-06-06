@@ -27,6 +27,14 @@ export default Helper.extend({
   },
 
   compute(params, _hash) {
+    // page-title used via title ast transform, which is deprecated
+    if (_hash && _hash._deprecate) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        'Using `{{title}}` helper is deprecated, use `{{page-title}}` instead. ' +
+          _hash._deprecate
+      );
+    }
     let tokens = get(this, 'pageTitleList');
     let hash = assign({}, _hash);
     hash.id = guidFor(this);
@@ -47,11 +55,13 @@ export default Helper.extend({
     let headData = get(this, 'headData');
     if (activeTransition) {
       activeTransition.promise.finally(function () {
-        if (headData.isDestroyed) { return; }
+        if (headData.isDestroyed) {
+          return;
+        }
         scheduleOnce('afterRender', headData, updateTitle, tokens);
       });
     } else {
       scheduleOnce('afterRender', headData, updateTitle, tokens);
     }
-  }
+  },
 });
