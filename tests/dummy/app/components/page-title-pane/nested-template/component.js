@@ -12,25 +12,25 @@ export default Component.extend({
       let sortedTokens = A(get(this, 'titleList.sortedTokens'));
       let token = sortedTokens.findBy('id', get(this, 'token.id'));
       return get(token || {}, 'active');
-    }
+    },
   }),
 
   didReceiveAttrs() {
     set(this, 'token', {
-      id: get(this, 'elementId'),
-      title: get(this, 'title'),
-      replace: get(this, 'replace'),
-      separator: get(this, 'separator'),
-      prepend: get(this, 'prepend'),
-      active: get(this, 'token.active')
+      id: this.elementId,
+      title: this.title,
+      replace: this.replace,
+      separator: this.separator,
+      prepend: this.prepend,
+      active: get(this, 'token.active'),
     });
     scheduleOnce('afterRender', () => {
-      get(this, 'titleList').push(get(this, 'token'));
+      this.titleList.push(this.token);
     });
   },
 
   click() {
-    get(this, 'onactivate')(get(this, 'token'));
+    this.onactivate(this.token);
     return false;
-  }
+  },
 });
