@@ -57,7 +57,7 @@
     "eslint-plugin-ember": "^6.2.0",
     "eslint-plugin-node": "^9.0.1",
     "loader.js": "^4.7.0",
-    "standard-version": "^7.1.0",
+    "standard-version": "^8.0.1",
     "sass": "^1.25.0"
   },
   "engines": {
