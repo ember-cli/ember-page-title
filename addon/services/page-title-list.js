@@ -1,21 +1,25 @@
 import { A } from '@ember/array';
 import { getOwner } from '@ember/application';
+import { inject as service } from '@ember/service';
+import { scheduleOnce } from '@ember/runloop';
 import Service from '@ember/service';
 import { set, computed } from '@ember/object';
 import { copy } from 'ember-copy';
 import { capitalize } from '@ember/string';
 import { isPresent } from '@ember/utils';
 
+let isFastBoot = typeof FastBoot !== 'undefined';
+
 /**
   @class page-title-list
   @extends Ember.Service
  */
 export default Service.extend({
+  document: service('-document'),
 
   init() {
     this._super();
     set(this, 'tokens', A());
-    set(this, 'length', 0);
     this._removeExistingTitleTag();
 
     let config = getOwner(this).resolveRegistration('config:environment');
@@ -112,7 +116,6 @@ export default Service.extend({
     let tokens = copy(this.tokens);
     tokens.push(token);
     set(this, 'tokens', A(tokens));
-    set(this, 'length', this.length + 1);
   },
 
   remove(id) {
@@ -131,7 +134,6 @@ export default Service.extend({
     let tokens = A(copy(this.tokens));
     tokens.removeObject(token);
     set(this, 'tokens', A(tokens));
-    set(this, 'length', this.length - 1);
   },
 
   visibleTokens: computed('tokens', {
@@ -190,6 +192,22 @@ export default Service.extend({
     }
   }),
 
+  scheduleTitleUpdate() {
+    let router = getOwner(this).lookup('router:main');
+    let routes = router._routerMicrolib || router.router;
+    let { activeTransition } = routes || {};
+    if (activeTransition) {
+      activeTransition.promise.finally(() => {
+        if (this.isDestroyed) {
+          return;
+        }
+        scheduleOnce('afterRender', this, this._updateTitle);
+      });
+    } else {
+      scheduleOnce('afterRender', this, this._updateTitle);
+    }
+  },
+
   toString() {
     let tokens = this.sortedTokens;
     let title = [];
@@ -205,12 +223,26 @@ export default Service.extend({
     return title.join('');
   },
 
+  _updateTitle() {
+    const toBeTitle = this.toString();
+
+    if (isFastBoot) {
+      // in fastboot context "document" is instance of ember-fastboot/simple-dom document
+      let titleEl = this.document.createElement('title');
+      let titleContents = this.document.createTextNode(toBeTitle);
+      titleEl.appendChild(titleContents);
+      this.document.head.appendChild(titleEl);
+    } else {
+      this.document.title = toBeTitle;
+    }
+  },
+
   /**
    * Remove any existing title tags from the head.
    * @private
    */
   _removeExistingTitleTag() {
-    if (this._hasFastboot()) {
+    if (isFastBoot) {
       return;
     }
 
@@ -219,9 +251,5 @@ export default Service.extend({
       let title = titles[i];
       title.parentNode.removeChild(title);
     }
-  },
-
-  _hasFastboot() {
-    return !!getOwner(this).lookup('service:fastboot');
   }
 });

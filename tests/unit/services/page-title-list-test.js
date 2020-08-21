@@ -5,13 +5,13 @@ module('service:page-title-list', function(hooks) {
   setupTest(hooks);
 
   test('the list has no tokens by default', function (assert) {
-    assert.equal(this.owner.lookup('service:page-title-list').length, 0);
+    assert.equal(this.owner.lookup('service:page-title-list').tokens.length, 0);
   });
 
   test('calling `push` adds a token to the end of the list', function (assert) {
     let list = this.owner.lookup('service:page-title-list');
     list.push({ id: 1});
-    assert.equal(list.length, 1);
+    assert.equal(list.tokens.length, 1);
   });
 
   test('tokens have next and previous tokens', function (assert) {
@@ -24,7 +24,7 @@ module('service:page-title-list', function(hooks) {
     list.push(second);
     list.push(third);
 
-    assert.equal(list.length, 3);
+    assert.equal(list.tokens.length, 3);
 
     assert.equal(first.previous, null);
     assert.equal(first.next, second);
@@ -46,7 +46,7 @@ module('service:page-title-list', function(hooks) {
     list.push(second);
     list.push(third);
     list.remove(2);
-    assert.equal(list.length, 2);
+    assert.equal(list.tokens.length, 2);
 
     assert.equal(first.previous, null);
     assert.equal(first.next, third);

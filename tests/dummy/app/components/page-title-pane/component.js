@@ -8,23 +8,18 @@ export default Component.extend({
 
   titleList: service(),
 
-  lastIndex: computed('titleList.{sortedTokens.length,tokens.length}', {
+  lastIndex: computed('titleList.{tokens.length}', {
     get() {
-      return this.titleList.sortedTokens.length - 1;
+      return this.titleList.tokens.length - 1;
     },
   }),
 
   actions: {
     highlight(token) {
-      let sortedTokens = A(this.titleList.sortedTokens);
+      let tokens = A(this.titleList.tokens);
       let wasActive = token.active;
-      this.titleList.tokens.setEach('active', false);
-      sortedTokens.setEach('active', false);
-
-      if (!wasActive) {
-        set(sortedTokens.findBy('id', token.id), 'active', true);
-        set(token, 'active', true);
-      }
+      tokens.setEach('active', false);
+      set(token, 'active', !wasActive);
     },
   },
 });
