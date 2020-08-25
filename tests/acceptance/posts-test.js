@@ -73,15 +73,15 @@ module('Acceptance: title', function(hooks) {
     await visit('/feeds/tomster');
     assert.equal(title(), 'Tomster (@tomster)');
 
-    await click('#zoey');
+    click('#zoey');
     await waitUntil(() => {
-      return find('div').innerText !== 'Loading...';
+      return !find('div[data-test-substate-loading]');
     });
     assert.equal(title(), 'Zoey (@zoey)');
 
     await click('#tomster');
     await waitUntil(() => {
-      return find('div').innerText !== 'Loading...';
+      return !find('div[data-test-substate-loading]');
     });
     assert.equal(title(), 'Tomster (@tomster)');
   });
