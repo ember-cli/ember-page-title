@@ -1,7 +1,7 @@
 import { A } from '@ember/array';
 import { getOwner } from '@ember/application';
 import Service from '@ember/service';
-import { set, get, computed } from '@ember/object';
+import { set, computed } from '@ember/object';
 import { copy } from 'ember-copy';
 import { capitalize } from '@ember/string';
 import { isPresent } from '@ember/utils';
@@ -54,9 +54,9 @@ export default Service.extend({
   tokens: null,
 
   applyTokenDefaults(token) {
-    let defaultSeparator = get(this, "defaultSeparator");
-    let defaultPrepend = get(this, "defaultPrepend");
-    let defaultReplace = get(this, "defaultReplace");
+    let defaultSeparator = this.defaultSeparator;
+    let defaultPrepend = this.defaultPrepend;
+    let defaultReplace = this.defaultReplace;
 
     if (token.separator == null) {
       token.separator = defaultSeparator;
@@ -112,7 +112,7 @@ export default Service.extend({
     let tokens = copy(this.tokens);
     tokens.push(token);
     set(this, 'tokens', A(tokens));
-    set(this, 'length', get(this, 'length') + 1);
+    set(this, 'length', this.length + 1);
   },
 
   remove(id) {
@@ -131,12 +131,12 @@ export default Service.extend({
     let tokens = A(copy(this.tokens));
     tokens.removeObject(token);
     set(this, 'tokens', A(tokens));
-    set(this, 'length', get(this, 'length') - 1);
+    set(this, 'length', this.length - 1);
   },
 
   visibleTokens: computed('tokens', {
     get() {
-      let tokens = get(this, 'tokens');
+      let tokens = this.tokens;
       let i = (tokens ? tokens.length : 0);
       let visible = [];
       while (i--) {
@@ -154,7 +154,7 @@ export default Service.extend({
 
   sortedTokens: computed('visibleTokens', {
     get() {
-      let visible = get(this, 'visibleTokens');
+      let visible = this.visibleTokens;
       let appending = true;
       let group = [];
       let groups = A([group]);
@@ -191,7 +191,7 @@ export default Service.extend({
   }),
 
   toString() {
-    let tokens = get(this, 'sortedTokens');
+    let tokens = this.sortedTokens;
     let title = [];
     for (let i = 0, len = tokens.length; i < len; i++) {
       let token = tokens[i];

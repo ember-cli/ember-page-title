@@ -1,7 +1,9 @@
 import { isEmpty } from '@ember/utils';
 import { later } from '@ember/runloop';
 import Component from '@ember/component';
-import { set, get, computed } from '@ember/object';
+import { set, computed } from '@ember/object';
+// TODO migrate away from mixin pattern
+// eslint-disable-next-line ember/no-mixins
 import Autoresize from 'ember-autoresize/mixins/autoresize';
 import layout from './template';
 
@@ -19,6 +21,7 @@ import layout from './template';
   @class TextField
   @extends Ember.Component
  */
+
 export default Component.extend(Autoresize, {
   layout,
   classNames: ['text-field'],
@@ -54,14 +57,14 @@ export default Component.extend(Autoresize, {
 
   autoResizeText: computed('value', {
     get() {
-      return get(this, 'value') || '';
+      return this.value || '';
     }
   }),
 
   didInsertElement() {
-    set(this, 'autoresizeElement', this.get('element').querySelector('input'));
+    set(this, 'autoresizeElement', this.element.querySelector('input'));
     later(this, function () {
-      set(this, 'autoresizeElement', this.get('element').querySelector('input'));
+      set(this, 'autoresizeElement', this.element.querySelector('input'));
       later(this, 'measureSize', 100);
     });
   },
@@ -71,20 +74,20 @@ export default Component.extend(Autoresize, {
   },
 
   _getValue() {
-    return get(this, 'value');
+    return this.value;
   },
 
   _setValue(value) {
     if (isEmpty(value) || value == null) {
-      get(this, 'onchange')(null);
+      this.onchange(null);
     } else {
-      get(this, 'onchange')(value);
+      this.onchange(value);
     }
     this._updateDisplayValue(value);
   },
 
   _updateDisplayValue(displayValue) {
-    let input = get(this, 'element').querySelector('input');
+    let input = this.element.querySelector('input');
     let selectionStart = input.selectionStart;
     let selectionEnd = input.selectionEnd;
 
@@ -95,7 +98,7 @@ export default Component.extend(Autoresize, {
 
   actions: {
     reformat() {
-      let input = get(this, 'element').querySelector('input');
+      let input = this.element.querySelector('input');
       this._setValue(input.value);
     },
     blackHole(evt) {

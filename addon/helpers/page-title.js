@@ -1,7 +1,7 @@
 import { scheduleOnce } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
-import { set, get } from '@ember/object';
+import { set } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { assign } from '@ember/polyfills';
 import { getOwner } from '@ember/application';
@@ -22,7 +22,7 @@ export default Helper.extend({
 
   init() {
     this._super();
-    let tokens = get(this, 'pageTitleList');
+    let tokens = this.pageTitleList;
     tokens.push({ id: guidFor(this) });
   },
 
@@ -35,24 +35,24 @@ export default Helper.extend({
           _hash._deprecate
       );
     }
-    let tokens = get(this, 'pageTitleList');
+    let tokens = this.pageTitleList;
     let hash = assign({}, _hash);
     hash.id = guidFor(this);
     hash.title = params.join('');
     tokens.push(hash);
-    scheduleOnce('afterRender', get(this, 'headData'), updateTitle, tokens);
+    scheduleOnce('afterRender', this.headData, updateTitle, tokens);
     return '';
   },
 
   destroy() {
-    let tokens = get(this, 'pageTitleList');
+    let tokens = this.pageTitleList;
     let id = guidFor(this);
     tokens.remove(id);
 
     let router = getOwner(this).lookup('router:main');
     let routes = router._routerMicrolib || router.router;
     let { activeTransition } = routes || {};
-    let headData = get(this, 'headData');
+    let headData = this.headData;
     if (activeTransition) {
       activeTransition.promise.finally(function () {
         if (headData.isDestroyed) {

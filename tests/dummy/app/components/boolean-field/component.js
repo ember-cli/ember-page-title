@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import { get } from '@ember/object';
 import layout from './template';
 
 export default Component.extend({
@@ -14,7 +13,7 @@ export default Component.extend({
   */
 
   click() {
-    get(this, 'onchange')(!get(this, 'value'));
+    this.onchange(!this.value);
     return false;
   }
 });
