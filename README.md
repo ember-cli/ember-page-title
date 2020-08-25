@@ -13,6 +13,12 @@ Add `{{head-layout}}` to your application's `application.hbs` template.
 <details>
 <summary>Fastboot vs Non-Fastboot Notes</summary>
 
+### Compatibility
+
+* Ember.js v3.12 or above
+* Ember CLI v2.13 or above
+* Node.js v10 or above
+
 #### Post Install Cleanup
 
 As of v3.0.0 this addon maintains the page title by using the `<title>` tag in your document's `<head>`. This is necessary for [FastBoot](https://github.com/tildeio/ember-cli-fastboot) compatibility.
