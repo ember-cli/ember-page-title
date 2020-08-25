@@ -22,7 +22,7 @@ export default Component.extend({
       replace: this.replace,
       separator: this.separator,
       prepend: this.prepend,
-      active: this.token.active
+      active: this.token ? this.token.active : false
     });
     scheduleOnce('afterRender', this, this.pushToken);
   },

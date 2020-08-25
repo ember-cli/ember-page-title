@@ -1,22 +1,12 @@
 import { A } from '@ember/array';
 import Component from '@ember/component';
 import { computed, set } from '@ember/object';
-import PageTitleList from 'ember-page-title/services/page-title-list';
-
-let TitleList = PageTitleList.extend({
-  _removeExistingTitleTag() {
-    return;
-  },
-});
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
   tagName: '',
 
-  titleList: computed({
-    get() {
-      return TitleList.create();
-    },
-  }),
+  titleList: service(),
 
   lastIndex: computed('titleList.{sortedTokens.length,tokens.length}', {
     get() {
