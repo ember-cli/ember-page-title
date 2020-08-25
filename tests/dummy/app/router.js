@@ -15,7 +15,7 @@ Router.map(function() {
   this.route('posts');
   this.route('post', { path: '/posts/:post_id' });
   this.route('author', { path: '/authors/:author_id' });
-  this.route('hollywood', { path: '/hollywood' });
+  this.route('hollywood' );
   this.route('feed', { path: '/feeds/:name' });
-  this.route('reader', { path: '/reader' });
+  this.route('reader' );
 });

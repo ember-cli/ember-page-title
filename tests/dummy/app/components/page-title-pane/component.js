@@ -1,6 +1,6 @@
 import { A } from '@ember/array';
 import Component from '@ember/component';
-import { computed, set, get } from '@ember/object';
+import { computed, set } from '@ember/object';
 import PageTitleList from 'ember-page-title/services/page-title-list';
 
 let TitleList = PageTitleList.extend({
@@ -18,17 +18,17 @@ export default Component.extend({
     },
   }),
 
-  lastIndex: computed('titleList.tokens.length', {
+  lastIndex: computed('titleList.{sortedTokens.length,tokens.length}', {
     get() {
-      return get(this, 'titleList.sortedTokens.length') - 1;
+      return this.titleList.sortedTokens.length - 1;
     },
   }),
 
   actions: {
     highlight(token) {
-      let sortedTokens = A(get(this, 'titleList.sortedTokens'));
+      let sortedTokens = A(this.titleList.sortedTokens);
       let wasActive = token.active;
-      get(this, 'titleList.tokens').setEach('active', false);
+      this.titleList.tokens.setEach('active', false);
       sortedTokens.setEach('active', false);
 
       if (!wasActive) {
