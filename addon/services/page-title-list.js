@@ -194,8 +194,7 @@ export default Service.extend({
 
   scheduleTitleUpdate() {
     let router = getOwner(this).lookup('router:main');
-    let routes = router._routerMicrolib || router.router;
-    let { activeTransition } = routes || {};
+    let { activeTransition } = router._routerMicrolib;
     if (activeTransition) {
       activeTransition.promise.finally(() => {
         if (this.isDestroyed) {
