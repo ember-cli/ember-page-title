@@ -17,13 +17,13 @@ ember install ember-page-title
 <details>
 <summary>Fastboot vs Non-Fastboot Notes</summary>
 
-#### Post Install Cleanup
+#### Post Install Setup Notes
 
 As of v3.0.0 this addon maintains the page title by using the `<title>` tag in your document's `<head>`. This is necessary for [FastBoot](https://github.com/tildeio/ember-cli-fastboot) compatibility.
 
 **Non-fastboot apps** should keep the `<title>` tag in index.html to ensure that the initial page is valid HTML. The title will be removed and replaced when your app boots.
 
-**Fastboot apps** MUST remove the `<title>` tag from index.html.
+**Fastboot apps** MUST remove the `<title>` tag from index.html. As of v6.0.0 this is done automatically if you use `ember install ember-page-title` to install this addon. Can also be run manually using `ember g ember-page-title` to update the title if FastBoot is installed.
 
 </details>
 
