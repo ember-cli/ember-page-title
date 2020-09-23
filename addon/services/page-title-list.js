@@ -124,7 +124,7 @@ export default Service.extend({
 
   remove(id) {
     let token = this.tokens.findBy('id', id);
-    let {next, previous} = token;
+    let { next, previous } = token;
     if (next) {
       next.previous = previous;
     }
@@ -143,7 +143,7 @@ export default Service.extend({
   visibleTokens: computed('tokens', {
     get() {
       let tokens = this.tokens;
-      let i = (tokens ? tokens.length : 0);
+      let i = tokens ? tokens.length : 0;
       let visible = [];
       while (i--) {
         let token = tokens[i];
@@ -155,7 +155,7 @@ export default Service.extend({
         }
       }
       return visible;
-    }
+    },
   }),
 
   sortedTokens: computed('visibleTokens', {
@@ -193,7 +193,7 @@ export default Service.extend({
       return frontGroups.concat(
         groups.reduce((E, group) => E.concat(group), [])
       );
-    }
+    },
   }),
 
   scheduleTitleUpdate() {
@@ -243,5 +243,5 @@ export default Service.extend({
       let title = titles[i];
       title.parentNode.removeChild(title);
     }
-  }
+  },
 });
