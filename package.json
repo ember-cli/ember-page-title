@@ -79,6 +79,6 @@
   },
   "homepage": "https://adopted-ember-addons.github.io/ember-page-title",
   "volta": {
-    "node": "8.16.0"
+    "node": "10.22.1"
   }
 }
