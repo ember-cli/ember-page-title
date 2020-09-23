@@ -194,6 +194,7 @@ export default Service.extend({
   }),
 
   scheduleTitleUpdate() {
+    // eslint-disable-next-line ember/no-private-routing-service
     let { activeTransition } = this.router._router._routerMicrolib;
     if (activeTransition) {
       activeTransition.promise.finally(() => {
