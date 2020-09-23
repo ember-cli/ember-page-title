@@ -30,7 +30,7 @@ module.exports = {
         const title = titleMatches[1] || "Example Title";
         fs.writeFileSync(
           indexHtmlPath,
-          contents.replace(/\s.*<title>.*<\/title>.*/gi, ''),
+          contents.replace(/\s*<title>.*<\/title>/gi, ''),
           {
             encoding: 'utf8'
           }
