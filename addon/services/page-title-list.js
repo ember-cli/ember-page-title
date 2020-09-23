@@ -15,6 +15,7 @@ let isFastBoot = typeof FastBoot !== 'undefined';
   @extends Ember.Service
  */
 export default Service.extend({
+  router: service(),
   document: service('-document'),
 
   init() {
@@ -30,6 +31,9 @@ export default Service.extend({
         }
       });
     }
+    this.router.on('routeDidChange', () => {
+      this.scheduleTitleUpdate();
+    });
   },
 
   /**
@@ -193,18 +197,7 @@ export default Service.extend({
   }),
 
   scheduleTitleUpdate() {
-    let router = getOwner(this).lookup('router:main');
-    let { activeTransition } = router._routerMicrolib;
-    if (activeTransition) {
-      activeTransition.promise.finally(() => {
-        if (this.isDestroyed) {
-          return;
-        }
-        scheduleOnce('afterRender', this, this._updateTitle);
-      });
-    } else {
-      scheduleOnce('afterRender', this, this._updateTitle);
-    }
+    scheduleOnce('afterRender', this, this._updateTitle);
   },
 
   toString() {
