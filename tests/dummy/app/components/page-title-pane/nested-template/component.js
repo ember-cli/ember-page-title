@@ -7,10 +7,10 @@ export default Component.extend({
   classNames: ['nested-template'],
   classNameBindings: ['active:active'],
 
-  active: computed('titleList.{sortedTokens,tokens.@each.active}', 'token.id', {
+  active: computed('titleList.{tokens.@each.active}', 'token.id', {
     get() {
-      let sortedTokens = A(this.titleList.sortedTokens);
-      let token = sortedTokens.findBy('id', this.token.id);
+      let tokens = A(this.titleList.tokens);
+      let token = tokens.findBy('id', this.token.id);
       return token && token.active;
     },
   }),

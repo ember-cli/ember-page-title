@@ -8,16 +8,14 @@ This addon provides a helper for changing the title of the page you're on.
 ember install ember-page-title
 ```
 
-Add `{{head-layout}}` to your application's `application.hbs` template.
-
-<details>
-<summary>Fastboot vs Non-Fastboot Notes</summary>
-
 ### Compatibility
 
 * Ember.js v3.12 or above
 * Ember CLI v2.13 or above
 * Node.js v10 or above
+
+<details>
+<summary>Fastboot vs Non-Fastboot Notes</summary>
 
 #### Post Install Cleanup
 
@@ -60,20 +58,16 @@ module.exports = function (environment) {
 };
 ```
 
-### Fastboot
-
-When working with other addons that use `ember-cli-head`, you'll need to create a custom `head.hbs` file that exposes the `<title>` tag properly:
-
-```hbs
-<title>{{model.title}}</title>
-```
-
-This file is added automatically if you use `ember install`. This is for all the folks using ember-cli-head addons like ember-cli-meta-tags.
-
 ### Deprecations
 
 - Since **v5.2.2**: The `{{title}}` helper has been deprecated, use `{{page-title}}` instead, it has the same API. The
   `{{title}}` helper was an AST transform and will be removed in the next major release.
+
+### Upgrading notes for 5.x to 6.x
+
+`ember-page-title` no longer requires the usage of `ember-cli-head`.
+
+Please remove `{{head-layout}}` from your application's `application.hbs` route template.
 
 ### Upgrading notes for 3.x to 4.x
 

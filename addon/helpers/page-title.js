@@ -1,14 +1,7 @@
-import { scheduleOnce } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
-import { set } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { assign } from '@ember/polyfills';
-import { getOwner } from '@ember/application';
-
-function updateTitle(tokens) {
-  set(this, 'title', tokens.toString());
-}
 
 /**
   `{{page-title}}` is used to communicate with
@@ -17,13 +10,15 @@ function updateTitle(tokens) {
   @method page-title
  */
 export default Helper.extend({
-  pageTitleList: service(),
-  headData: service(),
+  tokens: service('page-title-list'),
+
+  get tokenId() {
+    return guidFor(this);
+  },
 
   init() {
-    this._super();
-    let tokens = this.pageTitleList;
-    tokens.push({ id: guidFor(this) });
+    this._super(...arguments);
+    this.tokens.push({ id: this.tokenId });
   },
 
   compute(params, _hash) {
@@ -35,33 +30,22 @@ export default Helper.extend({
           _hash._deprecate
       );
     }
-    let tokens = this.pageTitleList;
-    let hash = assign({}, _hash);
-    hash.id = guidFor(this);
-    hash.title = params.join('');
-    tokens.push(hash);
-    scheduleOnce('afterRender', this.headData, updateTitle, tokens);
+    let hash = assign(
+      {},
+      _hash,
+      {
+        id: this.tokenId,
+        title: params.join('')
+      }
+    );
+
+    this.tokens.push(hash);
+    this.tokens.scheduleTitleUpdate();
     return '';
   },
 
   destroy() {
-    let tokens = this.pageTitleList;
-    let id = guidFor(this);
-    tokens.remove(id);
-
-    let router = getOwner(this).lookup('router:main');
-    let routes = router._routerMicrolib || router.router;
-    let { activeTransition } = routes || {};
-    let headData = this.headData;
-    if (activeTransition) {
-      activeTransition.promise.finally(function () {
-        if (headData.isDestroyed) {
-          return;
-        }
-        scheduleOnce('afterRender', headData, updateTitle, tokens);
-      });
-    } else {
-      scheduleOnce('afterRender', headData, updateTitle, tokens);
-    }
+    this.tokens.remove(this.tokenId);
+    this.tokens.scheduleTitleUpdate();
   },
 });
