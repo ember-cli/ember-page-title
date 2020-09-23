@@ -16,6 +16,7 @@ let isFastBoot = typeof FastBoot !== 'undefined';
  */
 export default Service.extend({
   document: service('-document'),
+  router: service('router'),
 
   init() {
     this._super();
@@ -120,7 +121,7 @@ export default Service.extend({
 
   remove(id) {
     let token = this.tokens.findBy('id', id);
-    let {next, previous} = token;
+    let { next, previous } = token;
     if (next) {
       next.previous = previous;
     }
@@ -139,7 +140,7 @@ export default Service.extend({
   visibleTokens: computed('tokens', {
     get() {
       let tokens = this.tokens;
-      let i = (tokens ? tokens.length : 0);
+      let i = tokens ? tokens.length : 0;
       let visible = [];
       while (i--) {
         let token = tokens[i];
@@ -151,7 +152,7 @@ export default Service.extend({
         }
       }
       return visible;
-    }
+    },
   }),
 
   sortedTokens: computed('visibleTokens', {
@@ -189,12 +190,11 @@ export default Service.extend({
       return frontGroups.concat(
         groups.reduce((E, group) => E.concat(group), [])
       );
-    }
+    },
   }),
 
   scheduleTitleUpdate() {
-    let router = getOwner(this).lookup('router:main');
-    let { activeTransition } = router._routerMicrolib;
+    let { activeTransition } = this.router._router._routerMicrolib;
     if (activeTransition) {
       activeTransition.promise.finally(() => {
         if (this.isDestroyed) {
@@ -250,5 +250,5 @@ export default Service.extend({
       let title = titles[i];
       title.parentNode.removeChild(title);
     }
-  }
+  },
 });
