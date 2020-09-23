@@ -7,13 +7,13 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
-      legacyDecorators: true
-    }
+      legacyDecorators: true,
+    },
   },
   plugins: ['ember'],
   extends: ['eslint:recommended', 'plugin:ember/recommended'],
   env: {
-    browser: true
+    browser: true,
   },
   rules: {},
   overrides: [
@@ -27,7 +27,6 @@ module.exports = {
         'index.js',
         'testem.js',
         'config/**/*.js',
-        'lib/**/*.js',
         'tests/dummy/config/**/*.js',
       ],
       excludedFiles: [
@@ -37,14 +36,14 @@ module.exports = {
         'tests/dummy/app/**',
       ],
       parserOptions: {
-        sourceType: 'script'
+        sourceType: 'script',
       },
       env: {
         browser: false,
         node: true,
       },
       plugins: ['node'],
-      extends: ['plugin:node/recommended']
-    }
-  ]
+      extends: ['plugin:node/recommended'],
+    },
+  ],
 };

@@ -4,7 +4,7 @@ import { guidFor } from '@ember/object/internals';
 import { assign } from '@ember/polyfills';
 
 /**
-  `{{page-title}}` is used to communicate with
+  `{{page-title}}` helper used to set the title of the current route context.
 
   @public
   @method page-title
@@ -22,22 +22,10 @@ export default Helper.extend({
   },
 
   compute(params, _hash) {
-    // page-title used via title ast transform, which is deprecated
-    if (_hash && _hash._deprecate) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        'Using `{{title}}` helper is deprecated, use `{{page-title}}` instead. ' +
-          _hash._deprecate
-      );
-    }
-    let hash = assign(
-      {},
-      _hash,
-      {
-        id: this.tokenId,
-        title: params.join('')
-      }
-    );
+    let hash = assign({}, _hash, {
+      id: this.tokenId,
+      title: params.join(''),
+    });
 
     this.tokens.push(hash);
     this.tokens.scheduleTitleUpdate();
