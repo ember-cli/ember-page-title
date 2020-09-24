@@ -12,8 +12,7 @@ module.exports = {
   browser_start_timeout: 120,
   browser_args: {
     Chrome: {
-      mode: 'ci',
-      args: [
+      ci: [
         // --no-sandbox is needed when running Chrome inside a container
         process.env.CI ? '--no-sandbox' : null,
         '--headless',
