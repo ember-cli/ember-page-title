@@ -72,6 +72,16 @@ module.exports = async function() {
             edition: 'classic'
           }
         }
+      },
+      {
+        name: 'embroider-tests',
+        npm: {
+          devDependencies: {
+            '@embroider/core': '*',
+            '@embroider/webpack': '*',
+            '@embroider/compat': '*',
+          },
+        },
       }
     ]
   };
