@@ -25,7 +25,7 @@ module.exports = {
         );
 
         const titleMatches = contents.match(/<title>(.*)<\/title>/i);
-        const title = titleMatches[1] || "Example Title";
+        const title = titleMatches && titleMatches[1] || "Example Title";
         fs.writeFileSync(
           indexHtmlPath,
           contents.replace(/\s*<title>.*<\/title>/gi, ''),
