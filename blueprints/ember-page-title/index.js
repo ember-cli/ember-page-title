@@ -12,9 +12,7 @@ module.exports = {
     let isFastBootPresent = 'ember-cli-fastboot' in project.dependencies();
 
     if (isFastBootPresent) {
-      let isAddon = 'ember-addon' in project.pkg;
-
-      let indexHtmlPath = isAddon ?
+      let indexHtmlPath = project.isEmberCLIAddon() ?
         path.join(project.root, 'tests', 'dummy', 'app', 'index.html') :
         path.join(project.root, 'app', 'index.html');
 
