@@ -24,15 +24,17 @@ module.exports = {
           }
         );
 
-        const titleMatches = contents.match(/<title>(.*)<\/title>/i);
+        const titleMatches = contents.match(/<title>\s*(.*)\s*<\/title>/i);
         const title = titleMatches && titleMatches[1] || "Example Title";
-        fs.writeFileSync(
-          indexHtmlPath,
-          contents.replace(/\s*<title>.*<\/title>/gi, ''),
-          {
-            encoding: 'utf8'
-          }
-        );
+        if (titleMatches) {
+          fs.writeFileSync(
+            indexHtmlPath,
+            contents.replace(/\s*<title>\s*.*\s*<\/title>/gi, ''),
+            {
+              encoding: 'utf8'
+            }
+          );
+        }
         opts.ui.writeWarnLine(`<title> has been removed from index.html due to ember-cli-fastboot being present, please add {{page-title "${title}"}} to application.hbs`);
       }
     }
