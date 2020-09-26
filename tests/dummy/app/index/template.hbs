@@ -18,17 +18,17 @@
     <section id="installation">
       <h2>Installation</h2>
       <div class="grid">
-        {{#window-pane}}
+        <WindowPane>
           <span class="ps1">&gt; </span>ember install ember-page-title
-        {{/window-pane}}
+        </WindowPane>
       </div>
     </section>
 
     <section id="playground">
       <h2>Playground</h2>
       <div class="grid">
-        {{#page-title-pane as |p|}}
-          {{#p.matryoshka items=model.tokens as |token|}}
+        <PageTitlePane as |p|>
+          <p.matryoshka @items={{this.model.tokens}} as |token|>
             <code>
               {{page-title token.value replace=token.replace prepend=token.prepend separator=token.separator}}
               \{{<span class="helper">page-title</span> "{{text-field class="string" value=token.value onchange=(action (mut token.value)) autoresize=true}}"
@@ -36,10 +36,9 @@
               <span class="literal">prepend</span>={{boolean-field class="attribute" value=token.prepend onchange=(action (mut token.prepend))}}
               <span class="literal">replace</span>={{boolean-field class="attribute" value=token.replace onchange=(action (mut token.replace))~}} }}
             </code>
-          {{/p.matryoshka}}
-
+          </p.matryoshka>
           <button type="button" onclick={{action "add" model.tokens}}>Add title</button>
-        {{/page-title-pane}}
+        </PageTitlePane>
       </div>
     </section>
 
@@ -48,14 +47,14 @@
       <div class="grid">
         <div class="info">
           <p>To start using ember-page-title, add the name of your application into <code class="inline">application.hbs</code></p>
-          <p>This sets the title for your application. When your application loads, you should see the title &ldquo;{{model.title}}&rdquo; appear in the window. Try changing the value below to change the title of this page.</p>
+          <p>This sets the title for your application. When your application loads, you should see the title &ldquo;{{this.model.title}}&rdquo; appear in the window. Try changing the value below to change the title of this page.</p>
 
-          {{input type="text" value=model.title placeholder="My App"}}
+          <Input type="text" value={{this.model.title}} placeholder="My App"/>
         </div>
 
-        {{#window-pane title="templates/application.hbs"}}
-          <code>{{highlight '{{page-title "' model.title '"}}'}}</code>
-        {{/window-pane}}
+        <WindowPane @title="templates/application.hbs">
+          <code>{{highlight '{{page-title "' this.model.title '"}}'}}</code>
+        </WindowPane>
       </div>
 
       <div class="grid">
@@ -63,17 +62,17 @@
           <p>By default, using the helper will allow an interaction where additional titles are appended to the root:</p>
         </div>
 
-        {{#page-title-pane as |p|}}
-          {{#p.template title=model.title}}
-            <code>{{highlight '{{page-title "' model.title '"}}'}}</code>
-            {{#p.template title="Posts"}}
+        <PageTitlePane as |p|>
+          <p.template @title={{this.model.title}}>
+            <code>{{highlight '{{page-title "' this.model.title '"}}'}}</code>
+            <p.template title="Posts">
               <code>{{highlight '{{page-title "Posts"}}'}}</code>
-              {{#p.template title=model.post.title}}
+              <p.template @title={{this.model.post.title}}>
                 <code>{{highlight '{{page-title post.title}}'}}</code>
-              {{/p.template}}
-            {{/p.template}}
-          {{/p.template}}
-        {{/page-title-pane}}
+              </p.template>
+            </p.template>
+          </p.template>
+        </PageTitlePane>
       </div>
 
       <div class="grid">
@@ -81,17 +80,17 @@
           <p>You can change the separator by specifying the <code class="inline"><span class="attribute">separator</span></code> attribute.</p>
         </div>
 
-        {{#page-title-pane as |p|}}
-          {{#p.template title=model.title separator=" > "}}
-            <code>{{highlight '{{page-title "' model.title '" separator=" > "}}'}}</code>
-            {{#p.template title="Posts"}}
+        <PageTitlePane as |p|>
+          <p.template @title={{this.model.title}} @separator=" > ">
+            <code>{{highlight '{{page-title "' this.model.title '" separator=" > "}}'}}</code>
+            <p.template @title="Posts">
               <code>{{highlight '{{page-title "Posts"}}'}}</code>
-              {{#p.template title=model.post.title}}
+              <p.template @title={{this.model.post.title}}>
                 <code>{{highlight '{{page-title post.title}}'}}</code>
-              {{/p.template}}
-            {{/p.template}}
-          {{/p.template}}
-        {{/page-title-pane}}
+              </p.template>
+            </p.template>
+          </p.template>
+        </PageTitlePane>
       </div>
 
       <div class="grid">
@@ -99,17 +98,17 @@
           <p>Separators can be changed at arbitrary levels:</p>
         </div>
 
-        {{#page-title-pane as |p|}}
-          {{#p.template title=model.title separator=": "}}
-            <code>{{highlight '{{page-title "' model.title '" separator=": "}}'}}</code>
-            {{#p.template title="Posts" separator=" > "}}
+        <PageTitlePane as |p|>
+          <p.template @title={{this.model.title}} @separator=": ">
+            <code>{{highlight '{{page-title "' this.model.title '" separator=": "}}'}}</code>
+            <p.template @title="Posts" @separator=" > ">
               <code>{{highlight '{{page-title "Posts" separator=" > "}}'}}</code>
-              {{#p.template title=model.post.title}}
+              <p.template @title={{this.model.post.title}}>
                 <code>{{highlight '{{page-title post.title}}'}}</code>
-              {{/p.template}}
-            {{/p.template}}
-          {{/p.template}}
-        {{/page-title-pane}}
+              </p.template>
+            </p.template>
+          </p.template>
+        </PageTitlePane>
       </div>
 
       <div class="grid">
@@ -117,17 +116,17 @@
           <p>Titles can be prepended to the parent, by setting the <code class="inline"><span class="attribute">prepend</span></code> attribute to <code class="inline">{{highlight "true"}}</code>.</p>
         </div>
 
-        {{#page-title-pane as |p|}}
-          {{#p.template title=model.title prepend=true}}
-            <code>{{highlight '{{page-title "' model.title '" prepend=true}}'}}</code>
-            {{#p.template title="Posts"}}
+        <PageTitlePane as |p|>
+          <p.template @title={{this.model.title}} @prepend={{true}}>
+            <code>{{highlight '{{page-title "' this.model.title '" prepend=true}}'}}</code>
+            <p.template @title="Posts">
               <code>{{highlight '{{page-title "Posts"}}'}}</code>
-              {{#p.template title=model.post.title}}
+              <p.template @title={{this.model.post.title}}>
                 <code>{{highlight '{{page-title post.title}}'}}</code>
-              {{/p.template}}
-            {{/p.template}}
-          {{/p.template}}
-        {{/page-title-pane}}
+              </p.template>
+            </p.template>
+          </p.template>
+        </PageTitlePane>
       </div>
 
       <div class="grid">
@@ -135,17 +134,17 @@
           <p>This allows one to swap the order at arbitrary levels:</p>
         </div>
 
-        {{#page-title-pane as |p|}}
-          {{#p.template title=model.title}}
-            <code>{{highlight '{{page-title "' model.title '"}}'}}</code>
-            {{#p.template title="Posts" prepend=true}}
+        <PageTitlePane as |p|>
+          <p.template @title={{this.model.title}}>
+            <code>{{highlight '{{page-title "' this.model.title '"}}'}}</code>
+            <p.template @title="Posts" @prepend={{true}}>
               <code>{{highlight '{{page-title "Posts" prepend=true}}'}}</code>
-              {{#p.template title=model.post.title}}
+              <p.template @title={{this.model.post.title}}>
                 <code>{{highlight '{{page-title post.title}}'}}</code>
-              {{/p.template}}
-            {{/p.template}}
-          {{/p.template}}
-        {{/page-title-pane}}
+              </p.template>
+            </p.template>
+          </p.template>
+        </PageTitlePane>
       </div>
 
       <div class="grid">
@@ -153,17 +152,17 @@
           <p>And for special templates that need to complete control over the title, set the <code class="inline"><span class="attribute">replace</span></code> attribute to <code class="inline">{{highlight "true"}}</code>. This will only apply for that level.</p>
         </div>
 
-        {{#page-title-pane as |p|}}
-          {{#p.template title=model.title}}
-            <code>{{highlight '{{page-title "' model.title '"}}'}}</code>
-            {{#p.template title="Posts" replace=true}}
+        <PageTitlePane as |p|>
+          <p.template @title={{this.model.title}}>
+            <code>{{highlight '{{page-title "' this.model.title '"}}'}}</code>
+            <p.template @title="Posts" @replace={{true}}>
               <code>{{highlight '{{page-title "Posts" replace=true}}'}}</code>
-              {{#p.template title=model.post.title}}
-                <code>{{highlight '{{page-title model.post.title}}'}}</code>
-              {{/p.template}}
-            {{/p.template}}
-          {{/p.template}}
-        {{/page-title-pane}}
+              <p.template @title={{this.model.post.title}}>
+                <code>{{highlight '{{page-title this.model.post.title}}'}}</code>
+              </p.template>
+            </p.template>
+          </p.template>
+        </PageTitlePane>
       </div>
 
       <div class="grid">
@@ -171,26 +170,26 @@
           <p>In addition, there's no limit to the amount of titles you can put in a route:</p>
         </div>
 
-        {{#page-title-pane as |p|}}
-          {{#p.template title=model.title}}
-            <code>{{highlight '{{page-title "' model.title '"}}'}}</code>
-            {{#p.template title=(concat "Posts | " model.post.title)}}
+        <PageTitlePane as |p|>
+          <p.template @title={{this.model.title}}>
+            <code>{{highlight '{{page-title "' this.model.title '"}}'}}</code>
+            <p.template @title={{concat "Posts | " this.model.post.title}}>
               <code>{{highlight '{{page-title "Posts"}}'}}</code>
-              <code>{{highlight '{{page-title model.post.title}}'}}</code>
-            {{/p.template}}
-          {{/p.template}}
-        {{/page-title-pane}}
+              <code>{{highlight '{{page-title this.model.post.title}}'}}</code>
+            </p.template>
+          </p.template>
+        </PageTitlePane>
       </div>
 
       <div class="grid">
         <div class="info">
           <p>Dynamic tokens are available by providing multiple parameters to the helper:</p>
         </div>
-        {{#page-title-pane as |p|}}
-          {{#p.template title="Tim Evans (@timmyce)"}}
+        <PageTitlePane as |p|>
+          <p.template @title="Tim Evans (@timmyce)">
             <code>{{highlight '{{page-title blogger.name " (" blogger.handle ")"}}'}}</code>
-          {{/p.template}}
-        {{/page-title-pane}}
+          </p.template>
+        </PageTitlePane>
       </div>
     </section>
   </main>
