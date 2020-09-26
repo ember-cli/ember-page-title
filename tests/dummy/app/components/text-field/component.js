@@ -8,13 +8,13 @@ import Autoresize from 'ember-autoresize/mixins/autoresize';
 import layout from './template';
 
 /**
-  A `{{text-field}}` is a drop in replacement
+  A `<TextField />` is a drop in replacement
   for `<input type="text">`.
 
-  The simplest `{{text-field}}` would be:
+  The simplest `<TextField />` would be:
 
   ```htmlbars
-  {{text-field value=score onchange=(action (mut score))}}
+  <TextField @value={{this.score}} @onchange={{fn (mut this.score)}} />
   ```
 
   @public

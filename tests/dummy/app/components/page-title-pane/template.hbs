@@ -7,7 +7,8 @@
       <span
         role="button"
         class={{concat "title-token" " " (if token.active "active")}}
-        onclick={{action "highlight" token}}>
+        {{on "click" (fn this.highlight token)}}
+      >
         {{token.title}}
       </span>
       {{#if (lt idx this.lastIndex)}}{{token.separator}}{{/if}}
@@ -15,7 +16,7 @@
   </header>
   <div>
     {{yield (hash
-      template=(component "page-title-pane/nested-template" titleList=this.titleList onactivate=(action "highlight"))
-      matryoshka=(component "page-title-pane/matryoshka" titleList=this.titleList onactivate=(action "highlight")))}}
+      template=(component "page-title-pane/nested-template" titleList=this.titleList onactivate=(fn this.highlight))
+      matryoshka=(component "page-title-pane/matryoshka" titleList=this.titleList onactivate=(fn this.highlight)))}}
   </div>
 </div>
