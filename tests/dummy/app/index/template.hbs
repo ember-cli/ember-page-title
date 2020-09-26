@@ -31,13 +31,13 @@
           <p.matryoshka @items={{this.model.tokens}} as |token|>
             <code>
               {{page-title token.value replace=token.replace prepend=token.prepend separator=token.separator}}
-              \{{<span class="helper">page-title</span> "{{text-field class="string" value=token.value onchange=(action (mut token.value)) autoresize=true}}"
-              <span class="literal">separator</span>="{{text-field class="string" value=token.separator onchange=(action (mut token.separator)) autoresize=true}}"
-              <span class="literal">prepend</span>={{boolean-field class="attribute" value=token.prepend onchange=(action (mut token.prepend))}}
-              <span class="literal">replace</span>={{boolean-field class="attribute" value=token.replace onchange=(action (mut token.replace))~}} }}
+              \{{<span class="helper">page-title</span> "<TextField class="string" @value={{token.value}} @onchange={{action (mut token.value)}} @autoresize={{true}} />"
+              <span class="literal">separator</span>="<TextField class="string" @value={{token.separator}} @onchange={{action (mut token.separator)}} @autoresize={{true}} />"
+              <span class="literal">prepend</span>=<BooleanField class="attribute" @value={{token.prepend}} @onchange={{action (mut token.prepend)}} />
+              <span class="literal">replace</span>=<BooleanField class="attribute" @value={{token.replace}} @onchange={{action (mut token.replace)}} />}}
             </code>
           </p.matryoshka>
-          <button type="button" onclick={{action "add" model.tokens}}>Add title</button>
+          <button type="button" onclick={{action "add" this.model.tokens}}>Add title</button>
         </PageTitlePane>
       </div>
     </section>

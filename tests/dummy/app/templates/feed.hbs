@@ -1,9 +1,9 @@
-{{page-title model.name " (" model.handle ")" replace=true}}
+{{page-title this.model.name " (" this.model.handle ")" replace=true}}
 
-{{#link-to "feed" "tomster" id="tomster"}}
+<LinkTo @route="feed" @model="tomster" id="tomster">
   @tomster
-{{/link-to}}
+</LinkTo>
 
-{{#link-to "feed" "zoey" id="zoey"}}
+<LinkTo @route="feed" @model="zoey" id="zoey">
   @zoey
-{{/link-to}}
+</LinkTo>
