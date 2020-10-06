@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.1](https://github.com/adopted-ember-addons/ember-page-title/compare/v6.0.0...v6.0.1) (2020-10-06)
+
+
+### Bug Fixes
+
+* Do not remove existing title elements, assert instead ([#185](https://github.com/adopted-ember-addons/ember-page-title/issues/185)) ([d4ea9bb](https://github.com/adopted-ember-addons/ember-page-title/commit/d4ea9bb8174c2ac8a9ece9031553e143dd10b661))
+* Use assign() from @ember/polyfills for IE11 ([#183](https://github.com/adopted-ember-addons/ember-page-title/issues/183)) ([48a5fa5](https://github.com/adopted-ember-addons/ember-page-title/commit/48a5fa5b1c4c348948e9bb2235876fd9b1ecb0cb))
+
 ## [6.0.0](https://github.com/adopted-ember-addons/ember-page-title/compare/v5.2.4...v6.0.0) (2020-10-06)
 
 ### ⚠ BREAKING CHANGES
