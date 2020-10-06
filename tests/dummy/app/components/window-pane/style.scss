@@ -1,7 +1,6 @@
 .window-pane {
   position: relative;
   margin: 0 auto;
-  max-width: 500px;
 
   transition: all 250ms;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
@@ -21,7 +20,7 @@
     border-bottom: 1px solid #444;
 
     .button {
-      transition: all .2s;
+      transition: all 0.2s;
       position: absolute;
       border-radius: 6px;
       width: 12px;
@@ -48,12 +47,12 @@
   & > div {
     min-height: 250px;
     background: $black;
-    color: #FFF;
+    color: #fff;
     padding: 20px;
     overflow: auto;
 
     .ps1 {
-      color: #9B9B9B;
+      color: #9b9b9b;
     }
 
     code {
@@ -62,11 +61,11 @@
     }
 
     .ps1 {
-      color: #AAAAAA;
+      color: #aaaaaa;
       -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
   }
 
