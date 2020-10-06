@@ -5,6 +5,7 @@ import Service, { inject as service } from '@ember/service';
 import { set, computed } from '@ember/object';
 import { capitalize } from '@ember/string';
 import { isPresent } from '@ember/utils';
+import { assign } from '@ember/polyfills';
 import { assert } from '@ember/debug';
 
 let isFastBoot = typeof FastBoot !== 'undefined';
@@ -180,7 +181,7 @@ export default class PageTitleListService extends Service {
         }
         let lastToken = group[0];
         if (lastToken) {
-          token = Object.assign({}, token);
+          token = assign({}, token);
           token.separator = lastToken.separator;
         }
         group.unshift(token);
