@@ -1,8 +1,19 @@
-{{#page-title-pane/nested-template title=item.value replace=item.replace prepend=item.prepend separator=item.separator onactivate=onactivate titleList=titleList}}
-  {{yield item}}
-  {{#if nextItems.length}}
-    {{#page-title-pane/matryoshka componentName items=nextItems onactivate=onactivate titleList=titleList as |value|}}
+<PageTitlePane::NestedTemplate
+  @title={{this.item.value}}
+  @replace={{this.item.replace}}
+  @prepend={{this.item.prepend}}
+  @separator={{this.item.separator}}
+  @onactivate={{@onactivate}}
+  @titleList={{@titleList}}
+>
+  {{yield this.item}}
+  {{#if this.nextItems.length}}
+    <PageTitlePane::Matryoshka
+      @items={{this.nextItems}}
+      @onactivate={{@onactivate}}
+      @titleList={{@titleList}} as |value|
+    >
       {{yield value}}
-    {{/page-title-pane/matryoshka}}
+    </PageTitlePane::Matryoshka>
   {{/if}}
-{{/page-title-pane/nested-template}}
+</PageTitlePane::NestedTemplate>
