@@ -29,8 +29,7 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.22.1",
-    "ember-copy": "^1.0.0"
+    "ember-cli-babel": "^7.22.1"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
@@ -59,10 +58,10 @@
     "ember-resolver": "^8.0.2",
     "ember-source": "~3.21.1",
     "ember-source-channel-url": "^3.0.0",
-    "ember-template-lint": "^2.12.0",
+    "ember-template-lint": "^2.13.0",
     "ember-truth-helpers": "^2.1.0",
     "ember-try": "^1.4.0",
-    "eslint": "^7.9.0",
+    "eslint": "^7.10.0",
     "eslint-plugin-ember": "^9.0.0",
     "eslint-plugin-node": "^11.1.0",
     "loader.js": "^4.7.0",

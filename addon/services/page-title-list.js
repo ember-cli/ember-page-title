@@ -3,7 +3,6 @@ import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
 import { set, computed } from '@ember/object';
-import { copy } from 'ember-copy';
 import { capitalize } from '@ember/string';
 import { isPresent } from '@ember/utils';
 
@@ -99,7 +98,7 @@ export default class PageTitleListService extends Service {
     let tokenForId = this.tokens.findBy('id', token.id);
     if (tokenForId) {
       let index = this.tokens.indexOf(tokenForId);
-      let tokens = copy(this.tokens);
+      let tokens = [...this.tokens];
       let previous = tokenForId.previous;
       token.previous = previous;
       token.next = tokenForId.next;
@@ -120,7 +119,7 @@ export default class PageTitleListService extends Service {
 
     this.applyTokenDefaults(token);
 
-    let tokens = copy(this.tokens);
+    let tokens = [...this.tokens];
     tokens.push(token);
     set(this, 'tokens', A(tokens));
   }
@@ -138,7 +137,7 @@ export default class PageTitleListService extends Service {
 
     token.previous = token.next = null;
 
-    let tokens = A(copy(this.tokens));
+    let tokens = A([...this.tokens]);
     tokens.removeObject(token);
     set(this, 'tokens', A(tokens));
   }
@@ -178,7 +177,7 @@ export default class PageTitleListService extends Service {
         }
         let lastToken = group[0];
         if (lastToken) {
-          token = copy(token);
+          token = Object.assign({}, token);
           token.separator = lastToken.separator;
         }
         group.unshift(token);
