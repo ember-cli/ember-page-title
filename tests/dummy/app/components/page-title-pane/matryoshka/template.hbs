@@ -1,19 +1,21 @@
-<PageTitlePane::NestedTemplate
-  @title={{this.item.value}}
-  @replace={{this.item.replace}}
-  @prepend={{this.item.prepend}}
-  @separator={{this.item.separator}}
-  @onactivate={{@onactivate}}
-  @titleList={{@titleList}}
->
-  {{yield this.item}}
-  {{#if this.nextItems.length}}
-    <PageTitlePane::Matryoshka
-      @items={{this.nextItems}}
-      @onactivate={{@onactivate}}
-      @titleList={{@titleList}} as |value|
-    >
-      {{yield value}}
-    </PageTitlePane::Matryoshka>
-  {{/if}}
-</PageTitlePane::NestedTemplate>
+<div ...attributes>
+  <PageTitlePane::NestedTemplate
+    @title={{this.item.value}}
+    @replace={{this.item.replace}}
+    @prepend={{this.item.prepend}}
+    @separator={{this.item.separator}}
+    @onactivate={{@onactivate}}
+    @titleList={{@titleList}}
+  >
+    {{yield this.item}}
+    {{#if this.nextItems.length}}
+      <PageTitlePane::Matryoshka
+        @items={{this.nextItems}}
+        @onactivate={{@onactivate}}
+        @titleList={{@titleList}} as |value|
+      >
+        {{yield value}}
+      </PageTitlePane::Matryoshka>
+    {{/if}}
+  </PageTitlePane::NestedTemplate>
+</div>

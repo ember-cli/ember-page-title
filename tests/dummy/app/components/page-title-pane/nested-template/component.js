@@ -4,9 +4,6 @@ import { computed, set } from '@ember/object';
 import { scheduleOnce } from '@ember/runloop';
 
 export default Component.extend({
-  classNames: ['nested-template'],
-  classNameBindings: ['active:active'],
-
   active: computed('titleList.{tokens.@each.active}', 'token.id', {
     get() {
       let tokens = A(this.titleList.tokens);
@@ -22,7 +19,7 @@ export default Component.extend({
       replace: this.replace,
       separator: this.separator,
       prepend: this.prepend,
-      active: this.token ? this.token.active : false
+      active: this.token ? this.token.active : false,
     });
     scheduleOnce('afterRender', this, this.pushToken);
   },
@@ -34,5 +31,5 @@ export default Component.extend({
 
   pushToken() {
     this.titleList.push(this.token);
-  }
+  },
 });

@@ -69,19 +69,6 @@
     }
   }
 
-  button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border: 0;
-    font-family: OfficeCodePro, Consolas, Inconsolata, monspace;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    background: $primary-color;
-    color: $white;
-    cursor: pointer;
-  }
-
   hr {
     border: 0;
     border-top: 1px solid #666;

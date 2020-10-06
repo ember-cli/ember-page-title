@@ -1,5 +1,11 @@
-{{#if @value}}
-  true
-{{else}}
-  false
-{{/if}}
+<button
+  type='button'
+  class='boolean-field'
+  {{on 'click' (fn @onchange (not @value))}}
+>
+  {{#if @value}}
+    true
+  {{else}}
+    false
+  {{/if}}
+</button>

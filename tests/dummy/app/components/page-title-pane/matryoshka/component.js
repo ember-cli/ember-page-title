@@ -1,16 +1,11 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  item: computed('items', {
-    get() {
-      return this.items[0];
-    }
-  }),
+export default class Matryoshka extends Component {
+  get item() {
+    return this.args.items[0];
+  }
 
-  nextItems: computed('items', {
-    get() {
-      return this.items.slice(1);
-    }
-  })
-});
+  get nextItems() {
+    return this.args.items.slice(1);
+  }
+}
