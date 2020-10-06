@@ -1,8 +1,8 @@
+import classic from 'ember-classic-decorator';
 import { A } from '@ember/array';
 import { getOwner } from '@ember/application';
-import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import { set, computed } from '@ember/object';
 import { copy } from 'ember-copy';
 import { capitalize } from '@ember/string';
@@ -14,12 +14,16 @@ let isFastBoot = typeof FastBoot !== 'undefined';
   @class page-title-list
   @extends Ember.Service
  */
-export default Service.extend({
-  router: service(),
-  document: service('-document'),
+@classic
+export default class PageTitleListService extends Service {
+  @service
+  router;
+
+  @service('-document')
+  document;
 
   init() {
-    this._super();
+    super.init();
     set(this, 'tokens', A());
     this._removeExistingTitleTag();
 
@@ -34,7 +38,7 @@ export default Service.extend({
     this.router.on('routeDidChange', () => {
       this.scheduleTitleUpdate();
     });
-  },
+  }
 
   /**
     The default separator to use between tokens.
@@ -42,7 +46,7 @@ export default Service.extend({
     @property defaultSeparator
     @default ' | '
    */
-  defaultSeparator: ' | ',
+  defaultSeparator = ' | ';
 
   /**
     The default prepend value to use.
@@ -50,7 +54,7 @@ export default Service.extend({
     @property defaultPrepend
     @default true
    */
-  defaultPrepend: true,
+  defaultPrepend = true;
 
   /**
     The default replace value to use.
@@ -58,8 +62,9 @@ export default Service.extend({
     @property defaultReplace
     @default null
    */
-  defaultReplace: null,
-  tokens: null,
+  defaultReplace = null;
+
+  tokens = null;
 
   applyTokenDefaults(token) {
     let defaultSeparator = this.defaultSeparator;
@@ -77,7 +82,7 @@ export default Service.extend({
     if (token.replace == null && defaultReplace != null) {
       token.replace = defaultReplace;
     }
-  },
+  }
 
   inheritFromPrevious(token) {
     let previous = token.previous;
@@ -90,7 +95,7 @@ export default Service.extend({
         token.prepend = previous.prepend;
       }
     }
-  },
+  }
 
   push(token) {
     let tokenForId = this.tokens.findBy('id', token.id);
@@ -120,7 +125,7 @@ export default Service.extend({
     let tokens = copy(this.tokens);
     tokens.push(token);
     set(this, 'tokens', A(tokens));
-  },
+  }
 
   remove(id) {
     let token = this.tokens.findBy('id', id);
@@ -138,67 +143,65 @@ export default Service.extend({
     let tokens = A(copy(this.tokens));
     tokens.removeObject(token);
     set(this, 'tokens', A(tokens));
-  },
+  }
 
-  visibleTokens: computed('tokens', {
-    get() {
-      let tokens = this.tokens;
-      let i = tokens ? tokens.length : 0;
-      let visible = [];
-      while (i--) {
-        let token = tokens[i];
-        if (token.replace) {
-          visible.unshift(token);
-          break;
-        } else {
-          visible.unshift(token);
-        }
+  @computed('tokens')
+  get visibleTokens() {
+    let tokens = this.tokens;
+    let i = tokens ? tokens.length : 0;
+    let visible = [];
+    while (i--) {
+      let token = tokens[i];
+      if (token.replace) {
+        visible.unshift(token);
+        break;
+      } else {
+        visible.unshift(token);
       }
-      return visible;
-    },
-  }),
+    }
+    return visible;
+  }
 
-  sortedTokens: computed('visibleTokens', {
-    get() {
-      let visible = this.visibleTokens;
-      let appending = true;
-      let group = [];
-      let groups = A([group]);
-      let frontGroups = [];
-      visible.forEach((token) => {
-        if (token.front) {
-          frontGroups.unshift(token);
-        } else if (token.prepend) {
-          if (appending) {
-            appending = false;
-            group = [];
-            groups.push(group);
-          }
-          let lastToken = group[0];
-          if (lastToken) {
-            token = copy(token);
-            token.separator = lastToken.separator;
-          }
-          group.unshift(token);
-        } else {
-          if (!appending) {
-            appending = true;
-            group = [];
-            groups.push(group);
-          }
-          group.push(token);
+  @computed('visibleTokens')
+  get sortedTokens() {
+    let visible = this.visibleTokens;
+    let appending = true;
+    let group = [];
+    let groups = A([group]);
+    let frontGroups = [];
+    visible.forEach((token) => {
+      if (token.front) {
+        frontGroups.unshift(token);
+      } else if (token.prepend) {
+        if (appending) {
+          appending = false;
+          group = [];
+          groups.push(group);
         }
-      });
+        let lastToken = group[0];
+        if (lastToken) {
+          token = copy(token);
+          token.separator = lastToken.separator;
+        }
+        group.unshift(token);
+      } else {
+        if (!appending) {
+          appending = true;
+          group = [];
+          groups.push(group);
+        }
+        group.push(token);
+      }
+    });
 
-      return frontGroups.concat(
-        groups.reduce((E, group) => E.concat(group), [])
-      );
-    },
-  }),
+    return frontGroups.concat(
+      groups.reduce((E, group) => E.concat(group), [])
+    );
+  }
 
   scheduleTitleUpdate() {
     scheduleOnce('afterRender', this, this._updateTitle);
-  },
+  }
 
   toString() {
     let tokens = this.sortedTokens;
@@ -213,7 +216,7 @@ export default Service.extend({
       }
     }
     return title.join('');
-  },
+  }
 
   _updateTitle() {
     const toBeTitle = this.toString();
@@ -227,7 +230,7 @@ export default Service.extend({
     } else {
       this.document.title = toBeTitle;
     }
-  },
+  }
 
   /**
    * Remove any existing title tags from the head.
@@ -243,5 +246,5 @@ export default Service.extend({
       let title = titles[i];
       title.parentNode.removeChild(title);
     }
-  },
-});
+  }
+}
