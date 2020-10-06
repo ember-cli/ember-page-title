@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
 import { guidFor } from '@ember/object/internals';
@@ -10,7 +9,6 @@ import { assign } from '@ember/polyfills';
   @public
   @method page-title
  */
-@classic
 export default class PageTitle extends Helper {
   @service('page-title-list')
   tokens;

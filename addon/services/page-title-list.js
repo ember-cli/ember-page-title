@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { A } from '@ember/array';
 import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
@@ -14,7 +13,6 @@ let isFastBoot = typeof FastBoot !== 'undefined';
   @class page-title-list
   @extends Ember.Service
  */
-@classic
 export default class PageTitleListService extends Service {
   @service
   router;
@@ -194,9 +192,7 @@ export default class PageTitleListService extends Service {
       }
     });
 
-    return frontGroups.concat(
-      groups.reduce((E, group) => E.concat(group), [])
-    );
+    return frontGroups.concat(groups.reduce((E, group) => E.concat(group), []));
   }
 
   scheduleTitleUpdate() {
