@@ -52,7 +52,7 @@
       </h2>
       <div class='grid'>
         <PageTitlePane as |p|>
-          <p.matryoshka @items={{this.model.tokens}} as |token|>
+          <p.matryoshka @items={{@model.tokens}} as |token|>
             <code>
               {{page-title
                 token.value
@@ -101,7 +101,7 @@
               }}
             </code>
           </p.matryoshka>
-          <button type='button' {{on 'click' (fn this.add this.model.tokens)}}>
+          <button type='button' {{on 'click' (fn this.add @model.tokens)}}>
             Add title
           </button>
         </PageTitlePane>
@@ -121,16 +121,16 @@
             </code>
           </p>
           <p>
-            This sets the title for your application. When your application loads, you should see the title &ldquo;{{this.model.title
+            This sets the title for your application. When your application loads, you should see the title &ldquo;{{@model.title
             }}&rdquo; appear in the window. Try changing the value below to change the title of this page.
           </p>
 
-          <Input type='text' value={{this.model.title}} placeholder='My App' />
+          <Input type='text' value={{@model.title}} placeholder='My App' />
         </div>
 
         <WindowPane @title='templates/application.hbs'>
           <code>
-            {{highlight '{{page-title "' this.model.title '"}}'}}
+            {{highlight '{{page-title "' @model.title '"}}'}}
           </code>
         </WindowPane>
       </div>
@@ -143,15 +143,15 @@
         </div>
 
         <PageTitlePane as |p|>
-          <p.template @title={{this.model.title}}>
+          <p.template @title={{@model.title}}>
             <code>
-              {{highlight '{{page-title "' this.model.title '"}}'}}
+              {{highlight '{{page-title "' @model.title '"}}'}}
             </code>
             <p.template title='Posts'>
               <code>
                 {{highlight '{{page-title "Posts"}}'}}
               </code>
-              <p.template @title={{this.model.post.title}}>
+              <p.template @title={{@model.post.title}}>
                 <code>
                   {{highlight '{{page-title post.title}}'}}
                 </code>
@@ -175,11 +175,11 @@
         </div>
 
         <PageTitlePane as |p|>
-          <p.template @title={{this.model.title}} @separator='>'>
+          <p.template @title={{@model.title}} @separator='>'>
             <code>
               {{highlight
                 '{{page-title "'
-                this.model.title
+                @model.title
                 '" separator=" > "}}'
               }}
             </code>
@@ -187,7 +187,7 @@
               <code>
                 {{highlight '{{page-title "Posts"}}'}}
               </code>
-              <p.template @title={{this.model.post.title}}>
+              <p.template @title={{@model.post.title}}>
                 <code>
                   {{highlight '{{page-title post.title}}'}}
                 </code>
@@ -205,11 +205,11 @@
         </div>
 
         <PageTitlePane as |p|>
-          <p.template @title={{this.model.title}} @separator=':'>
+          <p.template @title={{@model.title}} @separator=':'>
             <code>
               {{highlight
                 '{{page-title "'
-                this.model.title
+                @model.title
                 '" separator=": "}}'
               }}
             </code>
@@ -217,7 +217,7 @@
               <code>
                 {{highlight '{{page-title "Posts" separator=" > "}}'}}
               </code>
-              <p.template @title={{this.model.post.title}}>
+              <p.template @title={{@model.post.title}}>
                 <code>
                   {{highlight '{{page-title post.title}}'}}
                 </code>
@@ -245,15 +245,15 @@
         </div>
 
         <PageTitlePane as |p|>
-          <p.template @title={{this.model.title}} @prepend={{true}}>
+          <p.template @title={{@model.title}} @prepend={{true}}>
             <code>
-              {{highlight '{{page-title "' this.model.title '" prepend=true}}'}}
+              {{highlight '{{page-title "' @model.title '" prepend=true}}'}}
             </code>
             <p.template @title='Posts'>
               <code>
                 {{highlight '{{page-title "Posts"}}'}}
               </code>
-              <p.template @title={{this.model.post.title}}>
+              <p.template @title={{@model.post.title}}>
                 <code>
                   {{highlight '{{page-title post.title}}'}}
                 </code>
@@ -271,15 +271,15 @@
         </div>
 
         <PageTitlePane as |p|>
-          <p.template @title={{this.model.title}}>
+          <p.template @title={{@model.title}}>
             <code>
-              {{highlight '{{page-title "' this.model.title '"}}'}}
+              {{highlight '{{page-title "' @model.title '"}}'}}
             </code>
             <p.template @title='Posts' @prepend={{true}}>
               <code>
                 {{highlight '{{page-title "Posts" prepend=true}}'}}
               </code>
-              <p.template @title={{this.model.post.title}}>
+              <p.template @title={{@model.post.title}}>
                 <code>
                   {{highlight '{{page-title post.title}}'}}
                 </code>
@@ -307,17 +307,17 @@
         </div>
 
         <PageTitlePane as |p|>
-          <p.template @title={{this.model.title}}>
+          <p.template @title={{@model.title}}>
             <code>
-              {{highlight '{{page-title "' this.model.title '"}}'}}
+              {{highlight '{{page-title "' @model.title '"}}'}}
             </code>
             <p.template @title='Posts' @replace={{true}}>
               <code>
                 {{highlight '{{page-title "Posts" replace=true}}'}}
               </code>
-              <p.template @title={{this.model.post.title}}>
+              <p.template @title={{@model.post.title}}>
                 <code>
-                  {{highlight '{{page-title this.model.post.title}}'}}
+                  {{highlight '{{page-title @model.post.title}}'}}
                 </code>
               </p.template>
             </p.template>
@@ -333,16 +333,16 @@
         </div>
 
         <PageTitlePane as |p|>
-          <p.template @title={{this.model.title}}>
+          <p.template @title={{@model.title}}>
             <code>
-              {{highlight '{{page-title "' this.model.title '"}}'}}
+              {{highlight '{{page-title "' @model.title '"}}'}}
             </code>
-            <p.template @title={{concat 'Posts | ' this.model.post.title}}>
+            <p.template @title={{concat 'Posts | ' @model.post.title}}>
               <code>
                 {{highlight '{{page-title "Posts"}}'}}
               </code>
               <code>
-                {{highlight '{{page-title this.model.post.title}}'}}
+                {{highlight '{{page-title @model.post.title}}'}}
               </code>
             </p.template>
           </p.template>
