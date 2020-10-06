@@ -5,8 +5,13 @@ import Service, { inject as service } from '@ember/service';
 import { set, computed } from '@ember/object';
 import { capitalize } from '@ember/string';
 import { isPresent } from '@ember/utils';
+import { assert } from '@ember/debug';
 
 let isFastBoot = typeof FastBoot !== 'undefined';
+
+const RouterEvent = {
+  ROUTE_DID_CHANGE: "routeDidChange"
+};
 
 /**
   @class page-title-list
@@ -22,7 +27,7 @@ export default class PageTitleListService extends Service {
   init() {
     super.init();
     set(this, 'tokens', A());
-    this._removeExistingTitleTag();
+    this._validateExistingTitleElement();
 
     let config = getOwner(this).resolveRegistration('config:environment');
     if (config.pageTitle) {
@@ -32,9 +37,7 @@ export default class PageTitleListService extends Service {
         }
       });
     }
-    this.router.on('routeDidChange', () => {
-      this.scheduleTitleUpdate();
-    });
+    this.router.on(RouterEvent.ROUTE_DID_CHANGE, this.scheduleTitleUpdate);
   }
 
   /**
@@ -194,7 +197,7 @@ export default class PageTitleListService extends Service {
     return frontGroups.concat(groups.reduce((E, group) => E.concat(group), []));
   }
 
-  scheduleTitleUpdate() {
+  scheduleTitleUpdate = () => {
     scheduleOnce('afterRender', this, this._updateTitle);
   }
 
@@ -213,6 +216,11 @@ export default class PageTitleListService extends Service {
     return title.join('');
   }
 
+  willDestroy() {
+    super.willDestroy();
+    this.router.off(RouterEvent.ROUTE_DID_CHANGE, this.scheduleTitleUpdate);
+  }
+
   _updateTitle() {
     const toBeTitle = this.toString();
 
@@ -228,18 +236,18 @@ export default class PageTitleListService extends Service {
   }
 
   /**
-   * Remove any existing title tags from the head.
+   * Validate if there's more than one title element present.
+   *
+   * Example: ember-cli-head can cause conflicting updates.
    * @private
    */
-  _removeExistingTitleTag() {
+  _validateExistingTitleElement() {
     if (isFastBoot) {
       return;
     }
-
-    let titles = document.getElementsByTagName('title');
-    for (let i = 0; i < titles.length; i++) {
-      let title = titles[i];
-      title.parentNode.removeChild(title);
-    }
+    assert(
+      "[ember-page-title]: Multiple or no <title> element(s) found. Check for other addons like ember-cli-head updating <title> as well.",
+      document.head.querySelectorAll('title').length === 1
+    );
   }
 }
