@@ -1,4 +1,3 @@
-import { A } from '@ember/array';
 import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
@@ -25,9 +24,10 @@ export default class PageTitleListService extends Service {
   @service('-document')
   document;
 
+  tokens = [];
+
   init() {
     super.init();
-    set(this, 'tokens', A());
     this._validateExistingTitleElement();
 
     let config = getOwner(this).resolveRegistration('config:environment');
@@ -65,8 +65,6 @@ export default class PageTitleListService extends Service {
    */
   defaultReplace = null;
 
-  tokens = null;
-
   applyTokenDefaults(token) {
     let defaultSeparator = this.defaultSeparator;
     let defaultPrepend = this.defaultPrepend;
@@ -99,7 +97,7 @@ export default class PageTitleListService extends Service {
   }
 
   push(token) {
-    let tokenForId = this.tokens.findBy('id', token.id);
+    let tokenForId = this._findTokenById(token.id);
     if (tokenForId) {
       let index = this.tokens.indexOf(tokenForId);
       let tokens = [...this.tokens];
@@ -110,7 +108,7 @@ export default class PageTitleListService extends Service {
       this.applyTokenDefaults(token);
 
       tokens.splice(index, 1, token);
-      set(this, 'tokens', A(tokens));
+      set(this, 'tokens', tokens);
       return;
     }
 
@@ -125,11 +123,11 @@ export default class PageTitleListService extends Service {
 
     let tokens = [...this.tokens];
     tokens.push(token);
-    set(this, 'tokens', A(tokens));
+    set(this, 'tokens', tokens);
   }
 
   remove(id) {
-    let token = this.tokens.findBy('id', id);
+    let token = this._findTokenById(id);
     let { next, previous } = token;
     if (next) {
       next.previous = previous;
@@ -141,9 +139,9 @@ export default class PageTitleListService extends Service {
 
     token.previous = token.next = null;
 
-    let tokens = A([...this.tokens]);
-    tokens.removeObject(token);
-    set(this, 'tokens', A(tokens));
+    let tokens = [...this.tokens];
+    tokens.splice(tokens.indexOf(token), 1);
+    set(this, 'tokens', tokens);
   }
 
   @computed('tokens')
@@ -168,7 +166,7 @@ export default class PageTitleListService extends Service {
     let visible = this.visibleTokens;
     let appending = true;
     let group = [];
-    let groups = A([group]);
+    let groups = [group];
     let frontGroups = [];
     visible.forEach((token) => {
       if (token.front) {
@@ -250,5 +248,19 @@ export default class PageTitleListService extends Service {
       "[ember-page-title]: Multiple or no <title> element(s) found. Check for other addons like ember-cli-head updating <title> as well.",
       document.head.querySelectorAll('title').length === 1
     );
+  }
+
+   /**
+   * Find token by id
+   *
+   * IE11 compatible approach due to lack of Array.find support
+   *
+   * @param {String} id
+   * @private
+   */
+  _findTokenById(id) {
+    return this.tokens.filter((token) => {
+      return token.id === id;
+    })[0];
   }
 }
