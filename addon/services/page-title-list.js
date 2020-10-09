@@ -1,7 +1,7 @@
 import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
-import { set, computed } from '@ember/object';
+import { set } from '@ember/object';
 import { capitalize } from '@ember/string';
 import { isPresent } from '@ember/utils';
 import { assign } from '@ember/polyfills';
@@ -144,7 +144,6 @@ export default class PageTitleListService extends Service {
     set(this, 'tokens', tokens);
   }
 
-  @computed('tokens')
   get visibleTokens() {
     let tokens = this.tokens;
     let i = tokens ? tokens.length : 0;
@@ -161,7 +160,6 @@ export default class PageTitleListService extends Service {
     return visible;
   }
 
-  @computed('visibleTokens')
   get sortedTokens() {
     let visible = this.visibleTokens;
     let appending = true;
