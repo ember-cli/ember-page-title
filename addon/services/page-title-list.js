@@ -1,7 +1,6 @@
 import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
-import { capitalize } from '@ember/string';
 import { isPresent } from '@ember/utils';
 import { assign } from '@ember/polyfills';
 import { assert } from '@ember/debug';
@@ -25,6 +24,17 @@ export default class PageTitleListService extends Service {
 
   tokens = [];
 
+  _defaultConfig = {
+    // The default separator to use between tokens.
+    separator: ' | ',
+
+    // The default prepend value to use.
+    prepend: true,
+
+    // The default replace value to use.
+    replace: null
+  };
+
   init() {
     super.init();
     this._validateExistingTitleElement();
@@ -33,41 +43,17 @@ export default class PageTitleListService extends Service {
     if (config.pageTitle) {
       ['separator', 'prepend', 'replace'].forEach((key) => {
         if (isPresent(config.pageTitle[key])) {
-          this[`default${capitalize(key)}`] = config.pageTitle[key];
+          this._defaultConfig[key] = config.pageTitle[key];
         }
       });
     }
     this.router.on(RouterEvent.ROUTE_DID_CHANGE, this.scheduleTitleUpdate);
   }
 
-  /**
-    The default separator to use between tokens.
-
-    @property defaultSeparator
-    @default ' | '
-   */
-  defaultSeparator = ' | ';
-
-  /**
-    The default prepend value to use.
-
-    @property defaultPrepend
-    @default true
-   */
-  defaultPrepend = true;
-
-  /**
-    The default replace value to use.
-
-    @property defaultReplace
-    @default null
-   */
-  defaultReplace = null;
-
   applyTokenDefaults(token) {
-    let defaultSeparator = this.defaultSeparator;
-    let defaultPrepend = this.defaultPrepend;
-    let defaultReplace = this.defaultReplace;
+    let defaultSeparator = this._defaultConfig.separator;
+    let defaultPrepend = this._defaultConfig.prepend;
+    let defaultReplace = this._defaultConfig.replace;
 
     if (token.separator == null) {
       token.separator = defaultSeparator;

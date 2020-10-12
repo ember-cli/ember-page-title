@@ -186,9 +186,9 @@ module('service:page-title-list', function(hooks) {
   test("initial page-title defaults", function (assert) {
     let list = this.owner.lookup('service:page-title-list');
 
-    assert.equal(list.defaultSeparator, ' | ');
-    assert.equal(list.defaultPrepend, true);
-    assert.equal(list.defaultReplace, null);
+    assert.equal(list._defaultConfig.separator, ' | ');
+    assert.equal(list._defaultConfig.prepend, true);
+    assert.equal(list._defaultConfig.replace, null);
   });
 
   test("can change defaults from config", function (assert) {
@@ -202,9 +202,9 @@ module('service:page-title-list', function(hooks) {
 
     let list = this.owner.lookup('service:page-title-list');
 
-    assert.equal(list.defaultSeparator, ' & ');
-    assert.equal(list.defaultPrepend, false);
-    assert.equal(list.defaultReplace, true);
+    assert.equal(list._defaultConfig.separator, ' & ');
+    assert.equal(list._defaultConfig.prepend, false);
+    assert.equal(list._defaultConfig.replace, true);
   });
 
   test("undefined config entries do not change defaults", function (assert) {
@@ -218,9 +218,9 @@ module('service:page-title-list', function(hooks) {
 
     let list = this.owner.lookup('service:page-title-list');
 
-    assert.equal(list.defaultSeparator, ' | ');
-    assert.equal(list.defaultPrepend, true);
-    assert.equal(list.defaultReplace, null);
+    assert.equal(list._defaultConfig.separator, ' | ');
+    assert.equal(list._defaultConfig.prepend, true);
+    assert.equal(list._defaultConfig.replace, null);
   });
 
 });
