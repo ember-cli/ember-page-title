@@ -1,7 +1,6 @@
 import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
-import { set } from '@ember/object';
 import { capitalize } from '@ember/string';
 import { isPresent } from '@ember/utils';
 import { assign } from '@ember/polyfills';
@@ -34,7 +33,7 @@ export default class PageTitleListService extends Service {
     if (config.pageTitle) {
       ['separator', 'prepend', 'replace'].forEach((key) => {
         if (isPresent(config.pageTitle[key])) {
-          set(this, `default${capitalize(key)}`, config.pageTitle[key]);
+          this[`default${capitalize(key)}`] = config.pageTitle[key];
         }
       });
     }
@@ -108,7 +107,7 @@ export default class PageTitleListService extends Service {
       this.applyTokenDefaults(token);
 
       tokens.splice(index, 1, token);
-      set(this, 'tokens', tokens);
+      this.tokens = tokens;
       return;
     }
 
@@ -120,10 +119,7 @@ export default class PageTitleListService extends Service {
     }
 
     this.applyTokenDefaults(token);
-
-    let tokens = [...this.tokens];
-    tokens.push(token);
-    set(this, 'tokens', tokens);
+    this.tokens = [...this.tokens, token];
   }
 
   remove(id) {
@@ -141,7 +137,7 @@ export default class PageTitleListService extends Service {
 
     let tokens = [...this.tokens];
     tokens.splice(tokens.indexOf(token), 1);
-    set(this, 'tokens', tokens);
+    this.tokens = tokens;
   }
 
   get visibleTokens() {
