@@ -4,17 +4,10 @@
   background: $black;
   border: 1px solid #333;
   transition: all 120ms ease-in;
-  cursor: pointer;
   -webkit-touch-callout: default;
 
   code {
     padding-bottom: 20px;
-  }
-
-  &.active {
-    transform: scale(1.05);
-    border: 1px solid $white;
-    box-shadow: 0 3px 5px #010101;
   }
 
   & .nested-template {

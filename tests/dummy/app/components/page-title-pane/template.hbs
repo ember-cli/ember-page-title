@@ -3,31 +3,13 @@
     <span class='close button'></span>
     <span class='minimize button'></span>
     <span class='maximize button'></span>
-    {{#each this.titleList.sortedTokens as |token idx|}}
-      <span
-        role='button'
-        class={{concat 'title-token' ' ' (if token.active 'active')}}
-        {{on 'click' (fn this.highlight token)}}
-      >
-        {{token.title}}
-      </span>
-      {{#if (lt idx this.lastIndex)}}
-        {{token.separator}}
-      {{/if}}
-    {{/each}}
+    {{@title}}
   </header>
   <div>
     {{yield
       (hash
         template=(component
           'page-title-pane/nested-template'
-          titleList=this.titleList
-          onactivate=(fn this.highlight)
-        )
-        matryoshka=(component
-          'page-title-pane/matryoshka'
-          titleList=this.titleList
-          onactivate=(fn this.highlight)
         )
       )
     }}

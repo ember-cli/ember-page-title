@@ -1,4 +1,6 @@
 {{! template-lint-disable quotes }}
+{{page-title @model.title}}
+
 <div id='index'>
   <header>
     <h1>
@@ -7,9 +9,6 @@
     <nav>
       <a href='#usage'>
         Usage
-      </a>
-      <a href='#playground'>
-        Playground
       </a>
       <a
         href='https://github.com/adopted-ember-addons/ember-page-title'
@@ -46,68 +45,6 @@
       </div>
     </section>
 
-    <section id='playground'>
-      <h2>
-        Playground
-      </h2>
-      <div class='grid'>
-        <PageTitlePane as |p|>
-          <p.matryoshka @items={{@model.tokens}} as |token|>
-            <code>
-              {{page-title
-                token.value
-                replace=token.replace
-                prepend=token.prepend
-                separator=token.separator
-              }}
-              \{{<span class='helper'>page-title</span>
-              "
-              <TextField
-                class='string'
-                @value={{token.value}}
-                @onchange={{fn (mut token.value)}}
-                @autoresize={{true}}
-              />
-              "
-              <span class='literal'>
-                separator
-              </span>
-              ="
-              <TextField
-                class='string'
-                @value={{token.separator}}
-                @onchange={{fn (mut token.separator)}}
-                @autoresize={{true}}
-              />
-              "
-              <span class='literal'>
-                prepend
-              </span>
-              =
-              <BooleanField
-                class='attribute'
-                @value={{token.prepend}}
-                @onchange={{fn (mut token.prepend)}}
-              />
-              <span class='literal'>
-                replace
-              </span>
-              =
-              <BooleanField
-                class='attribute'
-                @value={{token.replace}}
-                @onchange={{fn (mut token.replace)}}
-              />
-              }}
-            </code>
-          </p.matryoshka>
-          <button class='action-button' type='button' {{on 'click' (fn this.add @model.tokens)}}>
-            Add title
-          </button>
-        </PageTitlePane>
-      </div>
-    </section>
-
     <section id='usage'>
       <h2>
         Usage
@@ -125,7 +62,7 @@
             }}&rdquo; appear in the window. Try changing the value below to change the title of this page.
           </p>
 
-          <Input type='text' value={{@model.title}} placeholder='My App' />
+          <Input type='text' @value={{@model.title}} placeholder='My App' />
         </div>
 
         <WindowPane @title='templates/application.hbs'>
@@ -142,18 +79,18 @@
           </p>
         </div>
 
-        <PageTitlePane as |p|>
-          <p.template @title={{@model.title}}>
+        <PageTitlePane @title="{{@model.title}} | Posts | {{@model.post.title}}" as |p|>
+          <p.template>
             <code>
               {{highlight '{{page-title "' @model.title '"}}'}}
             </code>
-            <p.template title='Posts'>
+            <p.template>
               <code>
                 {{highlight '{{page-title "Posts"}}'}}
               </code>
-              <p.template @title={{@model.post.title}}>
+              <p.template>
                 <code>
-                  {{highlight '{{page-title post.title}}'}}
+                  {{highlight '{{page-title @model.post.title}}'}}
                 </code>
               </p.template>
             </p.template>
@@ -174,8 +111,8 @@
           </p>
         </div>
 
-        <PageTitlePane as |p|>
-          <p.template @title={{@model.title}} @separator='>'>
+        <PageTitlePane @title="{{@model.title}} > Posts | {{@model.post.title}}" as |p|>
+          <p.template @separator='>'>
             <code>
               {{highlight
                 '{{page-title "'
@@ -183,13 +120,13 @@
                 '" separator=" > "}}'
               }}
             </code>
-            <p.template @title='Posts'>
+            <p.template>
               <code>
                 {{highlight '{{page-title "Posts"}}'}}
               </code>
-              <p.template @title={{@model.post.title}}>
+              <p.template>
                 <code>
-                  {{highlight '{{page-title post.title}}'}}
+                  {{highlight '{{page-title @model.post.title}}'}}
                 </code>
               </p.template>
             </p.template>
@@ -204,8 +141,8 @@
           </p>
         </div>
 
-        <PageTitlePane as |p|>
-          <p.template @title={{@model.title}} @separator=':'>
+        <PageTitlePane @title="{{@model.title}}: Posts > {{@model.post.title}}" as |p|>
+          <p.template>
             <code>
               {{highlight
                 '{{page-title "'
@@ -213,13 +150,13 @@
                 '" separator=": "}}'
               }}
             </code>
-            <p.template @title='Posts' @separator='>'>
+            <p.template>
               <code>
                 {{highlight '{{page-title "Posts" separator=" > "}}'}}
               </code>
-              <p.template @title={{@model.post.title}}>
+              <p.template>
                 <code>
-                  {{highlight '{{page-title post.title}}'}}
+                  {{highlight '{{page-title @model.post.title}}'}}
                 </code>
               </p.template>
             </p.template>
@@ -244,18 +181,18 @@
           </p>
         </div>
 
-        <PageTitlePane as |p|>
-          <p.template @title={{@model.title}} @prepend={{true}}>
+        <PageTitlePane @title="{{@model.title}} | Posts | {{@model.post.title}}" as |p|>
+          <p.template>
             <code>
               {{highlight '{{page-title "' @model.title '" prepend=true}}'}}
             </code>
-            <p.template @title='Posts'>
+            <p.template>
               <code>
                 {{highlight '{{page-title "Posts"}}'}}
               </code>
-              <p.template @title={{@model.post.title}}>
+              <p.template>
                 <code>
-                  {{highlight '{{page-title post.title}}'}}
+                  {{highlight '{{page-title @model.post.title}}'}}
                 </code>
               </p.template>
             </p.template>
@@ -270,18 +207,18 @@
           </p>
         </div>
 
-        <PageTitlePane as |p|>
-          <p.template @title={{@model.title}}>
+        <PageTitlePane @title="Posts | {{@model.title}} | {{@model.post.title}}" as |p|>
+          <p.template>
             <code>
               {{highlight '{{page-title "' @model.title '"}}'}}
             </code>
-            <p.template @title='Posts' @prepend={{true}}>
+            <p.template>
               <code>
                 {{highlight '{{page-title "Posts" prepend=true}}'}}
               </code>
-              <p.template @title={{@model.post.title}}>
+              <p.template>
                 <code>
-                  {{highlight '{{page-title post.title}}'}}
+                  {{highlight '{{page-title @model.post.title}}'}}
                 </code>
               </p.template>
             </p.template>
@@ -306,16 +243,16 @@
           </p>
         </div>
 
-        <PageTitlePane as |p|>
-          <p.template @title={{@model.title}}>
+        <PageTitlePane @title="Posts | {{@model.post.title}}" as |p|>
+          <p.template>
             <code>
               {{highlight '{{page-title "' @model.title '"}}'}}
             </code>
-            <p.template @title='Posts' @replace={{true}}>
+            <p.template>
               <code>
                 {{highlight '{{page-title "Posts" replace=true}}'}}
               </code>
-              <p.template @title={{@model.post.title}}>
+              <p.template>
                 <code>
                   {{highlight '{{page-title @model.post.title}}'}}
                 </code>
@@ -332,12 +269,12 @@
           </p>
         </div>
 
-        <PageTitlePane as |p|>
-          <p.template @title={{@model.title}}>
+        <PageTitlePane @title="{{@model.title}} | Posts | {{@model.post.title}}" as |p|>
+          <p.template>
             <code>
               {{highlight '{{page-title "' @model.title '"}}'}}
             </code>
-            <p.template @title={{concat 'Posts | ' @model.post.title}}>
+            <p.template>
               <code>
                 {{highlight '{{page-title "Posts"}}'}}
               </code>
@@ -355,11 +292,11 @@
             Dynamic tokens are available by providing multiple parameters to the helper:
           </p>
         </div>
-        <PageTitlePane as |p|>
-          <p.template @title='Tim Evans (@timmyce)'>
+        <PageTitlePane @title="{{@model.title}} ({{@model.post.title}})" as |p|>
+          <p.template>
             <code>
               {{highlight
-                '{{page-title blogger.name " (" blogger.handle ")"}}'
+                '{{page-title @model.title " (" @model.post.title ")"}}'
               }}
             </code>
           </p.template>
