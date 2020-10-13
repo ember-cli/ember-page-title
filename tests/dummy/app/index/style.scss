@@ -67,24 +67,6 @@
       background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
     }
   }
-
-  #playground {
-    .action-button {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      border: 0;
-      font-family: OfficeCodePro, Consolas, Inconsolata, monspace;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      background: $primary-color;
-      color: $white;
-      cursor: pointer;
-    }
-    .window-pane > div {
-      padding-bottom: 50px;
-    }
-  }
 }
 
 @media (max-width: 600px) {
