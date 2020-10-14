@@ -2,9 +2,9 @@
 @import 'colors';
 @import 'code';
 @import 'grid';
-@import './routes/docs';
 
-@import 'pod-styles';
+@import 'components';
+@import './routes/docs';
 
 * {
   box-sizing: border-box;
