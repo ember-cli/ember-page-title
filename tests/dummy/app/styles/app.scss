@@ -3,7 +3,8 @@
 @import 'code';
 @import 'grid';
 
-@import 'pod-styles';
+@import 'components';
+@import './routes/docs';
 
 * {
   box-sizing: border-box;
