@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 
-export default Route.extend({
+export default class DocsRoute extends Route {
   model() {
     return {
       title: 'Ember Page Title',
@@ -9,4 +9,4 @@ export default Route.extend({
       }
     };
   }
-});
+}
