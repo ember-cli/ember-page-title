@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.2](https://github.com/adopted-ember-addons/ember-page-title/compare/v6.0.1...v6.0.2) (2020-10-17)
+
+
+### Bug Fixes
+
+* Dummy app hitting recently added assertion ([#188](https://github.com/adopted-ember-addons/ember-page-title/issues/188)) ([cba2987](https://github.com/adopted-ember-addons/ember-page-title/commit/cba2987679308ef6669655205410b77c7ca263b7))
+* Fastboot title updates with nested slow model() routes ([#196](https://github.com/adopted-ember-addons/ember-page-title/issues/196)) ([0fa6f8c](https://github.com/adopted-ember-addons/ember-page-title/commit/0fa6f8cede1bd5ab552fcc0ee29cb47197c7bfb4))
+* Regression in dummy app layout ([#187](https://github.com/adopted-ember-addons/ember-page-title/issues/187)) ([15a380f](https://github.com/adopted-ember-addons/ember-page-title/commit/15a380fc3864e8d55be143bb14e9991c9189f281))
+
 ### [6.0.1](https://github.com/adopted-ember-addons/ember-page-title/compare/v6.0.0...v6.0.1) (2020-10-06)
 
 
