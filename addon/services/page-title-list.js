@@ -19,6 +19,8 @@ export default class PageTitleListService extends Service {
   @service
   router;
 
+  // in fastboot context "document" is instance of
+  // ember-fastboot/simple-dom document
   @service('-document')
   document;
 
@@ -204,11 +206,7 @@ export default class PageTitleListService extends Service {
     const toBeTitle = this.toString();
 
     if (isFastBoot) {
-      // in fastboot context "document" is instance of ember-fastboot/simple-dom document
-      let titleEl = this.document.createElement('title');
-      let titleContents = this.document.createTextNode(toBeTitle);
-      titleEl.appendChild(titleContents);
-      this.document.head.appendChild(titleEl);
+      this.updateFastbootTitle(toBeTitle);
     } else {
       this.document.title = toBeTitle;
     }
@@ -242,5 +240,27 @@ export default class PageTitleListService extends Service {
     return this.tokens.filter((token) => {
       return token.id === id;
     })[0];
+  }
+
+  updateFastbootTitle(toBeTitle) {
+    if (!isFastBoot) {
+      return;
+    }
+    const headElement = this.document.head;
+    const headChildNodes = headElement.childNodes;
+
+    // Remove existing title elements from previous render cycle
+    for (let i = 0; i < headChildNodes.length; i++) {
+      let node = headChildNodes[i];
+      if (node.nodeName.toLowerCase() === 'title') {
+        headElement.removeChild(node);
+      }
+    }
+
+    // Add title element with latest value
+    let titleEl = this.document.createElement('title');
+    let titleContents = this.document.createTextNode(toBeTitle);
+    titleEl.appendChild(titleContents);
+    headElement.appendChild(titleEl);
   }
 }
