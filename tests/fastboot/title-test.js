@@ -33,6 +33,18 @@ module('FastBoot: title', function(hooks) {
     assert.equal(getPageTitle(htmlDocument), 'Profile > Authors > About My App');
   });
 
+  test('rendering only single title element', async function (assert) {
+    assert.expect(2);
+    let { htmlDocument } = await visit('/fastboot/multiple/titles');
+
+    // Since for our non-fastboot vs fastboot tests we keep original <title>
+    // element in index.html, we simply filter it out.
+    let numberOfTitleElements = htmlDocument.head.querySelectorAll('title:not([data-test-ignore-for-fastboot-tests])');
+
+    assert.equal(numberOfTitleElements.length, 1);
+    assert.equal(getPageTitle(htmlDocument), 'Titles | Multiple | Fastboot | My App');
+  });
+
   test('multiple components in a row work', async function (assert) {
     assert.expect(1);
     let { htmlDocument } = await visit('/posts/rails-is-omakase');
