@@ -208,6 +208,15 @@ export default class PageTitleListService extends Service {
     if (isFastBoot) {
       this.updateFastbootTitle(toBeTitle);
     } else {
+      /**
+       * When rendering app with "?fastboot=false" (http://ember-fastboot.com/docs/user-guide#disabling-fastboot)
+       * We will not have <title> element present in DOM.
+       *
+       * But this is fine as by HTML spec,
+       * one is created upon assigning "document.title" value;
+       *
+       * https://html.spec.whatwg.org/multipage/dom.html#dom-tree-accessors
+       */
       this.document.title = toBeTitle;
     }
   }
@@ -223,8 +232,8 @@ export default class PageTitleListService extends Service {
       return;
     }
     assert(
-      "[ember-page-title]: Multiple or no <title> element(s) found. Check for other addons like ember-cli-head updating <title> as well.",
-      document.head.querySelectorAll('title').length === 1
+      "[ember-page-title]: Multiple title elements found. Check for other addons like ember-cli-head updating <title> as well.",
+      document.head.querySelectorAll('title').length <= 1
     );
   }
 

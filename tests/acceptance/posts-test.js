@@ -86,4 +86,12 @@ module('Acceptance: title', function(hooks) {
 
     assert.equal(getPageTitle(), '(10) Reader | My App');
   });
+
+  test('does not throw if no title element exist', async function (assert) {
+    document.head.querySelectorAll('title').forEach((titleElement) => {
+      document.head.removeChild(titleElement);
+    });
+    await visit('/posts');
+    assert.equal(getPageTitle(), 'Posts | My App');
+  });
 });
