@@ -1,4 +1,4 @@
-## ember-page-title [![Ember Observer Score](http://emberobserver.com/badges/ember-page-title.svg)](http://emberobserver.com/addons/ember-page-title) [![Build Status](https://travis-ci.org/adopted-ember-addons/ember-page-title.svg)](https://travis-ci.org/adopted-ember-addons/ember-page-title)
+## ember-page-title [![Ember Observer Score](http://emberobserver.com/badges/ember-page-title.svg)](http://emberobserver.com/addons/ember-page-title) [![Build Status](https://travis-ci.org/ember-cli/ember-page-title.svg)](https://travis-ci.org/ember-cli/ember-page-title)
 
 This addon provides a helper for changing the title of the page you're on.
 
@@ -29,7 +29,7 @@ As of v3.0.0 this addon maintains the page title by using the `<title>` tag in y
 
 ### Digging in
 
-[Visit the Docs site](https://adopted-ember-addons.github.io/ember-page-title/)
+[Visit the Docs site](https://ember-cli.github.io/ember-page-title/)
 
 ### API
 
@@ -72,11 +72,11 @@ module.exports = function (environment) {
 ### Upgrading notes for 3.x to 4.x
 
 From 4.x onward, you need to have `{{head-layout}}` within your application's `application.hbs` template. Without this, you will not see a page title appear.
-See [the 4.0.0 release notes](https://github.com/tim-evans/ember-page-title/releases/tag/4.0.0) for more detail.
+See [the 4.0.0 release notes](https://github.com/ember-cli/ember-page-title/releases/tag/4.0.0) for more detail.
 
 # Contributing
 
-Contributors are welcome! Please provide a reproducible test case. Details will be worked out on a case-per-case basis. Maintainers will get in touch when they can, so delays are possible. For contribution guidelines, see the [code of conduct](https://github.com/tim-evans/ember-plupload/blob/master/CONDUCT.md).
+Contributors are welcome! Please provide a reproducible test case. Details will be worked out on a case-per-case basis. Maintainers will get in touch when they can, so delays are possible. For contribution guidelines, see the [code of conduct](https://github.com/ember-cli/ember-page-title/blob/master/CODE_OF_CONDUCT.md).
 
 ### Publishing Documentation
 

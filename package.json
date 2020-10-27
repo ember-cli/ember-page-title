@@ -14,7 +14,7 @@
   "directories": {
     "test": "tests"
   },
-  "repository": "https://github.com/adopted-ember-addons/ember-page-title",
+  "repository": "https://github.com/ember-cli/ember-page-title",
   "scripts": {
     "build": "ember build --environment=production",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*",
@@ -77,9 +77,9 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "https://adopted-ember-addons.github.io/ember-page-title"
+    "demoURL": "https://ember-cli.github.io/ember-page-title"
   },
-  "homepage": "https://adopted-ember-addons.github.io/ember-page-title",
+  "homepage": "https://ember-cli.github.io/ember-page-title",
   "volta": {
     "node": "10.22.1"
   }
