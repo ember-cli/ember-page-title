@@ -17,7 +17,6 @@ env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
-    - CC_TEST_REPORTER_ID=f1b6bcc83789c103f7822eb2ec34bbdc34be1b36bdc66bc6de53c26ed1a14e27
 
 branches:
   only:
@@ -61,16 +60,8 @@ before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
 
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-
 install:
   - yarn install --non-interactive
 
 script:
-  - COVERAGE=true node_modules/.bin/ember try:one --skip-cleanup $EMBER_TRY_SCENARIO
-
-after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - node_modules/.bin/ember try:one --skip-cleanup $EMBER_TRY_SCENARIO
