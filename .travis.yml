@@ -3,7 +3,7 @@ language: node_js
 node_js:
   # we recommend testing addons with the same minimum supported node version as Ember CLI
   # so that your addon works for all apps
-  - '10'
+  - "10"
 
 dist: xenial
 
@@ -17,7 +17,6 @@ env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
-    - CC_TEST_REPORTER_ID=f1b6bcc83789c103f7822eb2ec34bbdc34be1b36bdc66bc6de53c26ed1a14e27
 
 branches:
   only:
@@ -33,14 +32,14 @@ jobs:
 
   include:
     # runs linting and tests with current locked deps
-    - stage: 'Tests'
-      name: 'Tests'
+    - stage: "Tests"
+      name: "Tests"
       script:
         - yarn lint
         - yarn test:ember
 
-    - stage: 'Additional Tests'
-      name: 'Floating Dependencies'
+    - stage: "Additional Tests"
+      name: "Floating Dependencies"
       install:
         - yarn install --no-lockfile --non-interactive
       script:
@@ -61,16 +60,5 @@ before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
 
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-
-install:
-  - yarn install --non-interactive
-
 script:
-  - COVERAGE=true node_modules/.bin/ember try:one --skip-cleanup $EMBER_TRY_SCENARIO
-
-after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
