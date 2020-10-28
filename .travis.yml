@@ -3,7 +3,7 @@ language: node_js
 node_js:
   # we recommend testing addons with the same minimum supported node version as Ember CLI
   # so that your addon works for all apps
-  - '10'
+  - "10"
 
 dist: xenial
 
@@ -32,14 +32,14 @@ jobs:
 
   include:
     # runs linting and tests with current locked deps
-    - stage: 'Tests'
-      name: 'Tests'
+    - stage: "Tests"
+      name: "Tests"
       script:
         - yarn lint
         - yarn test:ember
 
-    - stage: 'Additional Tests'
-      name: 'Floating Dependencies'
+    - stage: "Additional Tests"
+      name: "Floating Dependencies"
       install:
         - yarn install --no-lockfile --non-interactive
       script:
@@ -60,8 +60,5 @@ before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
 
-install:
-  - yarn install --non-interactive
-
 script:
-  - node_modules/.bin/ember try:one --skip-cleanup $EMBER_TRY_SCENARIO
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
