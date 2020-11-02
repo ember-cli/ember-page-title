@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.3](https://github.com/ember-cli/ember-page-title/compare/v6.0.2...v6.0.3) (2020-11-02)
+
+
+### Bug Fixes
+
+* Fastboot ?fastboot=false assertion hit ([#198](https://github.com/ember-cli/ember-page-title/issues/198)) ([1ddbfd3](https://github.com/ember-cli/ember-page-title/commit/1ddbfd3f728f94e7f17bc75e963331ae4dfac102))
+
 ### [6.0.2](https://github.com/ember-cli/ember-page-title/compare/v6.0.1...v6.0.2) (2020-10-17)
 
 
