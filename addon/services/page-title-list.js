@@ -4,6 +4,7 @@ import Service, { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';
 import { assign } from '@ember/polyfills';
 import { assert } from '@ember/debug';
+import Evented from '@ember/object/evented';
 
 let isFastBoot = typeof FastBoot !== 'undefined';
 
@@ -219,6 +220,7 @@ export default class PageTitleListService extends Service {
        */
       this.document.title = toBeTitle;
     }
+    this.trigger('titleDidUpdate', toBeTitle);
   }
 
   /**
@@ -273,3 +275,5 @@ export default class PageTitleListService extends Service {
     headElement.appendChild(titleEl);
   }
 }
+
+PageTitleListService.reopen(Evented);
