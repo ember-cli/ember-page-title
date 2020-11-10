@@ -1,0 +1,101 @@
+name: CI
+
+on: [push]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '10.x'
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile
+    - name: Lint
+      run: yarn lint
+
+  test:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+    needs: lint
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        browser: [chrome, firefox]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '10.x'
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile
+    - name: Test
+      run: yarn test:ember --launch ${{ matrix.browser }}
+
+  floating-dependencies:
+    name: Floating Dependencies
+    runs-on: ${{ matrix.os }}
+    needs: lint
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        browser: [chrome, firefox]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '10.x'
+    - name: Install Dependencies
+      run: yarn install --no-lockfile --non-interactive
+    - name: Test
+      run: yarn test:ember --launch ${{ matrix.browser }}
+
+  try-scenarios:
+    name: Tests - ${{ matrix.ember-try-scenario }}
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.allow-failure }}
+    needs: test
+
+    strategy:
+      fail-fast: true
+      matrix:
+        ember-try-scenario: [
+          ember-lts-3.16,
+          ember-lts-3.20,
+          ember-release,
+          ember-beta,
+          ember-default-with-jquery,
+          ember-classic
+        ]
+        allow-failure: [false]
+        include:
+          - ember-try-scenario: ember-canary
+            allow-failure: true
+          - ember-try-scenario: embroider-tests
+            allow-failure: true
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '10.x'
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile
+    - name: Test
+      env:
+        EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
+      run: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
