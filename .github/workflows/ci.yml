@@ -1,0 +1,27 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        browser: [chrome, firefox]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '10.x'
+    - name: Install Dependencies
+      run: yarn install
+    - name: Lint
+      run: yarn lint
+    - name: Test
+      run: yarn test:ember --launch ${{ matrix.browser }}
