@@ -1,4 +1,4 @@
-## ember-page-title [![Ember Observer Score](http://emberobserver.com/badges/ember-page-title.svg)](http://emberobserver.com/addons/ember-page-title) [![Build Status](https://travis-ci.org/ember-cli/ember-page-title.svg)](https://travis-ci.org/ember-cli/ember-page-title)
+## ember-page-title [![Ember Observer Score](https://emberobserver.com/badges/ember-page-title.svg)](https://emberobserver.com/addons/ember-page-title) ![CI](https://github.com/ember-cli/ember-page-title/workflows/CI/badge.svg)
 
 This addon provides a helper for changing the title of the page you're on.
 
