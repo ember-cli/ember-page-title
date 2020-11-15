@@ -1,7 +1,7 @@
 import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
-import { isPresent } from '@ember/utils';
+import { isEmpty } from '@ember/utils';
 import { assign } from '@ember/polyfills';
 import { assert } from '@ember/debug';
 
@@ -44,7 +44,7 @@ export default class PageTitleListService extends Service {
     let config = getOwner(this).resolveRegistration('config:environment');
     if (config.pageTitle) {
       ['separator', 'prepend', 'replace'].forEach((key) => {
-        if (isPresent(config.pageTitle[key])) {
+        if (!isEmpty(config.pageTitle[key])) {
           this._defaultConfig[key] = config.pageTitle[key];
         }
       });

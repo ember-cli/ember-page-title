@@ -223,4 +223,16 @@ module('service:page-title-list', function(hooks) {
     assert.equal(list._defaultConfig.replace, null);
   });
 
+  test("separator config option can be a whitespace string", function (assert) {
+    this.owner.register("config:environment", {
+      pageTitle: {
+        separator: " ",
+      }
+    });
+
+    let list = this.owner.lookup('service:page-title-list');
+
+    assert.equal(list._defaultConfig.separator, ' ');
+  });
+
 });
