@@ -58,6 +58,22 @@ module.exports = function (environment) {
 };
 ```
 
+#### `page-title` Service
+
+If you want to be notified when the page title has been updated, you can extend and override the `page-title` service and provide your own `titleDidUpdate` hook. The `titleDidUpdate` hook receives the new title as its sole argument.
+
+```javascript
+// app/services/page-title.js
+
+import EmberPageTitleService from 'ember-page-title/services/page-title';
+
+export default class PageTitleService extends EmberPageTitleService {
+  titleDidUpdate(title) {
+    // Do something with the new title.
+  }
+}
+```
+
 ### Deprecations
 
 - Since **v5.2.2**: The `{{title}}` helper has been deprecated, use `{{page-title}}` instead, it has the same API. The

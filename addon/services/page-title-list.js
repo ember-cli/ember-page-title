@@ -17,6 +17,9 @@ const RouterEvent = {
  */
 export default class PageTitleListService extends Service {
   @service
+  pageTitle;
+
+  @service
   router;
 
   // in fastboot context "document" is instance of
@@ -219,6 +222,8 @@ export default class PageTitleListService extends Service {
        */
       this.document.title = toBeTitle;
     }
+
+    this.pageTitle.titleDidUpdate(toBeTitle);
   }
 
   /**
