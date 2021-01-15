@@ -4,7 +4,7 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import { getPageTitle } from '../helpers/get-page-title';
 
-module('Acceptance: title', function(hooks) {
+module('Acceptance: title', function (hooks) {
   setupApplicationTest(hooks);
 
   test('the default configuration works', async function (assert) {
@@ -96,7 +96,7 @@ module('Acceptance: title', function(hooks) {
     assert.equal(getPageTitle(), 'Posts | My App');
   });
 
-  test('`titleDidUpdate` hook is called with the new title', async function(assert) {
+  test('`titleDidUpdate` hook is called with the new title', async function (assert) {
     let currentTitle;
 
     class ExtendedPageTitleService extends PageTitleService {
