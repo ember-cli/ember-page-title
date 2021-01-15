@@ -74,21 +74,11 @@ export default class PageTitleService extends EmberPageTitleService {
 }
 ```
 
-### Deprecations
-
-- Since **v5.2.2**: The `{{title}}` helper has been deprecated, use `{{page-title}}` instead, it has the same API. The
-  `{{title}}` helper was an AST transform and was removed in **v6.0.0**.
-
 ### Upgrading notes for 5.x to 6.x
 
 - `ember-page-title` no longer requires the usage of `ember-cli-head`.
   Please remove `{{head-layout}}` from your application's `application.hbs` route template.
 - `{{title}}` has been removed, please rename to `{{page-title}}`.
-
-### Upgrading notes for 3.x to 4.x
-
-From 4.x onward, you need to have `{{head-layout}}` within your application's `application.hbs` template. Without this, you will not see a page title appear.
-See [the 4.0.0 release notes](https://github.com/ember-cli/ember-page-title/releases/tag/4.0.0) for more detail.
 
 # Contributing
 
