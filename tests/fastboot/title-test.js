@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
-import { getPageTitle } from "../helpers/get-page-title"
+import { getPageTitle } from 'ember-page-title/test-support';
 
 module('FastBoot: title', function(hooks) {
   setup(hooks);
