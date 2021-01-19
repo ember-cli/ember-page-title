@@ -58,6 +58,25 @@ module.exports = function (environment) {
 };
 ```
 
+### Testing
+`assert` the page `title` with the supplied `getPageTitle` test helper:
+
+```javascript
+import { getPageTitle } from 'ember-page-title/test-support';
+
+module('Acceptance | Register Page', function(hooks) {
+  setupApplicationTest(hooks);
+
+  test('visiting /register', async function(assert) {
+    const registerURL = '/register';
+    await visit(registerURL);
+
+    assert.equal(currentURL(), registerURL);
+    assert.equal(getPageTitle(), 'Register | Some Website');
+  });
+});
+```
+
 ### Deprecations
 
 - Since **v5.2.2**: The `{{title}}` helper has been deprecated, use `{{page-title}}` instead, it has the same API. The
