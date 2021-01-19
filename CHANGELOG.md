@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/ember-cli/ember-page-title/compare/v6.0.3...v6.1.0) (2021-01-15)
+
+
+### Features
+
+* add public page-title service ([#207](https://github.com/ember-cli/ember-page-title/issues/207)) ([d0fd207](https://github.com/ember-cli/ember-page-title/commit/d0fd20743d6e0b99d1f4aeca947bfd43847458dd))
+
 ### [6.0.3](https://github.com/ember-cli/ember-page-title/compare/v6.0.2...v6.0.3) (2020-11-02)
 
 

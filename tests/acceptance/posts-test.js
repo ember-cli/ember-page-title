@@ -1,9 +1,10 @@
+import PageTitleService from 'ember-page-title/services/page-title';
 import { click, find, waitUntil, visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import { getPageTitle } from 'ember-page-title/test-support';
 
-module('Acceptance: title', function(hooks) {
+module('Acceptance: title', function (hooks) {
   setupApplicationTest(hooks);
 
   test('the default configuration works', async function (assert) {
@@ -93,5 +94,23 @@ module('Acceptance: title', function(hooks) {
     });
     await visit('/posts');
     assert.equal(getPageTitle(), 'Posts | My App');
+  });
+
+  test('`titleDidUpdate` hook is called with the new title', async function (assert) {
+    let currentTitle;
+
+    class ExtendedPageTitleService extends PageTitleService {
+      titleDidUpdate(title) {
+        currentTitle = title;
+      }
+    }
+
+    this.owner.register('service:page-title', ExtendedPageTitleService);
+
+    await visit('/posts');
+    assert.equal(currentTitle, 'Posts | My App');
+
+    await visit('/posts/rails-is-omakase');
+    assert.equal(currentTitle, 'Rails is Omakase | Posts | My App');
   });
 });
