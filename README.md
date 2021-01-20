@@ -58,7 +58,7 @@ module.exports = function (environment) {
 };
 ```
 
-#### `page-title` Service
+### `page-title` Service
 
 If you want to be notified when the page title has been updated, you can extend and override the `page-title` service and provide your own `titleDidUpdate` hook. The `titleDidUpdate` hook receives the new title as its sole argument.
 
@@ -72,6 +72,25 @@ export default class PageTitleService extends EmberPageTitleService {
     // Do something with the new title.
   }
 }
+```
+
+### Testing
+`assert` the page `title` with the supplied `getPageTitle` test helper:
+
+```javascript
+import { getPageTitle } from 'ember-page-title/test-support';
+
+module('Acceptance | Register Page', function(hooks) {
+  setupApplicationTest(hooks);
+
+  test('visiting /register', async function(assert) {
+    const registerURL = '/register';
+    await visit(registerURL);
+
+    assert.equal(currentURL(), registerURL);
+    assert.equal(getPageTitle(), 'Register | Some Website');
+  });
+});
 ```
 
 ### Upgrading notes for 5.x to 6.x

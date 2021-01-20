@@ -2,7 +2,7 @@ import PageTitleService from 'ember-page-title/services/page-title';
 import { click, find, waitUntil, visit } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
-import { getPageTitle } from '../helpers/get-page-title';
+import { getPageTitle } from 'ember-page-title/test-support';
 
 module('Acceptance: title', function (hooks) {
   setupApplicationTest(hooks);
