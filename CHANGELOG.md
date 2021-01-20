@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.2.0](https://github.com/ember-cli/ember-page-title/compare/v6.1.0...v6.2.0) (2021-01-20)
+
+
+### Features
+
+* provide getPageTitle test helper to consuming apps ([#209](https://github.com/ember-cli/ember-page-title/issues/209)) ([12817df](https://github.com/ember-cli/ember-page-title/commit/12817dfc5e764ad583f9c6d920c25ebbf731ba6e))
+
 ## [6.1.0](https://github.com/ember-cli/ember-page-title/compare/v6.0.3...v6.1.0) (2021-01-15)
 
 
