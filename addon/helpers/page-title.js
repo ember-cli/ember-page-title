@@ -33,7 +33,8 @@ export default class PageTitle extends Helper {
     return '';
   }
 
-  destroy() {
+  willDestroy() {
+    super.willDestroy();
     this.tokens.remove(this.tokenId);
     this.tokens.scheduleTitleUpdate();
   }
