@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.2.1](https://github.com/ember-cli/ember-page-title/compare/v6.2.0...v6.2.1) (2021-02-12)
+
+
+### Bug Fixes
+
+* Use willDestroy() instead of destroy(). ([#211](https://github.com/ember-cli/ember-page-title/issues/211)) ([38fbc19](https://github.com/ember-cli/ember-page-title/commit/38fbc19f9842eb30617a47b0934a52b1a7dd87c1))
+
 ## [6.2.0](https://github.com/ember-cli/ember-page-title/compare/v6.1.0...v6.2.0) (2021-01-20)
 
 
