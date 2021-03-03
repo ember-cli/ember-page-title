@@ -5,8 +5,8 @@ export default class DocsRoute extends Route {
     return {
       title: 'Ember Page Title',
       post: {
-        title: 'Ember.js'
-      }
+        title: 'Ember.js',
+      },
     };
   }
 }

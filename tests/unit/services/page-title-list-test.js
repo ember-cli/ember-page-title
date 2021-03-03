@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('service:page-title-list', function(hooks) {
+module('service:page-title-list', function (hooks) {
   setupTest(hooks);
 
   test('the list has no tokens by default', function (assert) {
@@ -10,7 +10,7 @@ module('service:page-title-list', function(hooks) {
 
   test('calling `push` adds a token to the end of the list', function (assert) {
     let list = this.owner.lookup('service:page-title-list');
-    list.push({ id: 1});
+    list.push({ id: 1 });
     assert.equal(list.tokens.length, 1);
   });
 
@@ -183,7 +183,7 @@ module('service:page-title-list', function(hooks) {
     assert.equal(list.toString(), '3 | 1');
   });
 
-  test("initial page-title defaults", function (assert) {
+  test('initial page-title defaults', function (assert) {
     let list = this.owner.lookup('service:page-title-list');
 
     assert.equal(list._defaultConfig.separator, ' | ');
@@ -191,13 +191,13 @@ module('service:page-title-list', function(hooks) {
     assert.equal(list._defaultConfig.replace, null);
   });
 
-  test("can change defaults from config", function (assert) {
-    this.owner.register("config:environment", {
+  test('can change defaults from config', function (assert) {
+    this.owner.register('config:environment', {
       pageTitle: {
         separator: ' & ',
         prepend: false,
-        replace: true
-      }
+        replace: true,
+      },
     });
 
     let list = this.owner.lookup('service:page-title-list');
@@ -207,13 +207,13 @@ module('service:page-title-list', function(hooks) {
     assert.equal(list._defaultConfig.replace, true);
   });
 
-  test("undefined config entries do not change defaults", function (assert) {
-    this.owner.register("config:environment", {
+  test('undefined config entries do not change defaults', function (assert) {
+    this.owner.register('config:environment', {
       pageTitle: {
         separator: undefined,
         prepend: null,
-        replace: undefined
-      }
+        replace: undefined,
+      },
     });
 
     let list = this.owner.lookup('service:page-title-list');
@@ -223,16 +223,15 @@ module('service:page-title-list', function(hooks) {
     assert.equal(list._defaultConfig.replace, null);
   });
 
-  test("separator config option can be a whitespace string", function (assert) {
-    this.owner.register("config:environment", {
+  test('separator config option can be a whitespace string', function (assert) {
+    this.owner.register('config:environment', {
       pageTitle: {
-        separator: " ",
-      }
+        separator: ' ',
+      },
     });
 
     let list = this.owner.lookup('service:page-title-list');
 
     assert.equal(list._defaultConfig.separator, ' ');
   });
-
 });
