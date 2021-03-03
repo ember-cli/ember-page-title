@@ -40,8 +40,8 @@ export default class PageTitleListService extends Service {
     replace: null,
   };
 
-  init() {
-    super.init();
+  constructor() {
+    super(...arguments);
     this._validateExistingTitleElement();
 
     let config = getOwner(this).resolveRegistration('config:environment');

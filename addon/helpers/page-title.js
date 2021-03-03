@@ -17,8 +17,8 @@ export default class PageTitle extends Helper {
     return guidFor(this);
   }
 
-  init() {
-    super.init(...arguments);
+  constructor() {
+    super(...arguments);
     this.tokens.push({ id: this.tokenId });
   }
 
