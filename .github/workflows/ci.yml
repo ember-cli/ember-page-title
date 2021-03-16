@@ -6,6 +6,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
     - uses: actions/checkout@v2
       with:
@@ -21,6 +22,7 @@ jobs:
   test:
     name: Tests
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
     needs: lint
 
     strategy:
@@ -43,6 +45,7 @@ jobs:
   floating-dependencies:
     name: Floating Dependencies
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
     needs: lint
 
     strategy:
@@ -65,6 +68,7 @@ jobs:
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     continue-on-error: ${{ matrix.allow-failure }}
     needs: test
 
