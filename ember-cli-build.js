@@ -48,6 +48,11 @@ module.exports = function (defaults) {
         staticAddonTrees: true,
         staticHelpers: true,
         staticComponents: true,
+        skipBabel: [
+          {
+            package: 'qunit',
+          },
+        ],
       });
   }
 
