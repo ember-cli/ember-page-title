@@ -6,7 +6,7 @@ export default class PostRoute extends Route {
     return new EmberPromise(function (resolve) {
       setTimeout(function () {
         resolve({
-          title: "Rails is Omakase"
+          title: 'Rails is Omakase',
         });
       }, 200);
     });

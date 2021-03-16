@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
 import { getPageTitle } from 'ember-page-title/test-support';
 
-module('FastBoot: title', function(hooks) {
+module('FastBoot: title', function (hooks) {
   setup(hooks);
 
   test('the default configuration works', async function (assert) {
@@ -30,7 +30,10 @@ module('FastBoot: title', function(hooks) {
     assert.expect(1);
     let { htmlDocument } = await visit('/about/authors/profile');
 
-    assert.equal(getPageTitle(htmlDocument), 'Profile > Authors > About My App');
+    assert.equal(
+      getPageTitle(htmlDocument),
+      'Profile > Authors > About My App'
+    );
   });
 
   test('rendering only single title element', async function (assert) {
@@ -39,17 +42,25 @@ module('FastBoot: title', function(hooks) {
 
     // Since for our non-fastboot vs fastboot tests we keep original <title>
     // element in index.html, we simply filter it out.
-    let numberOfTitleElements = htmlDocument.head.querySelectorAll('title:not([data-test-ignore-for-fastboot-tests])');
+    let numberOfTitleElements = htmlDocument.head.querySelectorAll(
+      'title:not([data-test-ignore-for-fastboot-tests])'
+    );
 
     assert.equal(numberOfTitleElements.length, 1);
-    assert.equal(getPageTitle(htmlDocument), 'Titles | Multiple | Fastboot | My App');
+    assert.equal(
+      getPageTitle(htmlDocument),
+      'Titles | Multiple | Fastboot | My App'
+    );
   });
 
   test('multiple components in a row work', async function (assert) {
     assert.expect(1);
     let { htmlDocument } = await visit('/posts/rails-is-omakase');
 
-    assert.equal(getPageTitle(htmlDocument), 'Rails is Omakase | Posts | My App');
+    assert.equal(
+      getPageTitle(htmlDocument),
+      'Rails is Omakase | Posts | My App'
+    );
   });
 
   test('the prepend=false declaration works', async function (assert) {

@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 let isFastBoot = typeof FastBoot !== 'undefined';
 
 const RouterEvent = {
-  ROUTE_DID_CHANGE: "routeDidChange"
+  ROUTE_DID_CHANGE: 'routeDidChange',
 };
 
 /**
@@ -37,11 +37,11 @@ export default class PageTitleListService extends Service {
     prepend: true,
 
     // The default replace value to use.
-    replace: null
+    replace: null,
   };
 
-  init() {
-    super.init();
+  constructor() {
+    super(...arguments);
     this._validateExistingTitleElement();
 
     let config = getOwner(this).resolveRegistration('config:environment');
@@ -183,7 +183,7 @@ export default class PageTitleListService extends Service {
 
   scheduleTitleUpdate = () => {
     scheduleOnce('afterRender', this, this._updateTitle);
-  }
+  };
 
   toString() {
     let tokens = this.sortedTokens;
@@ -237,12 +237,12 @@ export default class PageTitleListService extends Service {
       return;
     }
     assert(
-      "[ember-page-title]: Multiple title elements found. Check for other addons like ember-cli-head updating <title> as well.",
+      '[ember-page-title]: Multiple title elements found. Check for other addons like ember-cli-head updating <title> as well.',
       document.head.querySelectorAll('title').length <= 1
     );
   }
 
-   /**
+  /**
    * Find token by id
    *
    * IE11 compatible approach due to lack of Array.find support

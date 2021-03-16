@@ -8,7 +8,7 @@ export default class FeedRoute extends Route {
       setTimeout(function () {
         resolve({
           name: capitalize(params.name),
-          handle: `@${params.name}`
+          handle: `@${params.name}`,
         });
       }, 100);
     });
