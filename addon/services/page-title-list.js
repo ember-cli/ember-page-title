@@ -16,7 +16,7 @@ const RouterEvent = {
   @extends Ember.Service
  */
 export default class PageTitleListService extends Service {
-  @service
+  @service('page-title')
   pageTitle;
 
   @service
