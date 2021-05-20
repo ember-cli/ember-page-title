@@ -78,7 +78,7 @@
     "standard-version": "^9.0.0"
   },
   "engines": {
-    "node": "10.* || >= 12"
+    "node": ">= 10.24 < 11 || 12.* || >= 14.*"
   },
   "ember": {
     "edition": "octane"
