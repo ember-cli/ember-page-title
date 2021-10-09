@@ -41,7 +41,7 @@
     "@glimmer/tracking": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-auto-import": "^1.10.1",
+    "ember-auto-import": "^2.0.0",
     "ember-cli": "~3.25.2",
     "ember-cli-code-coverage": "^1.0.0",
     "ember-cli-dependency-checker": "^3.2.0",
@@ -74,7 +74,8 @@
     "prettier": "^2.2.1",
     "qunit": "^2.14.1",
     "sass": "^1.26.0",
-    "standard-version": "^9.0.0"
+    "standard-version": "^9.0.0",
+    "webpack": "^5.0.0"
   },
   "engines": {
     "node": "10.* || >= 12"
