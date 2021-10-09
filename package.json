@@ -89,6 +89,6 @@
   },
   "homepage": "https://ember-cli.github.io/ember-page-title",
   "volta": {
-    "node": "10.22.1"
+    "node": "12.22.6"
   }
 }
