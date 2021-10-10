@@ -11,9 +11,8 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2-beta
-      with:
-        node-version: '10.x'
+
+    - uses: volta-cli/action@v1
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Lint
@@ -29,14 +28,15 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         browser: [chrome, firefox]
+        node: ["12", "14", "16"]
 
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2-beta
+    - uses: volta-cli/action@v1
       with:
-        node-version: '10.x'
+        node-version: ${{ matrix.node }}
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Test
@@ -57,9 +57,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2-beta
-      with:
-        node-version: '10.x'
+    - uses: volta-cli/action@v1
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
     - name: Test
@@ -95,9 +93,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2-beta
-      with:
-        node-version: '10.x'
+    - uses: volta-cli/action@v1
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Test
