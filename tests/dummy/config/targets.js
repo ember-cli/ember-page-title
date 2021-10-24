@@ -23,5 +23,5 @@ if (isCI || isProduction) {
 
 module.exports = {
   browsers,
-  node: 'current',
+  node: 'current', // This is here to avoid "SyntaxError: Unexpected token '.'" from fastboot ember-app.js
 };

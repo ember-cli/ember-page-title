@@ -12,6 +12,7 @@
   "license": "MIT",
   "author": "Tim Evans <tim.c.evans@me.com>",
   "directories": {
+    "doc": "doc",
     "test": "tests"
   },
   "repository": "https://github.com/ember-cli/ember-page-title",
