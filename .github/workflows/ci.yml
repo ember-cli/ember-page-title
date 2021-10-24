@@ -80,7 +80,6 @@ jobs:
           ember-lts-3.24,
           ember-lts-3.28,
           ember-release,
-          ember-beta,
           ember-default-with-jquery,
           ember-classic,
           embroider-safe,
@@ -88,6 +87,8 @@ jobs:
         ]
         allow-failure: [false]
         include:
+          - ember-try-scenario: ember-beta # We temporarily allow it to fail, so we can cut major release for current v3.x Ember and then upgrade to Embroider 2.x with another major release.
+            allow-failure: true
           - ember-try-scenario: ember-canary
             allow-failure: true
 
