@@ -8,6 +8,9 @@ module.exports = function (defaults) {
     'ember-cli-babel': {
       includePolyfill: true,
     },
+    autoImport: {
+      publicAssetURL: 'https://ember-cli.github.io/ember-page-title',
+    },
     fingerprint: {
       extensions: [
         'js',
