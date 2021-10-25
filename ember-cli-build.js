@@ -4,13 +4,18 @@
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function (defaults) {
+  let environment = EmberAddon.env();
+  let isDeploying = environment === 'production';
+
   let app = new EmberAddon(defaults, {
     'ember-cli-babel': {
       includePolyfill: true,
     },
-    autoImport: {
-      publicAssetURL: 'https://ember-cli.github.io/ember-page-title',
-    },
+    autoImport: isDeploying
+      ? {
+          publicAssetURL: 'https://ember-cli.github.io/ember-page-title',
+        }
+      : {},
     fingerprint: {
       extensions: [
         'js',
