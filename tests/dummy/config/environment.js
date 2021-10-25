@@ -4,7 +4,7 @@ module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'dummy',
     environment,
-    rootURL: '/ember-page-title/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -24,7 +24,6 @@ module.exports = function (environment) {
   };
 
   if (environment === 'development') {
-    ENV.rootURL = '/';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -33,7 +32,6 @@ module.exports = function (environment) {
   }
 
   if (environment === 'test') {
-    ENV.rootURL = '/';
     // Testem prefers this...
     ENV.locationType = 'none';
 

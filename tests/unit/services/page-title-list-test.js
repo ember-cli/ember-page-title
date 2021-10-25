@@ -103,7 +103,7 @@ module('service:page-title-list', function (hooks) {
     list.push(second);
 
     assert.ok(first.prepend);
-    assert.ok(!second.prepend);
+    assert.notOk(second.prepend);
   });
 
   test('if the replace attribute is set, all previous tokens are hidden', function (assert) {
@@ -187,7 +187,7 @@ module('service:page-title-list', function (hooks) {
     let list = this.owner.lookup('service:page-title-list');
 
     assert.equal(list._defaultConfig.separator, ' | ');
-    assert.equal(list._defaultConfig.prepend, true);
+    assert.true(list._defaultConfig.prepend);
     assert.equal(list._defaultConfig.replace, null);
   });
 
@@ -203,8 +203,8 @@ module('service:page-title-list', function (hooks) {
     let list = this.owner.lookup('service:page-title-list');
 
     assert.equal(list._defaultConfig.separator, ' & ');
-    assert.equal(list._defaultConfig.prepend, false);
-    assert.equal(list._defaultConfig.replace, true);
+    assert.false(list._defaultConfig.prepend);
+    assert.true(list._defaultConfig.replace);
   });
 
   test('undefined config entries do not change defaults', function (assert) {
@@ -219,7 +219,7 @@ module('service:page-title-list', function (hooks) {
     let list = this.owner.lookup('service:page-title-list');
 
     assert.equal(list._defaultConfig.separator, ' | ');
-    assert.equal(list._defaultConfig.prepend, true);
+    assert.true(list._defaultConfig.prepend);
     assert.equal(list._defaultConfig.replace, null);
   });
 

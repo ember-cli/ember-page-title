@@ -13,7 +13,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '12.x'
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Lint
@@ -36,7 +36,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '12.x'
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Test
@@ -59,7 +59,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '12.x'
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
     - name: Test
@@ -76,19 +76,20 @@ jobs:
       fail-fast: true
       matrix:
         ember-try-scenario: [
-          ember-lts-3.16,
           ember-lts-3.20,
           ember-lts-3.24,
+          ember-lts-3.28,
           ember-release,
-          ember-beta,
           ember-default-with-jquery,
-          ember-classic
+          ember-classic,
+          embroider-safe,
+          embroider-optimized
         ]
         allow-failure: [false]
         include:
-          - ember-try-scenario: ember-canary
+          - ember-try-scenario: ember-beta # We temporarily allow it to fail, so we can cut major release for current v3.x Ember and then upgrade to Embroider 2.x with another major release.
             allow-failure: true
-          - ember-try-scenario: embroider-tests
+          - ember-try-scenario: ember-canary
             allow-failure: true
 
     steps:
@@ -97,7 +98,7 @@ jobs:
         fetch-depth: 1
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '10.x'
+        node-version: '12.x'
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Test
