@@ -2,7 +2,6 @@ import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
-import { assign } from '@ember/polyfills';
 import { assert } from '@ember/debug';
 
 let isFastBoot = typeof FastBoot !== 'undefined';
@@ -164,7 +163,7 @@ export default class PageTitleListService extends Service {
         }
         let lastToken = group[0];
         if (lastToken) {
-          token = assign({}, token);
+          token = { ...token };
           token.separator = lastToken.separator;
         }
         group.unshift(token);
