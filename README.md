@@ -42,7 +42,7 @@ As of v3.0.0 this addon maintains the page title by using the `<title>` tag in y
 | replace   | boolean | false    | Replace all previous elements with the active                                 |
 | front     | boolean | false    | If the token should always be in the beginning of the resulting title.        |
 
-These defaults are configurable in `config/environment.js`:
+The default values for `separator`, `prepend` and `replace` are configurable via `config/environment.js`:
 
 ```javascript
 // config/environment.js
