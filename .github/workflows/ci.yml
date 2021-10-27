@@ -11,9 +11,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2-beta
-      with:
-        node-version: '12.x'
+    - uses: volta-cli/action@v1
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Lint
@@ -29,14 +27,15 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         browser: [chrome, firefox]
+        node: ["12", "14", "16"]
 
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2-beta
+    - uses: volta-cli/action@v1
       with:
-        node-version: '12.x'
+        node-version: ${{ matrix.node }}
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Test
@@ -57,9 +56,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2-beta
-      with:
-        node-version: '12.x'
+    - uses: volta-cli/action@v1
     - name: Install Dependencies
       run: yarn install --no-lockfile --non-interactive
     - name: Test
@@ -80,6 +77,7 @@ jobs:
           ember-lts-3.24,
           ember-lts-3.28,
           ember-release,
+          ember-beta,
           ember-default-with-jquery,
           ember-classic,
           embroider-safe,
@@ -87,8 +85,6 @@ jobs:
         ]
         allow-failure: [false]
         include:
-          - ember-try-scenario: ember-beta # We temporarily allow it to fail, so we can cut major release for current v3.x Ember and then upgrade to Embroider 2.x with another major release.
-            allow-failure: true
           - ember-try-scenario: ember-canary
             allow-failure: true
 
@@ -96,9 +92,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2-beta
-      with:
-        node-version: '12.x'
+    - uses: volta-cli/action@v1
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
     - name: Test
