@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/ember-cli/ember-page-title/compare/v6.2.2...v7.0.0) (2021-10-28)
+
+
+### Bug Fixes
+
+* more explicit service injections ([8b87e14](https://github.com/ember-cli/ember-page-title/commit/8b87e1495efb4790772fb2aed217a3bc9fabc1a1))
+* qunit stopping app from starting, and update lint ([fd4b482](https://github.com/ember-cli/ember-page-title/commit/fd4b4822ea7193d9ca6f03229712d767dd1e090a))
+* use spread operator instead of Ember.assign ([136ca56](https://github.com/ember-cli/ember-page-title/commit/136ca56a62104838a078df9a82036004757f45e6))
+
 ### [6.2.2](https://github.com/ember-cli/ember-page-title/compare/v6.2.1...v6.2.2) (2021-05-20)
 
 ### [6.2.1](https://github.com/ember-cli/ember-page-title/compare/v6.2.0...v6.2.1) (2021-02-12)
