@@ -4,59 +4,56 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [7.0.0](https://github.com/ember-cli/ember-page-title/compare/v6.2.2...v7.0.0) (2021-10-28)
 
+### ⚠ BREAKING CHANGES
+
+- Drop support for Node v10 (End of life)
 
 ### Bug Fixes
 
-* more explicit service injections ([8b87e14](https://github.com/ember-cli/ember-page-title/commit/8b87e1495efb4790772fb2aed217a3bc9fabc1a1))
-* qunit stopping app from starting, and update lint ([fd4b482](https://github.com/ember-cli/ember-page-title/commit/fd4b4822ea7193d9ca6f03229712d767dd1e090a))
-* use spread operator instead of Ember.assign ([136ca56](https://github.com/ember-cli/ember-page-title/commit/136ca56a62104838a078df9a82036004757f45e6))
+- more explicit service injections ([8b87e14](https://github.com/ember-cli/ember-page-title/commit/8b87e1495efb4790772fb2aed217a3bc9fabc1a1))
+- qunit stopping app from starting, and update lint ([fd4b482](https://github.com/ember-cli/ember-page-title/commit/fd4b4822ea7193d9ca6f03229712d767dd1e090a))
+- use spread operator instead of Ember.assign ([136ca56](https://github.com/ember-cli/ember-page-title/commit/136ca56a62104838a078df9a82036004757f45e6))
 
 ### [6.2.2](https://github.com/ember-cli/ember-page-title/compare/v6.2.1...v6.2.2) (2021-05-20)
 
 ### [6.2.1](https://github.com/ember-cli/ember-page-title/compare/v6.2.0...v6.2.1) (2021-02-12)
 
-
 ### Bug Fixes
 
-* Use willDestroy() instead of destroy(). ([#211](https://github.com/ember-cli/ember-page-title/issues/211)) ([38fbc19](https://github.com/ember-cli/ember-page-title/commit/38fbc19f9842eb30617a47b0934a52b1a7dd87c1))
+- Use willDestroy() instead of destroy(). ([#211](https://github.com/ember-cli/ember-page-title/issues/211)) ([38fbc19](https://github.com/ember-cli/ember-page-title/commit/38fbc19f9842eb30617a47b0934a52b1a7dd87c1))
 
 ## [6.2.0](https://github.com/ember-cli/ember-page-title/compare/v6.1.0...v6.2.0) (2021-01-20)
 
-
 ### Features
 
-* provide getPageTitle test helper to consuming apps ([#209](https://github.com/ember-cli/ember-page-title/issues/209)) ([12817df](https://github.com/ember-cli/ember-page-title/commit/12817dfc5e764ad583f9c6d920c25ebbf731ba6e))
+- provide getPageTitle test helper to consuming apps ([#209](https://github.com/ember-cli/ember-page-title/issues/209)) ([12817df](https://github.com/ember-cli/ember-page-title/commit/12817dfc5e764ad583f9c6d920c25ebbf731ba6e))
 
 ## [6.1.0](https://github.com/ember-cli/ember-page-title/compare/v6.0.3...v6.1.0) (2021-01-15)
 
-
 ### Features
 
-* add public page-title service ([#207](https://github.com/ember-cli/ember-page-title/issues/207)) ([d0fd207](https://github.com/ember-cli/ember-page-title/commit/d0fd20743d6e0b99d1f4aeca947bfd43847458dd))
+- add public page-title service ([#207](https://github.com/ember-cli/ember-page-title/issues/207)) ([d0fd207](https://github.com/ember-cli/ember-page-title/commit/d0fd20743d6e0b99d1f4aeca947bfd43847458dd))
 
 ### [6.0.3](https://github.com/ember-cli/ember-page-title/compare/v6.0.2...v6.0.3) (2020-11-02)
 
-
 ### Bug Fixes
 
-* Fastboot ?fastboot=false assertion hit ([#198](https://github.com/ember-cli/ember-page-title/issues/198)) ([1ddbfd3](https://github.com/ember-cli/ember-page-title/commit/1ddbfd3f728f94e7f17bc75e963331ae4dfac102))
+- Fastboot ?fastboot=false assertion hit ([#198](https://github.com/ember-cli/ember-page-title/issues/198)) ([1ddbfd3](https://github.com/ember-cli/ember-page-title/commit/1ddbfd3f728f94e7f17bc75e963331ae4dfac102))
 
 ### [6.0.2](https://github.com/ember-cli/ember-page-title/compare/v6.0.1...v6.0.2) (2020-10-17)
 
-
 ### Bug Fixes
 
-* Dummy app hitting recently added assertion ([#188](https://github.com/ember-cli/ember-page-title/issues/188)) ([cba2987](https://github.com/ember-cli/ember-page-title/commit/cba2987679308ef6669655205410b77c7ca263b7))
-* Fastboot title updates with nested slow model() routes ([#196](https://github.com/ember-cli/ember-page-title/issues/196)) ([0fa6f8c](https://github.com/ember-cli/ember-page-title/commit/0fa6f8cede1bd5ab552fcc0ee29cb47197c7bfb4))
-* Regression in dummy app layout ([#187](https://github.com/ember-cli/ember-page-title/issues/187)) ([15a380f](https://github.com/ember-cli/ember-page-title/commit/15a380fc3864e8d55be143bb14e9991c9189f281))
+- Dummy app hitting recently added assertion ([#188](https://github.com/ember-cli/ember-page-title/issues/188)) ([cba2987](https://github.com/ember-cli/ember-page-title/commit/cba2987679308ef6669655205410b77c7ca263b7))
+- Fastboot title updates with nested slow model() routes ([#196](https://github.com/ember-cli/ember-page-title/issues/196)) ([0fa6f8c](https://github.com/ember-cli/ember-page-title/commit/0fa6f8cede1bd5ab552fcc0ee29cb47197c7bfb4))
+- Regression in dummy app layout ([#187](https://github.com/ember-cli/ember-page-title/issues/187)) ([15a380f](https://github.com/ember-cli/ember-page-title/commit/15a380fc3864e8d55be143bb14e9991c9189f281))
 
 ### [6.0.1](https://github.com/ember-cli/ember-page-title/compare/v6.0.0...v6.0.1) (2020-10-06)
 
-
 ### Bug Fixes
 
-* Do not remove existing title elements, assert instead ([#185](https://github.com/ember-cli/ember-page-title/issues/185)) ([d4ea9bb](https://github.com/ember-cli/ember-page-title/commit/d4ea9bb8174c2ac8a9ece9031553e143dd10b661))
-* Use assign() from @ember/polyfills for IE11 ([#183](https://github.com/ember-cli/ember-page-title/issues/183)) ([48a5fa5](https://github.com/ember-cli/ember-page-title/commit/48a5fa5b1c4c348948e9bb2235876fd9b1ecb0cb))
+- Do not remove existing title elements, assert instead ([#185](https://github.com/ember-cli/ember-page-title/issues/185)) ([d4ea9bb](https://github.com/ember-cli/ember-page-title/commit/d4ea9bb8174c2ac8a9ece9031553e143dd10b661))
+- Use assign() from @ember/polyfills for IE11 ([#183](https://github.com/ember-cli/ember-page-title/issues/183)) ([48a5fa5](https://github.com/ember-cli/ember-page-title/commit/48a5fa5b1c4c348948e9bb2235876fd9b1ecb0cb))
 
 ## [6.0.0](https://github.com/ember-cli/ember-page-title/compare/v5.2.4...v6.0.0) (2020-10-06)
 
