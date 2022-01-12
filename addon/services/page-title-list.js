@@ -2,6 +2,7 @@ import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
+import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 
 let isFastBoot = typeof FastBoot !== 'undefined';
@@ -26,7 +27,7 @@ export default class PageTitleListService extends Service {
   @service('-document')
   document;
 
-  tokens = [];
+  @tracked tokens = [];
 
   _defaultConfig = {
     // The default separator to use between tokens.
