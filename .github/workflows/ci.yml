@@ -20,6 +20,9 @@ jobs:
     - name: Lint Test App
       run: yarn lint
       working-directory: test-app
+    - name: Lint Docs
+      run: yarn lint
+      working-directory: docs
 
   test:
     name: Tests
@@ -106,3 +109,21 @@ jobs:
         EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
       run: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
       working-directory: test-app
+
+  docs:
+    name: Docs app
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: test
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - uses: volta-cli/action@v1
+      with:
+        node-version: 12
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile
+    - name: Test
+      run: yarn test:ember --launch ${{ matrix.browser }}
+      working-directory: docs
