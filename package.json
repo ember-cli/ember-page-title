@@ -5,6 +5,9 @@
         "docs",
         "test-app"
     ],
+    "scripts": {
+        "prepare": "cd addon && yarn build"
+    },
     "volta": {
         "node": "12.22.10",
         "yarn": "1.22.17"
