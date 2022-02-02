@@ -1,0 +1,54 @@
+{
+  "name": "ember-page-title",
+  "version": "8.0.0-alpha.0",
+  "description": "Page Titles for Ember applications",
+  "keywords": [
+    "ember-addon",
+    "page title",
+    "title",
+    "component",
+    "fastboot"
+  ],
+  "license": "MIT",
+  "author": "Tim Evans <tim.c.evans@me.com>",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "repository": "https://github.com/ember-cli/ember-page-title",
+  "scripts": {
+    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
+    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
+    "lint:hbs": "ember-template-lint .",
+    "lint:hbs:fix": "ember-template-lint . --fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "ember-cli-babel": "^7.26.6"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-ember": "^10.5.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "ember-template-lint": "^3.6.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2"
+  },
+  "engines": {
+    "node": "12.* || 14.* || >= 16"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "demoURL": "https://ember-cli.github.io/ember-page-title"
+  },
+  "homepage": "https://ember-cli.github.io/ember-page-title",
+  "volta": {
+    "extends": "../package.json"
+  }
+}

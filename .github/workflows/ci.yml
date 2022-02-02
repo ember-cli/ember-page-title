@@ -14,8 +14,12 @@ jobs:
     - uses: volta-cli/action@v1
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
-    - name: Lint
+    - name: Lint Addon
       run: yarn lint
+      working-directory: addon
+    - name: Lint Test App
+      run: yarn lint
+      working-directory: test-app
 
   test:
     name: Tests
@@ -40,6 +44,7 @@ jobs:
       run: yarn install --frozen-lockfile
     - name: Test
       run: yarn test:ember --launch ${{ matrix.browser }}
+      working-directory: test-app
 
   floating-dependencies:
     name: Floating Dependencies
@@ -61,6 +66,7 @@ jobs:
       run: yarn install --no-lockfile --non-interactive
     - name: Test
       run: yarn test:ember --launch ${{ matrix.browser }}
+      working-directory: test-app
 
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
@@ -99,3 +105,4 @@ jobs:
       env:
         EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
       run: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+      working-directory: test-app
