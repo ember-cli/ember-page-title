@@ -49,7 +49,6 @@
   },
   "homepage": "https://ember-cli.github.io/ember-page-title",
   "volta": {
-    "node": "12.22.6",
-    "yarn": "1.22.15"
+    "extends": "../package.json"
   }
 }
