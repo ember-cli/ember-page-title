@@ -11,41 +11,61 @@
   ],
   "license": "MIT",
   "author": "Tim Evans <tim.c.evans@me.com>",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*",
+    "./test-support": "./dist/test-support/index.js",
+    "./addon-main.js": "./addon-main.js"
   },
+  "files": [
+    "addon-main.js",
+    "dist"
+  ],
   "repository": "https://github.com/ember-cli/ember-page-title",
   "scripts": {
+    "build": "rollup --config",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix"
+    "lint:js:fix": "eslint . --fix",
+    "start": "rollup --config --watch",
+    "prepublishOnly": "rollup --config"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.26.6"
+    "@embroider/addon-shim": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-decorators": "^7.16.7",
+    "@embroider/addon-dev": "^1.0.0",
+    "@rollup/plugin-babel": "^5.3.0",
     "babel-eslint": "^10.1.0",
+    "ember-template-lint": "^3.6.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-ember": "^10.5.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.1",
-    "ember-template-lint": "^3.6.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "rollup": "^2.67.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
   },
-  "ember": {
-    "edition": "octane"
-  },
   "ember-addon": {
-    "demoURL": "https://ember-cli.github.io/ember-page-title"
+    "demoURL": "https://ember-cli.github.io/ember-page-title",
+    "main": "addon-main.js",
+    "type": "addon",
+    "version": 2,
+    "app-js": {
+      "./helpers/page-title.js": "./dist/_app_/helpers/page-title.js",
+      "./services/page-title-list.js": "./dist/_app_/services/page-title-list.js",
+      "./services/page-title.js": "./dist/_app_/services/page-title.js"
+    }
   },
   "homepage": "https://ember-cli.github.io/ember-page-title",
   "volta": {
