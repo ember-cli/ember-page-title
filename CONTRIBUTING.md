@@ -4,6 +4,7 @@ This repo is divided into multiple packages using Yarn workspaces:
 
  - `addon` is the actual ember-page-title addon
  - `test-app` is its test suite 
+ - `docs` is the documentation/marketing site
 
 ## Installation
 
