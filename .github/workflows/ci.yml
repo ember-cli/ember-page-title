@@ -34,7 +34,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         browser: [chrome, firefox]
-        node: ['12', '14', '16']
+        node: ['14', '16', '18']
 
     steps:
       - uses: actions/checkout@v2
@@ -84,6 +84,7 @@ jobs:
         ember-try-scenario:
           [
             ember-lts-3.28,
+            ember-lts-4.4,
             ember-release,
             ember-beta,
             ember-default-with-jquery,
