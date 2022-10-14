@@ -63,7 +63,6 @@
     "version": 2,
     "app-js": {
       "./helpers/page-title.js": "./dist/_app_/helpers/page-title.js",
-      "./services/page-title-list.js": "./dist/_app_/services/page-title-list.js",
       "./services/page-title.js": "./dist/_app_/services/page-title.js"
     }
   },

@@ -9,7 +9,7 @@ import { guidFor } from '@ember/object/internals';
   @method page-title
  */
 export default class PageTitle extends Helper {
-  @service('page-title-list')
+  @service('page-title')
   tokens;
 
   get tokenId() {
