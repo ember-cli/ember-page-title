@@ -121,7 +121,7 @@ jobs:
           fetch-depth: 1
       - uses: volta-cli/action@v1
         with:
-          node-version: 12
+          node-version: 14
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Test
