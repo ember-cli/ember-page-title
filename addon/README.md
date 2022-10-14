@@ -75,15 +75,16 @@ export default class PageTitleService extends EmberPageTitleService {
 ```
 
 ### Testing
+
 `assert` the page `title` with the supplied `getPageTitle` test helper:
 
 ```javascript
 import { getPageTitle } from 'ember-page-title/test-support';
 
-module('Acceptance | Register Page', function(hooks) {
+module('Acceptance | Register Page', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /register', async function(assert) {
+  test('visiting /register', async function (assert) {
     const registerURL = '/register';
     await visit(registerURL);
 
