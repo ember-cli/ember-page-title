@@ -1,21 +1,21 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('service:page-title-list', function (hooks) {
+module('service:page-title', function (hooks) {
   setupTest(hooks);
 
   test('the list has no tokens by default', function (assert) {
-    assert.equal(this.owner.lookup('service:page-title-list').tokens.length, 0);
+    assert.equal(this.owner.lookup('service:page-title').tokens.length, 0);
   });
 
   test('calling `push` adds a token to the end of the list', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     list.push({ id: 1 });
     assert.equal(list.tokens.length, 1);
   });
 
   test('tokens have next and previous tokens', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1 };
     let second = { id: 2 };
     let third = { id: 3 };
@@ -37,7 +37,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test('removing a token closes the hole in the list', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1 };
     let second = { id: 2 };
     let third = { id: 3 };
@@ -59,7 +59,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test('the separator property is inherited by the previous token', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1, separator: 'a' };
     let second = { id: 2 };
 
@@ -71,7 +71,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test('the separator property is not inherited if explicitly set', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1, separator: 'a' };
     let second = { id: 2, separator: 'b' };
 
@@ -83,7 +83,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test('the prepend property is inherited by the previous token', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1, prepend: true };
     let second = { id: 2 };
 
@@ -95,7 +95,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test('the prepend property is not inherited if explicitly set', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1, prepend: true };
     let second = { id: 2, prepend: false };
 
@@ -107,7 +107,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test('if the replace attribute is set, all previous tokens are hidden', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1 };
     let second = { id: 2 };
     let third = { id: 3, replace: true };
@@ -122,7 +122,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test('any additional tokens added after replace are not hidden', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1 };
     let second = { id: 2, replace: true };
     let third = { id: 3 };
@@ -138,7 +138,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test('removing a token with replace: true will set all previous tokens to be visible', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1 };
     let second = { id: 2, replace: true };
     let third = { id: 3 };
@@ -155,7 +155,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test('removing a token with replace: true will only set previous tokens up to the last replace: true to visible', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1 };
     let second = { id: 2, replace: true };
     let third = { id: 3, replace: true };
@@ -171,7 +171,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test("null tokens aren't displayed as a string", function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
     let first = { id: 1, title: '1' };
     let second = { id: 2, title: null };
     let third = { id: 3, title: '3' };
@@ -184,7 +184,7 @@ module('service:page-title-list', function (hooks) {
   });
 
   test('initial page-title defaults', function (assert) {
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
 
     assert.equal(list._defaultConfig.separator, ' | ');
     assert.true(list._defaultConfig.prepend);
@@ -200,7 +200,7 @@ module('service:page-title-list', function (hooks) {
       },
     });
 
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
 
     assert.equal(list._defaultConfig.separator, ' & ');
     assert.false(list._defaultConfig.prepend);
@@ -216,7 +216,7 @@ module('service:page-title-list', function (hooks) {
       },
     });
 
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
 
     assert.equal(list._defaultConfig.separator, ' | ');
     assert.true(list._defaultConfig.prepend);
@@ -230,7 +230,7 @@ module('service:page-title-list', function (hooks) {
       },
     });
 
-    let list = this.owner.lookup('service:page-title-list');
+    let list = this.owner.lookup('service:page-title');
 
     assert.equal(list._defaultConfig.separator, ' ');
   });

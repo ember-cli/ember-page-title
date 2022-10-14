@@ -1,7 +1,7 @@
 /**
  * This is here just for dummy app.
  *
- * Without it we would hit assertion from service:page-title-list
+ * Without it we would hit assertion from service:page-title
  * because of our app/index.html has 2 <title> elements due to Fastboot.
  *
  * But having 2 <title> elements is intentional so we can acceptance test both
