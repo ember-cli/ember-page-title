@@ -8,21 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-    - uses: volta-cli/action@v1
-    - name: Install Dependencies
-      run: yarn install --frozen-lockfile
-    - name: Lint Addon
-      run: yarn lint
-      working-directory: addon
-    - name: Lint Test App
-      run: yarn lint
-      working-directory: test-app
-    - name: Lint Docs
-      run: yarn lint
-      working-directory: docs
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: volta-cli/action@v1
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Lint Addon
+        run: yarn lint
+        working-directory: addon
+      - name: Lint Test App
+        run: yarn lint
+        working-directory: test-app
+      - name: Lint Docs
+        run: yarn lint
+        working-directory: docs
 
   test:
     name: Tests
@@ -34,20 +34,20 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         browser: [chrome, firefox]
-        node: ["12", "14", "16"]
+        node: ['14', '16', '18']
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-    - uses: volta-cli/action@v1
-      with:
-        node-version: ${{ matrix.node }}
-    - name: Install Dependencies
-      run: yarn install --frozen-lockfile
-    - name: Test
-      run: yarn test:ember --launch ${{ matrix.browser }}
-      working-directory: test-app
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: volta-cli/action@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn test:ember --launch ${{ matrix.browser }}
+        working-directory: test-app
 
   floating-dependencies:
     name: Floating Dependencies
@@ -61,15 +61,15 @@ jobs:
         browser: [chrome, firefox]
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-    - uses: volta-cli/action@v1
-    - name: Install Dependencies
-      run: yarn install --no-lockfile --non-interactive
-    - name: Test
-      run: yarn test:ember --launch ${{ matrix.browser }}
-      working-directory: test-app
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: volta-cli/action@v1
+      - name: Install Dependencies
+        run: yarn install --no-lockfile --non-interactive
+      - name: Test
+        run: yarn test:ember --launch ${{ matrix.browser }}
+        working-directory: test-app
 
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
@@ -81,34 +81,33 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        ember-try-scenario: [
-          ember-lts-3.20,
-          ember-lts-3.24,
-          ember-lts-3.28,
-          ember-release,
-          ember-beta,
-          ember-default-with-jquery,
-          ember-classic,
-          embroider-safe,
-          embroider-optimized
-        ]
+        ember-try-scenario:
+          [
+            ember-lts-3.28,
+            ember-lts-4.4,
+            ember-release,
+            ember-beta,
+            ember-classic,
+            embroider-safe,
+            embroider-optimized,
+          ]
         allow-failure: [false]
         include:
           - ember-try-scenario: ember-canary
             allow-failure: true
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-    - uses: volta-cli/action@v1
-    - name: Install Dependencies
-      run: yarn install --frozen-lockfile
-    - name: Test
-      env:
-        EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
-      run: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
-      working-directory: test-app
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: volta-cli/action@v1
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Test
+        env:
+          EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
+        run: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+        working-directory: test-app
 
   docs:
     name: Docs app
@@ -116,14 +115,14 @@ jobs:
     timeout-minutes: 20
     needs: test
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-    - uses: volta-cli/action@v1
-      with:
-        node-version: 12
-    - name: Install Dependencies
-      run: yarn install --frozen-lockfile
-    - name: Test
-      run: yarn test:ember --launch ${{ matrix.browser }}
-      working-directory: docs
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: volta-cli/action@v1
+        with:
+          node-version: 14
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn test:ember --launch ${{ matrix.browser }}
+        working-directory: docs
