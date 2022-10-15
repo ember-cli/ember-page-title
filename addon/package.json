@@ -42,7 +42,7 @@
     "@babel/plugin-proposal-decorators": "^7.16.7",
     "@babel/plugin-transform-typescript": "^7.19.3",
     "@babel/preset-typescript": "^7.18.6",
-    "@embroider/addon-dev": "^1.0.0",
+    "@embroider/addon-dev": "^2.0.0",
     "@types/ember__application": "^4.0.0",
     "@types/ember__debug": "^4.0.0",
     "@types/ember__destroyable": "^4.0.0",
@@ -77,10 +77,7 @@
     "main": "addon-main.cjs",
     "type": "addon",
     "version": 2,
-    "app-js": {
-      "./helpers/page-title.ts": "./dist/_app_/helpers/page-title.ts",
-      "./services/page-title.ts": "./dist/_app_/services/page-title.ts"
-    }
+    "app-js": {}
   },
   "homepage": "https://ember-cli.github.io/ember-page-title",
   "volta": {
