@@ -79,7 +79,8 @@ export default class PageTitleService extends Service {
     if (config.pageTitle) {
       configKeys.forEach((key) => {
         if (!isEmpty(config.pageTitle?.[key])) {
-          this._defaultConfig[key] = config.pageTitle?.[key];
+          (this._defaultConfig[key] as PageTitleConfig[typeof key]) =
+            config.pageTitle?.[key];
         }
       });
     }
