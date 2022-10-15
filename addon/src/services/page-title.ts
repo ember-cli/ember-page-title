@@ -72,8 +72,7 @@ export default class PageTitleService extends Service {
     super(...arguments);
     this._validateExistingTitleElement();
 
-    // @ts-expect-error Property 'resolveRegistration' does not exist on type 'Owner'.ts(2339). Not sure why
-    const config = getOwner(this).resolveRegistration('config:environment') as {
+    const config = getOwner(this).factoryFor('config:environment') as {
       pageTitle?: PageTitleConfig;
     };
 
