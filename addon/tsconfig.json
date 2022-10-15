@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    // Allows the test app's type checker to
+    // properly re-build when the addon re-builds
+    "composite": true,
+
+    // Path resolution
+    "baseUrl": "./src",
+    "moduleResolution": "node",
+
+    // types are built by rollup-plugin-ts
+    "declarationDir": "./dist",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+
+    // Build settings
+    "noEmitOnError": false,
+    "module": "ESNext",
+    "target": "ESNext",
+
+    // Features
+    "experimentalDecorators": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": false,
+
+    // Strictness / Correctness
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "paths": {
+      // No paths, no absolute imports, only node_modules imports allowed
+      // But fallback for type-overrides and such
+      "*": ["types/*"]
+    }
+  },
+  "include": ["src/**/*", "types/*"]
+}

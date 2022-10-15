@@ -3,12 +3,39 @@ import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
 import { assert } from '@ember/debug';
+import RouterService from '@ember/routing/router-service';
+import SimpleDomDocument from '@simple-dom/document';
 
-let isFastBoot = typeof FastBoot !== 'undefined';
+const isFastBoot = typeof FastBoot !== 'undefined';
 
 const RouterEvent = {
   ROUTE_DID_CHANGE: 'routeDidChange',
-};
+} as const;
+const configKeys = ['separator', 'prepend', 'replace'] as const;
+
+export interface PageTitleToken {
+  id: string;
+  title?: string;
+  separator?: string;
+  prepend?: boolean;
+  replace?: boolean;
+  front?: unknown;
+  previous?: PageTitleToken | null;
+  next?: PageTitleToken | null;
+}
+
+interface PageTitleConfig {
+  // The default separator to use between tokens.
+  separator?: string;
+
+  // The default prepend value to use.
+  prepend?: boolean;
+
+  // The default replace value to use.
+  replace?: boolean | null;
+}
+
+type FastBootDocument = ReturnType<typeof SimpleDomDocument>;
 
 /**
   @class page-title
@@ -16,16 +43,16 @@ const RouterEvent = {
  */
 export default class PageTitleService extends Service {
   @service('router')
-  router;
+  declare router: RouterService;
 
   // in fastboot context "document" is instance of
   // ember-fastboot/simple-dom document
   @service('-document')
-  document;
+  declare document: FastBootDocument & { title?: string };
 
-  tokens = [];
+  tokens: PageTitleToken[] = [];
 
-  _defaultConfig = {
+  _defaultConfig: PageTitleConfig = {
     // The default separator to use between tokens.
     separator: ' | ',
 
@@ -37,24 +64,32 @@ export default class PageTitleService extends Service {
   };
 
   constructor() {
+    // eslint-disable-next-line prefer-rest-params
     super(...arguments);
     this._validateExistingTitleElement();
 
-    let config = getOwner(this).resolveRegistration('config:environment');
+    // @ts-expect-error Property 'resolveRegistration' does not exist on type 'Owner'.ts(2339). Not sure why
+    const config = getOwner(this).resolveRegistration('config:environment') as {
+      pageTitle?: PageTitleConfig;
+    };
+
     if (config.pageTitle) {
-      ['separator', 'prepend', 'replace'].forEach((key) => {
-        if (!isEmpty(config.pageTitle[key])) {
-          this._defaultConfig[key] = config.pageTitle[key];
+      configKeys.forEach((key) => {
+        if (!isEmpty((config.pageTitle as PageTitleConfig)[key])) {
+          this._defaultConfig[key] = (config.pageTitle as PageTitleConfig)[
+            key
+          ] as any;
         }
       });
     }
+
     this.router.on(RouterEvent.ROUTE_DID_CHANGE, this.scheduleTitleUpdate);
   }
 
-  applyTokenDefaults(token) {
-    let defaultSeparator = this._defaultConfig.separator;
-    let defaultPrepend = this._defaultConfig.prepend;
-    let defaultReplace = this._defaultConfig.replace;
+  applyTokenDefaults(token: PageTitleToken) {
+    const defaultSeparator = this._defaultConfig.separator;
+    const defaultPrepend = this._defaultConfig.prepend;
+    const defaultReplace = this._defaultConfig.replace;
 
     if (token.separator == null) {
       token.separator = defaultSeparator;
@@ -69,8 +104,9 @@ export default class PageTitleService extends Service {
     }
   }
 
-  inheritFromPrevious(token) {
-    let previous = token.previous;
+  inheritFromPrevious(token: PageTitleToken) {
+    const previous = token.previous;
+
     if (previous) {
       if (token.separator == null) {
         token.separator = previous.separator;
@@ -82,12 +118,13 @@ export default class PageTitleService extends Service {
     }
   }
 
-  push(token) {
-    let tokenForId = this._findTokenById(token.id);
+  push(token: PageTitleToken) {
+    const tokenForId = this._findTokenById(token.id);
+
     if (tokenForId) {
-      let index = this.tokens.indexOf(tokenForId);
-      let tokens = [...this.tokens];
-      let previous = tokenForId.previous;
+      const index = this.tokens.indexOf(tokenForId);
+      const tokens = [...this.tokens];
+      const previous = tokenForId.previous;
       token.previous = previous;
       token.next = tokenForId.next;
       this.inheritFromPrevious(token);
@@ -98,7 +135,8 @@ export default class PageTitleService extends Service {
       return;
     }
 
-    let previous = this.tokens.slice(-1)[0];
+    const previous = this.tokens.slice(-1)[0];
+
     if (previous) {
       token.previous = previous;
       previous.next = token;
@@ -109,9 +147,10 @@ export default class PageTitleService extends Service {
     this.tokens = [...this.tokens, token];
   }
 
-  remove(id) {
-    let token = this._findTokenById(id);
-    let { next, previous } = token;
+  remove(id: PageTitleToken['id']) {
+    const token = this._findTokenById(id);
+    const { next, previous } = token;
+
     if (next) {
       next.previous = previous;
     }
@@ -122,17 +161,18 @@ export default class PageTitleService extends Service {
 
     token.previous = token.next = null;
 
-    let tokens = [...this.tokens];
+    const tokens = [...this.tokens];
     tokens.splice(tokens.indexOf(token), 1);
     this.tokens = tokens;
   }
 
   get visibleTokens() {
-    let tokens = this.tokens;
+    const tokens = this.tokens;
     let i = tokens ? tokens.length : 0;
-    let visible = [];
+    const visible = [];
+
     while (i--) {
-      let token = tokens[i];
+      const token = tokens[i];
       if (token.replace) {
         visible.unshift(token);
         break;
@@ -140,15 +180,17 @@ export default class PageTitleService extends Service {
         visible.unshift(token);
       }
     }
+
     return visible;
   }
 
   get sortedTokens() {
-    let visible = this.visibleTokens;
+    const visible = this.visibleTokens;
     let appending = true;
-    let group = [];
-    let groups = [group];
-    let frontGroups = [];
+    let group: PageTitleToken[] = [];
+    const groups = [group];
+    const frontGroups: PageTitleToken[] = [];
+
     visible.forEach((token) => {
       if (token.front) {
         frontGroups.unshift(token);
@@ -158,7 +200,7 @@ export default class PageTitleService extends Service {
           group = [];
           groups.push(group);
         }
-        let lastToken = group[0];
+        const lastToken = group[0];
         if (lastToken) {
           token = { ...token };
           token.separator = lastToken.separator;
@@ -182,10 +224,10 @@ export default class PageTitleService extends Service {
   };
 
   toString() {
-    let tokens = this.sortedTokens;
-    let title = [];
+    const tokens = this.sortedTokens;
+    const title = [];
     for (let i = 0, len = tokens.length; i < len; i++) {
-      let token = tokens[i];
+      const token = tokens[i];
       if (token.title) {
         title.push(token.title);
         if (i + 1 < len) {
@@ -201,7 +243,7 @@ export default class PageTitleService extends Service {
     this.router.off(RouterEvent.ROUTE_DID_CHANGE, this.scheduleTitleUpdate);
   }
 
-  _updateTitle() {
+  private _updateTitle() {
     const toBeTitle = this.toString();
 
     if (isFastBoot) {
@@ -228,10 +270,11 @@ export default class PageTitleService extends Service {
    * Example: ember-cli-head can cause conflicting updates.
    * @private
    */
-  _validateExistingTitleElement() {
+  private _validateExistingTitleElement() {
     if (isFastBoot) {
       return;
     }
+
     assert(
       '[ember-page-title]: Multiple title elements found. Check for other addons like ember-cli-head updating <title> as well.',
       document.head.querySelectorAll('title').length <= 1
@@ -242,37 +285,50 @@ export default class PageTitleService extends Service {
    * Find token by id
    *
    * IE11 compatible approach due to lack of Array.find support
+   * TODO: Remove when we drop support for Ember 3.28
    *
    * @param {String} id
    * @private
    */
-  _findTokenById(id) {
+  private _findTokenById(id: PageTitleToken['id']) {
     return this.tokens.filter((token) => {
       return token.id === id;
     })[0];
   }
 
-  updateFastbootTitle(toBeTitle) {
+  updateFastbootTitle(toBeTitle: string) {
     if (!isFastBoot) {
       return;
     }
+
     const headElement = this.document.head;
     const headChildNodes = headElement.childNodes;
 
     // Remove existing title elements from previous render cycle
     for (let i = 0; i < headChildNodes.length; i++) {
-      let node = headChildNodes[i];
+      const node = headChildNodes[i];
       if (node.nodeName.toLowerCase() === 'title') {
         headElement.removeChild(node);
       }
     }
 
     // Add title element with latest value
-    let titleEl = this.document.createElement('title');
-    let titleContents = this.document.createTextNode(toBeTitle);
+    const titleEl = this.document.createElement('title');
+    const titleContents = this.document.createTextNode(toBeTitle);
+
     titleEl.appendChild(titleContents);
     headElement.appendChild(titleEl);
   }
 
-  titleDidUpdate(/* title */) {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  titleDidUpdate(_title: string) {
+    // default is empty, meant to be overridden by user if desired
+  }
+}
+
+declare module '@ember/service' {
+  interface Registry {
+    'page-title': PageTitleService;
+    '-document': FastBootDocument & { title?: string };
+  }
 }
