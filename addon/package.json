@@ -15,10 +15,10 @@
     ".": "./dist/index.js",
     "./*": "./dist/*",
     "./test-support": "./dist/test-support/index.js",
-    "./addon-main.js": "./addon-main.js"
+    "./addon-main.js": "./addon-main.cjs"
   },
   "files": [
-    "addon-main.js",
+    "addon-main.cjs",
     "dist"
   ],
   "repository": "https://github.com/ember-cli/ember-page-title",
@@ -74,7 +74,7 @@
   },
   "ember-addon": {
     "demoURL": "https://ember-cli.github.io/ember-page-title",
-    "main": "addon-main.js",
+    "main": "addon-main.cjs",
     "type": "addon",
     "version": 2,
     "app-js": {
