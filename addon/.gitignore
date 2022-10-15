@@ -27,3 +27,6 @@
 
 # editors
 /.idea/
+
+# type stuff
+*.tsbuildinfo

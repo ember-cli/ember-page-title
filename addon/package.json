@@ -77,7 +77,10 @@
     "main": "addon-main.cjs",
     "type": "addon",
     "version": 2,
-    "app-js": {}
+    "app-js": {
+      "./helpers/page-title.js": "./dist/_app_/helpers/page-title.js",
+      "./services/page-title.js": "./dist/_app_/services/page-title.js"
+    }
   },
   "homepage": "https://ember-cli.github.io/ember-page-title",
   "volta": {
