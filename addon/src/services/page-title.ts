@@ -72,7 +72,7 @@ export default class PageTitleService extends Service {
     super(...arguments);
     this._validateExistingTitleElement();
 
-    const config = getOwner(this).factoryFor('config:environment') as {
+    const config = getOwner(this).factoryFor('config:environment')?.class as {
       pageTitle?: PageTitleConfig;
     };
 
