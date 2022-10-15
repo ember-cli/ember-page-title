@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v2
+      - uses: volta-cli/action@v3
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Lint Addon
@@ -37,10 +37,10 @@ jobs:
         node: ['14', '16', '18']
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v2
+      - uses: volta-cli/action@v3
         with:
           node-version: ${{ matrix.node }}
       - name: Install Dependencies
@@ -61,10 +61,10 @@ jobs:
         browser: [chrome, firefox]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v2
+      - uses: volta-cli/action@v3
       - name: Install Dependencies
         run: yarn install --no-lockfile --non-interactive
       - name: Test
@@ -97,10 +97,10 @@ jobs:
             allow-failure: true
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v2
+      - uses: volta-cli/action@v3
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Test
@@ -109,16 +109,43 @@ jobs:
         run: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
         working-directory: test-app
 
+  typescript-compatibility:
+    name: ${{ matrix.typescript-scenario }}
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    needs: test
+    strategy:
+      fail-fast: true
+      matrix:
+        typescript-scenario:
+          - typescript@4.5
+          - typescript@4.6
+          - typescript@4.7
+          - typescript@4.8
+    steps:
+      - uses: actions/checkout@v3
+      - uses: volta-cli/action@v3
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Update TS Version
+        run: yarn add -D ${{ matrix.typescript-scenario }}
+        working-directory: ./addon
+      - name: Type checking
+        working-directory: ./addon
+        run: >-
+          yarn tsc -v; yarn tsc --build
+
   docs:
     name: Docs app
     runs-on: ubuntu-latest
     timeout-minutes: 20
     needs: test
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v2
+      - uses: volta-cli/action@v3
         with:
           node-version: 14
       - name: Install Dependencies
