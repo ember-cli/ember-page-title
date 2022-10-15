@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v1
+      - uses: volta-cli/action@v2
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Lint Addon
@@ -40,7 +40,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v1
+      - uses: volta-cli/action@v2
         with:
           node-version: ${{ matrix.node }}
       - name: Install Dependencies
@@ -64,7 +64,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v1
+      - uses: volta-cli/action@v2
       - name: Install Dependencies
         run: yarn install --no-lockfile --non-interactive
       - name: Test
@@ -100,7 +100,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v1
+      - uses: volta-cli/action@v2
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Test
@@ -118,7 +118,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v1
+      - uses: volta-cli/action@v2
         with:
           node-version: 14
       - name: Install Dependencies
