@@ -1,6 +1,12 @@
 import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
 import { guidFor } from '@ember/object/internals';
+import PageTitleService, { PageTitleToken } from '../services/page-title';
+
+export type PageTitleHelperOptions = Pick<
+  PageTitleToken,
+  'prepend' | 'front' | 'replace' | 'separator'
+>;
 
 /**
   `{{page-title}}` helper used to set the title of the current route context.
@@ -10,19 +16,20 @@ import { guidFor } from '@ember/object/internals';
  */
 export default class PageTitle extends Helper {
   @service('page-title')
-  tokens;
+  declare tokens: PageTitleService;
 
-  get tokenId() {
+  get tokenId(): string {
     return guidFor(this);
   }
 
   constructor() {
+    // eslint-disable-next-line prefer-rest-params
     super(...arguments);
     this.tokens.push({ id: this.tokenId });
   }
 
-  compute(params, _hash) {
-    let hash = {
+  compute(params: string[], _hash: PageTitleHelperOptions) {
+    const hash: PageTitleToken = {
       ..._hash,
       id: this.tokenId,
       title: params.join(''),
@@ -30,6 +37,7 @@ export default class PageTitle extends Helper {
 
     this.tokens.push(hash);
     this.tokens.scheduleTitleUpdate();
+
     return '';
   }
 
