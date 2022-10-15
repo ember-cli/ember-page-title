@@ -11,7 +11,11 @@ const isFastBoot = typeof FastBoot !== 'undefined';
 const RouterEvent = {
   ROUTE_DID_CHANGE: 'routeDidChange',
 } as const;
-const configKeys = ['separator', 'prepend', 'replace'] as const;
+const configKeys: (keyof PageTitleConfig)[] = [
+  'separator',
+  'prepend',
+  'replace',
+];
 
 export interface PageTitleToken {
   id: string;
@@ -75,10 +79,8 @@ export default class PageTitleService extends Service {
 
     if (config.pageTitle) {
       configKeys.forEach((key) => {
-        if (!isEmpty((config.pageTitle as PageTitleConfig)[key])) {
-          this._defaultConfig[key] = (config.pageTitle as PageTitleConfig)[
-            key
-          ] as any;
+        if (!isEmpty(config.pageTitle?.[key])) {
+          this._defaultConfig[key] = config.pageTitle?.[key];
         }
       });
     }
