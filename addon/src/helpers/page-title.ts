@@ -28,8 +28,8 @@ export default class PageTitle extends Helper {
     this.tokens.push({ id: this.tokenId });
   }
 
-  compute(params: string[], _hash: PageTitleHelperOptions) {
-    const hash: PageTitleToken = {
+  compute(params: string[], _hash: PageTitleHelperOptions): void {
+    const hash = {
       ..._hash,
       id: this.tokenId,
       title: params.join(''),
