@@ -23,8 +23,7 @@ export default class PageTitle extends Helper {
   }
 
   constructor() {
-    // eslint-disable-next-line prefer-rest-params
-    super(...arguments);
+    super();
     this.tokens.push({ id: this.tokenId });
   }
 
