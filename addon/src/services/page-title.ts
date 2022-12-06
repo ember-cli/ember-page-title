@@ -72,6 +72,8 @@ export default class PageTitleService extends Service {
     super(...arguments);
     this._validateExistingTitleElement();
 
+    // SAFETY: This is only valid because we cast it to a type which is optional
+    // *and* whose key is optional. It may be *wrong*, but it is at least sound.
     const config = getOwner(this).factoryFor('config:environment')?.class as
       | {
           pageTitle?: PageTitleConfig;
