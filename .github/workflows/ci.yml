@@ -118,11 +118,11 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        typescript-scenario:
-          - typescript@4.5
-          - typescript@4.6
-          - typescript@4.7
-          - typescript@4.8
+        typescript-version:
+          - 4.7
+          - 4.8
+          - 4.9
+          - next
     steps:
       - uses: actions/checkout@v3
       - uses: volta-cli/action@v3
