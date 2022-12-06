@@ -128,7 +128,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Update TS Version
-        run: yarn add -D ${{ matrix.typescript-scenario }}
+        run: yarn add -D typescript@${{ matrix.typescript-scenario }}
         working-directory: ./addon
       - name: Type checking
         working-directory: ./addon
