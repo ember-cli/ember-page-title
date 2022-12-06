@@ -22,8 +22,8 @@ export default class PageTitle extends Helper {
     return guidFor(this);
   }
 
-  constructor() {
-    super();
+  constructor(owner: object | undefined) {
+    super(owner);
     this.tokens.push({ id: this.tokenId });
   }
 
