@@ -110,7 +110,7 @@ jobs:
         working-directory: test-app
 
   typescript-compatibility:
-    name: ${{ matrix.typescript-scenario }}
+    name: TypeScript ${{ matrix.typescript-version }}
     timeout-minutes: 5
     runs-on: ubuntu-latest
     continue-on-error: true
