@@ -37,8 +37,6 @@ export default class PageTitle extends Helper {
 
     this.tokens.push(hash);
     this.tokens.scheduleTitleUpdate();
-
-    return '';
   }
 
   willDestroy() {
