@@ -116,7 +116,6 @@ jobs:
     continue-on-error: true
     needs: test
     strategy:
-      fail-fast: true
       matrix:
         typescript-version:
           - 4.7
