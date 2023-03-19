@@ -8,13 +8,21 @@ export type PageTitleHelperOptions = Pick<
   'prepend' | 'front' | 'replace' | 'separator'
 >;
 
+interface PageTitleSignature {
+  Args: {
+    Positional: string[];
+    Named: PageTitleHelperOptions;
+  };
+  Return: void;
+}
+
 /**
   `{{page-title}}` helper used to set the title of the current route context.
 
   @public
   @method page-title
  */
-export default class PageTitle extends Helper {
+export default class PageTitle extends Helper<PageTitleSignature> {
   @service('page-title')
   declare tokens: PageTitleService;
 
