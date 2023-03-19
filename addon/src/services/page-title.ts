@@ -17,7 +17,7 @@ const configKeys: (keyof PageTitleConfig)[] = [
   'replace',
 ];
 
-export interface PageTitleToken {
+export interface PageTitleToken extends PageTitleConfig {
   id: string;
   title?: string;
   separator?: string;
@@ -29,13 +29,13 @@ export interface PageTitleToken {
 }
 
 interface PageTitleConfig {
-  // The default separator to use between tokens.
+  /** The default separator to use between tokens. */
   separator?: string;
 
-  // The default prepend value to use.
+  /** The default prepend value to use. */
   prepend?: boolean;
 
-  // The default replace value to use.
+  /** The default replace value to use. */
   replace?: boolean | null;
 }
 
@@ -68,8 +68,7 @@ export default class PageTitleService extends Service {
   };
 
   constructor() {
-    // eslint-disable-next-line prefer-rest-params
-    super(...arguments);
+    super();
     this._validateExistingTitleElement();
 
     // SAFETY: This is only valid because we cast it to a type which is optional
