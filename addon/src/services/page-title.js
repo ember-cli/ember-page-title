@@ -208,7 +208,7 @@ export default class PageTitleService extends Service {
       // Do not set the title to empty string
       return;
     }
-    
+
     if (isFastBoot) {
       this.updateFastbootTitle(toBeTitle);
     } else {
