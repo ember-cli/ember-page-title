@@ -31,7 +31,7 @@ module.exports = {
         'plugin:ember/recommended',
         'plugin:prettier/recommended',
       ],
-      files: ['./src/**/*.ts'],
+      files: ['./src/**/*.ts', 'dev-only-types/**'],
     },
     // node files
     {
