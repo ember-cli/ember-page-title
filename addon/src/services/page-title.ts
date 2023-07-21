@@ -1,4 +1,4 @@
-import { getOwner } from '@ember/application';
+import { getOwner } from '@ember/owner';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
@@ -73,7 +73,7 @@ export default class PageTitleService extends Service {
 
     // SAFETY: This is only valid because we cast it to a type which is optional
     // *and* whose key is optional. It may be *wrong*, but it is at least sound.
-    const config = getOwner(this).factoryFor('config:environment')?.class as
+    const config = getOwner(this)?.factoryFor('config:environment')?.class as
       | {
           pageTitle?: PageTitleConfig;
         }
@@ -154,6 +154,8 @@ export default class PageTitleService extends Service {
 
   remove(id: PageTitleToken['id']) {
     const token = this._findTokenById(id);
+    if (!token) return;
+
     const { next, previous } = token;
 
     if (next) {
@@ -178,6 +180,8 @@ export default class PageTitleService extends Service {
 
     while (i--) {
       const token = tokens[i];
+      if (!token) return;
+
       if (token.replace) {
         visible.unshift(token);
         break;
@@ -191,6 +195,8 @@ export default class PageTitleService extends Service {
 
   get sortedTokens() {
     const visible = this.visibleTokens;
+    if (!visible) return;
+
     let appending = true;
     let group: PageTitleToken[] = [];
     const groups = [group];
@@ -230,9 +236,14 @@ export default class PageTitleService extends Service {
 
   toString() {
     const tokens = this.sortedTokens;
+    if (!tokens) return '';
+
     const title = [];
+
     for (let i = 0, len = tokens.length; i < len; i++) {
       const token = tokens[i];
+      if (!token) break;
+
       if (token.title) {
         title.push(token.title);
         if (i + 1 < len) {
@@ -240,6 +251,7 @@ export default class PageTitleService extends Service {
         }
       }
     }
+
     return title.join('');
   }
 
@@ -312,6 +324,8 @@ export default class PageTitleService extends Service {
     // Remove existing title elements from previous render cycle
     for (let i = 0; i < headChildNodes.length; i++) {
       const node = headChildNodes[i];
+      if (!node) break;
+
       if (node.nodeName.toLowerCase() === 'title') {
         headElement.removeChild(node);
       }
