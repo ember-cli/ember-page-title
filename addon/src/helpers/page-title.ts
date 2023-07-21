@@ -2,6 +2,7 @@ import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
 import { guidFor } from '@ember/object/internals';
 import PageTitleService, { PageTitleToken } from '../services/page-title';
+import type Owner from '@ember/owner';
 
 export type PageTitleHelperOptions = Pick<
   PageTitleToken,
@@ -30,7 +31,7 @@ export default class PageTitle extends Helper<PageTitleSignature> {
     return guidFor(this);
   }
 
-  constructor(owner: object | undefined) {
+  constructor(owner: Owner | undefined) {
     super(owner);
     this.tokens.push({ id: this.tokenId });
   }

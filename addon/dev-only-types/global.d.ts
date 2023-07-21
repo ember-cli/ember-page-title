@@ -1,7 +1,2 @@
-export {};
-
-declare global {
-  interface Window {
-    FastBoot: any;
-  }
-}
+import 'ember-source/types';
+import 'ember-cli-fastboot';

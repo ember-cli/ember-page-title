@@ -2,6 +2,7 @@
   "extends": "@tsconfig/ember",
   "compilerOptions": {
     "baseUrl": "./src",
+    "experimentalDecorators": true,
     "paths": {
       // No paths, no absolute imports, only node_modules imports allowed
       // But fallback for type-overrides and such
