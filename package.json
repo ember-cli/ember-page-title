@@ -9,7 +9,10 @@
     "prepare": "cd addon && yarn build"
   },
   "volta": {
-    "node": "14.20.1",
+    "node": "16.20.1",
     "yarn": "1.22.17"
+  },
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001517"
   }
 }
