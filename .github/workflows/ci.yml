@@ -34,7 +34,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         browser: [chrome, firefox]
-        node: ['14', '16', '18']
+        node: ['16', '18']
 
     steps:
       - uses: actions/checkout@v3
