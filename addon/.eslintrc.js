@@ -2,15 +2,11 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-    ecmaFeatures: {
-      legacyDecorators: true,
-    },
+    ecmaVersion: 'latest',
   },
-  plugins: ['ember'],
+  plugins: ['ember', '@typescript-eslint'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -23,35 +19,37 @@ module.exports = {
   overrides: [
     // ts files
     {
-      parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint', 'ember'],
+      files: ['**/*.ts'],
       extends: [
-        'eslint:recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:ember/recommended',
-        'plugin:prettier/recommended',
       ],
-      files: ['./src/**/*.ts', 'dev-only-types/**'],
+      rules: {},
     },
     // node files
     {
       files: [
         './.eslintrc.js',
         './.prettierrc.js',
+        './.stylelintrc.js',
         './.template-lintrc.js',
-        './addon-main.cjs',
+        './ember-cli-build.js',
+        './testem.js',
         './blueprints/*/index.js',
         './config/**/*.js',
+        './lib/*/index.js',
+        './server/**/*.js',
       ],
-      parserOptions: {
-        sourceType: 'script',
-      },
       env: {
         browser: false,
         node: true,
       },
-      plugins: ['node'],
-      extends: ['plugin:node/recommended'],
+      extends: ['plugin:n/recommended'],
+    },
+    {
+      // test files
+      files: ['tests/**/*-test.{js,ts}'],
+      extends: ['plugin:qunit/recommended'],
     },
   ],
 };
