@@ -81,7 +81,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        ember-try-scenario: [ember-release, ember-beta, ember-classic]
+        ember-try-scenario: [ember-release, ember-beta]
         allow-failure: [false]
         include:
           - ember-try-scenario: ember-canary
@@ -137,7 +137,7 @@ jobs:
           fetch-depth: 1
       - uses: volta-cli/action@v4
         with:
-          node-version: 14
+          node-version: 16
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Test
