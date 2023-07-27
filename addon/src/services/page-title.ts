@@ -5,7 +5,7 @@ import { isEmpty } from '@ember/utils';
 import { assert } from '@ember/debug';
 import RouterService from '@ember/routing/router-service';
 import SimpleDomDocument from '@simple-dom/document';
-import Owner from '@ember/owner';
+import type Owner from '@ember/owner';
 
 const isFastBoot = typeof FastBoot !== 'undefined';
 
