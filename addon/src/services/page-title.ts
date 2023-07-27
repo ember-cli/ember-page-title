@@ -5,6 +5,7 @@ import { isEmpty } from '@ember/utils';
 import { assert } from '@ember/debug';
 import RouterService from '@ember/routing/router-service';
 import SimpleDomDocument from '@simple-dom/document';
+import Owner from '@ember/owner';
 
 const isFastBoot = typeof FastBoot !== 'undefined';
 
@@ -67,8 +68,8 @@ export default class PageTitleService extends Service {
     replace: null,
   };
 
-  constructor() {
-    super();
+  constructor(...attributes: Array<Owner | undefined>) {
+    super(...attributes);
     this._validateExistingTitleElement();
 
     // SAFETY: This is only valid because we cast it to a type which is optional
