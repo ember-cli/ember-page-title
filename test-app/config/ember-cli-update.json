@@ -3,17 +3,14 @@
   "packages": [
     {
       "name": "ember-cli",
-      "version": "3.28.3",
+      "version": "5.1.0",
       "blueprints": [
         {
-          "name": "addon",
-          "outputRepo": "https://github.com/ember-cli/ember-addon-output",
-          "codemodsSource": "ember-addon-codemods-manifest@1",
+          "name": "app",
+          "outputRepo": "https://github.com/ember-cli/ember-new-output",
+          "codemodsSource": "ember-app-codemods-manifest@1",
           "isBaseBlueprint": true,
-          "options": [
-            "--welcome",
-            "--yarn"
-          ]
+          "options": ["--welcome", "--yarn"]
         }
       ]
     }
