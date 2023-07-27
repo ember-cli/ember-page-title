@@ -8,9 +8,6 @@ module.exports = function (defaults) {
   let isDeploying = environment === 'production';
 
   let app = new EmberApp(defaults, {
-    'ember-cli-babel': {
-      includePolyfill: true,
-    },
     autoImport: isDeploying
       ? {
           publicAssetURL: 'https://ember-cli.github.io/ember-page-title',
