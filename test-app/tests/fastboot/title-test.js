@@ -1,3 +1,5 @@
+/* eslint qunit/require-expect: "off" */
+
 import { module, test } from 'qunit';
 import { setup, visit } from 'ember-cli-fastboot-testing/test-support';
 import { getPageTitle } from 'ember-page-title/test-support';
@@ -9,28 +11,28 @@ module('FastBoot: title', function (hooks) {
     assert.expect(1);
     let { htmlDocument } = await visit('/posts');
 
-    assert.equal(getPageTitle(htmlDocument), 'Posts | My App');
+    assert.strictEqual(getPageTitle(htmlDocument), 'Posts | My App');
   });
 
   test('the replace attribute works', async function (assert) {
     assert.expect(1);
     let { htmlDocument } = await visit('/about');
 
-    assert.equal(getPageTitle(htmlDocument), 'About My App');
+    assert.strictEqual(getPageTitle(htmlDocument), 'About My App');
   });
 
   test('custom separators work', async function (assert) {
     assert.expect(1);
     let { htmlDocument } = await visit('/about/authors');
 
-    assert.equal(getPageTitle(htmlDocument), 'Authors > About My App');
+    assert.strictEqual(getPageTitle(htmlDocument), 'Authors > About My App');
   });
 
   test('custom separators are inherited', async function (assert) {
     assert.expect(1);
     let { htmlDocument } = await visit('/about/authors/profile');
 
-    assert.equal(
+    assert.strictEqual(
       getPageTitle(htmlDocument),
       'Profile > Authors > About My App'
     );
@@ -46,8 +48,8 @@ module('FastBoot: title', function (hooks) {
       'title:not([data-test-ignore-for-fastboot-tests])'
     );
 
-    assert.equal(numberOfTitleElements.length, 1);
-    assert.equal(
+    assert.strictEqual(numberOfTitleElements.length, 1);
+    assert.strictEqual(
       getPageTitle(htmlDocument),
       'Titles | Multiple | Fastboot | My App'
     );
@@ -57,7 +59,7 @@ module('FastBoot: title', function (hooks) {
     assert.expect(1);
     let { htmlDocument } = await visit('/posts/rails-is-omakase');
 
-    assert.equal(
+    assert.strictEqual(
       getPageTitle(htmlDocument),
       'Rails is Omakase | Posts | My App'
     );
@@ -67,27 +69,33 @@ module('FastBoot: title', function (hooks) {
     assert.expect(1);
     let { htmlDocument } = await visit('/authors/tomster');
 
-    assert.equal(getPageTitle(htmlDocument), 'My App | Authors < Tomster');
+    assert.strictEqual(
+      getPageTitle(htmlDocument),
+      'My App | Authors < Tomster'
+    );
   });
 
   test('replace nested in prepends work', async function (assert) {
     assert.expect(1);
     let { htmlDocument } = await visit('/hollywood');
 
-    assert.equal(getPageTitle(htmlDocument), 'Hollywood ★ Stars everywhere');
+    assert.strictEqual(
+      getPageTitle(htmlDocument),
+      'Hollywood ★ Stars everywhere'
+    );
   });
 
   test('multitoken titles work', async function (assert) {
     assert.expect(1);
     let { htmlDocument } = await visit('/feeds/tomster');
 
-    assert.equal(getPageTitle(htmlDocument), 'Tomster (@tomster)');
+    assert.strictEqual(getPageTitle(htmlDocument), 'Tomster (@tomster)');
   });
 
   test('front tokens work', async function (assert) {
     assert.expect(1);
     let { htmlDocument } = await visit('/reader');
 
-    assert.equal(getPageTitle(htmlDocument), '(10) Reader | My App');
+    assert.strictEqual(getPageTitle(htmlDocument), '(10) Reader | My App');
   });
 });
