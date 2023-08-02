@@ -81,7 +81,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        ember-try-scenario: [ember-lts-4.8, ember-release, ember-beta]
+        ember-try-scenario:
+          [ember-lts-4.8, ember-lts-4.12, ember-release, ember-beta]
         allow-failure: [false]
         include:
           - ember-try-scenario: ember-canary
