@@ -1,4 +1,8 @@
-import { getOwner } from '@ember/owner';
+import {
+  dependencySatisfies,
+  importSync,
+  macroCondition,
+} from '@embroider/macros';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
@@ -6,6 +10,15 @@ import { assert } from '@ember/debug';
 import RouterService from '@ember/routing/router-service';
 import SimpleDomDocument from '@simple-dom/document';
 import type Owner from '@ember/owner';
+
+type ownerImport = { getOwner: (context: unknown) => Owner | undefined };
+let getOwner: ownerImport['getOwner'];
+
+if (macroCondition(dependencySatisfies('ember-source', '>=5.0.0'))) {
+  getOwner = (importSync('@ember/owner') as ownerImport).getOwner;
+} else {
+  getOwner = (importSync('@ember/application') as ownerImport).getOwner;
+}
 
 const isFastBoot = typeof FastBoot !== 'undefined';
 
