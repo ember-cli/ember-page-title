@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+
+## v8.0.0-beta.1 (2023-08-16)
+
+#### :boom: Breaking Change
+* [#261](https://github.com/ember-cli/ember-page-title/pull/261) Drop Node 14 and earlier ([@kategengler](https://github.com/kategengler))
+* [#245](https://github.com/ember-cli/ember-page-title/pull/245) Drop support for Ember < 3.28 ([@knownasilya](https://github.com/knownasilya))
+* [#241](https://github.com/ember-cli/ember-page-title/pull/241) Merge page-title and page-title-list services ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :house: Internal
+* [#261](https://github.com/ember-cli/ember-page-title/pull/261) Add a setup for releasing via tags ([@kategengler](https://github.com/kategengler))
+* [#240](https://github.com/ember-cli/ember-page-title/pull/240) chore: add prettier config to repo ([@knownasilya](https://github.com/knownasilya))
+* [#232](https://github.com/ember-cli/ember-page-title/pull/232) move `.md` files to published package ([@SergeAstapov](https://github.com/SergeAstapov))
+
+#### Committers: 4
+- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))
+- Ilya Radchenko ([@knownasilya](https://github.com/knownasilya))
+- Katie Gengler ([@kategengler](https://github.com/kategengler))
+- Sergey Astapov ([@SergeAstapov](https://github.com/SergeAstapov))
+
+
 ## [7.0.0](https://github.com/ember-cli/ember-page-title/compare/v6.2.2...v7.0.0) (2021-10-28)
 
 ### ⚠ BREAKING CHANGES
