@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v1
+      - uses: volta-cli/action@v4
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Lint Addon
@@ -34,13 +34,13 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         browser: [chrome, firefox]
-        node: ['14', '16', '18']
+        node: ['16', '18']
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v1
+      - uses: volta-cli/action@v4
         with:
           node-version: ${{ matrix.node }}
       - name: Install Dependencies
@@ -61,10 +61,10 @@ jobs:
         browser: [chrome, firefox]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v1
+      - uses: volta-cli/action@v4
       - name: Install Dependencies
         run: yarn install --no-lockfile --non-interactive
       - name: Test
@@ -97,10 +97,10 @@ jobs:
             allow-failure: true
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v1
+      - uses: volta-cli/action@v4
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Test
@@ -115,12 +115,12 @@ jobs:
     timeout-minutes: 20
     needs: test
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - uses: volta-cli/action@v1
+      - uses: volta-cli/action@v4
         with:
-          node-version: 14
+          node-version: 16.x
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Test
