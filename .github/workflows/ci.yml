@@ -124,5 +124,5 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Test
-        run: yarn test:ember --launch ${{ matrix.browser }}
+        run: yarn test:ember
         working-directory: docs
