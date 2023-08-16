@@ -68,7 +68,7 @@
     "qunit": "^2.16.0",
     "sass": "^1.43.3",
     "standard-version": "^9.3.2",
-    "webpack": "^5.0.0"
+    "webpack": "^5.76.0"
   },
   "engines": {
     "node": "16.* || >= 18"
