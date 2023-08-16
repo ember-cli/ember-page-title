@@ -241,15 +241,11 @@ export default class PageTitleService extends Service {
   /**
    * Find token by id
    *
-   * IE11 compatible approach due to lack of Array.find support
-   *
    * @param {String} id
    * @private
    */
   _findTokenById(id) {
-    return this.tokens.filter((token) => {
-      return token.id === id;
-    })[0];
+    return this.tokens.find((token) => token.id === id);
   }
 
   updateFastbootTitle(toBeTitle) {
