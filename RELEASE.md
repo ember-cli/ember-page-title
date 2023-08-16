@@ -58,3 +58,7 @@ release process. It will prompt you to to choose the version number after which
 you will have the chance to hand tweak the changelog to be used (for the
 `CHANGELOG.md` and GitHub release), then `release-it` continues on to tagging,
 pushing the tag and commits, etc.
+
+Once the tag has been pushed, the GitHub workflow `publish.yml` will be triggered
+to publish the package(s) to npm. This workflow does not wait for tests to pass, so
+be sure to only run `release-it` on a passing build.

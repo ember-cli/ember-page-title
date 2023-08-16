@@ -1,0 +1,33 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  publish:
+    name: Publish to npm
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: volta-cli/action@v4
+        with:
+          node-version: 16.x
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: auto-dist-tag
+        run: npx auto-dist-tag --write
+        working-directory: './addon/'
+
+      - name: publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        working-directory: './addon/'
