@@ -54,7 +54,7 @@
     "rollup": "^2.67.0"
   },
   "engines": {
-    "node": "14.* || 16.* || >= 18"
+    "node": "16.* || >= 18"
   },
   "ember-addon": {
     "demoURL": "https://ember-cli.github.io/ember-page-title",
