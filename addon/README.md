@@ -58,6 +58,18 @@ module.exports = function (environment) {
 };
 ```
 
+For usage in `gts` and `gjs`, the `pageTitle` helper is exported from the index:
+
+```gjs
+import { pageTitle } from 'ember-page-title';
+
+<template>
+  {{pageTitle "About"}}
+  
+  ...
+</template>
+```
+
 ### `page-title` Service
 
 If you want to be notified when the page title has been updated, you can extend and override the `page-title` service and provide your own `titleDidUpdate` hook. The `titleDidUpdate` hook receives the new title as its sole argument.
