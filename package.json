@@ -4,13 +4,9 @@
     "type": "git",
     "url": "git@github.com:ember-cli/ember-page-title.git"
   },
-  "workspaces": [
-    "addon",
-    "docs",
-    "test-app"
-  ],
   "scripts": {
-    "prepare": "cd addon && yarn build"
+    "lint": "pnpm --filter '*' lint",
+    "prepare": "cd addon && pnpm build"
   },
   "devDependencies": {
     "@release-it-plugins/lerna-changelog": "^6.0.0",
@@ -19,7 +15,7 @@
   },
   "volta": {
     "node": "16.20.2",
-    "yarn": "1.22.17"
+    "pnpm": "8.10.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
