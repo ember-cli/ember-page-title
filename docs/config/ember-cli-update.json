@@ -12,7 +12,7 @@
           "isBaseBlueprint": true,
           "options": [
             "--welcome",
-            "--yarn"
+            "--pnpm"
           ]
         }
       ]

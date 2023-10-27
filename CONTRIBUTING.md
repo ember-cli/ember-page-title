@@ -10,14 +10,14 @@ This repo is divided into multiple packages using Yarn workspaces:
 
 - `git clone <repository-url>`
 - `cd ember-page-title`
-- `yarn install`
+- `pnpm install`
 
 ## Linting
 
 Inside any of the packages you can run:
 
-- `yarn lint`
-- `yarn lint:fix`
+- `pnpm lint`
+- `pnpm lint:fix`
 
 ## Running tests
 
