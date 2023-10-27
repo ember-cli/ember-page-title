@@ -36,6 +36,9 @@
   "dependencies": {
     "@embroider/addon-shim": "^1.0.0"
   },
+  "peerDependencies": {
+    "ember-source": ">= 3.28.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.12",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
