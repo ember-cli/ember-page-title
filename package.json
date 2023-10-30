@@ -39,5 +39,10 @@
       "tokenRef": "GITHUB_AUTH"
     }
   },
-  "version": "8.0.0"
+  "version": "8.0.0",
+  "pnpm": {
+    "patchedDependencies": {
+      "ember-cli-fastboot@4.1.1": "patches/ember-cli-fastboot@4.1.1.patch"
+    }
+  }
 }
