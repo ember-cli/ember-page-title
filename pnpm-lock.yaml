@@ -147,7 +147,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       ember-page-title:
-        specifier: 8.0.0
+        specifier: 8.1.0
         version: link:../addon
       ember-qunit:
         specifier: ^5.1.5
@@ -270,7 +270,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       ember-page-title:
-        specifier: 8.0.0
+        specifier: 8.1.0
         version: link:../addon
       ember-qunit:
         specifier: ^5.1.5
