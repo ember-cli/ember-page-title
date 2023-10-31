@@ -3,31 +3,30 @@ name: Publish
 on:
   push:
     tags:
-      - '*'
+      - 'v*'
+  # Manual run
+  workflow_dispatch:
+    inputs:
+      tag:
+        required: true
+        type: string
+        description: 'Tag to release'
 
 jobs:
-  publish:
-    name: Publish to npm
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+  release:
+    name: release
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - uses: volta-cli/action@v4
+      - uses: actions/checkout@v4
         with:
-          node-version: 16.x
-          registry-url: 'https://registry.npmjs.org'
+          ref: ${{ github.event.inputs.tag || github.ref_name }}
 
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: auto-dist-tag
-        run: npx auto-dist-tag --write
+      - uses: wyvox/action-setup-pnpm@v3
+      - run: npx auto-dist-tag --write
         working-directory: './addon/'
 
-      - name: publish to npm
-        run: npm publish
+      - run: pnpm publish
+        working-directory: './addon/'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        working-directory: './addon/'
