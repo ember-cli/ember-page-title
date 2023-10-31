@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 
+
+## v8.1.0 (2023-10-31)
+
+#### :rocket: Enhancement
+* [#262](https://github.com/ember-cli/ember-page-title/pull/262) Re-export `pageTitle` from index ([@gossi](https://github.com/gossi))
+
+#### Committers: 2
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
+
 ## v8.0.0 (2023-08-16)
 
 #### :boom: Breaking Change

@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "description": "Page Titles for Ember applications",
   "keywords": [
     "page title",
@@ -49,7 +49,7 @@
     "ember-inline-svg": "^1.0.0",
     "ember-load-initializers": "^2.1.2",
     "ember-maybe-import-regenerator": "^1.0.0",
-    "ember-page-title": "8.0.0",
+    "ember-page-title": "8.1.0",
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^11.0.1",
     "ember-source": "~3.28.3",
