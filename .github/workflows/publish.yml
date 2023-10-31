@@ -28,10 +28,8 @@ jobs:
           args: '--no-frozen-lockfile'
       - run: git diff
         name: 'Did pnpm cause a diff?'
-      - run: npx auto-dist-tag --write
-        working-directory: './addon/'
 
-      - run: pnpm publish
+      - run: pnpm publish --no-git-checks
         working-directory: './addon/'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
