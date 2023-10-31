@@ -25,7 +25,7 @@ jobs:
       - uses: wyvox/action-setup-pnpm@v3
         with:
           node-registry-url: 'https://registry.npmjs.org'
-          pnpm-args: '--no-frozen-lockfile'
+          args: '--no-frozen-lockfile'
       - run: git diff
         name: 'Did pnpm cause a diff?'
       - run: npx auto-dist-tag --write
