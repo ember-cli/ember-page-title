@@ -1,4 +1,4 @@
-import babel from '@rollup/plugin-babel';
+import { babel } from '@rollup/plugin-babel';
 import { Addon } from '@embroider/addon-dev/rollup';
 
 const addon = new Addon({
@@ -30,6 +30,7 @@ export default {
     // It exists only to provide development niceties for you, like automatic
     // template colocation.
     babel({
+      extensions: ['.js', '.gjs', '.ts', '.gts'],
       babelHelpers: 'bundled',
     }),
 
@@ -37,13 +38,6 @@ export default {
     // `dependencies` and `peerDependencies` as well as standard Ember-provided
     // package names.
     addon.dependencies(),
-
-    // Ensure that standalone .hbs files are properly integrated as Javascript.
-    addon.hbs(),
-
-    // addons are allowed to contain imports of .css files, which we want rollup
-    // to leave alone and keep in the published output.
-    addon.keepAssets(['**/*.css']),
 
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),

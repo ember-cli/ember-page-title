@@ -1,0 +1,11 @@
+{
+    "name": "test-types",
+    "private": true,
+    "scripts": {
+        "test": "tsc --noEmit"
+    },
+    "devDependencies": {
+        "expect-type": "^0.17.3",
+        "typescript": "^5.3.3"
+    }
+}

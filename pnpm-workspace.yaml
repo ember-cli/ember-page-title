@@ -2,3 +2,4 @@ packages:
   - addon
   - docs
   - test-app
+  - test-types
