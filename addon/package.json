@@ -23,15 +23,18 @@
   ],
   "repository": "https://github.com/ember-cli/ember-page-title",
   "scripts": {
-    "build": "rollup --config",
-    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
-    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
-    "lint:hbs": "ember-template-lint .",
-    "lint:hbs:fix": "ember-template-lint . --fix",
+    "build": "concurrently 'npm:build:*'",
+    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "prepublishOnly": "rollup --config",
-    "start": "rollup --config --watch"
+    "start": "concurrently 'npm:start:*'",
+    "start:types": "glint --declaration --watch",
+    "start:js": "rollup --config --watch --no-watch.clearScreen",
+    "prepack": "rollup --config",
+    "lint:types": "glint",
+    "build:types": "glint --declaration",
+    "build:js": "rollup --config"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.7"
@@ -52,12 +55,20 @@
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-ember": "^11.12.0",
-    "eslint-plugin-jsonc": "^2.11.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.1.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.1.1",
-    "rollup": "^4.9.1"
+    "rollup": "^4.9.1",
+    "typescript": "^5.3.3",
+    "eslint-plugin-jsonc": "^2.11.2",
+    "ember-source": "^5.5.0",
+    "concurrently": "^8.2.2",
+    "@tsconfig/ember": "^3.0.3",
+    "@glint/template": "^1.2.1",
+    "@glint/environment-ember-template-imports": "^1.2.1",
+    "@glint/environment-ember-loose": "^1.2.1",
+    "@glint/core": "^1.2.1"
   },
   "engines": {
     "node": "16.* || >= 18"

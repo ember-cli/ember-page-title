@@ -6,8 +6,10 @@
   },
   "scripts": {
     "lint": "pnpm --filter '*' lint",
+    "prepare": "pnpm build",
+    "test": "pnpm --filter '*' test",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "prepare": "cd addon && pnpm build"
+    "build": "pnpm --filter 'ember-page-title' build"
   },
   "devDependencies": {
     "@release-it-plugins/lerna-changelog": "^6.0.0",

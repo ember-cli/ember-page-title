@@ -3,25 +3,24 @@ import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
 import { assert } from '@ember/debug';
+import type RouterService from '@ember/routing/router-service';
 
 let isFastBoot = typeof FastBoot !== 'undefined';
 
 const RouterEvent = {
   ROUTE_DID_CHANGE: 'routeDidChange',
-};
+} as const;
 
 /**
   @class page-title
   @extends Ember.Service
  */
 export default class PageTitleService extends Service {
-  @service('router')
-  router;
+  @service('router') declare router: RouterService;
 
   // in fastboot context "document" is instance of
   // ember-fastboot/simple-dom document
-  @service('-document')
-  document;
+  @service('-document') declare document: Document;
 
   tokens = [];
 

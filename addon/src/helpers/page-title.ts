@@ -2,6 +2,8 @@ import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
 import { guidFor } from '@ember/object/internals';
 
+import type PageTitleService from '../services/page-title.ts';
+
 /**
   `{{page-title}}` helper used to set the title of the current route context.
 
@@ -9,10 +11,9 @@ import { guidFor } from '@ember/object/internals';
   @method page-title
  */
 export default class PageTitle extends Helper {
-  @service('page-title')
-  tokens;
+  @service('page-title') declare tokens: PageTitleService;
 
-  get tokenId() {
+  get tokenId(): string {
     return guidFor(this);
   }
 

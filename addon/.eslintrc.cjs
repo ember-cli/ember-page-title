@@ -19,7 +19,10 @@ module.exports = {
     },
     // node files
     {
-      files: ['./*.cjs', './addon-main.js'],
+      files: [
+        './*.cjs',
+        './addon-main.js',
+      ],
       parserOptions: {
         sourceType: 'script',
       },
