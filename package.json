@@ -5,8 +5,11 @@
     "url": "git@github.com:ember-cli/ember-page-title.git"
   },
   "scripts": {
+    "prepare": "pnpm build",
+    "build": "pnpm --filter 'ember-page-title' build",
     "lint": "pnpm --filter '*' lint",
-    "prepare": "cd addon && pnpm build"
+    "lint:fix": "pnpm --filter '*' lint:fix",
+    "test": "pnpm --filter '*' test"
   },
   "devDependencies": {
     "@release-it-plugins/lerna-changelog": "^6.0.0",

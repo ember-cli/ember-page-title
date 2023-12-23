@@ -106,6 +106,23 @@ module('Acceptance | Register Page', function (hooks) {
 });
 ```
 
+### TypeScript and Glint
+
+If your project uses loose-mode templates, you can merge in the template registry interface provided by ember-page-title, 
+```ts
+// <your-app>/types/glint.d.ts
+import '@glint/environment-ember-loose';
+import '@glint/environment-ember-template-imports';
+
+import type PageTitle from 'ember-page-title/template-registry';
+
+declare module '@glint/environment-ember-loose/registry' {
+	export default interface Registry extends PageTitle {
+        /* your local loose-mode entries here */
+	}
+}
+```
+
 ### Upgrading notes for 5.x to 6.x
 
 - `ember-page-title` no longer requires the usage of `ember-cli-head`.
