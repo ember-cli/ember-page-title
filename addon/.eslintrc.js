@@ -2,35 +2,24 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-    ecmaFeatures: {
-      legacyDecorators: true,
-    },
-  },
-  plugins: ['ember'],
-  extends: [
-    'eslint:recommended',
-    'plugin:ember/recommended',
-    'plugin:prettier/recommended',
-  ],
-  env: {
-    browser: true,
-  },
-  rules: {},
+
   overrides: [
+    {
+      files: ['src/**/*.{js,ts}'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['ember'],
+      extends: [
+        'eslint:recommended',
+        'plugin:ember/recommended',
+        'plugin:prettier/recommended',
+      ],
+      env: {
+        browser: true,
+      },
+    },
     // node files
     {
-      files: [
-        './.eslintrc.js',
-        './.prettierrc.js',
-        './.template-lintrc.js',
-        './addon-main.js',
-        './blueprints/*/index.js',
-        './config/**/*.js',
-      ],
+      files: ['./*.cjs', './addon-main.js'],
       parserOptions: {
         sourceType: 'script',
       },
