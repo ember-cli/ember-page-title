@@ -56,6 +56,9 @@ export default class PageTitleService extends Service {
     let defaultPrepend = this._defaultConfig.prepend;
     let defaultReplace = this._defaultConfig.replace;
 
+    token.previous ??= null;
+    token.next ??= null;
+
     if (token.separator == null) {
       token.separator = defaultSeparator;
     }
@@ -100,7 +103,7 @@ export default class PageTitleService extends Service {
 
     let previous = this.tokens.slice(-1)[0];
     if (previous) {
-      token.previous = previous;
+      token.previous = previous ?? null;
       previous.next = token;
       this.inheritFromPrevious(token);
     }

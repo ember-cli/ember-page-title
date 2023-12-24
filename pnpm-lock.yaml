@@ -288,7 +288,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       ember-page-title:
-        specifier: 8.1.0
+        specifier: workspace:*
         version: link:../addon
       ember-qunit:
         specifier: ^8.0.2
