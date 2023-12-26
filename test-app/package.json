@@ -26,10 +26,19 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "release": "standard-version",
-    "start": "ember serve",
-    "test": "npm-run-all lint test:*",
-    "test:ember": "ember test",
+    "start": "concurrently 'ember serve' 'pnpm sync:pnpm --watch' --names 'serve,sync'",
+    "start:ember": "ember serve",
+    "sync:pnpm": "DEBUG=sync-pnpm pnpm sync-dependencies-meta-injected",
+    "test:ember": "pnpm sync:pnpm && ember test",
     "test:ember-compatibility": "ember try:each"
+  },
+  "dependencies": {
+    "ember-page-title": "workspace:*"
+  },
+  "dependenciesMeta": {
+    "ember-page-title": {
+      "injected": true
+    }
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
@@ -54,7 +63,6 @@
     "ember-disable-prototype-extensions": "^1.1.3",
     "ember-load-initializers": "^2.1.2",
     "ember-maybe-import-regenerator": "^1.0.0",
-    "ember-page-title": "workspace:*",
     "ember-qunit": "^8.0.2",
     "ember-resolver": "^11.0.1",
     "ember-source": "~3.28.3",
@@ -71,6 +79,7 @@
     "eslint-plugin-qunit": "^8.0.1",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
+    "pnpm-sync-dependencies-meta-injected": "^0.0.10",
     "prettier": "^3.1.1",
     "qunit": "^2.16.0",
     "standard-version": "^9.3.2",
