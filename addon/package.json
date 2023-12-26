@@ -30,8 +30,8 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "start": "rollup --config --watch",
-    "prepublishOnly": "rollup --config"
+    "prepublishOnly": "rollup --config",
+    "start": "rollup --config --watch"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.7"
@@ -52,6 +52,7 @@
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-ember": "^11.12.0",
+    "eslint-plugin-jsonc": "^2.11.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.1.2",
     "npm-run-all": "^4.1.5",
