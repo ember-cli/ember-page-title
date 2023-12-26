@@ -1,1 +1,1 @@
-export { getPageTitle } from './get-page-title';
+export { getPageTitle } from './get-page-title.ts';

@@ -2,8 +2,8 @@
   "plugins": [
     ["@babel/plugin-transform-typescript", { 
        "allExtensions": true, 
-       "onlyRemoveTypeImports": true, 
-       "allowDeclareFields": true 
+       "allowDeclareFields": true, 
+       "onlyRemoveTypeImports": true 
     }],
     "@embroider/addon-dev/template-colocation-plugin",
     ["@babel/plugin-proposal-decorators", { "legacy": true }],

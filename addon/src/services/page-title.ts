@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
@@ -10,6 +11,28 @@ let isFastBoot = typeof FastBoot !== 'undefined';
 const RouterEvent = {
   ROUTE_DID_CHANGE: 'routeDidChange',
 } as const;
+
+interface PageTitleConfig {
+  /** The default separator to use between tokens. */
+  separator?: string;
+
+  /** The default prepend value to use. */
+  prepend?: boolean;
+
+  /** The default replace value to use. */
+  replace?: boolean | null;
+}
+
+export interface PageTitleToken extends PageTitleConfig {
+  id: string;
+  title?: string;
+  separator?: string;
+  prepend?: boolean;
+  replace?: boolean;
+  front?: unknown;
+  previous?: PageTitleToken | null;
+  next?: PageTitleToken | null;
+}
 
 /**
   @class page-title

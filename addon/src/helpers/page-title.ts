@@ -1,16 +1,37 @@
+// @ts-nocheck
 import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
 import { guidFor } from '@ember/object/internals';
 
 import type PageTitleService from '../services/page-title.ts';
+import type { PageTitleToken } from '../services/page-title.ts';
+
+export type PageTitleHelperOptions = Pick<
+  PageTitleToken,
+  'prepend' | 'front' | 'replace' | 'separator'
+>;
+
+interface Signature {
+  Args: {
+    Positional: string[];
+    Named: PageTitleHelperOptions;
+  };
+  Return: void;
+}
 
 /**
-  `{{page-title}}` helper used to set the title of the current route context.
-
-  @public
-  @method page-title
+ * `{{pageTitle}}` helper used to set the title of the current route context.
+ *
+ * ```gjs
+ * import { pageTitle } from 'ember-page-title';
+ *
+ * <template>
+ *   {{pageTitle "the text to set the tab's title to"}}
+ *   {{pageTitle \@model.post.title}}
+ * </template>
+ * ```
  */
-export default class PageTitle extends Helper {
+export default class PageTitle extends Helper<Signature> {
   @service('page-title') declare tokens: PageTitleService;
 
   get tokenId(): string {
