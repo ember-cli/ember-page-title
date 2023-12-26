@@ -30,5 +30,21 @@ module.exports = {
       plugins: ['node'],
       extends: ['plugin:node/recommended'],
     },
+    {
+      files: ['package.json'],
+      plugins: ['jsonc'],
+      parser: 'jsonc-eslint-parser',
+      extends: ['plugin:jsonc/recommended-with-json', 'plugin:jsonc/prettier'],
+      rules: {
+        'jsonc/sort-keys': [
+          'error',
+          {
+            pathPattern:
+              '^(?:scripts|devDependencies|peerDependencies|optionalDependencies)$',
+            order: { type: 'asc' },
+          },
+        ],
+      },
+    },
   ],
 };
