@@ -16,6 +16,6 @@ export default helper(function (params) {
       })
       .replace(/[a-z]+\.[a-z]+/g, function (title) {
         return '<span class="literal">' + title + '</span>';
-      })
+      }),
   );
 });

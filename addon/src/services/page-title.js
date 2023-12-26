@@ -56,6 +56,9 @@ export default class PageTitleService extends Service {
     let defaultPrepend = this._defaultConfig.prepend;
     let defaultReplace = this._defaultConfig.replace;
 
+    token.previous ??= null;
+    token.next ??= null;
+
     if (token.separator == null) {
       token.separator = defaultSeparator;
     }
@@ -100,7 +103,7 @@ export default class PageTitleService extends Service {
 
     let previous = this.tokens.slice(-1)[0];
     if (previous) {
-      token.previous = previous;
+      token.previous = previous ?? null;
       previous.next = token;
       this.inheritFromPrevious(token);
     }
@@ -234,7 +237,7 @@ export default class PageTitleService extends Service {
     }
     assert(
       '[ember-page-title]: Multiple title elements found. Check for other addons like ember-cli-head updating <title> as well.',
-      document.head.querySelectorAll('title').length <= 1
+      document.head.querySelectorAll('title').length <= 1,
     );
   }
 

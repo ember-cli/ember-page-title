@@ -6,6 +6,7 @@
   },
   "scripts": {
     "lint": "pnpm --filter '*' lint",
+    "lint:fix": "pnpm --filter '*' lint:fix",
     "prepare": "cd addon && pnpm build"
   },
   "devDependencies": {
@@ -42,7 +43,7 @@
   "version": "8.1.0",
   "pnpm": {
     "patchedDependencies": {
-      "ember-cli-fastboot@4.1.1": "patches/ember-cli-fastboot@4.1.1.patch"
+      "ember-cli-fastboot@4.1.2": "patches/ember-cli-fastboot@4.1.2.patch"
     }
   }
 }
