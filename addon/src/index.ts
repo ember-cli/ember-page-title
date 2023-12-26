@@ -1,1 +1,1 @@
-export { default as pageTitle } from './helpers/page-title';
+export { default as pageTitle } from './helpers/page-title.ts';

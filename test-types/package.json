@@ -5,6 +5,11 @@
         "test": "tsc --noEmit"
     },
     "devDependencies": {
+        "@glint/template": "^1.2.1",
+        "@tsconfig/node20": "^20.1.2",
+        "@tsconfig/strictest": "^2.0.2",
+        "ember-page-title": "workspace:^",
+        "ember-source": "^5.5.0",
         "expect-type": "^0.17.3",
         "typescript": "^5.3.3"
     }

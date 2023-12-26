@@ -17,19 +17,19 @@
   "repository": "https://github.com/ember-cli/ember-page-title",
   "scripts": {
     "build": "ember build --environment=production",
+    "format:hbs": "prettier **/*.hbs --write --parser=glimmer",
+    "format:js": "prettier **/*.js --write",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
+    "release": "standard-version",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each",
-    "format:hbs": "prettier **/*.hbs --write --parser=glimmer",
-    "format:js": "prettier **/*.js --write",
-    "release": "standard-version"
+    "test:ember-compatibility": "ember try:each"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
@@ -65,6 +65,7 @@
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-ember": "^11.12.0",
+    "eslint-plugin-jsonc": "^2.11.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-qunit": "^8.0.1",
@@ -73,8 +74,7 @@
     "prettier": "^3.1.1",
     "qunit": "^2.16.0",
     "standard-version": "^9.3.2",
-    "webpack": "^5.0.0",
-    "eslint-plugin-jsonc": "^2.11.2"
+    "webpack": "^5.0.0"
   },
   "engines": {
     "node": "16.* || >= 18"
