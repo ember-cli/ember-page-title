@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
@@ -233,7 +234,7 @@ export default class PageTitleService extends Service {
     }
     assert(
       '[ember-page-title]: Multiple title elements found. Check for other addons like ember-cli-head updating <title> as well.',
-      document.head.querySelectorAll('title').length <= 1
+      document.head.querySelectorAll('title').length <= 1,
     );
   }
 

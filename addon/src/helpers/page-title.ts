@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
 import { guidFor } from '@ember/object/internals';

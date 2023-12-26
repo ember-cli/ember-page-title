@@ -44,6 +44,16 @@
   },
   "version": "8.1.0",
   "pnpm": {
+    "overrides": {
+      "@glimmer/manager": ">= 0.84.3",
+      "@glimmer/validator": ">= 0.84.3"
+    },
+    "notes": {
+      "overrides": {
+        "_": "these overrides only affect dev and not the published package",
+        "@glimmer/*": "Glimmer is still pre 1.0, and every minor in pre-1.0 SemVer is a breaking chaneg. So because some dependencies (like 0.44.0 of Glimmer -- this is not compatible with current Glimmer (>= 0.80))"
+      }
+    },
     "patchedDependencies": {
       "ember-cli-fastboot@4.1.1": "patches/ember-cli-fastboot@4.1.1.patch"
     }

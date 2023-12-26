@@ -1,5 +1,5 @@
-import { pageTitle } from './helpers/page-title';
+import { default as pageTitle } from './helpers/page-title.ts';
 
 export default interface Registry {
-	'page-title': HelperLike<PageTitleHelperSignature>;
+  'page-title': typeof pageTitle;
 }
