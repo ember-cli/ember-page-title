@@ -44,7 +44,7 @@ export default class PageTitleService extends Service {
 
   // in fastboot context "document" is instance of
   // ember-fastboot/simple-dom document
-  @service('-document') declare document: FastBootDocument;
+  @service('-document') private declare document: FastBootDocument;
 
   tokens: PageTitleToken[] = [];
 
