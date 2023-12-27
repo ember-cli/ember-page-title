@@ -6,6 +6,9 @@
     // work with TypeScript.
     "baseUrl": ".",
     "allowJs": true,
+    // older glimmer doesn't have correct imports
+    // needs "import type"
+    "verbatimModuleSyntax": false,
     "paths": {
       "docs/tests/*": ["tests/*"],
       "docs/*": ["app/*"],
