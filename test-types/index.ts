@@ -17,7 +17,7 @@ expectTypeOf(instance).toMatchTypeOf<Helper<any>>();
 expectTypeOf<ReturnType<typeof instance['compute']>>().toBeString(/* an empty string, but still a string */);
 
 /************************
- * The Service
+ * The Service - public API
  ************************/
 import PageTitleService from 'ember-page-title/services/page-title';
 import type Service from '@ember/service';
