@@ -28,7 +28,7 @@
     "release": "standard-version",
     "start": "concurrently 'ember serve' 'pnpm sync:pnpm --watch' --names 'serve,sync'",
     "start:ember": "ember serve",
-    "sync:pnpm": "DEBUG=sync-pnpm pnpm sync-dependencies-meta-injected",
+    "sync:pnpm": "pnpm sync-dependencies-meta-injected",
     "test:ember": "pnpm sync:pnpm && ember test",
     "test:ember-compatibility": "ember try:each"
   },

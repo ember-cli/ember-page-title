@@ -21,11 +21,14 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
+    "lint:types": "glint",
     "release": "standard-version",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
-    "test:ember": "ember test",
-    "lint:types": "glint"
+    "test:ember": "ember test"
+  },
+  "dependencies": {
+    "ember-page-title": "workspace:*"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
@@ -59,7 +62,6 @@
     "ember-inline-svg": "^1.0.0",
     "ember-load-initializers": "^2.1.2",
     "ember-maybe-import-regenerator": "^1.0.0",
-    "ember-page-title": "8.1.0",
     "ember-qunit": "^8.0.2",
     "ember-resolver": "^11.0.1",
     "ember-source": "~5.5.0",

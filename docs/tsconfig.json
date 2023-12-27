@@ -5,6 +5,7 @@
     // layout, which is not resolvable with the Node resolution algorithm, to
     // work with TypeScript.
     "baseUrl": ".",
+    "allowJs": true,
     "paths": {
       "docs/tests/*": ["tests/*"],
       "docs/*": ["app/*"],
