@@ -16,9 +16,12 @@
       "types": "./declarations/index.d.ts",
       "default": "./dist/index.js"
     },
-    "./*": {
-      "types": "./declarations/*",
-      "default": "./dist/*"
+    "./_app_/*": {
+      "default": "./dist/_app_/*"
+    },
+    "./services/page-title": {
+      "types": "./declarations/services/page-title.d.ts",
+      "default": "./dist/services/page-title.js"
     },
     "./test-support": {
       "types": "./declarations/test-support/index.d.ts",
@@ -40,14 +43,15 @@
     "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "lint:types": "glint",
+    "lint:types": "glint --declaration",
     "prepack": "rollup --config",
     "start": "concurrently 'npm:start:*'",
     "start:js": "rollup --config --watch --no-watch.clearScreen",
     "start:types": "glint --declaration --watch"
   },
   "dependencies": {
-    "@embroider/addon-shim": "^1.8.7"
+    "@embroider/addon-shim": "^1.8.7",
+    "@simple-dom/document": "^1.4.0"
   },
   "peerDependencies": {
     "ember-source": ">= 3.28.0"

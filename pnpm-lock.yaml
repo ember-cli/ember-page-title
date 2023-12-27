@@ -32,6 +32,9 @@ importers:
       '@embroider/addon-shim':
         specifier: ^1.8.7
         version: 1.8.7
+      '@simple-dom/document':
+        specifier: ^1.4.0
+        version: 1.4.0
     devDependencies:
       '@babel/core':
         specifier: ^7.23.6
@@ -3198,11 +3201,9 @@ packages:
     resolution: {integrity: sha512-/RUeVH4kuD3rzo5/91+h4Z1meLSLP66eXqpVAw/4aZmYozkeqUkMprq0znL4psX/adEed5cBgiNJcfMz/eKZLg==}
     dependencies:
       '@simple-dom/interface': 1.4.0
-    dev: true
 
   /@simple-dom/interface@1.4.0:
     resolution: {integrity: sha512-l5qumKFWU0S+4ZzMaLXFU8tQZsicHEMEyAxI5kDFGhJsRqDwe0a7/iPA/GdxlGyDKseQQAgIz5kzU7eXTrlSpA==}
-    dev: true
 
   /@simple-dom/parser@1.4.0:
     resolution: {integrity: sha512-TNjDkOehueRIKr1df416qk9ELj+qWuVVJNIT25y1aZg3pQvxv4UPGrgaDFte7dsWBTbF3V8NYPNQ5FDUZQ8Wlg==}
@@ -16567,6 +16568,7 @@ packages:
       ember-source: '>= 3.28.0'
     dependencies:
       '@embroider/addon-shim': 1.8.7
+      '@simple-dom/document': 1.4.0
       ember-source: 3.28.12(@babel/core@7.23.6)
     transitivePeerDependencies:
       - supports-color
