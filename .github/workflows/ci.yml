@@ -25,15 +25,12 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         browser: [chrome, firefox]
-        node: ['16', '18']
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
-        with:
-          node-version: ${{ matrix.node }}
       - name: Test
         run: pnpm test:ember --launch ${{ matrix.browser }}
         working-directory: test-app
