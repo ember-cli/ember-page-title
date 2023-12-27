@@ -17,7 +17,7 @@
     "release-it": "^16.1.5"
   },
   "volta": {
-    "node": "16.20.2",
+    "node": "20.10.0",
     "pnpm": "8.10.0"
   },
   "publishConfig": {
