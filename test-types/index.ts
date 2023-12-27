@@ -1,6 +1,13 @@
 import 'ember-source/types';
 import '@glint/environment-ember-loose';
 
+// imports all resolve
+import 'ember-page-title';
+import 'ember-page-title/services/page-title';
+import 'ember-page-title/test-support';
+import 'ember-page-title/template-registry';
+import 'ember-page-title/service-registry';
+
 
 import { expectTypeOf } from 'expect-type';
 import type Owner from '@ember/owner';
