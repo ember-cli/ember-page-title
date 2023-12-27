@@ -23,6 +23,10 @@
       "types": "./declarations/services/page-title.d.ts",
       "default": "./dist/services/page-title.js"
     },
+    "./helpers/page-title": {
+      "types": "./declarations/helpers/page-title.d.ts",
+      "default": "./dist/helpers/page-title.js"
+    },
     "./test-support": {
       "types": "./declarations/test-support/index.d.ts",
       "default": "./dist/test-support/index.js"

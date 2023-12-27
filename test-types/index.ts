@@ -3,10 +3,12 @@ import '@glint/environment-ember-loose';
 
 // imports all resolve
 import 'ember-page-title';
-import 'ember-page-title/services/page-title';
 import 'ember-page-title/test-support';
 import 'ember-page-title/template-registry';
 import 'ember-page-title/service-registry';
+// required for ember-cli
+import 'ember-page-title/services/page-title';
+import 'ember-page-title/helpers/page-title';
 
 
 import { expectTypeOf } from 'expect-type';
