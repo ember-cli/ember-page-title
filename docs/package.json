@@ -15,7 +15,7 @@
     "build": "ember build --environment=production",
     "format:hbs": "prettier **/*.hbs --write --parser=glimmer",
     "format:js": "prettier **/*.js --write",
-    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
+    "lint": "pnpm sync:pnpm && npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
@@ -23,12 +23,18 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
     "release": "standard-version",
-    "start": "ember serve",
-    "test": "npm-run-all lint test:*",
-    "test:ember": "ember test"
+    "start": "concurrently 'ember serve' 'pnpm sync:pnpm --watch' --names 'serve,sync'",
+    "start:ember": "ember serve",
+    "sync:pnpm": "pnpm sync-dependencies-meta-injected",
+    "test:ember": "pnpm sync:pnpm && ember test"
   },
   "dependencies": {
     "ember-page-title": "workspace:*"
+  },
+  "dependenciesMeta": {
+    "ember-page-title": {
+      "injected": true
+    }
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
@@ -78,6 +84,7 @@
     "eslint-plugin-qunit": "^8.0.1",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
+    "pnpm-sync-dependencies-meta-injected": "^0.0.10",
     "prettier": "^3.1.1",
     "qunit": "^2.16.0",
     "sass": "^1.43.3",
