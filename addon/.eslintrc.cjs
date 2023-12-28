@@ -7,14 +7,20 @@ module.exports = {
     {
       files: ['src/**/*.{js,ts}'],
       parser: '@typescript-eslint/parser',
-      plugins: ['ember'],
+      plugins: ['ember', '@typescript-eslint'],
       extends: [
         'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
         'plugin:ember/recommended',
         'plugin:prettier/recommended',
       ],
       env: {
         browser: true,
+      },
+      rules: {
+        // temp, remove these in #275
+        '@typescript-eslint/ban-ts-comment': 'off',
+        'prefer-rest-params': 'off',
       },
     },
     // node files
