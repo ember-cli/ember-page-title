@@ -33,7 +33,7 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "ember-page-title": "8.2.0"
+    "ember-page-title": "workspace:*"
   },
   "dependenciesMeta": {
     "ember-page-title": {
