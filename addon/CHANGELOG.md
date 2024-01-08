@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
+
+## v8.2.0 (2024-01-08)
+
+#### :rocket: Enhancement
+* [#275](https://github.com/ember-cli/ember-page-title/pull/275) TypeScript conversion so we have accurately generated types for consumers ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :house: Internal
+* [#278](https://github.com/ember-cli/ember-page-title/pull/278) Pull forward the lint changes from #275 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* [#276](https://github.com/ember-cli/ember-page-title/pull/276) Prevent CI from running twice on PRs ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* [#274](https://github.com/ember-cli/ember-page-title/pull/274) Package json sorting lint ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* [#270](https://github.com/ember-cli/ember-page-title/pull/270) Fix publish.yml ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* [#271](https://github.com/ember-cli/ember-page-title/pull/271) Update the lockfile ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## v8.1.0 (2023-10-31)
 
 #### :rocket: Enhancement

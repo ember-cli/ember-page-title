@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "8.1.0",
+  "version": "8.2.0",
   "description": "Page Titles for Ember applications",
   "keywords": [
     "page title",
@@ -29,7 +29,7 @@
     "test:ember": "pnpm sync:pnpm && ember test"
   },
   "dependencies": {
-    "ember-page-title": "workspace:*"
+    "ember-page-title": "8.2.0"
   },
   "dependenciesMeta": {
     "ember-page-title": {

@@ -1,6 +1,6 @@
 {
   "name": "test-app",
-  "version": "8.1.0",
+  "version": "8.2.0",
   "description": "Page Titles for Ember applications",
   "keywords": [
     "page title",
@@ -33,7 +33,7 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "ember-page-title": "workspace:*"
+    "ember-page-title": "8.2.0"
   },
   "dependenciesMeta": {
     "ember-page-title": {

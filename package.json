@@ -42,14 +42,23 @@
       "tokenRef": "GITHUB_AUTH"
     }
   },
-  "version": "8.1.0",
+  "version": "8.2.0",
   "pnpm": {
     "patchedDependencies": {
       "ember-cli-fastboot@4.1.2": "patches/ember-cli-fastboot@4.1.2.patch"
     },
-   "peerDependencyRules": {
-      "ignoreMissing": ["rsvp", "webpack", "@babel/core", "ember-template-imports", "@glimmer/component"],
-      "allowAny": ["typescript", "ember-source"]
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "rsvp",
+        "webpack",
+        "@babel/core",
+        "ember-template-imports",
+        "@glimmer/component"
+      ],
+      "allowAny": [
+        "typescript",
+        "ember-source"
+      ]
     },
     "overrides": {
       "@glimmer/manager": ">= 0.84.3",
