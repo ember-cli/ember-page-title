@@ -49,14 +49,7 @@ jobs:
         # lerna-changelog can discover what's changed since the last release
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - run: pnpm install --frozen-lockfile
+      - uses: wyvox/action-setup-pnpm@v3
       
       - name: "Generate Explanation and Prep Changelogs"
         id: explanation
