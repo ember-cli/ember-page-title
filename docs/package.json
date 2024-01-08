@@ -29,7 +29,7 @@
     "test:ember": "pnpm sync:pnpm && ember test"
   },
   "dependencies": {
-    "ember-page-title": "8.2.0"
+    "ember-page-title": "workspace:*"
   },
   "dependenciesMeta": {
     "ember-page-title": {
