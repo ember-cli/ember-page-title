@@ -1,20 +1,22 @@
 {
+  "version": "8.2.0",
   "private": true,
   "repository": {
     "type": "git",
     "url": "git@github.com:ember-cli/ember-page-title.git"
   },
   "scripts": {
-    "prepare": "pnpm build",
     "build": "pnpm --filter 'ember-page-title' build",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
+    "prepare": "pnpm build",
     "test": "pnpm --filter '*' test"
   },
   "devDependencies": {
     "@release-it-plugins/lerna-changelog": "^6.0.0",
     "@release-it-plugins/workspaces": "^4.0.0",
-    "release-it": "^16.1.5"
+    "release-it": "^16.1.5",
+    "release-plan": "^0.6.0"
   },
   "volta": {
     "node": "20.10.0",
@@ -23,26 +25,6 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
-  "release-it": {
-    "plugins": {
-      "@release-it-plugins/workspaces": {
-        "publish": false
-      },
-      "@release-it-plugins/lerna-changelog": {
-        "infile": "CHANGELOG.md",
-        "launchEditor": true
-      }
-    },
-    "git": {
-      "tagName": "v${version}"
-    },
-    "npm": false,
-    "github": {
-      "release": true,
-      "tokenRef": "GITHUB_AUTH"
-    }
-  },
-  "version": "8.2.0",
   "pnpm": {
     "patchedDependencies": {
       "ember-cli-fastboot@4.1.2": "patches/ember-cli-fastboot@4.1.2.patch"
@@ -69,6 +51,25 @@
         "_": "these overrides only affect dev and not the published package",
         "@glimmer/*": "Glimmer is still pre 1.0, and every minor in pre-1.0 SemVer is a breaking chaneg. So because some dependencies (like 0.44.0 of Glimmer -- this is not compatible with current Glimmer (>= 0.80))"
       }
+    }
+  },
+  "release-it": {
+    "plugins": {
+      "@release-it-plugins/workspaces": {
+        "publish": false
+      },
+      "@release-it-plugins/lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "npm": false,
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
     }
   }
 }
