@@ -1,10 +1,16 @@
-// @ts-nocheck
-import { getOwner } from '@ember/application';
 import { scheduleOnce } from '@ember/runloop';
 import Service, { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
 import { assert } from '@ember/debug';
+import type ApplicationInstance from '@ember/application/instance';
 import type RouterService from '@ember/routing/router-service';
+import type Owner from '@ember/owner';
+
+import type {
+  FastBootDocument,
+  PageTitleToken,
+  PageTitleConfig,
+} from '../private-types.ts';
 
 const isFastBoot = typeof FastBoot !== 'undefined';
 
@@ -12,27 +18,22 @@ const RouterEvent = {
   ROUTE_DID_CHANGE: 'routeDidChange',
 } as const;
 
-interface PageTitleConfig {
-  /** The default separator to use between tokens. */
-  separator?: string;
-
-  /** The default prepend value to use. */
-  prepend?: boolean;
-
-  /** The default replace value to use. */
-  replace?: boolean | null;
+function hasResolveRegistration(owner: Owner): owner is ApplicationInstance {
+  return `resolveRegistration` in owner;
 }
 
-export interface PageTitleToken extends PageTitleConfig {
-  id: string;
-  title?: string;
-  separator?: string;
-  prepend?: boolean;
-  replace?: boolean;
-  front?: unknown;
-  previous?: PageTitleToken | null;
-  next?: PageTitleToken | null;
+function hasPageTitleConfig(
+  fromEnv: unknown,
+): fromEnv is { pageTitle: PageTitleConfig } {
+  if (typeof fromEnv !== 'object') return false;
+  if (fromEnv === null) return false;
+
+  // all properties on the pageTitle config are optional,
+  // so we can't check for more
+  return 'pageTitle' in fromEnv;
 }
+
+const configKeys = ['separator', 'prepend', 'replace'] as const;
 
 /**
   @class page-title
@@ -43,11 +44,11 @@ export default class PageTitleService extends Service {
 
   // in fastboot context "document" is instance of
   // ember-fastboot/simple-dom document
-  @service('-document') declare document: Document;
+  @service('-document') private declare document: FastBootDocument;
 
-  tokens = [];
+  tokens: PageTitleToken[] = [];
 
-  _defaultConfig = {
+  _defaultConfig: PageTitleConfig = {
     // The default separator to use between tokens.
     separator: ' | ',
 
@@ -58,22 +59,32 @@ export default class PageTitleService extends Service {
     replace: null,
   };
 
-  constructor() {
-    super(...arguments);
+  constructor(owner: Owner) {
+    super(owner);
     this._validateExistingTitleElement();
 
-    const config = getOwner(this).resolveRegistration('config:environment');
-    if (config.pageTitle) {
-      ['separator', 'prepend', 'replace'].forEach((key) => {
-        if (!isEmpty(config.pageTitle[key])) {
-          this._defaultConfig[key] = config.pageTitle[key];
-        }
-      });
+    if (hasResolveRegistration(owner)) {
+      const config = owner.resolveRegistration('config:environment');
+
+      if (hasPageTitleConfig(config)) {
+        configKeys.forEach((key) => {
+          if (!isEmpty(config.pageTitle[key])) {
+            const configValue = config.pageTitle[key];
+
+            // SAFETY: how is one supposed to iterate over keys for an object and have it
+            //         known to the compiler that both objects, having the same shape,
+            //         will have the same type per-value?
+            //         as-is, the `configValue` is a union of all value-types from the object.
+            (this._defaultConfig[key] as PageTitleConfig[typeof key]) =
+              configValue;
+          }
+        });
+      }
     }
     this.router.on(RouterEvent.ROUTE_DID_CHANGE, this.scheduleTitleUpdate);
   }
 
-  applyTokenDefaults(token) {
+  applyTokenDefaults(token: PageTitleToken) {
     const defaultSeparator = this._defaultConfig.separator;
     const defaultPrepend = this._defaultConfig.prepend;
     const defaultReplace = this._defaultConfig.replace;
@@ -94,7 +105,7 @@ export default class PageTitleService extends Service {
     }
   }
 
-  inheritFromPrevious(token) {
+  inheritFromPrevious(token: PageTitleToken) {
     const previous = token.previous;
     if (previous) {
       if (token.separator == null) {
@@ -107,7 +118,7 @@ export default class PageTitleService extends Service {
     }
   }
 
-  push(token) {
+  push(token: PageTitleToken) {
     const tokenForId = this._findTokenById(token.id);
     if (tokenForId) {
       const index = this.tokens.indexOf(tokenForId);
@@ -134,8 +145,11 @@ export default class PageTitleService extends Service {
     this.tokens = [...this.tokens, token];
   }
 
-  remove(id) {
+  remove(id: PageTitleToken['id']) {
     const token = this._findTokenById(id);
+
+    if (!token) return;
+
     const { next, previous } = token;
     if (next) {
       next.previous = previous;
@@ -152,12 +166,15 @@ export default class PageTitleService extends Service {
     this.tokens = tokens;
   }
 
-  get visibleTokens() {
+  get visibleTokens(): PageTitleToken[] {
     const tokens = this.tokens;
     let i = tokens ? tokens.length : 0;
     const visible = [];
     while (i--) {
       const token = tokens[i];
+
+      if (!token) continue;
+
       if (token.replace) {
         visible.unshift(token);
         break;
@@ -168,12 +185,15 @@ export default class PageTitleService extends Service {
     return visible;
   }
 
-  get sortedTokens() {
+  get sortedTokens(): PageTitleToken[] {
     const visible = this.visibleTokens;
+    if (!visible) return [];
+
     let appending = true;
-    let group = [];
+    let group: PageTitleToken[] = [];
     const groups = [group];
-    const frontGroups = [];
+    const frontGroups: PageTitleToken[] = [];
+
     visible.forEach((token) => {
       if (token.front) {
         frontGroups.unshift(token);
@@ -206,11 +226,14 @@ export default class PageTitleService extends Service {
     scheduleOnce('afterRender', this, this._updateTitle);
   };
 
-  toString() {
+  toString(): string {
     const tokens = this.sortedTokens;
     const title = [];
+
     for (let i = 0, len = tokens.length; i < len; i++) {
       const token = tokens[i];
+      if (!token) continue;
+
       if (token.title) {
         title.push(token.title);
         if (i + 1 < len) {
@@ -218,6 +241,7 @@ export default class PageTitleService extends Service {
         }
       }
     }
+
     return title.join('');
   }
 
@@ -226,7 +250,7 @@ export default class PageTitleService extends Service {
     this.router.off(RouterEvent.ROUTE_DID_CHANGE, this.scheduleTitleUpdate);
   }
 
-  _updateTitle() {
+  private _updateTitle() {
     const toBeTitle = this.toString();
 
     if (isFastBoot) {
@@ -253,7 +277,7 @@ export default class PageTitleService extends Service {
    * Example: ember-cli-head can cause conflicting updates.
    * @private
    */
-  _validateExistingTitleElement() {
+  private _validateExistingTitleElement() {
     if (isFastBoot) {
       return;
     }
@@ -269,11 +293,11 @@ export default class PageTitleService extends Service {
    * @param {String} id
    * @private
    */
-  _findTokenById(id) {
+  private _findTokenById(id: PageTitleToken['id']) {
     return this.tokens.find((token) => token.id === id);
   }
 
-  updateFastbootTitle(toBeTitle) {
+  updateFastbootTitle(toBeTitle: string) {
     if (!isFastBoot) {
       return;
     }
@@ -283,6 +307,8 @@ export default class PageTitleService extends Service {
     // Remove existing title elements from previous render cycle
     for (let i = 0; i < headChildNodes.length; i++) {
       const node = headChildNodes[i];
+      if (!node) continue;
+
       if (node.nodeName.toLowerCase() === 'title') {
         headElement.removeChild(node);
       }
@@ -295,5 +321,8 @@ export default class PageTitleService extends Service {
     headElement.appendChild(titleEl);
   }
 
-  titleDidUpdate(/* title */) {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  titleDidUpdate(_title: string) {
+    // default is empty, meant to be overriden by user if desired
+  }
 }

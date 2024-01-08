@@ -1,10 +1,10 @@
-// @ts-nocheck
 import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
 import { guidFor } from '@ember/object/internals';
 
+import type Owner from '@ember/owner';
 import type PageTitleService from '../services/page-title.ts';
-import type { PageTitleToken } from '../services/page-title.ts';
+import type { PageTitleToken } from '../private-types.ts';
 
 export type PageTitleHelperOptions = Pick<
   PageTitleToken,
@@ -34,24 +34,28 @@ interface Signature {
 export default class PageTitle extends Helper<Signature> {
   @service('page-title') declare tokens: PageTitleService;
 
-  get tokenId(): string {
-    return guidFor(this);
-  }
+  tokenId = guidFor(this);
 
-  constructor() {
-    super(...arguments);
+  constructor(owner: Owner) {
+    super(owner);
     this.tokens.push({ id: this.tokenId });
   }
 
-  compute(params, _hash) {
-    const hash = {
-      ..._hash,
+  compute(params: string[], userOptions: PageTitleHelperOptions) {
+    const options = {
+      ...userOptions,
       id: this.tokenId,
       title: params.join(''),
     };
 
-    this.tokens.push(hash);
+    this.tokens.push(options);
     this.tokens.scheduleTitleUpdate();
+    // We must return an empty value here because otherwise
+    // invoking the pageTitle helper will render something
+    // in the component it's used in, and we don't want that.
+    //
+    // pageTitle is a side-effecting helper.
+    // We *synchronize* the document.title with our internal state.
     return '';
   }
 

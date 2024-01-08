@@ -28,7 +28,7 @@
     "release": "standard-version",
     "start": "concurrently 'ember serve' 'pnpm sync:pnpm --watch' --names 'serve,sync'",
     "start:ember": "ember serve",
-    "sync:pnpm": "DEBUG=sync-pnpm pnpm sync-dependencies-meta-injected",
+    "sync:pnpm": "pnpm sync-dependencies-meta-injected",
     "test:ember": "pnpm sync:pnpm && ember test",
     "test:ember-compatibility": "ember try:each"
   },
@@ -65,7 +65,7 @@
     "ember-maybe-import-regenerator": "^1.0.0",
     "ember-qunit": "^8.0.2",
     "ember-resolver": "^11.0.1",
-    "ember-source": "~3.28.3",
+    "ember-source": "~5.5.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^5.13.0",
     "ember-truth-helpers": "^4.0.3",
@@ -83,6 +83,7 @@
     "prettier": "^3.1.1",
     "qunit": "^2.16.0",
     "standard-version": "^9.3.2",
+    "typescript": "^5.3.3",
     "webpack": "^5.0.0"
   },
   "engines": {

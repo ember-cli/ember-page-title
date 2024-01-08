@@ -123,6 +123,23 @@ declare module '@glint/environment-ember-loose/registry' {
 }
 ```
 
+Similarly, if you rely on a service registry, you'll want to import ember-page-title's service registry and extend from it.
+
+```ts
+import type PageTitle from 'ember-page-title/service-registry';
+
+declare module '@ember/service' {
+  interface Registry extends PageTitle {
+        /* your local service entries here */
+  }
+}
+```
+
+or, if you wish to manage how the service becomes registered yourself, you may import the service:
+```ts
+import type PageTitle from 'ember-page-title/services/page-title';
+```
+
 ### Upgrading notes for 5.x to 6.x
 
 - `ember-page-title` no longer requires the usage of `ember-cli-head`.

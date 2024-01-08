@@ -1,6 +1,6 @@
 import { default as pageTitle } from './helpers/page-title.ts';
 
-export default interface Registry {
+export default interface LooseModeTemplateRegistry {
   /**
    * `{{page-title}}` helper used to set the title of the current route context
    *

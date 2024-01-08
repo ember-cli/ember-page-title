@@ -82,15 +82,27 @@ jobs:
       - uses: wyvox/action-setup-pnpm@v3
       - run: pnpm build
       - run: pnpm i -f # just in case
-      - name: 'Change TS to ${{ matrix.typescript-scenario }}'
+      - name: 'test-types : ${{ matrix.typescript-scenario }}'
         working-directory: ./test-types
         run: 'pnpm add --save-dev ${{ matrix.typescript-scenario}}'
 
-      - name: 'Type checking'
+      - name: 'docs : ${{ matrix.typescript-scenario }}'
+        working-directory: ./docs
+        run: 'pnpm add --save-dev ${{ matrix.typescript-scenario}}'
+
+      - name: 'test-types'
         working-directory: ./test-types
         run: |
           pnpm tsc -v
           pnpm tsc --noEmit
+
+      - name: 'Glint in the docs app'
+        working-directory: ./docs
+        run: |
+          pnpm tsc -v
+          pnpm glint --version
+          pnpm glint
+
 
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}

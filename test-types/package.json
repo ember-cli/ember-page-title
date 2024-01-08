@@ -5,6 +5,7 @@
         "test": "tsc --noEmit"
     },
     "devDependencies": {
+        "@glimmer/component": "^1.0.4",
         "@glint/template": "^1.2.1",
         "@tsconfig/node20": "^20.1.2",
         "@tsconfig/strictest": "^2.0.2",

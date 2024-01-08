@@ -1,0 +1,21 @@
+{
+  "extends": "@tsconfig/ember/tsconfig.json",
+  "compilerOptions": {
+    // The combination of `baseUrl` with `paths` allows Ember's classic package
+    // layout, which is not resolvable with the Node resolution algorithm, to
+    // work with TypeScript.
+    "baseUrl": ".",
+    "allowJs": true,
+    // older glimmer doesn't have correct imports
+    // needs "import type"
+    "verbatimModuleSyntax": false,
+    "paths": {
+      "docs/tests/*": ["tests/*"],
+      "docs/*": ["app/*"],
+      "*": ["types/*"]
+    }
+  },
+  "glint": {
+    "environment": ["ember-loose", "ember-template-imports"]
+  }
+}
