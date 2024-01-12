@@ -9,7 +9,8 @@
     "build": "pnpm --filter 'ember-page-title' build",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "test": "pnpm --filter '*' test"
+    "test": "pnpm --filter '*' test",
+    "typecheck": "pnpm --filter '*' typecheck"
   },
   "devDependencies": {
     "@release-it-plugins/lerna-changelog": "^6.0.0",

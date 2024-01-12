@@ -26,7 +26,8 @@
     "start": "concurrently 'ember serve' 'pnpm sync:pnpm --watch' --names 'serve,sync'",
     "start:ember": "ember serve",
     "sync:pnpm": "pnpm sync-dependencies-meta-injected",
-    "test:ember": "pnpm sync:pnpm && ember test"
+    "test:ember": "pnpm sync:pnpm && ember test",
+    "typecheck": "glint"
   },
   "dependencies": {
     "ember-page-title": "workspace:*"

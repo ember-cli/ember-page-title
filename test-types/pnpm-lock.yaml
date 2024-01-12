@@ -4,6 +4,10 @@ settings:
   autoInstallPeers: false
   excludeLinksFromLockfile: false
 
+overrides:
+  '@glimmer/manager': '>= 0.84.3'
+  '@glimmer/validator': '>= 0.84.3'
+
 devDependencies:
   '@glimmer/component':
     specifier: ^1.0.4
@@ -1906,9 +1910,6 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0
       webpack: '>=2'
-    peerDependenciesMeta:
-      webpack:
-        optional: true
     dependencies:
       '@babel/core': 7.23.7
       find-cache-dir: 3.3.2
@@ -2383,9 +2384,6 @@ packages:
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       webpack: ^4.27.0 || ^5.0.0
-    peerDependenciesMeta:
-      webpack:
-        optional: true
     dependencies:
       icss-utils: 5.1.0(postcss@8.4.33)
       loader-utils: 2.0.4
@@ -2659,9 +2657,6 @@ packages:
     engines: {node: '>= 16.*'}
     peerDependencies:
       '@glimmer/component': ^1.1.2
-    peerDependenciesMeta:
-      '@glimmer/component':
-        optional: true
     dependencies:
       '@babel/helper-module-imports': 7.22.15
       '@babel/plugin-transform-block-scoping': 7.23.4(@babel/core@7.23.7)
@@ -3568,9 +3563,6 @@ packages:
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^5.0.0
-    peerDependenciesMeta:
-      webpack:
-        optional: true
     dependencies:
       schema-utils: 4.2.0
     dev: true
@@ -4283,9 +4275,6 @@ packages:
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       webpack: ^4.0.0 || ^5.0.0
-    peerDependenciesMeta:
-      webpack:
-        optional: true
     dependencies:
       loader-utils: 2.0.4
       schema-utils: 3.3.0

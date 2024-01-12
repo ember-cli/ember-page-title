@@ -2,7 +2,8 @@
     "name": "test-types",
     "private": true,
     "scripts": {
-        "test": "tsc --noEmit"
+        "test": "tsc --noEmit",
+        "typecheck": "tsc --noEmit"
     },
     "devDependencies": {
         "@glimmer/component": "^1.0.4",
@@ -14,5 +15,23 @@
         "expect-type": "^0.17.3",
         "typescript": "^5.3.3"
     },
-    "version": "8.2.0"
+    "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "rsvp",
+        "webpack",
+        "@babel/core",
+        "ember-template-imports",
+        "@glimmer/component"
+      ],
+      "allowAny": [
+        "typescript",
+        "ember-source"
+      ]
+    },
+      "overrides": {
+        "@glimmer/manager": ">= 0.84.3",
+        "@glimmer/validator": ">= 0.84.3"
+      }
+    }
 }

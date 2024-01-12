@@ -31,12 +31,6 @@
       "types": "./declarations/test-support/index.d.ts",
       "default": "./dist/test-support/index.js"
     },
-    "./template-registry": {
-      "types": "./declarations/template-registry.d.ts"
-    },
-    "./service-registry": {
-      "types": "./declarations/service-registry.d.ts"
-    },
     "./addon-main.js": "./addon-main.js"
   },
   "files": [
