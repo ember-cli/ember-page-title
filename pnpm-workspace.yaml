@@ -3,3 +3,4 @@ packages:
   - docs
   - test-app
   - test-types
+  - "@types/*"

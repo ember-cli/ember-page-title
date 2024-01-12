@@ -63,7 +63,7 @@ jobs:
         working-directory: test-app
 
   typecheck:
-    name: '${{ matrix.typescript-scenario }}'
+    name: 'Stable ${{ matrix.typescript-scenario }}'
     runs-on: ubuntu-latest
     timeout-minutes: 2
     continue-on-error: true
@@ -103,6 +103,39 @@ jobs:
           pnpm glint --version
           pnpm glint
 
+  typecheck_DT:
+    name: 'DefinitelyTyped ${{ matrix.typescript-scenario }}'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        typescript-scenario:
+          - typescript@5.0
+          - typescript@5.1
+          - typescript@5.2
+          - typescript@5.3
+          - typescript@next
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: wyvox/action-setup-pnpm@v3
+      - run: pnpm build
+      - run: pnpm i -f # just in case
+      - name: 'test-types : ${{ matrix.typescript-scenario }}'
+        working-directory: ./@types/test-types
+        run: 'pnpm add --save-dev ${{ matrix.typescript-scenario}}'
+
+      - name: 'docs : ${{ matrix.typescript-scenario }}'
+        working-directory: ./@types/test-app
+        run: 'pnpm add --save-dev ${{ matrix.typescript-scenario}}'
+
+      - name: 'test-types'
+        working-directory: ./@types/test-types
+        run: |
+          pnpm tsc -v
+          pnpm tsc --noEmit
 
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
