@@ -12,10 +12,29 @@
         "@tsconfig/strictest": "^2.0.2",
         "@types/ember__component": "^4.0.21",
         "@types/ember__owner": "^4.0.8",
+        "@types/ember__service": "^4.0.8",
         "ember-page-title": "workspace:*",
         "ember-source": "^5.5.0",
         "expect-type": "^0.17.3",
         "typescript": "^5.3.3"
     },
-    "version": "8.2.0"
+    "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "rsvp",
+        "webpack",
+        "@babel/core",
+        "ember-template-imports",
+        "@glimmer/component"
+      ],
+      "allowAny": [
+        "typescript",
+        "ember-source"
+      ]
+    },
+      "overrides": {
+        "@glimmer/manager": ">= 0.84.3",
+        "@glimmer/validator": ">= 0.84.3"
+      }
+    }
 }

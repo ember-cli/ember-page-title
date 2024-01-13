@@ -16,6 +16,10 @@
       "types": "./declarations/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },  
     "./_app_/*": {
       "default": "./dist/_app_/*"
     },
