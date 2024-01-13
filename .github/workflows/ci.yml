@@ -81,7 +81,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: wyvox/action-setup-pnpm@v3
       - run: pnpm build
-      - run: pnpm i -f # just in case
+      - run: pnpm i -f # re-links injected dependencies
       - name: 'test-types : ${{ matrix.typescript-scenario }}'
         working-directory: ./test-types
         run: 'pnpm add --save-dev ${{ matrix.typescript-scenario}}'
@@ -89,6 +89,8 @@ jobs:
       - name: 'docs : ${{ matrix.typescript-scenario }}'
         working-directory: ./docs
         run: 'pnpm add --save-dev ${{ matrix.typescript-scenario}}'
+
+      - run: pnpm dedupe
 
       - name: 'test-types'
         working-directory: ./test-types
