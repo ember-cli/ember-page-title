@@ -103,8 +103,8 @@ importers:
         specifier: ^8.0.1
         version: 8.0.1
       fix-bad-declaration-output:
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^1.0.2
+        version: 1.0.2
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
@@ -9088,8 +9088,8 @@ packages:
       minimatch: 3.1.2
     dev: true
 
-  /fix-bad-declaration-output@1.0.1:
-    resolution: {integrity: sha512-rp8rxogo9uIr89q5S6dOyBzAHlMNnteGUoht9wyVjRqacz5mE3pxpYzRcHD0nFeyWBga8bi8QvFEj7+pXKpd7w==}
+  /fix-bad-declaration-output@1.0.2:
+    resolution: {integrity: sha512-Q4FKARf3m0IBaJ3/JiKd4s1AA+7U6NWRr8DJMPV1neXItfJHLjwETggvXBX3SmPpXFR87e7WHqvIgmMswA2MAA==}
     hasBin: true
     dependencies:
       fs-extra: 11.2.0

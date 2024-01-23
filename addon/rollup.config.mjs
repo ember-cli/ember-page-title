@@ -1,6 +1,7 @@
 import { babel } from '@rollup/plugin-babel';
 import { Addon } from '@embroider/addon-dev/rollup';
 import { execaCommand } from 'execa';
+import { fixBadDeclarationOutput } from 'fix-bad-declaration-output';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -57,12 +58,10 @@ export default {
          * README: https://github.com/NullVoxPopuli/fix-bad-declaration-output
          */
         console.log('Fixing types');
-        await execaCommand(
-          `pnpm fix-bad-declaration-output declarations/**/*.d.ts`,
-          {
-            stdio: 'inherit',
-          },
-        );
+        await fixBadDeclarationOutput('declarations/**/*.d.ts', [
+          'TypeScript#56571',
+          'Glint#628',
+        ]);
         console.log(
           '⚠️ Dangerously (but neededly) fixed bad declaration output from typescript',
         );
