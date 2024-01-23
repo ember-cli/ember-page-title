@@ -1,0 +1,49 @@
+{
+  "solution": {
+    "ember-page-title": {
+      "impact": "patch",
+      "oldVersion": "8.2.0",
+      "newVersion": "8.2.1",
+      "constraints": [
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :bug: Bug Fix"
+        }
+      ],
+      "pkgJSONPath": "./addon/package.json"
+    },
+    "docs": {
+      "impact": "patch",
+      "oldVersion": "8.2.0",
+      "newVersion": "8.2.1",
+      "constraints": [
+        {
+          "impact": "patch",
+          "reason": "Has dependency `workspace:*` on ember-page-title"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./docs/package.json"
+    },
+    "test-app": {
+      "impact": "patch",
+      "oldVersion": "8.2.0",
+      "newVersion": "8.2.1",
+      "constraints": [
+        {
+          "impact": "patch",
+          "reason": "Has dependency `workspace:*` on ember-page-title"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./test-app/package.json"
+    }
+  },
+  "description": "## Release (2024-01-23)\n\nember-page-title 8.2.1 (patch)\ndocs 8.2.1 (patch)\ntest-app 8.2.1 (patch)\n\n#### :bug: Bug Fix\n* `ember-page-title`\n  * [#283](https://github.com/ember-cli/ember-page-title/pull/283) Remove /// <reference types='ember-sources/types ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :house: Internal\n* `docs`, `test-app`, `test-types`\n  * [#279](https://github.com/ember-cli/ember-page-title/pull/279) Fix lockfile, due to release-it ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+}
