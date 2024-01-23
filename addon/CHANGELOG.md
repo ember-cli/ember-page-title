@@ -1,4 +1,20 @@
 # Changelog
+## Release (2024-01-23)
+
+ember-page-title 8.2.1 (patch)
+docs 8.2.1 (patch)
+test-app 8.2.1 (patch)
+
+#### :bug: Bug Fix
+* `ember-page-title`
+  * [#283](https://github.com/ember-cli/ember-page-title/pull/283) Remove /// <reference types='ember-sources/types ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :house: Internal
+* `docs`, `test-app`, `test-types`
+  * [#279](https://github.com/ember-cli/ember-page-title/pull/279) Fix lockfile, due to release-it ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
