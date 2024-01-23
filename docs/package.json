@@ -101,5 +101,6 @@
   "homepage": "https://ember-cli.github.io/ember-page-title",
   "volta": {
     "extends": "../package.json"
-  }
+  },
+  "private": true
 }
