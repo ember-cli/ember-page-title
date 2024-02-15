@@ -1,4 +1,19 @@
 # Changelog
+## Release (2024-02-15)
+
+ember-page-title 8.2.2 (patch)
+
+#### :bug: Bug Fix
+* `ember-page-title`
+  * [#288](https://github.com/ember-cli/ember-page-title/pull/288) Improve return type of `getPageTitle` test helper ([@bertdeblock](https://github.com/bertdeblock))
+
+#### :house: Internal
+* `docs`, `test-app`
+  * [#285](https://github.com/ember-cli/ember-page-title/pull/285) These packages are private, let's mark them as private ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 2
+- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
 ## Release (2024-01-23)
 
 ember-page-title 8.2.1 (patch)
