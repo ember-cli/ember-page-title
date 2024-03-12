@@ -2,8 +2,8 @@
   "solution": {
     "ember-page-title": {
       "impact": "patch",
-      "oldVersion": "8.2.1",
-      "newVersion": "8.2.2",
+      "oldVersion": "8.2.2",
+      "newVersion": "8.2.3",
       "constraints": [
         {
           "impact": "patch",
@@ -13,5 +13,5 @@
       "pkgJSONPath": "./addon/package.json"
     }
   },
-  "description": "## Release (2024-02-15)\n\nember-page-title 8.2.2 (patch)\n\n#### :bug: Bug Fix\n* `ember-page-title`\n  * [#288](https://github.com/ember-cli/ember-page-title/pull/288) Improve return type of `getPageTitle` test helper ([@bertdeblock](https://github.com/bertdeblock))\n\n#### :house: Internal\n* `docs`, `test-app`\n  * [#285](https://github.com/ember-cli/ember-page-title/pull/285) These packages are private, let's mark them as private ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 2\n- Bert De Block ([@bertdeblock](https://github.com/bertdeblock))\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+  "description": "## Release (2024-03-12)\n\nember-page-title 8.2.3 (patch)\n\n#### :bug: Bug Fix\n* `ember-page-title`\n  * [#289](https://github.com/ember-cli/ember-page-title/pull/289) fix(types): add typesVersions map ([@aklkv](https://github.com/aklkv))\n\n#### Committers: 1\n- Alexey Kulakov ([@aklkv](https://github.com/aklkv))\n"
 }

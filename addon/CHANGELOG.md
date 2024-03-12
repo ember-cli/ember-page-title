@@ -1,4 +1,14 @@
 # Changelog
+## Release (2024-03-12)
+
+ember-page-title 8.2.3 (patch)
+
+#### :bug: Bug Fix
+* `ember-page-title`
+  * [#289](https://github.com/ember-cli/ember-page-title/pull/289) fix(types): add typesVersions map ([@aklkv](https://github.com/aklkv))
+
+#### Committers: 1
+- Alexey Kulakov ([@aklkv](https://github.com/aklkv))
 ## Release (2024-02-15)
 
 ember-page-title 8.2.2 (patch)
