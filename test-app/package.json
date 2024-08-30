@@ -84,7 +84,7 @@
     "qunit": "^2.16.0",
     "standard-version": "^9.3.2",
     "typescript": "^5.3.3",
-    "webpack": "^5.0.0"
+    "webpack": "^5.94.0"
   },
   "engines": {
     "node": "16.* || >= 18"
