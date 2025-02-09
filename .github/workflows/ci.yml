@@ -116,14 +116,13 @@ jobs:
       matrix:
         ember-try-scenario:
           [
-            ember-lts-3.28,
+            minimum-supported
             ember-lts-4.4,
             ember-lts-4.12,
+            ember-lts-5.12,
             ember-release,
-            ember-beta,
-            ember-classic,
-            embroider-safe,
-            embroider-optimized,
+            ember-beta
+            ember-canary
           ]
         allow-failure: [false]
         include:
