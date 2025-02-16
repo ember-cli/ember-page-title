@@ -22,9 +22,6 @@
     "registry": "https://registry.npmjs.org"
   },
   "pnpm": {
-    "patchedDependencies": {
-      "ember-cli-fastboot@4.1.2": "patches/ember-cli-fastboot@4.1.2.patch"
-    },
     "peerDependencyRules": {
       "ignoreMissing": [
         "rsvp",
