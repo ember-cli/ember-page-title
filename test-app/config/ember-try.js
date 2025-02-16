@@ -10,8 +10,8 @@ module.exports = async function () {
         name: 'minimum-supported',
         npm: {
           devDependencies: {
-            'ember-source': '~4.1.0',
-            'ember-cli': '~4.1.0',
+            'ember-source': '~3.28.0',
+            'ember-cli': '~3.28.0',
           },
         },
       },
