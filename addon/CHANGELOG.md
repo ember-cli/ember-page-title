@@ -1,4 +1,14 @@
 # Changelog
+## Release (2025-02-18)
+
+ember-page-title 8.2.4 (patch)
+
+#### :house: Internal
+* `ember-page-title`, `docs`, `test-app`, `test-types`
+  * [#294](https://github.com/ember-cli/ember-page-title/pull/294) Fix CI, only test against embroider. ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
 ## Release (2024-03-12)
 
 ember-page-title 8.2.3 (patch)
