@@ -2,16 +2,16 @@
   "solution": {
     "ember-page-title": {
       "impact": "patch",
-      "oldVersion": "8.2.2",
-      "newVersion": "8.2.3",
+      "oldVersion": "8.2.3",
+      "newVersion": "8.2.4",
       "constraints": [
         {
           "impact": "patch",
-          "reason": "Appears in changelog section :bug: Bug Fix"
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./addon/package.json"
     }
   },
-  "description": "## Release (2024-03-12)\n\nember-page-title 8.2.3 (patch)\n\n#### :bug: Bug Fix\n* `ember-page-title`\n  * [#289](https://github.com/ember-cli/ember-page-title/pull/289) fix(types): add typesVersions map ([@aklkv](https://github.com/aklkv))\n\n#### Committers: 1\n- Alexey Kulakov ([@aklkv](https://github.com/aklkv))\n"
+  "description": "## Release (2025-02-18)\n\nember-page-title 8.2.4 (patch)\n\n#### :house: Internal\n* `ember-page-title`, `docs`, `test-app`, `test-types`\n  * [#294](https://github.com/ember-cli/ember-page-title/pull/294) Fix CI, only test against embroider. ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
 }
