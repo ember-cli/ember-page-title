@@ -7,7 +7,7 @@ module.exports = async function () {
     usePnpm: true,
     scenarios: [
       {
-        name: 'minimum-supported',
+        name: 'minimum-supported-4-1',
         npm: {
           devDependencies: {
             'ember-source': '~4.1.0',
