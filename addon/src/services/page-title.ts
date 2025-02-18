@@ -223,6 +223,7 @@ export default class PageTitleService extends Service {
   }
 
   scheduleTitleUpdate = () => {
+    // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, this._updateTitle);
   };
 

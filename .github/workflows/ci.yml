@@ -17,6 +17,7 @@ jobs:
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
+      - run: pnpm build 
       - name: Lint
         run: pnpm lint
 
@@ -36,6 +37,7 @@ jobs:
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
+      - run: pnpm build 
       - name: Test
         run: pnpm test:ember --launch ${{ matrix.browser }}
         working-directory: test-app
@@ -58,6 +60,7 @@ jobs:
       - uses: wyvox/action-setup-pnpm@v3
         with:
           pnpm-args: '--no-lockfile'
+      - run: pnpm build 
       - name: Test
         run: pnpm test:ember --launch ${{ matrix.browser }}
         working-directory: test-app
@@ -116,14 +119,13 @@ jobs:
       matrix:
         ember-try-scenario:
           [
-            ember-lts-3.28,
+            minimum-supported
             ember-lts-4.4,
             ember-lts-4.12,
+            ember-lts-5.12,
             ember-release,
-            ember-beta,
-            ember-classic,
-            embroider-safe,
-            embroider-optimized,
+            ember-beta
+            ember-canary
           ]
         allow-failure: [false]
         include:
@@ -135,6 +137,7 @@ jobs:
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
+      - run: pnpm build 
       - name: Test
         env:
           EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
@@ -151,6 +154,8 @@ jobs:
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
+      - run: pnpm build 
+
       - name: Test
         run: pnpm test:ember
         working-directory: docs

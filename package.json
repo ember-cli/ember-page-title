@@ -9,7 +9,6 @@
     "build": "pnpm --filter 'ember-page-title' build",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "prepare": "pnpm build",
     "test": "pnpm --filter '*' test"
   },
   "devDependencies": {
@@ -23,9 +22,6 @@
     "registry": "https://registry.npmjs.org"
   },
   "pnpm": {
-    "patchedDependencies": {
-      "ember-cli-fastboot@4.1.2": "patches/ember-cli-fastboot@4.1.2.patch"
-    },
     "peerDependencyRules": {
       "ignoreMissing": [
         "rsvp",
