@@ -1,17 +1,17 @@
 {
   "solution": {
     "ember-page-title": {
-      "impact": "patch",
-      "oldVersion": "8.2.3",
-      "newVersion": "8.2.4",
+      "impact": "major",
+      "oldVersion": "8.2.4",
+      "newVersion": "9.0.0",
       "constraints": [
         {
-          "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
+          "impact": "major",
+          "reason": "Appears in changelog section :boom: Breaking Change"
         }
       ],
       "pkgJSONPath": "./addon/package.json"
     }
   },
-  "description": "## Release (2025-02-18)\n\nember-page-title 8.2.4 (patch)\n\n#### :house: Internal\n* `ember-page-title`, `docs`, `test-app`, `test-types`\n  * [#294](https://github.com/ember-cli/ember-page-title/pull/294) Fix CI, only test against embroider. ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+  "description": "## Release (2025-02-22)\n\nember-page-title 9.0.0 (major)\n\n#### :boom: Breaking Change\n* `ember-page-title`, `test-app`\n  * [#293](https://github.com/ember-cli/ember-page-title/pull/293) Resolve inject deprecation ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
 }
