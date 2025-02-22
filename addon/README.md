@@ -10,7 +10,7 @@ ember install ember-page-title
 
 ### Compatibility
 
-- `ember-source` v4.1 or above
+- `ember-source` v4.2 or above
 
 <details>
 <summary>Fastboot vs Non-Fastboot Notes</summary>
