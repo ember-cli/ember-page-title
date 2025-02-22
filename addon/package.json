@@ -67,7 +67,7 @@
     "@simple-dom/document": "^1.4.0"
   },
   "peerDependencies": {
-    "ember-source": ">= 4.1.0"
+    "ember-source": ">= 4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
