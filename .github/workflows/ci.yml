@@ -119,7 +119,7 @@ jobs:
       matrix:
         ember-try-scenario:
           [
-            minimum-supported-4-1,
+            minimum-supported-4-2,
             ember-lts-4.4,
             ember-lts-4.12,
             ember-lts-5.12,
