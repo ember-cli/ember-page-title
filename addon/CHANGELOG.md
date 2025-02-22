@@ -1,6 +1,16 @@
 # Changelog
 ## Release (2025-02-22)
 
+ember-page-title 9.0.1 (patch)
+
+#### :bug: Bug Fix
+* `ember-page-title`
+  * [#297](https://github.com/ember-cli/ember-page-title/pull/297) Update peer on ember-source to reflect what is tested against (>= 4.2) ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+## Release (2025-02-22)
+
 ember-page-title 9.0.0 (major)
 
 #### :boom: Breaking Change
