@@ -10,9 +10,7 @@ ember install ember-page-title
 
 ### Compatibility
 
-- Ember.js v3.28 or above
-- Ember CLI v3.28 or above
-- Node.js v14 or above
+- `ember-source` v4.2 or above
 
 <details>
 <summary>Fastboot vs Non-Fastboot Notes</summary>

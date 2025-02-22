@@ -1,5 +1,5 @@
 import { scheduleOnce } from '@ember/runloop';
-import Service, { inject as service } from '@ember/service';
+import Service, { service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
 import { assert } from '@ember/debug';
 import type ApplicationInstance from '@ember/application/instance';
