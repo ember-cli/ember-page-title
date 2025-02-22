@@ -1,4 +1,14 @@
 # Changelog
+## Release (2025-02-22)
+
+ember-page-title 9.0.0 (major)
+
+#### :boom: Breaking Change
+* `ember-page-title`, `test-app`
+  * [#293](https://github.com/ember-cli/ember-page-title/pull/293) Resolve inject deprecation ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
 ## Release (2025-02-18)
 
 ember-page-title 8.2.4 (patch)
