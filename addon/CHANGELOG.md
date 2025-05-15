@@ -1,4 +1,14 @@
 # Changelog
+## Release (2025-05-15)
+
+ember-page-title 9.0.2 (patch)
+
+#### :bug: Bug Fix
+* `ember-page-title`
+  * [#299](https://github.com/ember-cli/ember-page-title/pull/299) Remove ember-source from peerDependency ([@mkszepp](https://github.com/mkszepp))
+
+#### Committers: 1
+- Markus Sanin ([@mkszepp](https://github.com/mkszepp))
 ## Release (2025-02-22)
 
 ember-page-title 9.0.1 (patch)

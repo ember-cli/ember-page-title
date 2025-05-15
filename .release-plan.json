@@ -2,8 +2,8 @@
   "solution": {
     "ember-page-title": {
       "impact": "patch",
-      "oldVersion": "9.0.0",
-      "newVersion": "9.0.1",
+      "oldVersion": "9.0.1",
+      "newVersion": "9.0.2",
       "constraints": [
         {
           "impact": "patch",
@@ -13,5 +13,5 @@
       "pkgJSONPath": "./addon/package.json"
     }
   },
-  "description": "## Release (2025-02-22)\n\nember-page-title 9.0.1 (patch)\n\n#### :bug: Bug Fix\n* `ember-page-title`\n  * [#297](https://github.com/ember-cli/ember-page-title/pull/297) Update peer on ember-source to reflect what is tested against (>= 4.2) ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+  "description": "## Release (2025-05-15)\n\nember-page-title 9.0.2 (patch)\n\n#### :bug: Bug Fix\n* `ember-page-title`\n  * [#299](https://github.com/ember-cli/ember-page-title/pull/299) Remove ember-source from peerDependency ([@mkszepp](https://github.com/mkszepp))\n\n#### Committers: 1\n- Markus Sanin ([@mkszepp](https://github.com/mkszepp))\n"
 }
