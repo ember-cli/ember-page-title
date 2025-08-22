@@ -203,11 +203,6 @@ export default class PageTitleService extends Service {
           group = [];
           groups.push(group);
         }
-        const lastToken = group[0];
-        if (lastToken) {
-          token = { ...token };
-          token.separator = lastToken.separator;
-        }
         group.unshift(token);
       } else {
         if (!appending) {

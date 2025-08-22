@@ -31,6 +31,12 @@ module('Acceptance: title', function (hooks) {
     assert.strictEqual(getPageTitle(), 'Profile > Authors > About My App');
   });
 
+  test('multiple custom separators work', async function (assert) {
+    await visit('/about/policies');
+
+    assert.strictEqual(getPageTitle(), 'Terms + Policy * About My App');
+  });
+
   test('multiple components in a row work', async function (assert) {
     await visit('/posts/rails-is-omakase');
 

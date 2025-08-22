@@ -69,8 +69,9 @@ module('service:page-title', function (hooks) {
     list.push(first);
     list.push(second);
 
-    assert.strictEqual(first.separator, 'a');
-    assert.strictEqual(second.separator, 'a');
+    let tokens = list.get('sortedTokens');
+    assert.strictEqual(tokens[0].separator, 'a');
+    assert.strictEqual(tokens[1].separator, 'a');
   });
 
   test('the separator property is not inherited if explicitly set', function (assert) {
@@ -81,8 +82,9 @@ module('service:page-title', function (hooks) {
     list.push(first);
     list.push(second);
 
-    assert.strictEqual(first.separator, 'a');
-    assert.strictEqual(second.separator, 'b');
+    let tokens = list.get('sortedTokens');
+    assert.strictEqual(tokens[0].separator, 'b');
+    assert.strictEqual(tokens[1].separator, 'a');
   });
 
   test('the prepend property is inherited by the previous token', function (assert) {
