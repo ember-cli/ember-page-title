@@ -1,0 +1,116 @@
+{
+  "name": "ember-page-title",
+  "version": "9.0.3",
+  "description": "Page Titles for Ember applications",
+  "keywords": [
+    "ember-addon",
+    "page title",
+    "title",
+    "component",
+    "fastboot"
+  ],
+  "license": "MIT",
+  "author": "Tim Evans <tim.c.evans@me.com>",
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./_app_/*": {
+      "default": "./dist/_app_/*"
+    },
+    "./services/page-title": {
+      "types": "./declarations/services/page-title.d.ts",
+      "default": "./dist/services/page-title.js"
+    },
+    "./helpers/page-title": {
+      "types": "./declarations/helpers/page-title.d.ts",
+      "default": "./dist/helpers/page-title.js"
+    },
+    "./test-support": {
+      "types": "./declarations/test-support/index.d.ts",
+      "default": "./dist/test-support/index.js"
+    },
+    "./template-registry": {
+      "types": "./declarations/template-registry.d.ts"
+    },
+    "./service-registry": {
+      "types": "./declarations/service-registry.d.ts"
+    },
+    "./addon-main.js": "./addon-main.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./declarations/*.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "addon-main.js",
+    "dist",
+    "declarations"
+  ],
+  "repository": "https://github.com/ember-cli/ember-page-title",
+  "scripts": {
+    "build": "rollup --config",
+    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "glint --declaration",
+    "start": "rollup --config --watch --no-watch.clearScreen"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.8.7",
+    "@simple-dom/document": "^1.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/eslint-parser": "^7.23.3",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-decorators": "^7.23.6",
+    "@embroider/addon-dev": "^4.1.3",
+    "@glint/core": "^1.5.2",
+    "@glint/environment-ember-loose": "^1.5.2",
+    "@glint/environment-ember-template-imports": "^1.5.2",
+    "@glint/template": "^1.5.2",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@tsconfig/ember": "^3.0.3",
+    "@types/rsvp": "^4.0.8",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "concurrently": "^8.2.2",
+    "ember-source": "^5.5.0",
+    "ember-template-lint": "^6.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^12.5.0",
+    "eslint-plugin-jsonc": "^2.11.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "execa": "^8.0.1",
+    "fix-bad-declaration-output": "^1.0.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.1.1",
+    "rollup": "^4.9.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": "16.* || >= 18"
+  },
+  "ember-addon": {
+    "demoURL": "https://ember-cli.github.io/ember-page-title",
+    "main": "addon-main.js",
+    "type": "addon",
+    "version": 2,
+    "app-js": {
+      "./helpers/page-title.js": "./dist/_app_/helpers/page-title.js",
+      "./services/page-title.js": "./dist/_app_/services/page-title.js"
+    }
+  },
+  "homepage": "https://ember-cli.github.io/ember-page-title",
+  "volta": {
+    "extends": "../package.json"
+  }
+}
