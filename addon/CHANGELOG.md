@@ -1,4 +1,14 @@
 # Changelog
+## Release (2025-08-22)
+
+ember-page-title 9.0.3 (patch)
+
+#### :bug: Bug Fix
+* `ember-page-title`, `test-app`
+  * [#301](https://github.com/ember-cli/ember-page-title/pull/301) Fixed multiple custom separators ([@rykov](https://github.com/rykov))
+
+#### Committers: 1
+- Michael Rykov ([@rykov](https://github.com/rykov))
 ## Release (2025-05-15)
 
 ember-page-title 9.0.2 (patch)
