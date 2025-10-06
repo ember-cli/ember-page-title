@@ -1,10 +1,12 @@
 import { scheduleOnce } from '@ember/runloop';
-import Service, { service } from '@ember/service';
+import { service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
 import { assert } from '@ember/debug';
 import type ApplicationInstance from '@ember/application/instance';
 import type RouterService from '@ember/routing/router-service';
 import type Owner from '@ember/owner';
+import { setOwner } from '@ember/owner';
+import { associateDestroyableChild } from '@ember/destroyable';
 
 import type {
   FastBootDocument,
@@ -36,10 +38,9 @@ function hasPageTitleConfig(
 const configKeys = ['separator', 'prepend', 'replace'] as const;
 
 /**
-  @class page-title
-  @extends Ember.Service
+  @internal
  */
-export default class PageTitleService extends Service {
+export class PageTitleManager {
   @service('router') declare router: RouterService;
 
   // in fastboot context "document" is instance of
@@ -60,7 +61,9 @@ export default class PageTitleService extends Service {
   };
 
   constructor(owner: Owner) {
-    super(owner);
+    setOwner(this, owner);
+    associateDestroyableChild(this, owner);
+
     this._validateExistingTitleElement();
 
     if (hasResolveRegistration(owner)) {
