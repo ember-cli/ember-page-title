@@ -1,9 +1,8 @@
-import { service } from '@ember/service';
 import Helper from '@ember/component/helper';
 import { guidFor } from '@ember/object/internals';
 
 import type Owner from '@ember/owner';
-import type PageTitleService from '../services/page-title.ts';
+import type PageTitleManager from './manager.ts';
 import type { PageTitleToken } from '../private-types.ts';
 
 export type PageTitleHelperOptions = Pick<
@@ -32,12 +31,14 @@ interface Signature {
  * ```
  */
 export default class PageTitle extends Helper<Signature> {
-  @service('page-title') declare tokens: PageTitleService;
+  declare tokens: PageTitleManager;
 
   tokenId = guidFor(this);
 
   constructor(owner: Owner) {
     super(owner);
+
+    this.tokens = new PageTitleManager(owner);
     this.tokens.push({ id: this.tokenId });
   }
 

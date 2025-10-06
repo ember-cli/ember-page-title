@@ -18,15 +18,14 @@ export default {
     // addon. Anything not listed here may get optimized away.
     addon.publicEntrypoints([
       'index.js',
-      'helpers/**/*.js',
-      'services/**/*.js',
+      'helpers/page-title.js',
       'test-support/index.js',
     ]),
 
     // These are the modules that should get reexported into the traditional
     // "app" tree. Things in here should also be in publicEntrypoints above, but
     // not everything in publicEntrypoints necessarily needs to go here.
-    addon.appReexports(['helpers/**/*.js', 'services/**/*.js']),
+    addon.appReexports(['helpers/**/*.js']),
 
     // This babel config should *not* apply presets or compile away ES modules.
     // It exists only to provide development niceties for you, like automatic
