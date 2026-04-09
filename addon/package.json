@@ -98,7 +98,7 @@
     "typescript": "^5.3.3"
   },
   "engines": {
-    "node": "16.* || >= 18"
+    "node": ">= 18"
   },
   "ember-addon": {
     "demoURL": "https://ember-cli.github.io/ember-page-title",
