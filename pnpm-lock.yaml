@@ -132,6 +132,9 @@ importers:
       '@ember/test-helpers':
         specifier: ^5.4.1
         version: 5.4.1(@glint/template@1.7.7)
+      '@embroider/macros':
+        specifier: ^1.20.2
+        version: 1.20.2(@glint/template@1.7.7)
       '@glimmer/component':
         specifier: ^2.0.0
         version: 2.1.1
