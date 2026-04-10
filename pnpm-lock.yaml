@@ -1861,7 +1861,7 @@ packages:
       '@babel/core':
         optional: true
     dependencies:
-      '@babel/core': 7.29.0
+      '@babel/core': 7.29.0(supports-color@8.1.1)
       '@babel/helper-plugin-utils': 7.28.6
     dev: true
 
