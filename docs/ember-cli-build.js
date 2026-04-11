@@ -36,9 +36,6 @@ module.exports = function (defaults) {
     sassOptions: {
       includePaths: ['app'],
     },
-    svg: {
-      paths: ['public/assets/images'],
-    },
   });
   return app.toTree();
 };
