@@ -97,9 +97,6 @@
     "rollup": "^4.9.1",
     "typescript": "^5.3.3"
   },
-  "engines": {
-    "node": ">= 18"
-  },
   "ember-addon": {
     "demoURL": "https://ember-cli.github.io/ember-page-title",
     "main": "addon-main.js",
