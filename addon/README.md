@@ -104,6 +104,10 @@ module('Acceptance | Register Page', function (hooks) {
 });
 ```
 
+### TypeScript and Glint v2
+
+There is nothing to configure as only gjs/gts is supported
+
 ### TypeScript and Glint
 
 If your project uses loose-mode templates, you can merge in the template registry interface provided by ember-page-title, 

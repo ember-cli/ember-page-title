@@ -42,7 +42,7 @@
     "@embroider/core": "^3.5.0",
     "@embroider/macros": "^1.16.10",
     "@embroider/webpack": "^4.0.9",
-    "@glimmer/component": "^1.0.4",
+    "@glimmer/component": "^2.1.1",
     "@glimmer/tracking": "^1.0.4",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",

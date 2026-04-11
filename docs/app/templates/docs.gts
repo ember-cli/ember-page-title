@@ -1,0 +1,335 @@
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import { pageTitle } from 'ember-page-title';
+import { Input } from '@ember/component';
+import highlight from 'docs/helpers/highlight';
+import WindowPane from 'docs/components/window-pane';
+import PageTitlePane from 'docs/components/page-title-pane';
+import { IconSvg, EmberLogoSvg, ArrowSvg } from 'docs/components/icons';
+
+interface Signature {
+  Args: {
+    model: {
+      title: string;
+      post: {
+        title: string;
+      };
+    };
+  };
+}
+
+const DocsRoute: TemplateOnlyComponent<Signature> = <template>
+  {{! template-lint-disable no-builtin-form-components }}
+  {{pageTitle @model.title}}
+
+  <div id='index'>
+    <header>
+      <h1>
+        <IconSvg /> ember-page-title
+      </h1>
+      <nav>
+        <a href='#usage'>
+          Usage
+        </a>
+        <a href='https://github.com/ember-cli/ember-page-title' target='__blank'>
+          GitHub
+        </a>
+      </nav>
+    </header>
+
+    <div class='hero'>
+      <p>
+        Page title management
+        <br />
+        for <EmberLogoSvg /> apps
+      </p>
+      <a class='more' href='#installation'>
+        <ArrowSvg />
+      </a>
+    </div>
+
+    <main>
+      <section id='installation'>
+        <h2>
+          Installation
+        </h2>
+        <div class='grid'>
+          <WindowPane>
+            <span class='ps1'>
+              &gt;
+            </span>
+            ember install ember-page-title
+          </WindowPane>
+        </div>
+      </section>
+
+      <section id='usage'>
+        <h2>
+          Usage
+        </h2>
+        <div class='grid'>
+          <div class='info'>
+            <p>
+              To start using ember-page-title, add the name of your application into
+              <code class='inline'>
+                application.hbs
+              </code>
+            </p>
+
+            <p>
+              This sets the title for your application. When your application loads, you should see the title &ldquo;{{@model.title
+              }}&rdquo; appear in the window. Try changing the value below to change the title of this page.
+            </p>
+
+            <label>
+              Page Title
+              <Input @type='text' @value={{@model.title}} placeholder='My App' data-test-edit-title />
+            </label>
+          </div>
+
+          <WindowPane @title='templates/application.hbs'>
+            <code>
+              {{highlight '{{page-title "' @model.title '"}}'}}
+            </code>
+          </WindowPane>
+        </div>
+
+        <div class='grid'>
+          <div class='info'>
+            <p>
+              By default, using the helper will allow an interaction where additional titles are appended to the root:
+            </p>
+          </div>
+
+          <PageTitlePane
+            @title="{{@model.title}} | Posts | {{@model.post.title}}" as |p|
+          >
+            <p.template>
+              <code>
+                {{highlight '{{page-title "' @model.title '"}}'}}
+              </code>
+              <p.template>
+                <code>
+                  {{highlight '{{page-title "Posts"}}'}}
+                </code>
+                <p.template>
+                  <code>
+                    {{highlight '{{page-title @model.post.title}}'}}
+                  </code>
+                </p.template>
+              </p.template>
+            </p.template>
+          </PageTitlePane>
+        </div>
+
+        <div class='grid'>
+          <div class='info'>
+            <p>
+              You can change the separator by specifying the
+              <code class='inline'>
+                <span class='attribute'>
+                  separator
+                </span>
+              </code>
+              attribute.
+            </p>
+          </div>
+
+          <PageTitlePane
+            @title="{{@model.title}} > Posts | {{@model.post.title}}" as |p|
+          >
+            <p.template>
+              <code>
+                {{highlight '{{page-title "' @model.title '" separator=" > "}}'}}
+              </code>
+              <p.template>
+                <code>
+                  {{highlight '{{page-title "Posts"}}'}}
+                </code>
+                <p.template>
+                  <code>
+                    {{highlight '{{page-title @model.post.title}}'}}
+                  </code>
+                </p.template>
+              </p.template>
+            </p.template>
+          </PageTitlePane>
+        </div>
+
+        <div class='grid'>
+          <div class='info'>
+            <p>
+              Separators can be changed at arbitrary levels:
+            </p>
+          </div>
+
+          <PageTitlePane
+            @title="{{@model.title}}: Posts > {{@model.post.title}}" as |p|
+          >
+            <p.template>
+              <code>
+                {{highlight '{{page-title "' @model.title '" separator=": "}}'}}
+              </code>
+              <p.template>
+                <code>
+                  {{highlight '{{page-title "Posts" separator=" > "}}'}}
+                </code>
+                <p.template>
+                  <code>
+                    {{highlight '{{page-title @model.post.title}}'}}
+                  </code>
+                </p.template>
+              </p.template>
+            </p.template>
+          </PageTitlePane>
+        </div>
+
+        <div class='grid'>
+          <div class='info'>
+            <p>
+              Titles can be prepended to the parent, by setting the
+              <code class='inline'>
+                <span class='attribute'>
+                  prepend
+                </span>
+              </code>
+              attribute to
+              <code class='inline'>
+                {{highlight 'true'}}
+              </code>
+              .
+            </p>
+          </div>
+
+          <PageTitlePane
+            @title="{{@model.title}} | Posts | {{@model.post.title}}" as |p|
+          >
+            <p.template>
+              <code>
+                {{highlight '{{page-title "' @model.title '" prepend=true}}'}}
+              </code>
+              <p.template>
+                <code>
+                  {{highlight '{{page-title "Posts"}}'}}
+                </code>
+                <p.template>
+                  <code>
+                    {{highlight '{{page-title @model.post.title}}'}}
+                  </code>
+                </p.template>
+              </p.template>
+            </p.template>
+          </PageTitlePane>
+        </div>
+
+        <div class='grid'>
+          <div class='info'>
+            <p>
+              This allows one to swap the order at arbitrary levels:
+            </p>
+          </div>
+
+          <PageTitlePane
+            @title="Posts | {{@model.title}} | {{@model.post.title}}" as |p|
+          >
+            <p.template>
+              <code>
+                {{highlight '{{page-title "' @model.title '"}}'}}
+              </code>
+              <p.template>
+                <code>
+                  {{highlight '{{page-title "Posts" prepend=true}}'}}
+                </code>
+                <p.template>
+                  <code>
+                    {{highlight '{{page-title @model.post.title}}'}}
+                  </code>
+                </p.template>
+              </p.template>
+            </p.template>
+          </PageTitlePane>
+        </div>
+
+        <div class='grid'>
+          <div class='info'>
+            <p>
+              And for special templates that need to complete control over the title, set the
+              <code class='inline'>
+                <span class='attribute'>
+                  replace
+                </span>
+              </code>
+              attribute to
+              <code class='inline'>
+                {{highlight 'true'}}
+              </code>
+              . This will only apply for that level.
+            </p>
+          </div>
+
+          <PageTitlePane @title="Posts | {{@model.post.title}}" as |p|>
+            <p.template>
+              <code>
+                {{highlight '{{page-title "' @model.title '"}}'}}
+              </code>
+              <p.template>
+                <code>
+                  {{highlight '{{page-title "Posts" replace=true}}'}}
+                </code>
+                <p.template>
+                  <code>
+                    {{highlight '{{page-title @model.post.title}}'}}
+                  </code>
+                </p.template>
+              </p.template>
+            </p.template>
+          </PageTitlePane>
+        </div>
+
+        <div class='grid'>
+          <div class='info'>
+            <p>
+              In addition, there's no limit to the amount of titles you can put in a route:
+            </p>
+          </div>
+
+          <PageTitlePane
+            @title="{{@model.title}} | Posts | {{@model.post.title}}" as |p|
+          >
+            <p.template>
+              <code>
+                {{highlight '{{page-title "' @model.title '"}}'}}
+              </code>
+              <p.template>
+                <code>
+                  {{highlight '{{page-title "Posts"}}'}}
+                </code>
+                <code>
+                  {{highlight '{{page-title @model.post.title}}'}}
+                </code>
+              </p.template>
+            </p.template>
+          </PageTitlePane>
+        </div>
+
+        <div class='grid'>
+          <div class='info'>
+            <p>
+              Dynamic tokens are available by providing multiple parameters to the helper:
+            </p>
+          </div>
+          <PageTitlePane @title="{{@model.title}} ({{@model.post.title}})" as |p|>
+            <p.template>
+              <code>
+                {{highlight
+                  '{{page-title @model.title " (" @model.post.title ")"}}'
+                }}
+              </code>
+            </p.template>
+          </PageTitlePane>
+        </div>
+      </section>
+    </main>
+  </div>
+</template>;
+
+export default DocsRoute;

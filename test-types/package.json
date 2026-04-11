@@ -5,8 +5,9 @@
         "test": "tsc --noEmit"
     },
     "devDependencies": {
-        "@glimmer/component": "^1.0.4",
-        "@glint/template": "^1.5.2",
+        "@glimmer/component": "^2.1.1",
+        "@glint/ember-tsc": "^1.5.0",
+        "@glint/template": "^1.7.7",
         "@tsconfig/node20": "^20.1.2",
         "@tsconfig/strictest": "^2.0.2",
         "ember-page-title": "workspace:*",

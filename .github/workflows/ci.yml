@@ -103,8 +103,8 @@ jobs:
         working-directory: ./docs
         run: |
           pnpm tsc -v
-          pnpm glint --version
-          pnpm glint
+          pnpm ember-tsc --version
+          pnpm ember-tsc
 
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
