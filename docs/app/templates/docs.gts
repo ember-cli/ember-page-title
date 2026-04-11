@@ -1,14 +1,18 @@
-import RouteTemplate from 'ember-route-template';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { Input } from '@ember/component';
 import highlight from 'docs/helpers/highlight';
 import WindowPane from 'docs/components/window-pane';
 import PageTitlePane from 'docs/components/page-title-pane';
 
-interface Model {
-  title: string;
-  post: {
-    title: string;
+interface Signature {
+  Args: {
+    model: {
+      title: string;
+      post: {
+        title: string;
+      };
+    };
   };
 }
 
@@ -45,7 +49,7 @@ const ArrowSvg = <template>
   </svg>
 </template>;
 
-export default RouteTemplate<{ model: Model }>(<template>
+const DocsRoute: TemplateOnlyComponent<Signature> = <template>
   {{! template-lint-disable no-builtin-form-components }}
   {{pageTitle @model.title}}
 
@@ -165,7 +169,7 @@ export default RouteTemplate<{ model: Model }>(<template>
           <PageTitlePane
             @title="{{@model.title}} > Posts | {{@model.post.title}}" as |p|
           >
-            <p.template @separator='>'>
+            <p.template>
               <code>
                 {{highlight '{{page-title "' @model.title '" separator=" > "}}'}}
               </code>
@@ -358,4 +362,6 @@ export default RouteTemplate<{ model: Model }>(<template>
       </section>
     </main>
   </div>
-</template>);
+</template>;
+
+export default DocsRoute;

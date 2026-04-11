@@ -11,7 +11,7 @@ interface Signature {
   Blocks: {
     default: [
       components: {
-        template: ComponentLike<{ Args: { separator?: string }; Blocks: { default: [] } }>;
+        template: ComponentLike<{ Blocks: { default: [] } }>;
       },
     ];
   };
@@ -26,7 +26,7 @@ const PageTitlePane: TemplateOnlyComponent<Signature> = <template>
       {{@title}}
     </header>
     <div>
-      {{yield (hash template=(component NestedTemplate))}}
+      {{yield (hash template=NestedTemplate)}}
     </div>
   </div>
 </template>;
