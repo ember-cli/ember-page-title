@@ -426,6 +426,9 @@ importers:
       '@glimmer/component':
         specifier: ^1.0.4
         version: 1.1.2
+      '@glint/ember-tsc':
+        specifier: ^1.5.0
+        version: 1.5.0(typescript@6.0.2)
       '@glint/template':
         specifier: ^1.7.7
         version: 1.7.7
@@ -2042,6 +2045,19 @@ packages:
       - supports-color
     dev: true
 
+  /@babel/plugin-transform-dotall-regex@7.23.3:
+    resolution: {integrity: sha512-vgnFYDHAKzFaTVp+mneDsIEbnJ2Np/9ng9iviHw3P/KVcgONxpNULEW/51Z/BaFojG2GI2GwwXck5uV1+1NOYQ==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+    dev: true
+
   /@babel/plugin-transform-dotall-regex@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-vgnFYDHAKzFaTVp+mneDsIEbnJ2Np/9ng9iviHw3P/KVcgONxpNULEW/51Z/BaFojG2GI2GwwXck5uV1+1NOYQ==}
     engines: {node: '>=6.9.0'}
@@ -2498,6 +2514,19 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@babel/plugin-transform-named-capturing-groups-regex@7.22.5:
+    resolution: {integrity: sha512-YgLLKmS3aUBhHaxp5hi1WJTgOUb/NCuDHzGT9z9WTt3YG+CPRhJs6nprbStx6DnWM4dh6gt7SU3sZodbZ08adQ==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
     dev: true
 
   /@babel/plugin-transform-named-capturing-groups-regex@7.22.5(@babel/core@7.23.6):
@@ -3230,6 +3259,19 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     dev: true
 
+  /@babel/plugin-transform-unicode-property-regex@7.23.3:
+    resolution: {integrity: sha512-KcLIm+pDZkWZQAFJ9pdfmh89EwVfmNovFBcXko8szpBeF8z68kWIPeKlmSOkT9BXJxs2C0uk+5LxoxIv62MROA==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+    dev: true
+
   /@babel/plugin-transform-unicode-property-regex@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-KcLIm+pDZkWZQAFJ9pdfmh89EwVfmNovFBcXko8szpBeF8z68kWIPeKlmSOkT9BXJxs2C0uk+5LxoxIv62MROA==}
     engines: {node: '>=6.9.0'}
@@ -3258,6 +3300,19 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     dev: true
 
+  /@babel/plugin-transform-unicode-regex@7.23.3:
+    resolution: {integrity: sha512-wMHpNA4x2cIA32b/ci3AfwNgheiva2W0WUKWTK7vBHBhDKfPsc5cFGNWm69WBqpwd86u1qwZ9PWevKqm1A3yAw==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+    dev: true
+
   /@babel/plugin-transform-unicode-regex@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-wMHpNA4x2cIA32b/ci3AfwNgheiva2W0WUKWTK7vBHBhDKfPsc5cFGNWm69WBqpwd86u1qwZ9PWevKqm1A3yAw==}
     engines: {node: '>=6.9.0'}
@@ -3284,6 +3339,19 @@ packages:
       '@babel/core': 7.29.0
       '@babel/helper-create-regexp-features-plugin': 7.28.5(@babel/core@7.29.0)
       '@babel/helper-plugin-utils': 7.28.6
+    dev: true
+
+  /@babel/plugin-transform-unicode-sets-regex@7.23.3:
+    resolution: {integrity: sha512-W7lliA/v9bNR83Qc3q1ip9CQMZ09CcHDbHfbLRDNuAhn1Mvkr1ZNF7hPmztMQvtTGVLJ9m8IZqWsTkXOml8dbw==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
     dev: true
 
   /@babel/plugin-transform-unicode-sets-regex@7.23.3(@babel/core@7.23.6):
@@ -3338,7 +3406,7 @@ packages:
       '@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-bugfix-v8-static-class-fields-redefine-readonly': 7.23.3(@babel/core@7.23.6)
-      '@babel/plugin-proposal-private-property-in-object': 7.21.0-placeholder-for-preset-env.2(@babel/core@7.23.6)
+      '@babel/plugin-proposal-private-property-in-object': 7.21.0-placeholder-for-preset-env.2(@babel/core@7.29.0)
       '@babel/plugin-syntax-async-generators': 7.8.4(@babel/core@7.23.6)
       '@babel/plugin-syntax-class-properties': 7.12.13(@babel/core@7.23.6)
       '@babel/plugin-syntax-class-static-block': 7.14.5(@babel/core@7.23.6)
@@ -3356,7 +3424,7 @@ packages:
       '@babel/plugin-syntax-optional-chaining': 7.8.3(@babel/core@7.23.6)
       '@babel/plugin-syntax-private-property-in-object': 7.14.5(@babel/core@7.23.6)
       '@babel/plugin-syntax-top-level-await': 7.14.5(@babel/core@7.23.6)
-      '@babel/plugin-syntax-unicode-sets-regex': 7.18.6(@babel/core@7.23.6)
+      '@babel/plugin-syntax-unicode-sets-regex': 7.18.6(@babel/core@7.29.0)
       '@babel/plugin-transform-arrow-functions': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-async-generator-functions': 7.23.4(@babel/core@7.23.6)
       '@babel/plugin-transform-async-to-generator': 7.23.3(@babel/core@7.23.6)
@@ -3367,7 +3435,7 @@ packages:
       '@babel/plugin-transform-classes': 7.23.5
       '@babel/plugin-transform-computed-properties': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-destructuring': 7.23.3(@babel/core@7.23.6)
-      '@babel/plugin-transform-dotall-regex': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-dotall-regex': 7.23.3
       '@babel/plugin-transform-duplicate-keys': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-dynamic-import': 7.23.4(@babel/core@7.23.6)
       '@babel/plugin-transform-exponentiation-operator': 7.23.3(@babel/core@7.23.6)
@@ -3382,7 +3450,7 @@ packages:
       '@babel/plugin-transform-modules-commonjs': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-modules-systemjs': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-modules-umd': 7.23.3(@babel/core@7.23.6)
-      '@babel/plugin-transform-named-capturing-groups-regex': 7.22.5(@babel/core@7.23.6)
+      '@babel/plugin-transform-named-capturing-groups-regex': 7.22.5
       '@babel/plugin-transform-new-target': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-nullish-coalescing-operator': 7.23.4(@babel/core@7.23.6)
       '@babel/plugin-transform-numeric-separator': 7.23.4(@babel/core@7.23.6)
@@ -3402,10 +3470,10 @@ packages:
       '@babel/plugin-transform-template-literals': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-typeof-symbol': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-unicode-escapes': 7.23.3(@babel/core@7.23.6)
-      '@babel/plugin-transform-unicode-property-regex': 7.23.3(@babel/core@7.23.6)
-      '@babel/plugin-transform-unicode-regex': 7.23.3(@babel/core@7.23.6)
-      '@babel/plugin-transform-unicode-sets-regex': 7.23.3(@babel/core@7.23.6)
-      '@babel/preset-modules': 0.1.6-no-external-plugins(@babel/core@7.23.6)
+      '@babel/plugin-transform-unicode-property-regex': 7.23.3
+      '@babel/plugin-transform-unicode-regex': 7.23.3
+      '@babel/plugin-transform-unicode-sets-regex': 7.23.3
+      '@babel/preset-modules': 0.1.6-no-external-plugins(@babel/core@7.29.0)
       babel-plugin-polyfill-corejs2: 0.4.7(@babel/core@7.23.6)
       babel-plugin-polyfill-corejs3: 0.8.7(@babel/core@7.23.6)
       babel-plugin-polyfill-regenerator: 0.5.4(@babel/core@7.23.6)
@@ -9551,7 +9619,7 @@ packages:
       '@babel/preset-env': 7.23.6
       '@babel/runtime': 7.12.18
       amd-name-resolver: 1.3.1
-      babel-plugin-debug-macros: 0.3.4(@babel/core@7.23.6)
+      babel-plugin-debug-macros: 0.3.4(@babel/core@7.29.0)
       babel-plugin-ember-data-packages-polyfill: 0.1.2
       babel-plugin-ember-modules-api-polyfill: 3.5.0
       babel-plugin-module-resolver: 5.0.0
