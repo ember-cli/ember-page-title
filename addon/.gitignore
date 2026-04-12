@@ -4,8 +4,6 @@
 /dist/
 /declarations/
 /tmp/
-*.d.ts
-*.d.ts.map
 
 # dependencies
 /bower_components/

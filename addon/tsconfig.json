@@ -5,6 +5,7 @@
     "unpublished-development-types/**/*"
   ],
   "compilerOptions": {
+    "declarationDir": "declarations",
     "allowJs": true,
     "rootDir": "./src",
     "types": ["ember-source/types", "@glint/ember-tsc/types"]
