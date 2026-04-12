@@ -38,7 +38,10 @@ export default {
     // `dependencies` and `peerDependencies` as well as standard Ember-provided
     // package names.
     addon.dependencies(),
-    addon.declarations(),
+    addon.declarations(
+      'declarations',
+      'pnpm ember-tsc --declaration --declarationDir declarations',
+    ),
 
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),
