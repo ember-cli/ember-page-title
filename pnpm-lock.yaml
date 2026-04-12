@@ -5,8 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@glimmer/manager': '>= 0.84.3'
-  '@glimmer/validator': '>= 0.84.3'
+  ember-cli-htmlbars: ^7.0.0
 
 importers:
 
@@ -69,7 +68,7 @@ importers:
         version: 8.2.2
       ember-source:
         specifier: ^6.12.0
-        version: 6.12.0(@glimmer/component@1.1.2)
+        version: 6.12.0(@glimmer/component@2.1.1)
       ember-template-lint:
         specifier: ^6.1.0
         version: 6.1.0
@@ -112,7 +111,7 @@ importers:
     devDependencies:
       '@babel/eslint-parser':
         specifier: ^7.23.3
-        version: 7.26.8(eslint@8.56.0)
+        version: 7.26.8(@babel/core@7.23.6)(eslint@8.56.0)
       '@ember/app-tsconfig':
         specifier: ^2.0.0
         version: 2.0.0
@@ -155,6 +154,9 @@ importers:
       broccoli-asset-rev:
         specifier: ^3.0.0
         version: 3.0.0
+      concurrently:
+        specifier: ^8.2.2
+        version: 8.2.2
       ember-auto-import:
         specifier: ^2.7.2
         version: 2.7.2(@glint/template@1.7.7)(webpack@5.89.0)
@@ -174,8 +176,8 @@ importers:
         specifier: ^0.2.2
         version: 0.2.2
       ember-cli-htmlbars:
-        specifier: ^6.3.0
-        version: 6.3.0
+        specifier: ^7.0.0
+        version: 7.0.1(ember-source@6.12.0)
       ember-cli-inject-live-reload:
         specifier: ^2.1.0
         version: 2.1.0
@@ -226,7 +228,7 @@ importers:
         version: 9.1.0(eslint@8.56.0)
       eslint-plugin-ember:
         specifier: ^12.5.0
-        version: 12.5.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
+        version: 12.5.0(@babel/core@7.23.6)(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
       eslint-plugin-jsonc:
         specifier: ^2.11.2
         version: 2.11.2(eslint@8.56.0)
@@ -278,7 +280,7 @@ importers:
     devDependencies:
       '@babel/eslint-parser':
         specifier: ^7.23.3
-        version: 7.26.8(eslint@8.56.0)
+        version: 7.26.8(@babel/core@7.23.6)(eslint@8.56.0)
       '@ember/optional-features':
         specifier: ^2.0.0
         version: 2.0.0
@@ -334,8 +336,8 @@ importers:
         specifier: ^0.6.2
         version: 0.6.2(@ember/test-helpers@3.2.1)(ember-source@6.12.0)(webpack@5.89.0)
       ember-cli-htmlbars:
-        specifier: ^6.3.0
-        version: 6.3.0
+        specifier: ^7.0.0
+        version: 7.0.1(ember-source@6.12.0)
       ember-cli-inject-live-reload:
         specifier: ^2.1.0
         version: 2.1.0
@@ -380,7 +382,7 @@ importers:
         version: 9.1.0(eslint@8.56.0)
       eslint-plugin-ember:
         specifier: ^12.5.0
-        version: 12.5.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
+        version: 12.5.0(@babel/core@7.23.6)(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
       eslint-plugin-jsonc:
         specifier: ^2.11.2
         version: 2.11.2(eslint@8.56.0)
@@ -560,22 +562,6 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.23.6(supports-color@8.1.1)
-      '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
-      eslint: 8.56.0
-      eslint-visitor-keys: 2.1.0
-      semver: 6.3.1
-    dev: true
-
-  /@babel/eslint-parser@7.26.8(eslint@8.56.0):
-    resolution: {integrity: sha512-3tBctaHRW6xSub26z7n8uyOTwwUsCdvIug/oxBH9n6yCO5hMj2vwDJAo7RbBMKrM7P+W2j61zLKviJQFGOYKMg==}
-    engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
-    peerDependencies:
-      '@babel/core': ^7.11.0
-      eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-    dependencies:
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
       eslint: 8.56.0
       eslint-visitor-keys: 2.1.0
@@ -2061,19 +2047,6 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/plugin-transform-dotall-regex@7.23.3:
-    resolution: {integrity: sha512-vgnFYDHAKzFaTVp+mneDsIEbnJ2Np/9ng9iviHw3P/KVcgONxpNULEW/51Z/BaFojG2GI2GwwXck5uV1+1NOYQ==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-    dependencies:
-      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
-      '@babel/helper-plugin-utils': 7.26.5
-    dev: true
-
   /@babel/plugin-transform-dotall-regex@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-vgnFYDHAKzFaTVp+mneDsIEbnJ2Np/9ng9iviHw3P/KVcgONxpNULEW/51Z/BaFojG2GI2GwwXck5uV1+1NOYQ==}
     engines: {node: '>=6.9.0'}
@@ -2530,19 +2503,6 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@babel/plugin-transform-named-capturing-groups-regex@7.22.5:
-    resolution: {integrity: sha512-YgLLKmS3aUBhHaxp5hi1WJTgOUb/NCuDHzGT9z9WTt3YG+CPRhJs6nprbStx6DnWM4dh6gt7SU3sZodbZ08adQ==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-    dependencies:
-      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
-      '@babel/helper-plugin-utils': 7.26.5
     dev: true
 
   /@babel/plugin-transform-named-capturing-groups-regex@7.22.5(@babel/core@7.23.6):
@@ -3236,19 +3196,6 @@ packages:
       '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.23.6)
     dev: true
 
-  /@babel/plugin-transform-typescript@7.5.5:
-    resolution: {integrity: sha512-pehKf4m640myZu5B2ZviLaiBlxMCjSZ1qTEO459AXKX5GnPueyulJeCqZFs1nz/Ya2dDzXQ1NxZ/kKNWyD4h6w==}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-    dependencies:
-      '@babel/helper-create-class-features-plugin': 7.23.6(@babel/core@7.23.6)
-      '@babel/helper-plugin-utils': 7.26.5
-      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.23.6)
-    dev: true
-
   /@babel/plugin-transform-unicode-escapes@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-OMCUx/bU6ChE3r4+ZdylEqAjaQgHAgipgW8nsCfu5pGqDcFytVd91AwRvUJSBZDz0exPGgnjoqhgRYLRjFZc9Q==}
     engines: {node: '>=6.9.0'}
@@ -3273,19 +3220,6 @@ packages:
     dependencies:
       '@babel/core': 7.29.0
       '@babel/helper-plugin-utils': 7.28.6
-    dev: true
-
-  /@babel/plugin-transform-unicode-property-regex@7.23.3:
-    resolution: {integrity: sha512-KcLIm+pDZkWZQAFJ9pdfmh89EwVfmNovFBcXko8szpBeF8z68kWIPeKlmSOkT9BXJxs2C0uk+5LxoxIv62MROA==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-    dependencies:
-      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
-      '@babel/helper-plugin-utils': 7.26.5
     dev: true
 
   /@babel/plugin-transform-unicode-property-regex@7.23.3(@babel/core@7.23.6):
@@ -3316,19 +3250,6 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     dev: true
 
-  /@babel/plugin-transform-unicode-regex@7.23.3:
-    resolution: {integrity: sha512-wMHpNA4x2cIA32b/ci3AfwNgheiva2W0WUKWTK7vBHBhDKfPsc5cFGNWm69WBqpwd86u1qwZ9PWevKqm1A3yAw==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-    dependencies:
-      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
-      '@babel/helper-plugin-utils': 7.26.5
-    dev: true
-
   /@babel/plugin-transform-unicode-regex@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-wMHpNA4x2cIA32b/ci3AfwNgheiva2W0WUKWTK7vBHBhDKfPsc5cFGNWm69WBqpwd86u1qwZ9PWevKqm1A3yAw==}
     engines: {node: '>=6.9.0'}
@@ -3355,19 +3276,6 @@ packages:
       '@babel/core': 7.29.0
       '@babel/helper-create-regexp-features-plugin': 7.28.5(@babel/core@7.29.0)
       '@babel/helper-plugin-utils': 7.28.6
-    dev: true
-
-  /@babel/plugin-transform-unicode-sets-regex@7.23.3:
-    resolution: {integrity: sha512-W7lliA/v9bNR83Qc3q1ip9CQMZ09CcHDbHfbLRDNuAhn1Mvkr1ZNF7hPmztMQvtTGVLJ9m8IZqWsTkXOml8dbw==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-    dependencies:
-      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
-      '@babel/helper-plugin-utils': 7.26.5
     dev: true
 
   /@babel/plugin-transform-unicode-sets-regex@7.23.3(@babel/core@7.23.6):
@@ -3422,7 +3330,7 @@ packages:
       '@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-bugfix-v8-static-class-fields-redefine-readonly': 7.23.3(@babel/core@7.23.6)
-      '@babel/plugin-proposal-private-property-in-object': 7.21.0-placeholder-for-preset-env.2(@babel/core@7.29.0)
+      '@babel/plugin-proposal-private-property-in-object': 7.21.0-placeholder-for-preset-env.2(@babel/core@7.23.6)
       '@babel/plugin-syntax-async-generators': 7.8.4(@babel/core@7.23.6)
       '@babel/plugin-syntax-class-properties': 7.12.13(@babel/core@7.23.6)
       '@babel/plugin-syntax-class-static-block': 7.14.5(@babel/core@7.23.6)
@@ -3440,7 +3348,7 @@ packages:
       '@babel/plugin-syntax-optional-chaining': 7.8.3(@babel/core@7.23.6)
       '@babel/plugin-syntax-private-property-in-object': 7.14.5(@babel/core@7.23.6)
       '@babel/plugin-syntax-top-level-await': 7.14.5(@babel/core@7.23.6)
-      '@babel/plugin-syntax-unicode-sets-regex': 7.18.6(@babel/core@7.29.0)
+      '@babel/plugin-syntax-unicode-sets-regex': 7.18.6(@babel/core@7.23.6)
       '@babel/plugin-transform-arrow-functions': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-async-generator-functions': 7.23.4(@babel/core@7.23.6)
       '@babel/plugin-transform-async-to-generator': 7.23.3(@babel/core@7.23.6)
@@ -3451,7 +3359,7 @@ packages:
       '@babel/plugin-transform-classes': 7.23.5
       '@babel/plugin-transform-computed-properties': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-destructuring': 7.23.3(@babel/core@7.23.6)
-      '@babel/plugin-transform-dotall-regex': 7.23.3
+      '@babel/plugin-transform-dotall-regex': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-duplicate-keys': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-dynamic-import': 7.23.4(@babel/core@7.23.6)
       '@babel/plugin-transform-exponentiation-operator': 7.23.3(@babel/core@7.23.6)
@@ -3466,7 +3374,7 @@ packages:
       '@babel/plugin-transform-modules-commonjs': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-modules-systemjs': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-modules-umd': 7.23.3(@babel/core@7.23.6)
-      '@babel/plugin-transform-named-capturing-groups-regex': 7.22.5
+      '@babel/plugin-transform-named-capturing-groups-regex': 7.22.5(@babel/core@7.23.6)
       '@babel/plugin-transform-new-target': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-nullish-coalescing-operator': 7.23.4(@babel/core@7.23.6)
       '@babel/plugin-transform-numeric-separator': 7.23.4(@babel/core@7.23.6)
@@ -3486,10 +3394,10 @@ packages:
       '@babel/plugin-transform-template-literals': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-typeof-symbol': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-unicode-escapes': 7.23.3(@babel/core@7.23.6)
-      '@babel/plugin-transform-unicode-property-regex': 7.23.3
-      '@babel/plugin-transform-unicode-regex': 7.23.3
-      '@babel/plugin-transform-unicode-sets-regex': 7.23.3
-      '@babel/preset-modules': 0.1.6-no-external-plugins(@babel/core@7.29.0)
+      '@babel/plugin-transform-unicode-property-regex': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-unicode-regex': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-unicode-sets-regex': 7.23.3(@babel/core@7.23.6)
+      '@babel/preset-modules': 0.1.6-no-external-plugins(@babel/core@7.23.6)
       babel-plugin-polyfill-corejs2: 0.4.7(@babel/core@7.23.6)
       babel-plugin-polyfill-corejs3: 0.8.7(@babel/core@7.23.6)
       babel-plugin-polyfill-regenerator: 0.5.4(@babel/core@7.23.6)
@@ -4013,9 +3921,10 @@ packages:
       broccoli-funnel: 3.0.8
       ember-auto-import: 2.7.2(@glint/template@1.7.7)(webpack@5.89.0)
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.3.0
+      ember-cli-htmlbars: 7.0.1(ember-source@6.12.0)
       ember-source: 6.12.0(@glimmer/component@2.1.1)
     transitivePeerDependencies:
+      - '@babel/core'
       - '@glint/template'
       - supports-color
       - webpack
@@ -4421,29 +4330,6 @@ packages:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
     dev: true
 
-  /@glimmer/component@1.1.2:
-    resolution: {integrity: sha512-XyAsEEa4kWOPy+gIdMjJ8XlzA3qrGH55ZDv6nA16ibalCR17k74BI0CztxuRds+Rm6CtbUVgheCVlcCULuqD7A==}
-    engines: {node: 6.* || 8.* || >= 10.*}
-    dependencies:
-      '@glimmer/di': 0.1.11
-      '@glimmer/env': 0.1.7
-      '@glimmer/util': 0.44.0
-      broccoli-file-creator: 2.1.1
-      broccoli-merge-trees: 3.0.2
-      ember-cli-babel: 7.26.11
-      ember-cli-get-component-path-option: 1.0.0
-      ember-cli-is-package-missing: 1.0.0
-      ember-cli-normalize-entity-name: 1.0.0
-      ember-cli-path-utils: 1.0.0
-      ember-cli-string-utils: 1.1.0
-      ember-cli-typescript: 3.0.0
-      ember-cli-version-checker: 3.1.3
-      ember-compatibility-helpers: 1.2.6
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-    dev: true
-
   /@glimmer/component@2.1.1:
     resolution: {integrity: sha512-zFZFaMbWy+9WOcDg/kCgrkGgqkLT39EE4FgyFD0MIkQO5coQsrRZyLsiBu1tbchyM+8hT8jAv+EQVUd8u+MdSQ==}
     engines: {node: '>= 18'}
@@ -4452,10 +4338,6 @@ packages:
       '@glimmer/env': 0.1.7
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@glimmer/di@0.1.11:
-    resolution: {integrity: sha512-moRwafNDwHTnTHzyyZC9D+mUSvYrs1Ak0tRPjjmCghdoHHIvMshVbEnwKb/1WmW5CUlKc2eL9rlAV32n3GiItg==}
     dev: true
 
   /@glimmer/env@0.1.7:
@@ -4468,10 +4350,6 @@ packages:
       '@glimmer/env': 0.1.7
     dev: true
 
-  /@glimmer/global-context@0.93.2:
-    resolution: {integrity: sha512-U5Fdf5nPBrfj8fcoM15u1NTT+/xttiRhR7MXcG1klEjliI9mfnQ5B/WgdeeEkkvVrwgKFTRmI16bt8n3n42Plg==}
-    dev: true
-
   /@glimmer/interfaces@0.84.3:
     resolution: {integrity: sha512-dk32ykoNojt0mvEaIW6Vli5MGTbQo58uy3Epj7ahCgTHmWOKuw/0G83f2UmFprRwFx689YTXG38I/vbpltEjzg==}
     dependencies:
@@ -4480,12 +4358,6 @@ packages:
 
   /@glimmer/interfaces@0.92.3:
     resolution: {integrity: sha512-QwQeA01N+0h+TAi/J7iUnZtRuJy+093hNyagxDQBA6b1wCBw+q+al9+O6gmbWlkWE7EifzmNE1nnrgcecJBlJQ==}
-    dependencies:
-      '@simple-dom/interface': 1.4.0
-    dev: true
-
-  /@glimmer/interfaces@0.94.5:
-    resolution: {integrity: sha512-pH+Q5vEz9hO5GafJCNo1J+UNEKIM3rp0bXIA66FxcsUA9/NfhNO20ZTO+qkPxPePsiJ/S9D6aj78wq3I+5uiCw==}
     dependencies:
       '@simple-dom/interface': 1.4.0
     dev: true
@@ -4504,7 +4376,7 @@ packages:
       '@glimmer/global-context': 0.84.3
       '@glimmer/interfaces': 0.84.3
       '@glimmer/util': 0.84.3
-      '@glimmer/validator': 0.94.6
+      '@glimmer/validator': 0.84.3
     dev: true
 
   /@glimmer/syntax@0.84.3:
@@ -4540,11 +4412,7 @@ packages:
     resolution: {integrity: sha512-cyV32zsHh+CnftuRX84ALZpd2rpbDrhLhJnTXn9W//QpqdRZ5rdMsxSY9fOsj0CKEc706tmEU299oNnDc0d7tA==}
     dependencies:
       '@glimmer/env': 0.1.7
-      '@glimmer/validator': 0.94.6
-    dev: true
-
-  /@glimmer/util@0.44.0:
-    resolution: {integrity: sha512-duAsm30uVK9jSysElCbLyU6QQYO2X9iLDLBIBUcCqck9qN1o3tK2qWiHbGK5d6g8E2AJ4H88UrfElkyaJlGrwg==}
+      '@glimmer/validator': 0.44.0
     dev: true
 
   /@glimmer/util@0.84.3:
@@ -4568,11 +4436,15 @@ packages:
       '@glimmer/interfaces': 0.94.6
     dev: true
 
-  /@glimmer/validator@0.94.6:
-    resolution: {integrity: sha512-s0pzTB+lHXa6eQCSJe57YNNgPsjaY+EmOLH6OsJrWetszltV5fSy2PVjk+2NavsZ6wjaxLKwTd0q3PGPXz/rlQ==}
+  /@glimmer/validator@0.44.0:
+    resolution: {integrity: sha512-i01plR0EgFVz69GDrEuFgq1NheIjZcyTy3c7q+w7d096ddPVeVcRzU3LKaqCfovvLJ+6lJx40j45ecycASUUyw==}
+    dev: true
+
+  /@glimmer/validator@0.84.3:
+    resolution: {integrity: sha512-RTBV4TokUB0vI31UC7ikpV7lOYpWUlyqaKV//pRC4pexYMlmqnVhkFrdiimB/R1XyNdUOQUmnIAcdic39NkbhQ==}
     dependencies:
-      '@glimmer/global-context': 0.93.2
-      '@glimmer/interfaces': 0.94.5
+      '@glimmer/env': 0.1.7
+      '@glimmer/global-context': 0.84.3
     dev: true
 
   /@glimmer/wire-format@0.92.3:
@@ -6809,18 +6681,6 @@ packages:
       webpack: 5.89.0
     dev: true
 
-  /babel-plugin-debug-macros@0.2.0:
-    resolution: {integrity: sha512-Wpmw4TbhR3Eq2t3W51eBAQSdKlr+uAyF0GI4GtPfMCD12Y4cIdpKC9l0RjNTH/P9isFypSqqewMPm7//fnZlNA==}
-    engines: {node: '>=4'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-beta.42
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-    dependencies:
-      semver: 5.7.2
-    dev: true
-
   /babel-plugin-debug-macros@0.3.4(@babel/core@7.23.6):
     resolution: {integrity: sha512-wfel/vb3pXfwIDZUrkoDrn5FHmlWI96PCJ3UCDv2a86poJ3EQrnArNW5KfHSVJ9IOgxHbo748cQt7sDU+0KCEw==}
     engines: {node: '>=6'}
@@ -7117,6 +6977,11 @@ packages:
   /balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
+  /balanced-match@4.0.4:
+    resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
+    engines: {node: 18 || 20 || >=22}
+    dev: true
+
   /base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: true
@@ -7348,6 +7213,13 @@ packages:
     resolution: {integrity: sha512-TN1kCZAgdgweJhWWpgKYrQaMNHcDULHkWwQIspdtjV4Y5aurRdZpjAqn6yX3FPqTA9ngHCc4hJxMAMgGfve85w==}
     dependencies:
       balanced-match: 1.0.2
+    dev: true
+
+  /brace-expansion@5.0.5:
+    resolution: {integrity: sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ==}
+    engines: {node: 18 || 20 || >=22}
+    dependencies:
+      balanced-match: 4.0.4
     dev: true
 
   /braces@2.3.2:
@@ -9645,7 +9517,7 @@ packages:
       '@babel/preset-env': 7.23.6
       '@babel/runtime': 7.12.18
       amd-name-resolver: 1.3.1
-      babel-plugin-debug-macros: 0.3.4(@babel/core@7.29.0)
+      babel-plugin-debug-macros: 0.3.4(@babel/core@7.23.6)
       babel-plugin-ember-data-packages-polyfill: 0.1.2
       babel-plugin-ember-modules-api-polyfill: 3.5.0
       babel-plugin-module-resolver: 5.0.0
@@ -9820,24 +9692,27 @@ packages:
       rsvp: 4.8.5
     dev: true
 
-  /ember-cli-htmlbars@6.3.0:
-    resolution: {integrity: sha512-N9Y80oZfcfWLsqickMfRd9YByVcTGyhYRnYQ2XVPVrp6jyUyOeRWmEAPh7ERSXpp8Ws4hr/JB9QVQrn/yZa+Ag==}
-    engines: {node: 12.* || 14.* || >= 16}
+  /ember-cli-htmlbars@7.0.1(ember-source@6.12.0):
+    resolution: {integrity: sha512-bNVAwTvBOmk7KjGCN0Vq81w8FAWQ1zXwCS1CUUHTeWdcFypRsv0qUEkTtwxho4H3BYaoqMCXPS45Js9WWtEXYw==}
+    engines: {node: '>= 20'}
+    peerDependencies:
+      '@babel/core': '>= 7'
+      ember-source: '*'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
     dependencies:
       '@ember/edition-utils': 1.2.0
       babel-plugin-ember-template-compilation: 2.2.1
-      babel-plugin-htmlbars-inline-precompile: 5.3.1
       broccoli-debug: 0.6.5
       broccoli-persistent-filter: 3.1.3
       broccoli-plugin: 4.0.7
-      ember-cli-version-checker: 5.1.2
+      ember-source: 6.12.0(@glimmer/component@2.1.1)
       fs-tree-diff: 2.0.1
-      hash-for-dep: 1.5.1
       heimdalljs-logger: 0.1.10
       js-string-escape: 1.0.1
-      semver: 7.7.1
       silent-error: 1.1.1
-      walk-sync: 2.2.0
+      walk-sync: 4.0.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -9941,26 +9816,6 @@ packages:
       semver: 6.3.1
       stagehand: 1.0.1
       walk-sync: 1.1.4
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-    dev: true
-
-  /ember-cli-typescript@3.0.0:
-    resolution: {integrity: sha512-lo5YArbJzJi5ssvaGqTt6+FnhTALnSvYVuxM7lfyL1UCMudyNJ94ovH5C7n5il7ATd6WsNiAPRUO/v+s5Jq/aA==}
-    engines: {node: 8.* || >= 10.*}
-    dependencies:
-      '@babel/plugin-transform-typescript': 7.5.5
-      ansi-to-html: 0.6.15
-      debug: 4.4.0(supports-color@8.1.1)
-      ember-cli-babel-plugin-helpers: 1.1.1
-      execa: 2.1.0
-      fs-extra: 8.1.0
-      resolve: 1.22.10
-      rsvp: 4.8.5
-      semver: 6.3.1
-      stagehand: 1.0.1
-      walk-sync: 2.2.0
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -10200,20 +10055,6 @@ packages:
       - whiskers
     dev: true
 
-  /ember-compatibility-helpers@1.2.6:
-    resolution: {integrity: sha512-2UBUa5SAuPg8/kRVaiOfTwlXdeVweal1zdNPibwItrhR0IvPrXpaqwJDlEZnWKEoB+h33V0JIfiWleSG6hGkkA==}
-    engines: {node: 10.* || >= 12.*}
-    dependencies:
-      babel-plugin-debug-macros: 0.2.0
-      ember-cli-version-checker: 5.1.2
-      find-up: 5.0.0
-      fs-extra: 9.1.0
-      semver: 5.7.2
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-    dev: true
-
   /ember-disable-prototype-extensions@1.1.3:
     resolution: {integrity: sha512-SB9NcZ27OtoUk+gfalsc3QU17+54OoqR668qHcuvHByk4KAhGxCKlkm9EBlKJcGr7yceOOAJqohTcCEBqfRw9g==}
     engines: {node: '>= 0.10.0'}
@@ -10233,30 +10074,6 @@ packages:
     dependencies:
       '@babel/core': 7.23.6(supports-color@8.1.1)
       '@babel/eslint-parser': 7.26.8(@babel/core@7.23.6)(eslint@8.56.0)
-      '@glimmer/syntax': 0.92.3
-      '@typescript-eslint/parser': 6.16.0(eslint@8.56.0)(typescript@6.0.2)
-      content-tag: 2.0.3
-      eslint-scope: 7.2.2
-      html-tags: 3.3.1
-      mathml-tag-names: 2.1.3
-      svg-tags: 1.0.0
-    transitivePeerDependencies:
-      - eslint
-    dev: true
-
-  /ember-eslint-parser@0.5.9(@typescript-eslint/parser@6.16.0)(eslint@8.56.0):
-    resolution: {integrity: sha512-IW4/3cEiFp49M2LiKyzi7VcT1egogOe8UxQ9eUKTooenC7Q4qNhzTD6rOZ8j51m8iJC+8hCzjbNCa3K4CN0Hhg==}
-    engines: {node: '>=16.0.0'}
-    peerDependencies:
-      '@babel/core': ^7.23.6
-      '@typescript-eslint/parser': '*'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@typescript-eslint/parser':
-        optional: true
-    dependencies:
-      '@babel/eslint-parser': 7.26.8(eslint@8.56.0)
       '@glimmer/syntax': 0.92.3
       '@typescript-eslint/parser': 6.16.0(eslint@8.56.0)(typescript@6.0.2)
       content-tag: 2.0.3
@@ -10362,45 +10179,6 @@ packages:
       - encoding
     dev: true
 
-  /ember-source@6.12.0(@glimmer/component@1.1.2):
-    resolution: {integrity: sha512-cApfEKxltl2VWt0o24XISsdkpyqqtT8wG0/EWokjeyqBPRCOIej2PMzRkLAu3A5AWpuWoJ//yq04mDix7axA7w==}
-    engines: {node: '>= 20.19'}
-    peerDependencies:
-      '@glimmer/component': '>= 1.1.2'
-    peerDependenciesMeta:
-      '@glimmer/component':
-        optional: true
-    dependencies:
-      '@babel/core': 7.29.0
-      '@ember/edition-utils': 1.2.0
-      '@embroider/addon-shim': 1.10.2
-      '@glimmer/component': 1.1.2
-      '@simple-dom/interface': 1.4.0
-      backburner.js: 2.8.0
-      broccoli-file-creator: 2.1.1
-      broccoli-funnel: 3.0.8
-      broccoli-merge-trees: 4.2.0
-      chalk: 4.1.2
-      ember-cli-babel: 8.3.1(@babel/core@7.29.0)
-      ember-cli-get-component-path-option: 1.0.0
-      ember-cli-is-package-missing: 1.0.0
-      ember-cli-normalize-entity-name: 1.0.0
-      ember-cli-path-utils: 1.0.0
-      ember-cli-string-utils: 1.1.0
-      ember-cli-typescript-blueprint-polyfill: 0.1.0
-      ember-cli-version-checker: 5.1.2
-      ember-router-generator: 2.0.0
-      inflection: 2.0.1
-      route-recognizer: 0.3.4
-      router_js: 8.0.6(route-recognizer@0.3.4)
-      semver: 7.7.4
-      silent-error: 1.1.1
-      simple-html-tokenizer: 0.5.11
-    transitivePeerDependencies:
-      - rsvp
-      - supports-color
-    dev: true
-
   /ember-source@6.12.0(@glimmer/component@2.1.1):
     resolution: {integrity: sha512-cApfEKxltl2VWt0o24XISsdkpyqqtT8wG0/EWokjeyqBPRCOIej2PMzRkLAu3A5AWpuWoJ//yq04mDix7axA7w==}
     engines: {node: '>= 20.19'}
@@ -10502,7 +10280,7 @@ packages:
     dependencies:
       '@glimmer/reference': 0.84.3
       '@glimmer/syntax': 0.84.3
-      '@glimmer/validator': 0.94.6
+      '@glimmer/validator': 0.84.3
       async-promise-queue: 1.0.5
       colors: 1.4.0
       commander: 8.3.0
@@ -10854,32 +10632,6 @@ packages:
       - '@babel/core'
     dev: true
 
-  /eslint-plugin-ember@12.5.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0):
-    resolution: {integrity: sha512-DBUzsaKWDVXsujAZPpRir0O7owdlCoVzZmtaJm7g7iQeSrNtcRWI7AItsTqKSsws1XeAySH0sPsQItMdDCb9Fg==}
-    engines: {node: 18.* || 20.* || >= 21}
-    peerDependencies:
-      '@typescript-eslint/parser': '*'
-      eslint: '>= 8'
-    peerDependenciesMeta:
-      '@typescript-eslint/parser':
-        optional: true
-    dependencies:
-      '@ember-data/rfc395-data': 0.0.4
-      '@typescript-eslint/parser': 6.16.0(eslint@8.56.0)(typescript@6.0.2)
-      css-tree: 3.1.0
-      ember-eslint-parser: 0.5.9(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
-      ember-rfc176-data: 0.3.18
-      eslint: 8.56.0
-      eslint-utils: 3.0.0(eslint@8.56.0)
-      estraverse: 5.3.0
-      lodash.camelcase: 4.3.0
-      lodash.kebabcase: 4.1.1
-      requireindex: 1.2.0
-      snake-case: 3.0.4
-    transitivePeerDependencies:
-      - '@babel/core'
-    dev: true
-
   /eslint-plugin-es@3.0.1(eslint@8.56.0):
     resolution: {integrity: sha512-GUmAsJaN4Fc7Gbtl8uOBlayo2DqhwWvEzykMHSCZHU3XdJ+NSzzZcVhXh3VxX5icqQ+oQdIEawXX8xkR3mIFmQ==}
     engines: {node: '>=8.10.0'}
@@ -11140,21 +10892,6 @@ packages:
       p-finally: 1.0.0
       signal-exit: 3.0.7
       strip-eof: 1.0.0
-    dev: true
-
-  /execa@2.1.0:
-    resolution: {integrity: sha512-Y/URAVapfbYy2Xp/gb6A0E7iR8xeqOCXsuuaoMn7A5PzrXUK84E1gyiEfq0wQd/GHA6GsoHWwhNq8anb0mleIw==}
-    engines: {node: ^8.12.0 || >=9.7.0}
-    dependencies:
-      cross-spawn: 7.0.3
-      get-stream: 5.2.0
-      is-stream: 2.0.1
-      merge-stream: 2.0.0
-      npm-run-path: 3.1.0
-      onetime: 5.1.2
-      p-finally: 2.0.1
-      signal-exit: 3.0.7
-      strip-final-newline: 2.0.0
     dev: true
 
   /execa@4.1.0:
@@ -14391,6 +14128,13 @@ packages:
       webpack: 5.89.0
     dev: true
 
+  /minimatch@10.2.5:
+    resolution: {integrity: sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==}
+    engines: {node: 18 || 20 || >=22}
+    dependencies:
+      brace-expansion: 5.0.5
+    dev: true
+
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
@@ -14989,13 +14733,6 @@ packages:
       path-key: 2.0.1
     dev: true
 
-  /npm-run-path@3.1.0:
-    resolution: {integrity: sha512-Dbl4A/VfiVGLgQv29URL9xshU8XDY1GeLy+fsaZ1AA8JDSfjvr5P5+pzRbWqRSBxk6/DW7MIh8lTM/PaGnP2kg==}
-    engines: {node: '>=8'}
-    dependencies:
-      path-key: 3.1.1
-    dev: true
-
   /npm-run-path@4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
     engines: {node: '>=8'}
@@ -15252,11 +14989,6 @@ packages:
   /p-finally@1.0.0:
     resolution: {integrity: sha512-LICb2p9CB7FS+0eR1oqWnHhp0FljGLZCWBE9aix0Uye9W8LTQPwMTYVGWQWIw9RdQiDg4+epXQODwIYJtSJaow==}
     engines: {node: '>=4'}
-    dev: true
-
-  /p-finally@2.0.1:
-    resolution: {integrity: sha512-vpm09aKwq6H9phqRQzecoDpD8TmVyGw70qmWlyq5onxY7tqyTTFVvxMykxQSQKILBSFlbXpypIw2T1Ml7+DDtw==}
-    engines: {node: '>=8'}
     dev: true
 
   /p-is-promise@2.1.0:
@@ -18686,6 +18418,16 @@ packages:
       ensure-posix-path: 1.1.1
       matcher-collection: 2.0.1
       minimatch: 3.1.2
+    dev: true
+
+  /walk-sync@4.0.1:
+    resolution: {integrity: sha512-oXP3IlkfG9Mqdgqh3JGYTPAcryRQd1J1CJOxOgsri2I1MD6N+k4OqxEVP4ZQ0xyYJfYPhBVPRMUVK+N5f13+jQ==}
+    engines: {node: '>= 20.*'}
+    dependencies:
+      '@types/minimatch': 5.1.2
+      ensure-posix-path: 1.1.1
+      matcher-collection: 2.0.1
+      minimatch: 10.2.5
     dev: true
 
   /walker@1.0.8:
