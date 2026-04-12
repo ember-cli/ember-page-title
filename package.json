@@ -12,7 +12,7 @@
     "test": "pnpm --filter '*' test"
   },
   "devDependencies": {
-    "release-plan": "^0.6.0"
+    "release-plan": "^0.18.0"
   },
   "packageManager": "pnpm@10.33.0",
   "volta": {
@@ -24,16 +24,16 @@
   },
   "pnpm": {
     "peerDependencyRules": {
+      "allowAny": [
+        "typescript",
+        "ember-source"
+      ],
       "ignoreMissing": [
         "rsvp",
         "webpack",
         "@babel/core",
         "ember-template-imports",
         "@glimmer/component"
-      ],
-      "allowAny": [
-        "typescript",
-        "ember-source"
       ]
     },
     "overrides": {
@@ -42,8 +42,8 @@
     },
     "notes": {
       "overrides": {
-        "_": "these overrides only affect dev and not the published package",
-        "@glimmer/*": "Glimmer is still pre 1.0, and every minor in pre-1.0 SemVer is a breaking chaneg. So because some dependencies (like 0.44.0 of Glimmer -- this is not compatible with current Glimmer (>= 0.80))"
+        "@glimmer/*": "Glimmer is still pre 1.0, and every minor in pre-1.0 SemVer is a breaking chaneg. So because some dependencies (like 0.44.0 of Glimmer -- this is not compatible with current Glimmer (>= 0.80))",
+        "_": "these overrides only affect dev and not the published package"
       }
     }
   }
