@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
-      - run: pnpm build 
+      - run: pnpm build
       - name: Lint
         run: pnpm lint
 
@@ -37,7 +37,7 @@ jobs:
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
-      - run: pnpm build 
+      - run: pnpm build
       - name: Test
         run: pnpm test:ember --launch ${{ matrix.browser }}
         working-directory: test-app
@@ -59,14 +59,14 @@ jobs:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
         with:
-          pnpm-args: '--no-lockfile'
-      - run: pnpm build 
+          pnpm-args: "--no-lockfile"
+      - run: pnpm build
       - name: Test
         run: pnpm test:ember --launch ${{ matrix.browser }}
         working-directory: test-app
 
   typecheck:
-    name: '${{ matrix.typescript-scenario }}'
+    name: "${{ matrix.typescript-scenario }}"
     runs-on: ubuntu-latest
     timeout-minutes: 2
     continue-on-error: true
@@ -74,10 +74,12 @@ jobs:
       fail-fast: false
       matrix:
         typescript-scenario:
-          - typescript@5.0
-          - typescript@5.1
-          - typescript@5.2
-          - typescript@5.3
+          - typescript@5.5
+          - typescript@5.6
+          - typescript@5.7
+          - typescript@5.8
+          - typescript@5.9
+          - typescript@6.0
           - typescript@next
 
     steps:
@@ -85,27 +87,26 @@ jobs:
       - uses: wyvox/action-setup-pnpm@v3
       - run: pnpm build
       - run: pnpm i -f # just in case
-      - name: 'test-types : ${{ matrix.typescript-scenario }}'
+      - name: "test-types : ${{ matrix.typescript-scenario }}"
         working-directory: ./test-types
-        run: 'pnpm add --save-dev ${{ matrix.typescript-scenario}}'
+        run: "pnpm add --save-dev ${{ matrix.typescript-scenario}}"
 
-      - name: 'docs : ${{ matrix.typescript-scenario }}'
+      - name: "docs : ${{ matrix.typescript-scenario }}"
         working-directory: ./docs
-        run: 'pnpm add --save-dev ${{ matrix.typescript-scenario}}'
+        run: "pnpm add --save-dev ${{ matrix.typescript-scenario}}"
 
-      - name: 'test-types'
+      - name: "test-types"
         working-directory: ./test-types
         run: |
           pnpm tsc -v
           pnpm tsc --noEmit
 
-      - name: 'Glint in the docs app'
+      - name: "Glint in the docs app"
         working-directory: ./docs
         run: |
           pnpm tsc -v
-          pnpm glint --version
-          pnpm glint
-
+          pnpm ember-tsc --version
+          pnpm ember-tsc
 
   try-scenarios:
     name: Tests - ${{ matrix.ember-try-scenario }}
@@ -117,15 +118,14 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        ember-try-scenario:
-          [
+        ember-try-scenario: [
             minimum-supported-4-2,
             ember-lts-4.4,
             ember-lts-4.12,
             ember-lts-5.12,
             ember-release,
             ember-beta
-            ember-canary
+            ember-canary,
           ]
         allow-failure: [false]
         include:
@@ -137,7 +137,7 @@ jobs:
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
-      - run: pnpm build 
+      - run: pnpm build
       - name: Test
         env:
           EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
@@ -154,7 +154,7 @@ jobs:
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
-      - run: pnpm build 
+      - run: pnpm build
 
       - name: Test
         run: pnpm test:ember
