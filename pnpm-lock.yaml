@@ -112,7 +112,7 @@ importers:
     devDependencies:
       '@babel/eslint-parser':
         specifier: ^7.23.3
-        version: 7.26.8(@babel/core@7.23.6)(eslint@8.56.0)
+        version: 7.26.8(eslint@8.56.0)
       '@ember/app-tsconfig':
         specifier: ^2.0.0
         version: 2.0.0
@@ -126,8 +126,8 @@ importers:
         specifier: ^3.2.1
         version: 3.2.1(@glint/template@1.7.7)(ember-source@6.12.0)(webpack@5.89.0)
       '@glimmer/component':
-        specifier: ^1.0.4
-        version: 1.1.2
+        specifier: ^2.1.1
+        version: 2.1.1
       '@glimmer/tracking':
         specifier: ^1.0.4
         version: 1.1.2
@@ -205,7 +205,7 @@ importers:
         version: 11.0.1(ember-source@6.12.0)
       ember-source:
         specifier: ~6.12.0
-        version: 6.12.0(@glimmer/component@1.1.2)
+        version: 6.12.0(@glimmer/component@2.1.1)
       ember-source-channel-url:
         specifier: ^3.0.0
         version: 3.0.0
@@ -226,7 +226,7 @@ importers:
         version: 9.1.0(eslint@8.56.0)
       eslint-plugin-ember:
         specifier: ^12.5.0
-        version: 12.5.0(@babel/core@7.23.6)(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
+        version: 12.5.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
       eslint-plugin-jsonc:
         specifier: ^2.11.2
         version: 2.11.2(eslint@8.56.0)
@@ -278,7 +278,7 @@ importers:
     devDependencies:
       '@babel/eslint-parser':
         specifier: ^7.23.3
-        version: 7.26.8(@babel/core@7.23.6)(eslint@8.56.0)
+        version: 7.26.8(eslint@8.56.0)
       '@ember/optional-features':
         specifier: ^2.0.0
         version: 2.0.0
@@ -301,8 +301,8 @@ importers:
         specifier: ^4.0.9
         version: 4.0.9(@embroider/core@3.5.0)(webpack@5.89.0)
       '@glimmer/component':
-        specifier: ^1.0.4
-        version: 1.1.2
+        specifier: ^2.1.1
+        version: 2.1.1
       '@glimmer/tracking':
         specifier: ^1.0.4
         version: 1.1.2
@@ -359,7 +359,7 @@ importers:
         version: 11.0.1(ember-source@6.12.0)
       ember-source:
         specifier: ~6.12.0
-        version: 6.12.0(@glimmer/component@1.1.2)
+        version: 6.12.0(@glimmer/component@2.1.1)
       ember-source-channel-url:
         specifier: ^3.0.0
         version: 3.0.0
@@ -380,7 +380,7 @@ importers:
         version: 9.1.0(eslint@8.56.0)
       eslint-plugin-ember:
         specifier: ^12.5.0
-        version: 12.5.0(@babel/core@7.23.6)(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
+        version: 12.5.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
       eslint-plugin-jsonc:
         specifier: ^2.11.2
         version: 2.11.2(eslint@8.56.0)
@@ -424,8 +424,8 @@ importers:
   test-types:
     devDependencies:
       '@glimmer/component':
-        specifier: ^1.0.4
-        version: 1.1.2
+        specifier: ^2.1.1
+        version: 2.1.1
       '@glint/ember-tsc':
         specifier: ^1.5.0
         version: 1.5.0(typescript@6.0.2)
@@ -443,7 +443,7 @@ importers:
         version: link:../addon
       ember-source:
         specifier: ^6.12.0
-        version: 6.12.0(@glimmer/component@1.1.2)
+        version: 6.12.0(@glimmer/component@2.1.1)
       expect-type:
         specifier: ^0.17.3
         version: 0.17.3
@@ -560,6 +560,22 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.23.6(supports-color@8.1.1)
+      '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
+      eslint: 8.56.0
+      eslint-visitor-keys: 2.1.0
+      semver: 6.3.1
+    dev: true
+
+  /@babel/eslint-parser@7.26.8(eslint@8.56.0):
+    resolution: {integrity: sha512-3tBctaHRW6xSub26z7n8uyOTwwUsCdvIug/oxBH9n6yCO5hMj2vwDJAo7RbBMKrM7P+W2j61zLKviJQFGOYKMg==}
+    engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
+    peerDependencies:
+      '@babel/core': ^7.11.0
+      eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
       eslint: 8.56.0
       eslint-visitor-keys: 2.1.0
@@ -1230,6 +1246,20 @@ packages:
       - supports-color
     dev: true
 
+  /@babel/plugin-proposal-class-properties@7.18.6:
+    resolution: {integrity: sha512-cumfXOF0+nzZrrN8Rf0t7M+tF6sZc7vhQwYQck9q1/5w2OExlD+b4v4RpMJFaV1Z7WcDRgO6FqvxqxGlwo+RHQ==}
+    engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-class-features-plugin': 7.23.6(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+    dev: true
+
   /@babel/plugin-proposal-class-properties@7.18.6(@babel/core@7.23.6):
     resolution: {integrity: sha512-cumfXOF0+nzZrrN8Rf0t7M+tF6sZc7vhQwYQck9q1/5w2OExlD+b4v4RpMJFaV1Z7WcDRgO6FqvxqxGlwo+RHQ==}
     engines: {node: '>=6.9.0'}
@@ -1281,6 +1311,20 @@ packages:
       '@babel/plugin-syntax-decorators': 7.25.9(@babel/core@7.29.0)
     dev: true
 
+  /@babel/plugin-proposal-private-methods@7.18.6:
+    resolution: {integrity: sha512-nutsvktDItsNn4rpGItSNV2sz1XwS+nfU0Rg8aCx3W3NOKVzdMjJRu0O5OkgDp3ZGICSTbgRpxZoWsxoKRvbeA==}
+    engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-class-features-plugin': 7.23.6(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+    dev: true
+
   /@babel/plugin-proposal-private-methods@7.18.6(@babel/core@7.23.6):
     resolution: {integrity: sha512-nutsvktDItsNn4rpGItSNV2sz1XwS+nfU0Rg8aCx3W3NOKVzdMjJRu0O5OkgDp3ZGICSTbgRpxZoWsxoKRvbeA==}
     engines: {node: '>=6.9.0'}
@@ -1318,6 +1362,22 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.29.0
+    dev: true
+
+  /@babel/plugin-proposal-private-property-in-object@7.21.11:
+    resolution: {integrity: sha512-0QZ8qP/3RLDVBwBFoWAwCtgcDZJVwA5LUJRZU8x2YFfKNuFq161wK3cuGrALu5yiPu+vzwTAg/sMWVNeWeNyaw==}
+    engines: {node: '>=6.9.0'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-property-in-object instead.
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-annotate-as-pure': 7.22.5
+      '@babel/helper-create-class-features-plugin': 7.23.6(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+      '@babel/plugin-syntax-private-property-in-object': 7.14.5(@babel/core@7.23.6)
     dev: true
 
   /@babel/plugin-proposal-private-property-in-object@7.21.11(@babel/core@7.23.6):
@@ -1795,6 +1855,19 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     dev: true
 
+  /@babel/plugin-transform-class-properties@7.23.3:
+    resolution: {integrity: sha512-uM+AN8yCIjDPccsKGlw271xjJtGii+xQIF/uMPS8H15L12jZTsLfF4o5vNO7d/oUguOyfdikHGc/yi9ge4SGIg==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-class-features-plugin': 7.23.6(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+    dev: true
+
   /@babel/plugin-transform-class-properties@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-uM+AN8yCIjDPccsKGlw271xjJtGii+xQIF/uMPS8H15L12jZTsLfF4o5vNO7d/oUguOyfdikHGc/yi9ge4SGIg==}
     engines: {node: '>=6.9.0'}
@@ -1823,6 +1896,20 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@babel/plugin-transform-class-static-block@7.23.4:
+    resolution: {integrity: sha512-nsWu/1M+ggti1SOALj3hfx5FXzAY06fwPJsUZD4/A5e1bWi46VUIWtD+kOX6/IdhXGsXBWllLFDSnqSCdUNydQ==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.12.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-class-features-plugin': 7.23.6(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+      '@babel/plugin-syntax-class-static-block': 7.14.5(@babel/core@7.23.6)
     dev: true
 
   /@babel/plugin-transform-class-static-block@7.23.4(@babel/core@7.23.6):
@@ -1854,6 +1941,26 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@babel/plugin-transform-classes@7.23.5:
+    resolution: {integrity: sha512-jvOTR4nicqYC9yzOHIhXG5emiFEOpappSJAl73SDSEDcybD+Puuze8Tnpb9p9qEyYup24tq891gkaygIFvWDqg==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-annotate-as-pure': 7.22.5
+      '@babel/helper-compilation-targets': 7.23.6
+      '@babel/helper-environment-visitor': 7.22.20
+      '@babel/helper-function-name': 7.23.0
+      '@babel/helper-optimise-call-expression': 7.22.5
+      '@babel/helper-plugin-utils': 7.26.5
+      '@babel/helper-replace-supers': 7.22.20(@babel/core@7.29.0)
+      '@babel/helper-split-export-declaration': 7.22.6
+      globals: 11.12.0
     dev: true
 
   /@babel/plugin-transform-classes@7.23.5(@babel/core@7.23.6):
@@ -1952,6 +2059,19 @@ packages:
       '@babel/traverse': 7.29.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@babel/plugin-transform-dotall-regex@7.23.3:
+    resolution: {integrity: sha512-vgnFYDHAKzFaTVp+mneDsIEbnJ2Np/9ng9iviHw3P/KVcgONxpNULEW/51Z/BaFojG2GI2GwwXck5uV1+1NOYQ==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
     dev: true
 
   /@babel/plugin-transform-dotall-regex@7.23.3(@babel/core@7.23.6):
@@ -2412,6 +2532,19 @@ packages:
       - supports-color
     dev: true
 
+  /@babel/plugin-transform-named-capturing-groups-regex@7.22.5:
+    resolution: {integrity: sha512-YgLLKmS3aUBhHaxp5hi1WJTgOUb/NCuDHzGT9z9WTt3YG+CPRhJs6nprbStx6DnWM4dh6gt7SU3sZodbZ08adQ==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+    dev: true
+
   /@babel/plugin-transform-named-capturing-groups-regex@7.22.5(@babel/core@7.23.6):
     resolution: {integrity: sha512-YgLLKmS3aUBhHaxp5hi1WJTgOUb/NCuDHzGT9z9WTt3YG+CPRhJs6nprbStx6DnWM4dh6gt7SU3sZodbZ08adQ==}
     engines: {node: '>=6.9.0'}
@@ -2556,6 +2689,19 @@ packages:
       - supports-color
     dev: true
 
+  /@babel/plugin-transform-object-super@7.23.3:
+    resolution: {integrity: sha512-BwQ8q0x2JG+3lxCVFohg+KbQM7plfpBwThdW9A6TMtWwLsbDA01Ek2Zb/AgDN39BiZsExm4qrXxjk+P1/fzGrA==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-plugin-utils': 7.26.5
+      '@babel/helper-replace-supers': 7.22.20(@babel/core@7.29.0)
+    dev: true
+
   /@babel/plugin-transform-object-super@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-BwQ8q0x2JG+3lxCVFohg+KbQM7plfpBwThdW9A6TMtWwLsbDA01Ek2Zb/AgDN39BiZsExm4qrXxjk+P1/fzGrA==}
     engines: {node: '>=6.9.0'}
@@ -2670,6 +2816,19 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     dev: true
 
+  /@babel/plugin-transform-private-methods@7.23.3:
+    resolution: {integrity: sha512-UzqRcRtWsDMTLrRWFvUBDwmw06tCQH9Rl1uAjfh6ijMSmGYQ+fpdB+cnqRC8EMh5tuuxSv0/TejGL+7vyj+50g==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-class-features-plugin': 7.23.6(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+    dev: true
+
   /@babel/plugin-transform-private-methods@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-UzqRcRtWsDMTLrRWFvUBDwmw06tCQH9Rl1uAjfh6ijMSmGYQ+fpdB+cnqRC8EMh5tuuxSv0/TejGL+7vyj+50g==}
     engines: {node: '>=6.9.0'}
@@ -2698,6 +2857,21 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@babel/plugin-transform-private-property-in-object@7.23.4:
+    resolution: {integrity: sha512-9G3K1YqTq3F4Vt88Djx1UZ79PDyj+yKRnUy7cZGSMe+a7jkwD259uKKuUzQlPkGam7R+8RJwh5z4xO27fA1o2A==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-annotate-as-pure': 7.22.5
+      '@babel/helper-create-class-features-plugin': 7.23.6(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+      '@babel/plugin-syntax-private-property-in-object': 7.14.5(@babel/core@7.23.6)
     dev: true
 
   /@babel/plugin-transform-private-property-in-object@7.23.4(@babel/core@7.23.6):
@@ -3000,6 +3174,21 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     dev: true
 
+  /@babel/plugin-transform-typescript@7.23.6:
+    resolution: {integrity: sha512-6cBG5mBvUu4VUD04OHKnYzbuHNP8huDsD3EDqqpIpsswTDoqHCjLoHb6+QgsV1WsT2nipRqCPgxD3LXnEO7XfA==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-annotate-as-pure': 7.22.5
+      '@babel/helper-create-class-features-plugin': 7.23.6(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.23.6)
+    dev: true
+
   /@babel/plugin-transform-typescript@7.23.6(@babel/core@7.23.6):
     resolution: {integrity: sha512-6cBG5mBvUu4VUD04OHKnYzbuHNP8huDsD3EDqqpIpsswTDoqHCjLoHb6+QgsV1WsT2nipRqCPgxD3LXnEO7XfA==}
     engines: {node: '>=6.9.0'}
@@ -3086,6 +3275,19 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     dev: true
 
+  /@babel/plugin-transform-unicode-property-regex@7.23.3:
+    resolution: {integrity: sha512-KcLIm+pDZkWZQAFJ9pdfmh89EwVfmNovFBcXko8szpBeF8z68kWIPeKlmSOkT9BXJxs2C0uk+5LxoxIv62MROA==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+    dev: true
+
   /@babel/plugin-transform-unicode-property-regex@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-KcLIm+pDZkWZQAFJ9pdfmh89EwVfmNovFBcXko8szpBeF8z68kWIPeKlmSOkT9BXJxs2C0uk+5LxoxIv62MROA==}
     engines: {node: '>=6.9.0'}
@@ -3114,6 +3316,19 @@ packages:
       '@babel/helper-plugin-utils': 7.28.6
     dev: true
 
+  /@babel/plugin-transform-unicode-regex@7.23.3:
+    resolution: {integrity: sha512-wMHpNA4x2cIA32b/ci3AfwNgheiva2W0WUKWTK7vBHBhDKfPsc5cFGNWm69WBqpwd86u1qwZ9PWevKqm1A3yAw==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
+    dev: true
+
   /@babel/plugin-transform-unicode-regex@7.23.3(@babel/core@7.23.6):
     resolution: {integrity: sha512-wMHpNA4x2cIA32b/ci3AfwNgheiva2W0WUKWTK7vBHBhDKfPsc5cFGNWm69WBqpwd86u1qwZ9PWevKqm1A3yAw==}
     engines: {node: '>=6.9.0'}
@@ -3140,6 +3355,19 @@ packages:
       '@babel/core': 7.29.0
       '@babel/helper-create-regexp-features-plugin': 7.28.5(@babel/core@7.29.0)
       '@babel/helper-plugin-utils': 7.28.6
+    dev: true
+
+  /@babel/plugin-transform-unicode-sets-regex@7.23.3:
+    resolution: {integrity: sha512-W7lliA/v9bNR83Qc3q1ip9CQMZ09CcHDbHfbLRDNuAhn1Mvkr1ZNF7hPmztMQvtTGVLJ9m8IZqWsTkXOml8dbw==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.29.0)
+      '@babel/helper-plugin-utils': 7.26.5
     dev: true
 
   /@babel/plugin-transform-unicode-sets-regex@7.23.3(@babel/core@7.23.6):
@@ -3176,6 +3404,99 @@ packages:
     dependencies:
       core-js: 2.6.12
       regenerator-runtime: 0.13.11
+    dev: true
+
+  /@babel/preset-env@7.23.6:
+    resolution: {integrity: sha512-2XPn/BqKkZCpzYhUUNZ1ssXw7DcXfKQEjv/uXZUXgaebCMYmkEsfZ2yY+vv+xtXv50WmL5SGhyB6/xsWxIvvOQ==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+    dependencies:
+      '@babel/compat-data': 7.23.5
+      '@babel/helper-compilation-targets': 7.23.6
+      '@babel/helper-plugin-utils': 7.26.5
+      '@babel/helper-validator-option': 7.23.5
+      '@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-bugfix-v8-static-class-fields-redefine-readonly': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-proposal-private-property-in-object': 7.21.0-placeholder-for-preset-env.2(@babel/core@7.29.0)
+      '@babel/plugin-syntax-async-generators': 7.8.4(@babel/core@7.23.6)
+      '@babel/plugin-syntax-class-properties': 7.12.13(@babel/core@7.23.6)
+      '@babel/plugin-syntax-class-static-block': 7.14.5(@babel/core@7.23.6)
+      '@babel/plugin-syntax-dynamic-import': 7.8.3(@babel/core@7.23.6)
+      '@babel/plugin-syntax-export-namespace-from': 7.8.3(@babel/core@7.23.6)
+      '@babel/plugin-syntax-import-assertions': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-syntax-import-attributes': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-syntax-import-meta': 7.10.4(@babel/core@7.23.6)
+      '@babel/plugin-syntax-json-strings': 7.8.3(@babel/core@7.23.6)
+      '@babel/plugin-syntax-logical-assignment-operators': 7.10.4(@babel/core@7.23.6)
+      '@babel/plugin-syntax-nullish-coalescing-operator': 7.8.3(@babel/core@7.23.6)
+      '@babel/plugin-syntax-numeric-separator': 7.10.4(@babel/core@7.23.6)
+      '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.23.6)
+      '@babel/plugin-syntax-optional-catch-binding': 7.8.3(@babel/core@7.23.6)
+      '@babel/plugin-syntax-optional-chaining': 7.8.3(@babel/core@7.23.6)
+      '@babel/plugin-syntax-private-property-in-object': 7.14.5(@babel/core@7.23.6)
+      '@babel/plugin-syntax-top-level-await': 7.14.5(@babel/core@7.23.6)
+      '@babel/plugin-syntax-unicode-sets-regex': 7.18.6(@babel/core@7.29.0)
+      '@babel/plugin-transform-arrow-functions': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-async-generator-functions': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-async-to-generator': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-block-scoped-functions': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-block-scoping': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-class-properties': 7.23.3
+      '@babel/plugin-transform-class-static-block': 7.23.4
+      '@babel/plugin-transform-classes': 7.23.5
+      '@babel/plugin-transform-computed-properties': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-destructuring': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-dotall-regex': 7.23.3
+      '@babel/plugin-transform-duplicate-keys': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-dynamic-import': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-exponentiation-operator': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-export-namespace-from': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-for-of': 7.23.6(@babel/core@7.23.6)
+      '@babel/plugin-transform-function-name': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-json-strings': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-literals': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-logical-assignment-operators': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-member-expression-literals': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-modules-amd': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-modules-commonjs': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-modules-systemjs': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-modules-umd': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-named-capturing-groups-regex': 7.22.5
+      '@babel/plugin-transform-new-target': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-nullish-coalescing-operator': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-numeric-separator': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-object-rest-spread': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-object-super': 7.23.3
+      '@babel/plugin-transform-optional-catch-binding': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-optional-chaining': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-transform-parameters': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-private-methods': 7.23.3
+      '@babel/plugin-transform-private-property-in-object': 7.23.4
+      '@babel/plugin-transform-property-literals': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-regenerator': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-reserved-words': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-shorthand-properties': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-spread': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-sticky-regex': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-template-literals': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-typeof-symbol': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-unicode-escapes': 7.23.3(@babel/core@7.23.6)
+      '@babel/plugin-transform-unicode-property-regex': 7.23.3
+      '@babel/plugin-transform-unicode-regex': 7.23.3
+      '@babel/plugin-transform-unicode-sets-regex': 7.23.3
+      '@babel/preset-modules': 0.1.6-no-external-plugins(@babel/core@7.29.0)
+      babel-plugin-polyfill-corejs2: 0.4.7(@babel/core@7.23.6)
+      babel-plugin-polyfill-corejs3: 0.8.7(@babel/core@7.23.6)
+      babel-plugin-polyfill-regenerator: 0.5.4(@babel/core@7.23.6)
+      core-js-compat: 3.34.0
+      semver: 6.3.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@babel/preset-env@7.23.6(@babel/core@7.23.6):
@@ -3693,7 +4014,7 @@ packages:
       ember-auto-import: 2.7.2(@glint/template@1.7.7)(webpack@5.89.0)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.3.0
-      ember-source: 6.12.0(@glimmer/component@1.1.2)
+      ember-source: 6.12.0(@glimmer/component@2.1.1)
     transitivePeerDependencies:
       - '@glint/template'
       - supports-color
@@ -4120,6 +4441,16 @@ packages:
       ember-compatibility-helpers: 1.2.6
     transitivePeerDependencies:
       - '@babel/core'
+      - supports-color
+    dev: true
+
+  /@glimmer/component@2.1.1:
+    resolution: {integrity: sha512-zFZFaMbWy+9WOcDg/kCgrkGgqkLT39EE4FgyFD0MIkQO5coQsrRZyLsiBu1tbchyM+8hT8jAv+EQVUd8u+MdSQ==}
+    engines: {node: '>= 18'}
+    dependencies:
+      '@embroider/addon-shim': 1.10.2
+      '@glimmer/env': 0.1.7
+    transitivePeerDependencies:
       - supports-color
     dev: true
 
@@ -9303,18 +9634,18 @@ packages:
         optional: true
     dependencies:
       '@babel/helper-compilation-targets': 7.23.6
-      '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.23.6)
-      '@babel/plugin-proposal-decorators': 7.23.6(@babel/core@7.23.6)
-      '@babel/plugin-proposal-private-methods': 7.18.6(@babel/core@7.23.6)
-      '@babel/plugin-proposal-private-property-in-object': 7.21.11(@babel/core@7.23.6)
-      '@babel/plugin-transform-class-static-block': 7.23.4(@babel/core@7.23.6)
+      '@babel/plugin-proposal-class-properties': 7.18.6
+      '@babel/plugin-proposal-decorators': 7.23.6(@babel/core@7.29.0)
+      '@babel/plugin-proposal-private-methods': 7.18.6
+      '@babel/plugin-proposal-private-property-in-object': 7.21.11
+      '@babel/plugin-transform-class-static-block': 7.23.4
       '@babel/plugin-transform-modules-amd': 7.23.3(@babel/core@7.23.6)
       '@babel/plugin-transform-runtime': 7.23.6(@babel/core@7.23.6)
-      '@babel/plugin-transform-typescript': 7.23.6(@babel/core@7.23.6)
-      '@babel/preset-env': 7.23.6(@babel/core@7.23.6)
+      '@babel/plugin-transform-typescript': 7.23.6
+      '@babel/preset-env': 7.23.6
       '@babel/runtime': 7.12.18
       amd-name-resolver: 1.3.1
-      babel-plugin-debug-macros: 0.3.4(@babel/core@7.23.6)
+      babel-plugin-debug-macros: 0.3.4(@babel/core@7.29.0)
       babel-plugin-ember-data-packages-polyfill: 0.1.2
       babel-plugin-ember-modules-api-polyfill: 3.5.0
       babel-plugin-module-resolver: 5.0.0
@@ -9429,7 +9760,7 @@ packages:
       body-parser: 1.20.3
       ember-auto-import: 2.7.2(@glint/template@1.7.7)(webpack@5.89.0)
       ember-cli-babel: 7.26.11
-      ember-source: 6.12.0(@glimmer/component@1.1.2)
+      ember-source: 6.12.0(@glimmer/component@2.1.1)
       fastboot: 4.1.5
       json-fn: 1.1.1
       minimist: 1.2.8
@@ -9461,7 +9792,7 @@ packages:
       ember-cli-lodash-subset: 2.0.1
       ember-cli-preprocess-registry: 3.3.0
       ember-cli-version-checker: 5.1.2
-      ember-source: 6.12.0(@glimmer/component@1.1.2)
+      ember-source: 6.12.0(@glimmer/component@2.1.1)
       fastboot: 4.1.5
       fastboot-express-middleware: 4.1.2
       fastboot-transform: 0.1.3
@@ -9598,7 +9929,7 @@ packages:
     resolution: {integrity: sha512-7I5azCTxOgRDN8aSSnJZIKSqr+MGnT+jLTUbBYqF8wu6ojs2DUnTePxUcQMcvNh3Q3B1ySv7Q/uZFSjdU9gSjA==}
     engines: {node: 6.* || 8.* || >= 10.*}
     dependencies:
-      '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.23.6)
+      '@babel/plugin-proposal-class-properties': 7.18.6
       '@babel/plugin-transform-typescript': 7.4.5
       ansi-to-html: 0.6.15
       debug: 4.4.0(supports-color@8.1.1)
@@ -9913,6 +10244,30 @@ packages:
       - eslint
     dev: true
 
+  /ember-eslint-parser@0.5.9(@typescript-eslint/parser@6.16.0)(eslint@8.56.0):
+    resolution: {integrity: sha512-IW4/3cEiFp49M2LiKyzi7VcT1egogOe8UxQ9eUKTooenC7Q4qNhzTD6rOZ8j51m8iJC+8hCzjbNCa3K4CN0Hhg==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@babel/core': ^7.23.6
+      '@typescript-eslint/parser': '*'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@typescript-eslint/parser':
+        optional: true
+    dependencies:
+      '@babel/eslint-parser': 7.26.8(eslint@8.56.0)
+      '@glimmer/syntax': 0.92.3
+      '@typescript-eslint/parser': 6.16.0(eslint@8.56.0)(typescript@6.0.2)
+      content-tag: 2.0.3
+      eslint-scope: 7.2.2
+      html-tags: 3.3.1
+      mathml-tag-names: 2.1.3
+      svg-tags: 1.0.0
+    transitivePeerDependencies:
+      - eslint
+    dev: true
+
   /ember-functions-as-helper-polyfill@2.1.2(ember-source@6.12.0):
     resolution: {integrity: sha512-yvW6xykvZEIYzzwlrC/g9yu6LtLkkj5F+ho6U+BDxN1uREMgoMOZnji7sSILn5ITVpaJ055DPcO+utEFD7IZOA==}
     engines: {node: '>= 14.0.0'}
@@ -9922,7 +10277,7 @@ packages:
       ember-cli-babel: 7.26.11
       ember-cli-typescript: 5.2.1
       ember-cli-version-checker: 5.1.2
-      ember-source: 6.12.0(@glimmer/component@1.1.2)
+      ember-source: 6.12.0(@glimmer/component@2.1.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -9961,7 +10316,7 @@ packages:
       '@embroider/addon-shim': 1.8.7
       '@embroider/macros': 1.16.10(@glint/template@1.7.7)
       ember-cli-test-loader: 3.1.0
-      ember-source: 6.12.0(@glimmer/component@1.1.2)
+      ember-source: 6.12.0(@glimmer/component@2.1.1)
       qunit: 2.20.0
     transitivePeerDependencies:
       - '@glint/template'
@@ -9978,7 +10333,7 @@ packages:
         optional: true
     dependencies:
       ember-cli-babel: 7.26.11
-      ember-source: 6.12.0(@glimmer/component@1.1.2)
+      ember-source: 6.12.0(@glimmer/component@2.1.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -10020,6 +10375,45 @@ packages:
       '@ember/edition-utils': 1.2.0
       '@embroider/addon-shim': 1.10.2
       '@glimmer/component': 1.1.2
+      '@simple-dom/interface': 1.4.0
+      backburner.js: 2.8.0
+      broccoli-file-creator: 2.1.1
+      broccoli-funnel: 3.0.8
+      broccoli-merge-trees: 4.2.0
+      chalk: 4.1.2
+      ember-cli-babel: 8.3.1(@babel/core@7.29.0)
+      ember-cli-get-component-path-option: 1.0.0
+      ember-cli-is-package-missing: 1.0.0
+      ember-cli-normalize-entity-name: 1.0.0
+      ember-cli-path-utils: 1.0.0
+      ember-cli-string-utils: 1.1.0
+      ember-cli-typescript-blueprint-polyfill: 0.1.0
+      ember-cli-version-checker: 5.1.2
+      ember-router-generator: 2.0.0
+      inflection: 2.0.1
+      route-recognizer: 0.3.4
+      router_js: 8.0.6(route-recognizer@0.3.4)
+      semver: 7.7.4
+      silent-error: 1.1.1
+      simple-html-tokenizer: 0.5.11
+    transitivePeerDependencies:
+      - rsvp
+      - supports-color
+    dev: true
+
+  /ember-source@6.12.0(@glimmer/component@2.1.1):
+    resolution: {integrity: sha512-cApfEKxltl2VWt0o24XISsdkpyqqtT8wG0/EWokjeyqBPRCOIej2PMzRkLAu3A5AWpuWoJ//yq04mDix7axA7w==}
+    engines: {node: '>= 20.19'}
+    peerDependencies:
+      '@glimmer/component': '>= 1.1.2'
+    peerDependenciesMeta:
+      '@glimmer/component':
+        optional: true
+    dependencies:
+      '@babel/core': 7.29.0
+      '@ember/edition-utils': 1.2.0
+      '@embroider/addon-shim': 1.10.2
+      '@glimmer/component': 2.1.1
       '@simple-dom/interface': 1.4.0
       backburner.js: 2.8.0
       broccoli-file-creator: 2.1.1
@@ -10128,7 +10522,7 @@ packages:
     dependencies:
       '@embroider/addon-shim': 1.8.7
       ember-functions-as-helper-polyfill: 2.1.2(ember-source@6.12.0)
-      ember-source: 6.12.0(@glimmer/component@1.1.2)
+      ember-source: 6.12.0(@glimmer/component@2.1.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -10448,6 +10842,32 @@ packages:
       '@typescript-eslint/parser': 6.16.0(eslint@8.56.0)(typescript@6.0.2)
       css-tree: 3.1.0
       ember-eslint-parser: 0.5.9(@babel/core@7.23.6)(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
+      ember-rfc176-data: 0.3.18
+      eslint: 8.56.0
+      eslint-utils: 3.0.0(eslint@8.56.0)
+      estraverse: 5.3.0
+      lodash.camelcase: 4.3.0
+      lodash.kebabcase: 4.1.1
+      requireindex: 1.2.0
+      snake-case: 3.0.4
+    transitivePeerDependencies:
+      - '@babel/core'
+    dev: true
+
+  /eslint-plugin-ember@12.5.0(@typescript-eslint/parser@6.16.0)(eslint@8.56.0):
+    resolution: {integrity: sha512-DBUzsaKWDVXsujAZPpRir0O7owdlCoVzZmtaJm7g7iQeSrNtcRWI7AItsTqKSsws1XeAySH0sPsQItMdDCb9Fg==}
+    engines: {node: 18.* || 20.* || >= 21}
+    peerDependencies:
+      '@typescript-eslint/parser': '*'
+      eslint: '>= 8'
+    peerDependenciesMeta:
+      '@typescript-eslint/parser':
+        optional: true
+    dependencies:
+      '@ember-data/rfc395-data': 0.0.4
+      '@typescript-eslint/parser': 6.16.0(eslint@8.56.0)(typescript@6.0.2)
+      css-tree: 3.1.0
+      ember-eslint-parser: 0.5.9(@typescript-eslint/parser@6.16.0)(eslint@8.56.0)
       ember-rfc176-data: 0.3.18
       eslint: 8.56.0
       eslint-utils: 3.0.0(eslint@8.56.0)
