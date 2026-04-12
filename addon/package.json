@@ -58,7 +58,7 @@
     "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "lint:types": "ember-tsc --noEmit --emitDeclarationOnly false",
+    "lint:types": "ember-tsc --noEmit --declaration false --declarationMap false --emitDeclarationOnly false",
     "prepack": "rollup --config",
     "start": "rollup --config --watch --no-watch.clearScreen"
   },
