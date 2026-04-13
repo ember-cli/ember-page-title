@@ -1,7 +1,5 @@
 import { babel } from '@rollup/plugin-babel';
 import { Addon } from '@embroider/addon-dev/rollup';
-import { execaCommand } from 'execa';
-import { fixBadDeclarationOutput } from 'fix-bad-declaration-output';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -44,28 +42,6 @@ export default {
     // Remove leftover build artifacts when starting a new build.
     addon.clean(),
 
-    {
-      name: 'fix-bad-declaration-output',
-      closeBundle: async () => {
-        /**
-         * Generate the types (these include /// <reference types="ember-source/types"
-         * but our consumers may not be using those, or have a new enough ember-source that provides them.
-         */
-        console.log('Building types');
-        await execaCommand(`pnpm glint --declaration`, { stdio: 'inherit' });
-        /**
-         * https://github.com/microsoft/TypeScript/issues/56571#
-         * README: https://github.com/NullVoxPopuli/fix-bad-declaration-output
-         */
-        console.log('Fixing types');
-        await fixBadDeclarationOutput('declarations/**/*.d.ts', [
-          'TypeScript#56571',
-          'Glint#628',
-        ]);
-        console.log(
-          '⚠️ Dangerously (but neededly) fixed bad declaration output from typescript',
-        );
-      },
-    },
+    addon.declarations('declarations'),
   ],
 };
