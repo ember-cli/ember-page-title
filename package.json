@@ -35,9 +35,6 @@
         "ember-template-imports",
         "@glimmer/component"
       ]
-    },
-    "overrides": {
-      "ember-cli-htmlbars": "^7.0.0"
     }
   }
 }
