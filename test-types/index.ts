@@ -1,6 +1,3 @@
-import 'ember-source/types';
-import '@glint/environment-ember-loose';
-
 // imports all resolve
 import 'ember-page-title';
 import 'ember-page-title/test-support';
