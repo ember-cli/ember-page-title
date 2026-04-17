@@ -3,6 +3,13 @@
 const getChannelURL = require('ember-source-channel-url');
 
 module.exports = async function () {
+  const ember4 = {
+    '@ember/test-helpers': '^3.2.1',
+    '@ember/test-waiters': '^3.0.0',
+    'ember-qunit': '^8.0.0',
+    'ember-resolver': '^10.0.0',
+    'ember-cli': '~4.12.0',
+  };
   return {
     usePnpm: true,
     scenarios: [
@@ -11,7 +18,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~4.2.0',
-            'ember-cli': '~4.12.0',
+            ...ember4,
           },
         },
       },
@@ -29,7 +36,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': '~4.12.0',
-            'ember-cli': '~4.12.0',
+            ...ember4,
           },
         },
       },
