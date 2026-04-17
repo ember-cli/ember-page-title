@@ -1,10 +1,17 @@
 /* eslint-env node */
-'use strict';
-
+'use strict';;
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function (defaults) {
+const {
+  compatBuild
+} = require("@embroider/compat");
+
+module.exports = async function(defaults) {
+  const {
+    buildOnce
+  } = await import("@embroider/vite");
   let environment = EmberApp.env();
+
   let isDeploying = environment === 'production';
 
   let app = new EmberApp(defaults, {
@@ -39,16 +46,9 @@ module.exports = function (defaults) {
       paths: ['public/assets/images'],
     },
   });
-
-  const { Webpack } = require('@embroider/webpack');
-  return require('@embroider/compat').compatBuild(app, Webpack, {
+  return compatBuild(app, buildOnce, {
     staticInvokables: true,
     staticAddonTestSupportTrees: true,
-    staticAddonTrees: true,
-    skipBabel: [
-      {
-        package: 'qunit',
-      },
-    ],
+    staticAddonTrees: true
   });
 };

@@ -1,9 +1,16 @@
 /* eslint-env node */
-'use strict';
-
+'use strict';;
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function (defaults) {
+const {
+  compatBuild
+} = require("@embroider/compat");
+
+module.exports = async function(defaults) {
+  const {
+    buildOnce
+  } = await import("@embroider/vite");
+
   let environment = EmberApp.env();
   let isDeploying = environment === 'production';
 
@@ -37,5 +44,5 @@ module.exports = function (defaults) {
       includePaths: ['app'],
     },
   });
-  return app.toTree();
+  return compatBuild(app, buildOnce);
 };
