@@ -21,7 +21,7 @@ jobs:
       - uses: wyvox/action-setup-pnpm@v3
       - id: set-matrix
         run: |
-          echo "matrix=$(pnpm dlx -s @embroider/try list)" >> $GITHUB_OUTPUT
+          echo "matrix=$(pnpm dlx @embroider/try list)" >> $GITHUB_OUTPUT
         working-directory: test-app
 
   # We do this so we ensure that we test with the same
@@ -175,13 +175,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - uses: wyvox/action-setup-pnpm@v3
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
           node-version-file: package.json
           cache: pnpm
       - run: pnpm dlx @embroider/try apply ${{ matrix.name }}
+        working-directory: test-app
       - run: pnpm install --no-lockfile --ignore-scripts
       - uses: actions/download-artifact@v4
         with:
