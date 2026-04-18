@@ -11,7 +11,7 @@ import { default as pageTitle } from './helpers/page-title.ts';
  * This is also not needed if you have app-tree auto-discovery from embroider.
  */
 export function entries(modulePrefix?: string) {
-  let prefix = modulePrefix || '.';
+  const prefix = modulePrefix || '.';
 
   return {
     [`${prefix}/helpers/page-title`]: pageTitle,

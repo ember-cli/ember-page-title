@@ -11,7 +11,7 @@ import type { FastBootDocument } from './private-types.ts';
  * This is not needed if you use service auto-discovery from embroider.
  */
 export function entries(modulePrefix?: string) {
-  let prefix = modulePrefix || '.';
+  const prefix = modulePrefix || '.';
 
   return {
     [`${prefix}/services/page-title`]: PageTitleService,
