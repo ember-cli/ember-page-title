@@ -81,7 +81,9 @@ jobs:
         with:
           name: dist
       - name: Test
-        run: pnpm test:ember --launch ${{ matrix.browser }}
+        run: pnpm test:ember
+        env:
+          CI_BROWSER: ${{ matrix.browser }}
         working-directory: test-app
 
   floating-dependencies:
@@ -106,7 +108,9 @@ jobs:
         with:
           name: dist
       - name: Test
-        run: pnpm test:ember --launch ${{ matrix.browser }}
+        run: pnpm test:ember
+        env:
+          CI_BROWSER: ${{ matrix.browser }}
         working-directory: test-app
 
   typecheck:
