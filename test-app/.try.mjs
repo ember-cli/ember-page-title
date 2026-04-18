@@ -35,6 +35,7 @@ export default {
   scenarios: [
     {
       name: 'min-supported',
+      'allow-failure': false,
       npm: {
         devDependencies: {
           'ember-source': '~4.2.0',
@@ -49,6 +50,7 @@ export default {
     },
     {
       name: 'ember-lts-4.12',
+      'allow-failure': false,
       npm: {
         devDependencies: {
           'ember-source': '~4.12.0',
@@ -63,6 +65,7 @@ export default {
     },
     {
       name: 'ember-lts-5.12',
+      'allow-failure': false,
       npm: {
         devDependencies: {
           'ember-source': '~5.12.0',
@@ -76,6 +79,7 @@ export default {
     },
     {
       name: `ember-lts-6.4`,
+      'allow-failure': false,
       npm: {
         devDependencies: {
           'ember-source': `npm:ember-source@~6.4.0`,
@@ -84,6 +88,7 @@ export default {
     },
     {
       name: `ember-latest`,
+      'allow-failure': false,
       npm: {
         devDependencies: {
           'ember-source': `npm:ember-source@latest`,
@@ -92,6 +97,7 @@ export default {
     },
     {
       name: `ember-beta`,
+      'allow-failure': true,
       npm: {
         devDependencies: {
           'ember-source': `npm:ember-source@beta`,
@@ -100,6 +106,7 @@ export default {
     },
     {
       name: `ember-alpha`,
+      'allow-failure': true,
       npm: {
         devDependencies: {
           'ember-source': `npm:ember-source@alpha`,
