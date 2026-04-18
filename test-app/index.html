@@ -6,19 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="This Ember.js addon provides a helper for changing the title of the page you're on.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="{{rootURL}}assets/images/icon.png">
+    <link rel="icon" type="image/png" href="/images/icon.png">
 
-    {{content-for "head"}}
-
-    <link integrity="" rel="stylesheet" href="/@embroider/virtual/vendor.css">
-    <link integrity="" rel="stylesheet" href="/@embroider/virtual/app.css">
-
-    {{content-for "head-footer"}}
-  </head>
   <body>
-    {{content-for "body"}}
-
-    <script src="/@embroider/virtual/vendor.js"></script>
     <script type="module">
       import Application from './app/app';
       import environment from './app/config/environment';
@@ -26,6 +16,5 @@
       Application.create(environment.APP);
     </script>
 
-    {{content-for "body-footer"}}
   </body>
 </html>
