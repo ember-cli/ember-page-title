@@ -2,7 +2,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { Input } from '@ember/component';
 import highlight from 'docs/helpers/highlight';
-import WindowPane from 'docs/components/window-pane';
+import WindowPane from 'docs/components/window-pane.gts';
 import PageTitlePane from 'docs/components/page-title-pane';
 import { IconSvg, EmberLogoSvg, ArrowSvg } from 'docs/components/icons';
 
