@@ -23,7 +23,7 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "ember-tsc",
     "start": "vite",
-    "test:ember": "vite build --mode development && ember test --path dist"
+    "test:ember": "vite build --mode development && testem ci --port 0"
   },
   "dependencies": {
     "ember-page-title": "workspace:*"
@@ -71,6 +71,7 @@
     "prettier": "^3.1.1",
     "qunit": "^2.16.0",
     "sass": "^1.43.3",
+    "testem": "^3.20.0",
     "typescript": "^6.0.2",
     "vite": "^7.3.1",
     "vite-ember-ssr": "0.1.0-alpha.13"
