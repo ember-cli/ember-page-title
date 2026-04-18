@@ -1,6 +1,6 @@
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildMacros } from '@embroider/macros';
+import { buildMacros } from '@embroider/macros/babel';
 
 const macros = buildMacros();
 
