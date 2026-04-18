@@ -58,6 +58,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: dist
+          path: addon
       - name: Lint
         run: pnpm lint
 
@@ -80,6 +81,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: dist
+          path: addon
       - name: Test
         run: pnpm test:ember
         env:
@@ -107,6 +109,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: dist
+          path: addon
       - name: Test
         run: pnpm test:ember
         env:
@@ -135,6 +138,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: dist
+          path: addon
       - name: "test-types : ${{ matrix.typescript-scenario }}"
         working-directory: ./test-types
         run: "pnpm add --save-dev ${{ matrix.typescript-scenario}}"
@@ -182,6 +186,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: dist
+          path: addon
 
       - run: pnpm test:ember
         env: ${{ matrix.env }}
@@ -200,6 +205,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: dist
+          path: addon
       - name: Test
         run: pnpm test:ember
         working-directory: docs
