@@ -1,5 +1,21 @@
-import type PageTitleService from './services/page-title.ts';
+import PageTitleService from './services/page-title.ts';
 import type { FastBootDocument } from './private-types.ts';
+
+/**
+ * For use with `withModules` (ember-resolver)
+ * or `modules` (strict resolver)
+ *
+ * With the strict resolver, no argument is needed.
+ *
+ * Provides the service
+ */
+export function entries(modulePrefix?: string) {
+  let prefix = modulePrefix || '.';
+
+  return {
+    [`${prefix}/services/page-title`]: PageTitleService,
+  };
+}
 
 export default interface ServiceRegistry {
   /**

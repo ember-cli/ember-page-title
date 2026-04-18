@@ -35,7 +35,8 @@
       "types": "./declarations/template-registry.d.ts"
     },
     "./service-registry": {
-      "types": "./declarations/service-registry.d.ts"
+      "types": "./declarations/service-registry.d.ts",
+      "default": "./dist/service-registry.js"
     },
     "./addon-main.js": "./addon-main.js"
   },
