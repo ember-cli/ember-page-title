@@ -17,6 +17,7 @@ export default {
     addon.publicEntrypoints([
       'index.js',
       'service-registry.js',
+      'template-registry.js',
       'helpers/**/*.js',
       'services/**/*.js',
       'test-support/index.js',

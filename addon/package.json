@@ -32,7 +32,8 @@
       "default": "./dist/test-support/index.js"
     },
     "./template-registry": {
-      "types": "./declarations/template-registry.d.ts"
+      "types": "./declarations/template-registry.d.ts",
+      "default": "./dist/template-registry.js"
     },
     "./service-registry": {
       "types": "./declarations/service-registry.d.ts",

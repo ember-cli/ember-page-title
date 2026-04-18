@@ -7,7 +7,8 @@ import type { FastBootDocument } from './private-types.ts';
  *
  * With the strict resolver, no argument is needed.
  *
- * Provides the service
+ * Provides the service.
+ * This is not needed if you use service auto-discovery from embroider.
  */
 export function entries(modulePrefix?: string) {
   let prefix = modulePrefix || '.';
