@@ -8,7 +8,7 @@ import compatModules from "@embroider/virtual/compat-modules";
 export default class App extends Application {
   inspector = setupInspector(this);
   modules = {
-    './router': import.meta.glob('./router.js', { eager: true }),
+    ...import.meta.glob('./router.js', { eager: true }),
     ...import.meta.glob('./routes/**/*.js', { eager: true }),
     ...import.meta.glob('./templates/**/*.{gts,gjs,hbs}', { eager: true }),
   };
