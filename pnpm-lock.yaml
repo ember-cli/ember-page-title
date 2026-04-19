@@ -281,6 +281,9 @@ importers:
       babel-plugin-debug-macros:
         specifier: ^0.3.4
         version: 0.3.4(@babel/core@7.29.0)
+      babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner:
+        specifier: ^1.0.4
+        version: 1.0.4(@babel/core@7.29.0)
       babel-plugin-ember-template-compilation:
         specifier: ^3.1.0
         version: 3.1.0
@@ -2160,6 +2163,11 @@ packages:
   babel-plugin-ember-modules-api-polyfill@3.5.0:
     resolution: {integrity: sha512-pJajN/DkQUnStw0Az8c6khVcMQHgzqWr61lLNtVeu0g61LRW0k9jyK7vaedrHDWGe/Qe8sxG5wpiyW9NsMqFzA==}
     engines: {node: 6.* || 8.* || >= 10.*}
+
+  babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner@1.0.4:
+    resolution: {integrity: sha512-kZQdMKC0Ec+SsDZ/Lv/Ic1f23FJkZI5rDjRz+00l3JWbEeU9/tex0aCYs16VvuT1O1XG8c3xJNx6+ZXliBkYPQ==}
+    peerDependencies:
+      '@babel/core': ^7.0.0
 
   babel-plugin-ember-template-compilation@3.1.0:
     resolution: {integrity: sha512-kk7cGyblE9n4MB98rqw2wuUW7YLD5FM+Tr97gNSYL4e8DBMQndLuWaWNx1wfd7o00NjFhhoTR+HZs2nj23g2Lw==}
@@ -7745,6 +7753,10 @@ snapshots:
   babel-plugin-ember-modules-api-polyfill@3.5.0:
     dependencies:
       ember-rfc176-data: 0.3.18
+
+  babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner@1.0.4(@babel/core@7.29.0):
+    dependencies:
+      '@babel/core': 7.29.0
 
   babel-plugin-ember-template-compilation@3.1.0:
     dependencies:

@@ -36,6 +36,7 @@
     "@babel/plugin-transform-runtime": "^7.29.0",
     "@babel/plugin-transform-typescript": "^7.28.6",
     "babel-plugin-debug-macros": "^0.3.4",
+    "babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner": "^1.0.4",
     "@ember/string": "^4.0.1",
     "@ember/test-helpers": "^5.4.1",
     "@embroider/core": "^4.4.7",
