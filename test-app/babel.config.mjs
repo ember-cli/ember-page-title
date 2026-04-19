@@ -54,6 +54,7 @@ export default {
               flags: [{ source: '@glimmer/env', flags: { DEBUG: true } }],
             },
           ],
+          'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner',
         ]
       : []),
   ],
