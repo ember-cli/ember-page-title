@@ -17,10 +17,10 @@ module.exports = async function (defaults) {
 };
 
   const ember4 = {
-    '@ember/test-helpers': '^4.0.0',
+    '@ember/test-helpers': '^5.0.0',
     '@ember/test-waiters': '^3.1.0',
     '@embroider/compat': '^4.0.3',
-    'ember-qunit': '^8.0.0',
+    'ember-qunit': '^9.0.0',
     'ember-cli': '~4.12.0',
   };
 
