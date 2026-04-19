@@ -54,10 +54,21 @@ export default {
               flags: [{ source: '@glimmer/env', flags: { DEBUG: true } }],
             },
           ],
-          'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner',
         ]
       : []),
   ],
+
+  overrides: isCompatBuild
+    ? [
+        {
+          test: (filename) =>
+            filename !== undefined && !filename.includes('/ember-source/'),
+          plugins: [
+            'babel-plugin-ember-polyfill-get-and-set-owner-from-ember-owner',
+          ],
+        },
+      ]
+    : [],
 
   generatorOpts: {
     compact: false,
