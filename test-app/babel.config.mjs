@@ -4,6 +4,8 @@ import { buildMacros } from '@embroider/macros/babel';
 
 const macros = buildMacros();
 
+const isCompatBuild = !!process.env.ENABLE_COMPAT_BUILD;
+
 export default {
   plugins: [
     [
@@ -44,6 +46,16 @@ export default {
       },
     ],
     ...macros.babelMacros,
+    ...(isCompatBuild
+      ? [
+          [
+            'babel-plugin-debug-macros',
+            {
+              flags: [{ source: '@glimmer/env', flags: { DEBUG: true } }],
+            },
+          ],
+        ]
+      : []),
   ],
 
   generatorOpts: {

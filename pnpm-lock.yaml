@@ -278,6 +278,9 @@ importers:
       '@rollup/plugin-babel':
         specifier: ^6.1.0
         version: 6.1.0(@babel/core@7.29.0)(rollup@4.60.1)
+      babel-plugin-debug-macros:
+        specifier: ^0.3.4
+        version: 0.3.4(@babel/core@7.29.0)
       babel-plugin-ember-template-compilation:
         specifier: ^3.1.0
         version: 3.1.0
