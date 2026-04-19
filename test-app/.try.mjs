@@ -1,6 +1,6 @@
 // When building your addon for older Ember versions you need to have the required files
 const compatFiles = {
-  'ember-cli-build.js': `const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+  'ember-cli-build.cjs': `const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const { compatBuild } = require('@embroider/compat');
 module.exports = async function (defaults) {
   const { buildOnce } = await import('@embroider/vite');
