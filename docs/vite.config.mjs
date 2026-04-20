@@ -16,7 +16,4 @@ export default defineConfig({
       rehydrate: true,
     }),
   ],
-  ssr: {
-    noExternal: [/./],
-  },
 });
