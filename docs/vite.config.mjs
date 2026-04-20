@@ -11,9 +11,7 @@ export default defineConfig({
       extensions,
     }),
     emberSsg({
-      // weierdness: '', because we renamed
-      // "docs" to "/" in the router
-      routes: [''],
+      routes: ['index'],
       ssrEntry: 'app/app-ssr.js',
       rehydrate: true,
     }),
