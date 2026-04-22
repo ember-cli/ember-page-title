@@ -15,12 +15,12 @@
     "release-plan": "^0.18.0"
   },
   "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">= 24"
+  },
   "volta": {
     "node": "24.14.1",
     "pnpm": "10.33.0"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
   },
   "pnpm": {
     "peerDependencyRules": {

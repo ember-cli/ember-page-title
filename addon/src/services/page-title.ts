@@ -75,8 +75,8 @@ export default class PageTitleService extends Service {
             //         known to the compiler that both objects, having the same shape,
             //         will have the same type per-value?
             //         as-is, the `configValue` is a union of all value-types from the object.
-            (this._defaultConfig[key] as PageTitleConfig[typeof key]) =
-              configValue;
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (this._defaultConfig[key] as any) = configValue;
           }
         });
       }
@@ -218,7 +218,7 @@ export default class PageTitleService extends Service {
   }
 
   scheduleTitleUpdate = () => {
-    // eslint-disable-next-line ember/no-runloop
+    // eslint-disable-next-line ember/no-runloop, @typescript-eslint/unbound-method
     scheduleOnce('afterRender', this, this._updateTitle);
   };
 

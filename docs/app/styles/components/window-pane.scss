@@ -44,7 +44,7 @@
     }
   }
 
-  & > div {
+  &>div {
     min-height: 250px;
     background: $black;
     color: #fff;
@@ -62,9 +62,6 @@
 
     .ps1 {
       color: #aaaaaa;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
     }
   }
@@ -80,6 +77,7 @@
   .window-pane {
     font-size: 0.9rem;
   }
+
   .window-pane.has-title .button {
     opacity: 0;
   }

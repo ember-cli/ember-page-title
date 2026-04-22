@@ -4,7 +4,6 @@
   background: $black;
   border: 1px solid #333;
   transition: all 120ms ease-in;
-  -webkit-touch-callout: default;
 
   code {
     padding-bottom: 20px;
@@ -12,6 +11,7 @@
 
   & .nested-template {
     min-height: 142px;
+
     & .nested-template {
       min-height: 50px;
     }

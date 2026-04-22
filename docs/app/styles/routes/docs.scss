@@ -14,7 +14,6 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      -webkit-transform: translate(-50%, -60%);
       transform: translate(-50%, -60%);
       line-height: 1.7em;
       width: 500px;
@@ -72,9 +71,11 @@
 @media (max-width: 600px) {
   #index .hero {
     font-size: 32px;
+
     p {
       width: 360px;
     }
+
     svg {
       width: 108px;
       height: 45px;
@@ -85,9 +86,11 @@
 @media (max-width: 400px) {
   #index .hero {
     font-size: 28px;
+
     p {
       width: 340px;
     }
+
     svg {
       width: 96px;
       height: 40px;
@@ -98,6 +101,7 @@
 @media screen and (max-height: 400px) {
   #index .hero {
     font-size: 32px;
+
     svg {
       width: 108px;
       height: 45px;
@@ -109,9 +113,11 @@
   #index .hero {
     font-size: 28px;
     height: calc(100vh - 84px);
+
     p {
       width: 100vw;
     }
+
     svg {
       width: 96px;
       height: 40px;

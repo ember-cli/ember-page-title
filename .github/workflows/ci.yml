@@ -8,16 +8,61 @@ on:
   pull_request: {}
 
 jobs:
-  lint:
-    name: Lint
+  build_matrix:
+    name: "Build Matrix"
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: package.json
+          cache: pnpm
+      - id: set-matrix
+        run: |
+          echo "matrix=$(pnpm dlx @embroider/try list)" >> $GITHUB_OUTPUT
+        working-directory: test-app
+
+  # We do this so we ensure that we test with the same
+  # assets each time.
+  # (And don't have build or use prepare each phase of ci,
+  #  (saving water, hopefully))
+  build_addon:
+    name: "Build Addon"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
       - run: pnpm build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: |
+            addon/dist/
+            addon/declarations/
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: [build_addon]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: wyvox/action-setup-pnpm@v3
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: addon
       - name: Lint
         run: pnpm lint
 
@@ -25,7 +70,7 @@ jobs:
     name: Tests
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
-    needs: lint
+    needs: [build_addon]
 
     strategy:
       matrix:
@@ -37,9 +82,14 @@ jobs:
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
-      - run: pnpm build
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: addon
       - name: Test
-        run: pnpm test:ember --launch ${{ matrix.browser }}
+        run: pnpm test:ember
+        env:
+          CI_BROWSER: ${{ matrix.browser }}
         working-directory: test-app
 
   floating-dependencies:
@@ -60,13 +110,19 @@ jobs:
       - uses: wyvox/action-setup-pnpm@v3
         with:
           pnpm-args: "--no-lockfile"
-      - run: pnpm build
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: addon
       - name: Test
-        run: pnpm test:ember --launch ${{ matrix.browser }}
+        run: pnpm test:ember
+        env:
+          CI_BROWSER: ${{ matrix.browser }}
         working-directory: test-app
 
   typecheck:
     name: "${{ matrix.typescript-scenario }}"
+    needs: [test]
     runs-on: ubuntu-latest
     timeout-minutes: 2
     continue-on-error: true
@@ -83,8 +139,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: wyvox/action-setup-pnpm@v3
-      - run: pnpm build
-      - run: pnpm i -f # just in case
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: addon
       - name: "test-types : ${{ matrix.typescript-scenario }}"
         working-directory: ./test-types
         run: "pnpm add --save-dev ${{ matrix.typescript-scenario}}"
@@ -107,39 +165,35 @@ jobs:
           pnpm ember-tsc
 
   try-scenarios:
-    name: Tests - ${{ matrix.ember-try-scenario }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     continue-on-error: ${{ matrix.allow-failure }}
-    needs: test
-
+    needs: [test, build_matrix]
     strategy:
       fail-fast: false
-      matrix:
-        ember-try-scenario: [
-            minimum-supported-4-2,
-            ember-lts-4.4,
-            ember-lts-4.12,
-            ember-lts-5.12,
-            ember-release,
-            ember-beta
-            ember-canary,
-          ]
-        allow-failure: [false]
-        include:
-          - ember-try-scenario: ember-canary
-            allow-failure: true
+      matrix: ${{fromJson(needs.build_matrix.outputs.matrix)}}
+
+    name: "${{ matrix.name }}"
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - uses: wyvox/action-setup-pnpm@v3
-      - run: pnpm build
-      - name: Test
-        env:
-          EMBER_TRY_SCENARIO: ${{ matrix.ember-try-scenario }}
-        run: node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: package.json
+          cache: pnpm
+      - run: pnpm dlx @embroider/try apply ${{ matrix.name }}
+        working-directory: test-app
+      - run: pnpm install --no-lockfile --ignore-scripts
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: addon
+
+      - run: pnpm test:ember
+        env: ${{ matrix.env }}
         working-directory: test-app
 
   docs:
@@ -152,8 +206,10 @@ jobs:
         with:
           fetch-depth: 1
       - uses: wyvox/action-setup-pnpm@v3
-      - run: pnpm build
-
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: addon
       - name: Test
         run: pnpm test:ember
         working-directory: docs

@@ -1,10 +1,10 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { Input } from '@ember/component';
-import highlight from 'docs/helpers/highlight';
-import WindowPane from 'docs/components/window-pane';
-import PageTitlePane from 'docs/components/page-title-pane';
-import { IconSvg, EmberLogoSvg, ArrowSvg } from 'docs/components/icons';
+import highlight from 'docs/helpers/highlight.js';
+import WindowPane from 'docs/components/window-pane.gts';
+import PageTitlePane from 'docs/components/page-title-pane.gts';
+import { IconSvg, EmberLogoSvg, ArrowSvg } from 'docs/components/icons.gts';
 
 interface Signature {
   Args: {

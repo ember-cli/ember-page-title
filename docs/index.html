@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="This Ember.js addon provides a helper for changing the title of the page you're on."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/assets/images/icon.png" />
+    <link rel="stylesheet" type="text/css" href="/app/styles/app.scss" />
+    <!-- VITE_EMBER_SSR_HEAD -->
+  </head>
+  <body>
+    <!-- VITE_EMBER_SSR_BODY -->
+    <script type="module">
+      import Application from './app/app';
+      import environment from './app/config/environment';
+      import { shouldRehydrate } from 'vite-ember-ssr/client';
+
+      if (shouldRehydrate()) {
+        const app = Application.create({ ...environment.APP, autoboot: false });
+
+        const url = (window.location.pathname + window.location.search).replace(
+          environment.rootURL,
+          '/',
+        );
+
+        void app.visit(url, {
+          _renderMode: 'rehydrate',
+        });
+      } else {
+        Application.create(environment.APP);
+      }
+    </script>
+  </body>
+</html>
