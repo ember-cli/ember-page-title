@@ -2,16 +2,16 @@
   "solution": {
     "ember-page-title": {
       "impact": "patch",
-      "oldVersion": "9.0.2",
-      "newVersion": "9.0.3",
+      "oldVersion": "9.0.3",
+      "newVersion": "9.0.4",
       "constraints": [
         {
           "impact": "patch",
-          "reason": "Appears in changelog section :bug: Bug Fix"
+          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./addon/package.json"
     }
   },
-  "description": "## Release (2025-08-22)\n\nember-page-title 9.0.3 (patch)\n\n#### :bug: Bug Fix\n* `ember-page-title`, `test-app`\n  * [#301](https://github.com/ember-cli/ember-page-title/pull/301) Fixed multiple custom separators ([@rykov](https://github.com/rykov))\n\n#### Committers: 1\n- Michael Rykov ([@rykov](https://github.com/rykov))\n"
+  "description": "## Release (2026-05-01)\n\nember-page-title 9.0.4 (patch)\n\n#### :house: Internal\n* `ember-page-title`, `docs`, `test-app`\n  * [#311](https://github.com/ember-cli/ember-page-title/pull/311) Node is now 24 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#306](https://github.com/ember-cli/ember-page-title/pull/306) Remove dep injection ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n* `ember-page-title`, `docs`, `test-app`, `test-types`\n  * [#309](https://github.com/ember-cli/ember-page-title/pull/309) Update TypeScript ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n* Other\n  * [#307](https://github.com/ember-cli/ember-page-title/pull/307) Turn off fail-fast: true ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
 }

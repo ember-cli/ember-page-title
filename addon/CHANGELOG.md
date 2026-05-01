@@ -1,4 +1,19 @@
 # Changelog
+## Release (2026-05-01)
+
+ember-page-title 9.0.4 (patch)
+
+#### :house: Internal
+* `ember-page-title`, `docs`, `test-app`
+  * [#311](https://github.com/ember-cli/ember-page-title/pull/311) Node is now 24 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#306](https://github.com/ember-cli/ember-page-title/pull/306) Remove dep injection ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* `ember-page-title`, `docs`, `test-app`, `test-types`
+  * [#309](https://github.com/ember-cli/ember-page-title/pull/309) Update TypeScript ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* Other
+  * [#307](https://github.com/ember-cli/ember-page-title/pull/307) Turn off fail-fast: true ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
 ## Release (2025-08-22)
 
 ember-page-title 9.0.3 (patch)
