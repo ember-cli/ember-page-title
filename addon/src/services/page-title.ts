@@ -1,6 +1,5 @@
 import { scheduleOnce } from '@ember/runloop';
 import Service, { service } from '@ember/service';
-import { isEmpty } from '@ember/utils';
 import { assert } from '@ember/debug';
 import type ApplicationInstance from '@ember/application/instance';
 import type RouterService from '@ember/routing/router-service';
@@ -68,9 +67,13 @@ export default class PageTitleService extends Service {
 
       if (hasPageTitleConfig(config)) {
         configKeys.forEach((key) => {
-          if (!isEmpty(config.pageTitle[key])) {
-            const configValue = config.pageTitle[key];
+          const configValue = config.pageTitle[key];
 
+          if (
+            configValue !== undefined &&
+            configValue !== null &&
+            configValue !== ''
+          ) {
             // SAFETY: how is one supposed to iterate over keys for an object and have it
             //         known to the compiler that both objects, having the same shape,
             //         will have the same type per-value?
