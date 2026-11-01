@@ -1,4 +1,43 @@
 # Changelog
+
+## Release (2026-11-01)
+
+* ember-page-title 9.1.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-page-title`
+  * [#317](https://github.com/ember-cli/ember-page-title/pull/317) Vite + fix canary and beta ci jobs ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :bug: Bug Fix
+* `ember-page-title`
+  * [#325](https://github.com/ember-cli/ember-page-title/pull/325) Replace isEmpty from @ember/utils with an inline check ([@johanrd](https://github.com/johanrd))
+
+#### :house: Internal
+* `ember-page-title`
+  * [#317](https://github.com/ember-cli/ember-page-title/pull/317) Vite + fix canary and beta ci jobs ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#305](https://github.com/ember-cli/ember-page-title/pull/305) convert loose mode to strict mode ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#314](https://github.com/ember-cli/ember-page-title/pull/314) Upgrade addon-dev ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#312](https://github.com/ember-cli/ember-page-title/pull/312) Upgrade to pnpm 10 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#311](https://github.com/ember-cli/ember-page-title/pull/311) Node is now 24 ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#309](https://github.com/ember-cli/ember-page-title/pull/309) Update TypeScript ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#306](https://github.com/ember-cli/ember-page-title/pull/306) Remove dep injection ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+* Other
+  * [#324](https://github.com/ember-cli/ember-page-title/pull/324) Don't run @ember/owner polyfill on ember-source itself ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#323](https://github.com/ember-cli/ember-page-title/pull/323) Polyfill @ember/owner imports for min-supported scenario ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#322](https://github.com/ember-cli/ember-page-title/pull/322) Make ember-lts-4.12 compat scenario runnable ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#321](https://github.com/ember-cli/ember-page-title/pull/321) Bump @ember/test-helpers to ^4 in ember4 try scenarios ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#320](https://github.com/ember-cli/ember-page-title/pull/320) Pick legacy-inspector-support entry by ember-source version ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#319](https://github.com/ember-cli/ember-page-title/pull/319) Enable classicEmberSupport() for compat-build scenarios ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#318](https://github.com/ember-cli/ember-page-title/pull/318) Set allow-failure on every try scenario ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+  * [#316](https://github.com/ember-cli/ember-page-title/pull/316) partially address ember barrel depprecation via some light dependency updating  ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#313](https://github.com/ember-cli/ember-page-title/pull/313) Update release-plan ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#310](https://github.com/ember-cli/ember-page-title/pull/310) Add --skip-cleanup to try scenarios so we don't error doing work we don't need to do ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+  * [#307](https://github.com/ember-cli/ember-page-title/pull/307) Turn off fail-fast: true ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 3
+- @NullVoxPopuli's reduced-access machine account for AI usage ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+- Johan Røed ([@johanrd](https://github.com/johanrd))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
 ## Release (2025-08-22)
 
 ember-page-title 9.0.3 (patch)
